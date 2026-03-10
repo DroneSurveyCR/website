@@ -1,7 +1,5 @@
 // Vercel Serverless Function — /api/chat
-// Powers the AI chatbot for free-form Q&A about DroneSurveyCR services
-
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
 	if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
 	const { messages } = req.body;
