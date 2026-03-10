@@ -15,5 +15,9 @@ desktop.ini
 *.swp
 *.swo
 
+# Env / secrets
+.env
+.env.local
+
 # Logs
 *.log
