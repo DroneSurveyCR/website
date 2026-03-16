@@ -1,6 +1,6 @@
 // Vercel Serverless Function — /api/submit-quote
 module.exports = async function handler(req, res) {
-	res.setHeader('Access-Control-Allow-Origin', '*');
+	res.setHeader('Access-Control-Allow-Origin', 'https://dronesurveycr.com');
 	res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
 	res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 	if (req.method === 'OPTIONS') return res.status(200).end();
@@ -10,7 +10,7 @@ module.exports = async function handler(req, res) {
 
 	const results = await Promise.allSettled([
 		saveToNotion(data),
-		sendWhatsApp(data),
+		sendSlack(data),
 		sendEmail(data)
 	]);
 
@@ -63,25 +63,28 @@ async function saveToNotion(d) {
 	if (!r.ok) throw new Error(`Notion: ${await r.text()}`);
 }
 
-// ─── WHATSAPP (CallMeBot) ──────────────────────────────────────
-async function sendWhatsApp(d) {
-	const phone  = process.env.CALLMEBOT_PHONE;
-	const apikey = process.env.CALLMEBOT_APIKEY;
-	if (!phone || !apikey) return; // skip silently if not configured
+// ─── SLACK ─────────────────────────────────────────────────────
+async function sendSlack(d) {
+	const webhook = process.env.SLACK_WEBHOOK_URL;
+	if (!webhook) return; // skip silently if not configured
 
 	const text = [
-		`🛰️ NEW QUOTE — DroneSurveyCR.com`,
-		`👤 ${d.firstName} ${d.lastName}${d.company ? ' — ' + d.company : ''}`,
-		`📧 ${d.email} | 📱 ${d.phone}`,
-		`🔧 ${d.services}`,
-		`📐 ${d.hectares} ha | 📍 ${d.province}`,
-		d.deadline ? `📅 ${d.deadline}` : '',
-		`💰 ${d.quotedTotal} (deposit: ${d.deposit})`,
-		d.notes ? `📋 ${d.notes}` : ''
+		`*🛰️ New Quote — DroneSurveyCR.com*`,
+		`*👤 Name:* ${d.firstName} ${d.lastName}${d.company ? ' — ' + d.company : ''}`,
+		`*📧 Email:* ${d.email}  |  *📱 Phone:* ${d.phone}`,
+		`*🔧 Services:* ${d.services}`,
+		`*📐 Size:* ${d.hectares} ha  |  *📍 Province:* ${d.province}`,
+		d.deadline ? `*📅 Deadline:* ${d.deadline}` : '',
+		`*💰 Quote:* ${d.quotedTotal}  |  *Deposit:* ${d.deposit}`,
+		d.notes ? `*📋 Notes:* ${d.notes}` : '',
+		`<https://wa.me/${(d.phone||'').replace(/\D/g,'')}|💬 Reply on WhatsApp>  |  <https://notion.so/2b8f0eb57d154c6e84b40ab2ea584e74|📋 Open Notion>`
 	].filter(Boolean).join('\n');
 
-	const url = `https://api.callmebot.com/whatsapp.php?phone=${phone}&text=${encodeURIComponent(text)}&apikey=${apikey}`;
-	await fetch(url);
+	await fetch(webhook, {
+		method: 'POST',
+		headers: { 'Content-Type': 'application/json' },
+		body: JSON.stringify({ text })
+	});
 }
 
 // ─── EMAIL (Resend) ────────────────────────────────────────────
@@ -149,7 +152,7 @@ async function sendEmail(d) {
 		method: 'POST',
 		headers: { 'Authorization': `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
 		body: JSON.stringify({
-			from: 'DroneSurveyCR <onboarding@resend.dev>',
+			from: 'DroneSurveyCR <noreply@dronesurveycr.com>',
 			to: ['dronesurveycr@gmail.com'],
 			subject: `New Quote — ${d.firstName} ${d.lastName} — ${d.quotedTotal}`,
 			html: ownerHtml
@@ -162,7 +165,7 @@ async function sendEmail(d) {
 			method: 'POST',
 			headers: { 'Authorization': `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
 			body: JSON.stringify({
-				from: 'DroneSurveyCR <onboarding@resend.dev>',
+				from: 'DroneSurveyCR <noreply@dronesurveycr.com>',
 				to: [d.email],
 				subject: `Your Drone Survey Quote — ${d.quotedTotal}`,
 				html: clientHtml
