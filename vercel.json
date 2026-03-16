@@ -2,7 +2,7 @@
   "name": "dronesurveycr",
   "functions": {
     "api/*.js": {
-      "maxDuration": 15
+      "maxDuration": 10
     }
   }
 }
