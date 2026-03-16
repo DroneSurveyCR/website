@@ -15,6 +15,11 @@
 		.container { max-width: 1140px; margin: 0 auto; padding: 0 15px; }
 		/* Top bar */
 		#sp-top-bar { background: #f8f9fa; padding: 8px 0; font-size: 14px; }
+		/* Language switcher */
+		.lang-switcher { display: flex; gap: 4px; align-items: center; }
+		.lang-btn { background: none; border: 1px solid transparent; padding: 2px 8px; border-radius: 4px; cursor: pointer; font-size: 13px; font-weight: 500; color: #5C5C69; font-family: 'Inter', sans-serif; transition: all 0.15s; }
+		.lang-btn:hover { border-color: #0080FE; color: #0080FE; }
+		.lang-btn.active { background: #0080FE; color: #fff; border-color: #0080FE; }
 		/* Header */
 		#sp-header { padding: 15px 0; border-bottom: 1px solid #eee; }
 		#sp-header .row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; }
@@ -108,11 +113,15 @@
 </head>
 <body>
 	<div class="body-wrapper">
-		<!-- Top bar (optional: language widget placeholder) -->
+		<!-- Top bar with language switcher -->
 		<div id="sp-top-bar">
 			<div class="container">
-				<div class="row" style="display:flex;justify-content:space-between;">
-					<div></div>
+				<div class="row" style="display:flex;justify-content:space-between;align-items:center;">
+					<div class="lang-switcher">
+						<button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
+						<button class="lang-btn" onclick="setLang('es')" id="btn-es">ES</button>
+						<button class="lang-btn" onclick="setLang('fr')" id="btn-fr">FR</button>
+					</div>
 					<div></div>
 				</div>
 			</div>
@@ -128,19 +137,19 @@
 					</div>
 					<nav>
 						<ul>
-							<li><a href="index.html">Home</a></li>
+							<li><a href="index.html" data-i18n="nav.home">Home</a></li>
 							<li>
-								<a href="#services">Services</a>
+								<a href="#services" data-i18n="nav.services">Services</a>
 								<ul>
-									<li><a href="services/photogrammetry.html">Photogrammetry</a></li>
-									<li><a href="services/lidar-mapping.html">Lidar Mapping</a></li>
-									<li><a href="services/geopositioning.html">Geopositioning</a></li>
+									<li><a href="services/photogrammetry.html" data-i18n="nav.photogrammetry">Photogrammetry</a></li>
+									<li><a href="services/lidar-mapping.html" data-i18n="nav.lidar">Lidar Mapping</a></li>
+									<li><a href="services/geopositioning.html" data-i18n="nav.geo">Geopositioning</a></li>
 								</ul>
 							</li>
-							<li><a href="quote.html">Get a Quote</a></li>
-							<li><a href="https://invoice.zoho.com/portal/dronesurveycostarica/login" target="_blank" rel="noopener noreferrer">Client Portal</a></li>
-							<li><a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer">Whatsapp</a></li>
-							<li><a href="https://g.co/kgs/VnbxFYr" target="_blank" rel="noopener noreferrer">Reviews</a></li>
+							<li><a href="quote.html" data-i18n="nav.quote">Get a Quote</a></li>
+							<li><a href="https://invoice.zoho.com/portal/dronesurveycostarica/login" target="_blank" rel="noopener noreferrer" data-i18n="nav.portal">Client Portal</a></li>
+							<li><a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer" data-i18n="nav.whatsapp">WhatsApp</a></li>
+							<li><a href="https://g.co/kgs/VnbxFYr" target="_blank" rel="noopener noreferrer" data-i18n="nav.reviews">Reviews</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -151,11 +160,11 @@
 			<!-- Hero -->
 			<section class="hero">
 				<div class="container">
-					<h1>Lidar Drone Surveying</h1>
-					<p>We provide high-accuracy aerial surveying using Lidar &amp; photogrammetry. Create an exact 3D topographic map &amp; model of any piece of land or home.</p>
+					<h1 data-i18n="hero.h1">Lidar Drone Surveying</h1>
+					<p data-i18n="hero.p">We provide high-accuracy aerial surveying using Lidar &amp; photogrammetry. Create an exact 3D topographic map &amp; model of any piece of land or home.</p>
 					<div class="hero-buttons">
-						<a href="https://wa.me/50672938970" class="btn btn-dark" target="_blank" rel="noopener noreferrer">TALK TO US NOW!</a>
-						<a href="quote.html" class="btn btn-success">GET A QUOTE ONLINE NOW</a>
+						<a href="https://wa.me/50672938970" class="btn btn-dark" target="_blank" rel="noopener noreferrer" data-i18n="cta.talk">TALK TO US NOW!</a>
+						<a href="quote.html" class="btn btn-success" data-i18n="cta.quote">GET A QUOTE ONLINE NOW</a>
 					</div>
 				</div>
 			</section>
@@ -164,26 +173,26 @@
 			<section id="services">
 				<div class="container">
 					<div class="section-title">
-						<h2>Our Services</h2>
+						<h2 data-i18n="services.title">Our Services</h2>
 					</div>
 					<div class="services-grid">
 						<div class="service-card">
-							<h5>Aerial Lidar Mapping</h5>
+							<h5 data-i18n="services.lidar.title">Aerial Lidar Mapping</h5>
 							<img src="images/new-project.jpg" alt="Aerial Lidar Mapping" loading="lazy">
-							<p>Our drones use lasers to capture real world data with centimeter accuracy topographic maps</p>
-							<a href="services/lidar-mapping.html" class="btn btn-custom">Learn More</a>
+							<p data-i18n="services.lidar.desc">Our drones use lasers to capture real world data with centimeter accuracy topographic maps</p>
+							<a href="services/lidar-mapping.html" class="btn btn-custom" data-i18n="services.learn">Learn More</a>
 						</div>
 						<div class="service-card">
-							<h5>Aerial Photogrammetry</h5>
+							<h5 data-i18n="services.photo.title">Aerial Photogrammetry</h5>
 							<img src="images/pix4dmatic-drone-mapping-software.webp" alt="Aerial Photogrammetry" loading="lazy">
-							<p>Our drones take high quality images from different angles to create high quality 3D maps</p>
-							<a href="services/photogrammetry.html" class="btn btn-custom">Learn More</a>
+							<p data-i18n="services.photo.desc">Our drones take high quality images from different angles to create high quality 3D maps</p>
+							<a href="services/photogrammetry.html" class="btn btn-custom" data-i18n="services.learn">Learn More</a>
 						</div>
 						<div class="service-card">
-							<h5>GPS Localization</h5>
+							<h5 data-i18n="services.gps.title">GPS Localization</h5>
 							<img src="images/dji-d-rtk-2-base-station-tripod4.png" alt="GPS Localization" loading="lazy">
-							<p>We use a GPS basetation to determine the exact geographic coordinates of a given place</p>
-							<a href="services/geopositioning.html" class="btn btn-custom">Learn More</a>
+							<p data-i18n="services.gps.desc">We use a GPS basestation to determine the exact geographic coordinates of a given place</p>
+							<a href="services/geopositioning.html" class="btn btn-custom" data-i18n="services.learn">Learn More</a>
 						</div>
 					</div>
 				</div>
@@ -193,8 +202,8 @@
 			<section class="section-grey">
 				<div class="container">
 					<div class="card-inner">
-						<h2>The Future Aerial Surveying</h2>
-						<p class="intro">We offer the latest technology in aerial surveying drone equipment to make capturing any size of land very easy and automates the process to be able to make it repetitive. We are able to scan any environment &amp; give you centimeter-accurate 3d rendering that can be used to measure, map, and modify it in the virtual world.</p>
+						<h2 data-i18n="future.title">The Future Aerial Surveying</h2>
+						<p class="intro" data-i18n="future.intro">We offer the latest technology in aerial surveying drone equipment to make capturing any size of land very easy and automates the process to be able to make it repetitive. We are able to scan any environment &amp; give you centimeter-accurate 3d rendering that can be used to measure, map, and modify it in the virtual world.</p>
 						<div class="video-block">
 							<a href="https://www.youtube.com/watch?v=c0v-oCD8bX0" target="_blank" rel="noopener noreferrer" title="Play video"><span style="margin-left:4px;">▶</span></a>
 						</div>
@@ -206,23 +215,23 @@
 			<section style="background:#d7d7d7; padding: 70px 0 40px;">
 				<div class="container">
 					<div class="section-title">
-						<h2>Work Flow</h2>
+						<h2 data-i18n="workflow.title">Work Flow</h2>
 					</div>
 					<div class="workflow-grid">
 						<div class="service-card">
-							<h5>Virtual Mission Planning</h5>
+							<h5 data-i18n="workflow.plan.title">Virtual Mission Planning</h5>
 							<img src="images/plan.jpg" alt="Virtual Mission Planning" loading="lazy">
-							<p>Our mission plan software allows use to create a virtual plan to visualize the drones flight path &amp; run time</p>
+							<p data-i18n="workflow.plan.desc">Our mission plan software allows us to create a virtual plan to visualize the drones flight path &amp; run time</p>
 						</div>
 						<div class="service-card">
-							<h5>Flight Mission Execution</h5>
+							<h5 data-i18n="workflow.fly.title">Flight Mission Execution</h5>
 							<img src="images/fly.jpg" alt="Flight Mission Execution" loading="lazy">
-							<p>We then dispatch our team to execute the planned mission to capture the photo and lidar data to create cm accuracy 3d mapping environments</p>
+							<p data-i18n="workflow.fly.desc">We then dispatch our team to execute the planned mission to capture the photo and lidar data to create cm accuracy 3d mapping environments</p>
 						</div>
 						<div class="service-card">
-							<h5>Capture, Analyze, Visualize</h5>
+							<h5 data-i18n="workflow.analyze.title">Capture, Analyze, Visualize</h5>
 							<img src="images/analize.jpg" alt="Capture, Analyze, Visualize" loading="lazy">
-							<p>After Capturing all the data we analyze it with our software to create high quality 3D photogrammetry &amp; topographic Maps</p>
+							<p data-i18n="workflow.analyze.desc">After capturing all the data we analyze it with our software to create high quality 3D photogrammetry &amp; topographic maps</p>
 						</div>
 					</div>
 				</div>
@@ -233,28 +242,28 @@
 				<div class="container">
 					<div class="getting-started">
 						<div>
-							<h2>Getting started is<br>very easy with us</h2>
-							<p style="margin: 0 0 25px; font-size: 16px;">To get started simply click the button below to fill in our online service request with your information, the location &amp; the size of the project &amp; we will email you a quote.</p>
-							<a href="quote.html" class="btn btn-success">GET A QUOTE NOW</a>
+							<h2 data-i18n="start.title">Getting started is<br>very easy with us</h2>
+							<p style="margin: 0 0 25px; font-size: 16px;" data-i18n="start.desc">To get started simply click the button below to fill in our online service request with your information, the location &amp; the size of the project &amp; we will email you a quote.</p>
+							<a href="quote.html" class="btn btn-success" data-i18n="start.cta">GET A QUOTE NOW</a>
 							<div class="step-item" style="margin-top: 33px;">
 								<img src="images/icon1.png" alt="Step 1">
 								<div>
-									<h6>Step 1: Request a quote</h6>
-									<p>It takes 5 minutes to fill out our online form and receive a free quote of the project you're submitting</p>
+									<h6 data-i18n="start.step1.title">Step 1: Request a quote</h6>
+									<p data-i18n="start.step1.desc">It takes 5 minutes to fill out our online form and receive a free quote of the project you're submitting</p>
 								</div>
 							</div>
 							<div class="step-item">
 								<img src="images/icon11.png" alt="Step 2">
 								<div>
-									<h6>Step 2: Select date &amp; Sign Contract</h6>
-									<p>Once the quote has been agreed on, you can submit the execution date. We then create a contract &amp; invoice that is emailed &amp; a 50% deposit is required on signuature.</p>
+									<h6 data-i18n="start.step2.title">Step 2: Select date &amp; Sign Contract</h6>
+									<p data-i18n="start.step2.desc">Once the quote has been agreed on, you can submit the execution date. We then create a contract &amp; invoice that is emailed &amp; a 50% deposit is required on signature.</p>
 								</div>
 							</div>
 							<div class="step-item">
 								<img src="images/icon14.png" alt="Step 3">
 								<div>
-									<h6>Step 3: Mission Execution &amp; Data Processing</h6>
-									<p>After the contract is signed, the date is locked in &amp; the mission will be executed as long as weather permits. Once the map data is captured then the balance of the contract is due. Once payment is received the mapping data is sent to the client</p>
+									<h6 data-i18n="start.step3.title">Step 3: Mission Execution &amp; Data Processing</h6>
+									<p data-i18n="start.step3.desc">After the contract is signed, the date is locked in &amp; the mission will be executed as long as weather permits. Once the map data is captured then the balance of the contract is due. Once payment is received the mapping data is sent to the client.</p>
 								</div>
 							</div>
 						</div>
@@ -270,17 +279,17 @@
 							<img src="images/a083f93b173459b7a95cb59530a89d3e.jpg" alt="Zenmuse L1" loading="lazy">
 						</div>
 						<div>
-							<h2>Centimeter Accuracy Mapping</h2>
-							<p>The Zenmuse L1 integrates a Livox Lidar module, a high-accuracy IMU, and a camera with a 1-inch CMOS on a 3-axis stabilized gimbal.</p>
+							<h2 data-i18n="accuracy.title">Centimeter Accuracy Mapping</h2>
+							<p data-i18n="accuracy.desc">The Zenmuse L1 integrates a Livox Lidar module, a high-accuracy IMU, and a camera with a 1-inch CMOS on a 3-axis stabilized gimbal.</p>
 							<div class="divider"></div>
 							<div class="accuracy-stats">
 								<div>
 									<h4>3 Returns</h4>
-									<p>Lidar laser coverage</p>
+									<p data-i18n="accuracy.stat1">Lidar laser coverage</p>
 								</div>
 								<div>
 									<h4>240,000 pts</h4>
-									<p>Lidar Point Rate</p>
+									<p data-i18n="accuracy.stat2">Lidar Point Rate</p>
 								</div>
 							</div>
 						</div>
@@ -293,11 +302,11 @@
 				<div class="container">
 					<div class="talk-section">
 						<div>
-							<h2>Want to talk to a real human and ask us questions over phone</h2>
+							<h2 data-i18n="talk.title">Want to talk to a real human and ask us questions over phone</h2>
 						</div>
 						<div>
-							<p>Lidar drone technology is new &amp; most people are just learning about it and may have lots of questions about it. We are experts in our domain for 7 years and we are happy to field any questions or concerns you may have before working with us.</p>
-							<a href="https://wa.me/50672938970" class="btn btn-success" target="_blank" rel="noopener noreferrer">TALK TO US NOW!</a>
+							<p data-i18n="talk.desc">Lidar drone technology is new &amp; most people are just learning about it and may have lots of questions about it. We are experts in our domain for 7 years and we are happy to field any questions or concerns you may have before working with us.</p>
+							<a href="https://wa.me/50672938970" class="btn btn-success" target="_blank" rel="noopener noreferrer" data-i18n="cta.talk">TALK TO US NOW!</a>
 						</div>
 					</div>
 				</div>
@@ -309,19 +318,19 @@
 					<div class="feature-boxes">
 						<div class="feature-box">
 							<img src="images/icon6.png" alt="Goal driven" loading="lazy">
-							<h6>We are goal driven</h6>
+							<h6 data-i18n="feat.goal">We are goal driven</h6>
 						</div>
 						<div class="feature-box">
 							<img src="images/icon2.png" alt="Autonomous" loading="lazy">
-							<h6>Autonomous Workflow</h6>
+							<h6 data-i18n="feat.auto">Autonomous Workflow</h6>
 						</div>
 						<div class="feature-box">
 							<img src="images/icon9-1.png" alt="Expert pilots" loading="lazy">
-							<h6>Expert Team of Pilots</h6>
+							<h6 data-i18n="feat.pilots">Expert Team of Pilots</h6>
 						</div>
 						<div class="feature-box">
 							<img src="images/icon5.png" alt="Accurate surveying" loading="lazy">
-							<h6>Accurate &amp; Precise Surveying</h6>
+							<h6 data-i18n="feat.accurate">Accurate &amp; Precise Surveying</h6>
 						</div>
 					</div>
 				</div>
@@ -331,11 +340,11 @@
 			<section>
 				<div class="container">
 					<div class="connect-section">
-						<h2>Connect with us</h2>
-						<p>We want to make it easy and simple to work with us so we give you 2 choices to choose from. Get a free quote online by filling out our service request form or book a meeting on the phone to start &amp; let us call you when you want</p>
+						<h2 data-i18n="connect.title">Connect with us</h2>
+						<p data-i18n="connect.desc">We want to make it easy and simple to work with us so we give you 2 choices to choose from. Get a free quote online by filling out our service request form or book a meeting on the phone to start &amp; let us call you when you want</p>
 						<div class="connect-buttons">
-							<a href="quote.html" class="btn btn-success">GET A QUOTE</a>
-							<a href="https://wa.me/50672938970" class="btn btn-dark" target="_blank" rel="noopener noreferrer">TALK TO US NOW!</a>
+							<a href="quote.html" class="btn btn-success" data-i18n="cta.getquote">GET A QUOTE</a>
+							<a href="https://wa.me/50672938970" class="btn btn-dark" target="_blank" rel="noopener noreferrer" data-i18n="cta.talk">TALK TO US NOW!</a>
 						</div>
 					</div>
 				</div>
@@ -348,5 +357,193 @@
 			</div>
 		</footer>
 	</div>
+
+	<script>
+	const translations = {
+		en: {
+			'nav.home': 'Home',
+			'nav.services': 'Services',
+			'nav.photogrammetry': 'Photogrammetry',
+			'nav.lidar': 'Lidar Mapping',
+			'nav.geo': 'Geopositioning',
+			'nav.quote': 'Get a Quote',
+			'nav.portal': 'Client Portal',
+			'nav.whatsapp': 'WhatsApp',
+			'nav.reviews': 'Reviews',
+			'hero.h1': 'Lidar Drone Surveying',
+			'hero.p': 'We provide high-accuracy aerial surveying using Lidar & photogrammetry. Create an exact 3D topographic map & model of any piece of land or home.',
+			'cta.talk': 'TALK TO US NOW!',
+			'cta.quote': 'GET A QUOTE ONLINE NOW',
+			'cta.getquote': 'GET A QUOTE',
+			'services.title': 'Our Services',
+			'services.lidar.title': 'Aerial Lidar Mapping',
+			'services.lidar.desc': 'Our drones use lasers to capture real world data with centimeter accuracy topographic maps',
+			'services.photo.title': 'Aerial Photogrammetry',
+			'services.photo.desc': 'Our drones take high quality images from different angles to create high quality 3D maps',
+			'services.gps.title': 'GPS Localization',
+			'services.gps.desc': 'We use a GPS basestation to determine the exact geographic coordinates of a given place',
+			'services.learn': 'Learn More',
+			'future.title': 'The Future of Aerial Surveying',
+			'future.intro': 'We offer the latest technology in aerial surveying drone equipment to make capturing any size of land very easy and automates the process to be able to make it repetitive. We are able to scan any environment & give you centimeter-accurate 3D rendering that can be used to measure, map, and modify it in the virtual world.',
+			'workflow.title': 'Work Flow',
+			'workflow.plan.title': 'Virtual Mission Planning',
+			'workflow.plan.desc': 'Our mission plan software allows us to create a virtual plan to visualize the drones flight path & run time',
+			'workflow.fly.title': 'Flight Mission Execution',
+			'workflow.fly.desc': 'We then dispatch our team to execute the planned mission to capture the photo and lidar data to create cm accuracy 3D mapping environments',
+			'workflow.analyze.title': 'Capture, Analyze, Visualize',
+			'workflow.analyze.desc': 'After capturing all the data we analyze it with our software to create high quality 3D photogrammetry & topographic maps',
+			'start.title': 'Getting started is\nvery easy with us',
+			'start.desc': 'To get started simply click the button below to fill in our online service request with your information, the location & the size of the project & we will email you a quote.',
+			'start.cta': 'GET A QUOTE NOW',
+			'start.step1.title': 'Step 1: Request a quote',
+			'start.step1.desc': "It takes 5 minutes to fill out our online form and receive a free quote of the project you're submitting",
+			'start.step2.title': 'Step 2: Select date & Sign Contract',
+			'start.step2.desc': 'Once the quote has been agreed on, you can submit the execution date. We then create a contract & invoice that is emailed & a 50% deposit is required on signature.',
+			'start.step3.title': 'Step 3: Mission Execution & Data Processing',
+			'start.step3.desc': 'After the contract is signed, the date is locked in & the mission will be executed as long as weather permits. Once the map data is captured then the balance of the contract is due. Once payment is received the mapping data is sent to the client.',
+			'accuracy.title': 'Centimeter Accuracy Mapping',
+			'accuracy.desc': 'The Zenmuse L1 integrates a Livox Lidar module, a high-accuracy IMU, and a camera with a 1-inch CMOS on a 3-axis stabilized gimbal.',
+			'accuracy.stat1': 'Lidar laser coverage',
+			'accuracy.stat2': 'Lidar Point Rate',
+			'talk.title': 'Want to talk to a real human and ask us questions over phone',
+			'talk.desc': 'Lidar drone technology is new & most people are just learning about it and may have lots of questions about it. We are experts in our domain for 7 years and we are happy to field any questions or concerns you may have before working with us.',
+			'feat.goal': 'We are goal driven',
+			'feat.auto': 'Autonomous Workflow',
+			'feat.pilots': 'Expert Team of Pilots',
+			'feat.accurate': 'Accurate & Precise Surveying',
+			'connect.title': 'Connect with us',
+			'connect.desc': 'We want to make it easy and simple to work with us so we give you 2 choices to choose from. Get a free quote online by filling out our service request form or book a meeting on the phone to start & let us call you when you want',
+		},
+		es: {
+			'nav.home': 'Inicio',
+			'nav.services': 'Servicios',
+			'nav.photogrammetry': 'Fotogrametría',
+			'nav.lidar': 'Mapeo Lidar',
+			'nav.geo': 'Geoposicionamiento',
+			'nav.quote': 'Solicitar Cotización',
+			'nav.portal': 'Portal del Cliente',
+			'nav.whatsapp': 'WhatsApp',
+			'nav.reviews': 'Reseñas',
+			'hero.h1': 'Levantamiento con Dron Lidar',
+			'hero.p': 'Ofrecemos levantamientos aéreos de alta precisión usando Lidar y fotogrametría. Crea un mapa topográfico 3D exacto de cualquier terreno o edificación.',
+			'cta.talk': '¡HABLEMOS AHORA!',
+			'cta.quote': 'OBTENER COTIZACIÓN EN LÍNEA',
+			'cta.getquote': 'OBTENER COTIZACIÓN',
+			'services.title': 'Nuestros Servicios',
+			'services.lidar.title': 'Mapeo Lidar Aéreo',
+			'services.lidar.desc': 'Nuestros drones usan láser para capturar datos del mundo real con mapas topográficos de precisión centimétrica',
+			'services.photo.title': 'Fotogrametría Aérea',
+			'services.photo.desc': 'Nuestros drones toman imágenes de alta calidad desde diferentes ángulos para crear mapas 3D de alta resolución',
+			'services.gps.title': 'Localización GPS',
+			'services.gps.desc': 'Usamos una estación base GPS para determinar las coordenadas geográficas exactas de un lugar',
+			'services.learn': 'Más Información',
+			'future.title': 'El Futuro del Levantamiento Aéreo',
+			'future.intro': 'Ofrecemos la última tecnología en equipos de drones para levantamientos aéreos, facilitando la captura de terrenos de cualquier tamaño con un proceso automatizado y repetible. Podemos escanear cualquier entorno y ofrecerte un renderizado 3D con precisión centimétrica para medir, mapear y modificar en el mundo virtual.',
+			'workflow.title': 'Flujo de Trabajo',
+			'workflow.plan.title': 'Planificación Virtual de Misión',
+			'workflow.plan.desc': 'Nuestro software de planificación nos permite crear un plan virtual para visualizar la ruta de vuelo y el tiempo de operación del dron',
+			'workflow.fly.title': 'Ejecución de la Misión de Vuelo',
+			'workflow.fly.desc': 'Luego enviamos nuestro equipo para ejecutar la misión planificada y capturar datos fotográficos y lidar para crear entornos 3D con precisión centimétrica',
+			'workflow.analyze.title': 'Capturar, Analizar, Visualizar',
+			'workflow.analyze.desc': 'Después de capturar todos los datos, los analizamos con nuestro software para crear fotogrametría 3D y mapas topográficos de alta calidad',
+			'start.title': 'Comenzar es\nmuy fácil con nosotros',
+			'start.desc': 'Para comenzar, simplemente haz clic en el botón a continuación para llenar nuestra solicitud de servicio en línea con tu información, la ubicación y el tamaño del proyecto, y te enviaremos una cotización por correo.',
+			'start.cta': 'OBTENER COTIZACIÓN AHORA',
+			'start.step1.title': 'Paso 1: Solicitar una cotización',
+			'start.step1.desc': 'Solo toma 5 minutos llenar nuestro formulario en línea y recibir una cotización gratuita del proyecto que estás enviando',
+			'start.step2.title': 'Paso 2: Seleccionar fecha y firmar contrato',
+			'start.step2.desc': 'Una vez acordada la cotización, puedes indicar la fecha de ejecución. Luego creamos un contrato y factura que se envía por correo, y se requiere un depósito del 50% al firmar.',
+			'start.step3.title': 'Paso 3: Ejecución de misión y procesamiento de datos',
+			'start.step3.desc': 'Después de firmar el contrato, la fecha queda confirmada y la misión se ejecutará siempre que el clima lo permita. Una vez capturados los datos del mapa, se vence el saldo del contrato. Al recibir el pago, los datos del mapeo se envían al cliente.',
+			'accuracy.title': 'Mapeo de Precisión Centimétrica',
+			'accuracy.desc': 'El Zenmuse L1 integra un módulo Lidar Livox, una IMU de alta precisión y una cámara con sensor CMOS de 1 pulgada en un gimbal estabilizado de 3 ejes.',
+			'accuracy.stat1': 'Cobertura láser Lidar',
+			'accuracy.stat2': 'Tasa de puntos Lidar',
+			'talk.title': '¿Quieres hablar con una persona real y hacernos preguntas por teléfono?',
+			'talk.desc': 'La tecnología de drones Lidar es nueva y la mayoría de las personas están comenzando a conocerla y pueden tener muchas preguntas. Somos expertos con 7 años de experiencia y con gusto respondemos cualquier consulta antes de trabajar contigo.',
+			'feat.goal': 'Orientados a resultados',
+			'feat.auto': 'Flujo de Trabajo Autónomo',
+			'feat.pilots': 'Equipo Experto de Pilotos',
+			'feat.accurate': 'Levantamiento Preciso y Exacto',
+			'connect.title': 'Contáctanos',
+			'connect.desc': 'Queremos que trabajar con nosotros sea fácil y sencillo, por eso te damos 2 opciones. Obtén una cotización gratuita en línea llenando nuestro formulario, o agenda una llamada para comenzar.',
+		},
+		fr: {
+			'nav.home': 'Accueil',
+			'nav.services': 'Services',
+			'nav.photogrammetry': 'Photogrammétrie',
+			'nav.lidar': 'Cartographie Lidar',
+			'nav.geo': 'Géopositionnement',
+			'nav.quote': 'Demander un Devis',
+			'nav.portal': 'Portail Client',
+			'nav.whatsapp': 'WhatsApp',
+			'nav.reviews': 'Avis',
+			'hero.h1': 'Relevé par Drone Lidar',
+			'hero.p': 'Nous fournissons des relevés aériens de haute précision avec Lidar et photogrammétrie. Créez une carte topographique 3D exacte de n\'importe quel terrain ou bâtiment.',
+			'cta.talk': 'PARLEZ-NOUS MAINTENANT !',
+			'cta.quote': 'OBTENIR UN DEVIS EN LIGNE',
+			'cta.getquote': 'OBTENIR UN DEVIS',
+			'services.title': 'Nos Services',
+			'services.lidar.title': 'Cartographie Lidar Aérienne',
+			'services.lidar.desc': 'Nos drones utilisent des lasers pour capturer des données réelles avec des cartes topographiques de précision centimétrique',
+			'services.photo.title': 'Photogrammétrie Aérienne',
+			'services.photo.desc': 'Nos drones prennent des images de haute qualité sous différents angles pour créer des cartes 3D détaillées',
+			'services.gps.title': 'Localisation GPS',
+			'services.gps.desc': 'Nous utilisons une station de base GPS pour déterminer les coordonnées géographiques exactes d\'un lieu',
+			'services.learn': 'En Savoir Plus',
+			'future.title': 'L\'Avenir du Relevé Aérien',
+			'future.intro': 'Nous proposons les dernières technologies en matière de drones de relevé aérien pour faciliter la capture de terrains de toute taille avec un processus automatisé et reproductible. Nous pouvons scanner n\'importe quel environnement et vous fournir un rendu 3D de précision centimétrique pour mesurer, cartographier et modifier dans le monde virtuel.',
+			'workflow.title': 'Processus de Travail',
+			'workflow.plan.title': 'Planification Virtuelle de Mission',
+			'workflow.plan.desc': 'Notre logiciel de planification nous permet de créer un plan virtuel pour visualiser la trajectoire de vol et la durée d\'opération du drone',
+			'workflow.fly.title': 'Exécution de la Mission de Vol',
+			'workflow.fly.desc': 'Nous dépêchons ensuite notre équipe pour exécuter la mission planifiée et capturer les données photo et lidar afin de créer des environnements 3D de précision centimétrique',
+			'workflow.analyze.title': 'Capturer, Analyser, Visualiser',
+			'workflow.analyze.desc': 'Après la capture de toutes les données, nous les analysons avec notre logiciel pour créer une photogrammétrie 3D et des cartes topographiques de haute qualité',
+			'start.title': 'Commencer est\ntrès simple avec nous',
+			'start.desc': 'Pour commencer, cliquez simplement sur le bouton ci-dessous pour remplir notre formulaire de demande de service en ligne avec vos informations, le lieu et la taille du projet, et nous vous enverrons un devis par e-mail.',
+			'start.cta': 'OBTENIR UN DEVIS MAINTENANT',
+			'start.step1.title': 'Étape 1 : Demander un devis',
+			'start.step1.desc': 'Il suffit de 5 minutes pour remplir notre formulaire en ligne et recevoir un devis gratuit pour le projet que vous soumettez',
+			'start.step2.title': 'Étape 2 : Choisir une date et signer le contrat',
+			'start.step2.desc': 'Une fois le devis accepté, vous pouvez indiquer la date d\'exécution. Nous créons ensuite un contrat et une facture envoyés par e-mail, et un acompte de 50 % est requis à la signature.',
+			'start.step3.title': 'Étape 3 : Exécution de la mission et traitement des données',
+			'start.step3.desc': 'Après la signature du contrat, la date est confirmée et la mission sera exécutée sous réserve des conditions météorologiques. Une fois les données capturées, le solde du contrat est dû. Dès réception du paiement, les données de cartographie sont envoyées au client.',
+			'accuracy.title': 'Cartographie de Précision Centimétrique',
+			'accuracy.desc': 'Le Zenmuse L1 intègre un module Lidar Livox, une IMU de haute précision et une caméra avec un capteur CMOS d\'un pouce sur une nacelle stabilisée à 3 axes.',
+			'accuracy.stat1': 'Couverture laser Lidar',
+			'accuracy.stat2': 'Taux de points Lidar',
+			'talk.title': 'Vous souhaitez parler à une vraie personne et nous poser des questions par téléphone ?',
+			'talk.desc': 'La technologie de drones Lidar est nouvelle et la plupart des gens commencent tout juste à la découvrir et ont de nombreuses questions. Nous sommes experts dans notre domaine depuis 7 ans et nous sommes ravis de répondre à toutes vos questions avant de travailler ensemble.',
+			'feat.goal': 'Axés sur les objectifs',
+			'feat.auto': 'Processus Autonome',
+			'feat.pilots': 'Équipe de Pilotes Experts',
+			'feat.accurate': 'Relevé Précis et Exact',
+			'connect.title': 'Contactez-nous',
+			'connect.desc': 'Nous voulons rendre la collaboration simple et accessible, c\'est pourquoi nous vous proposons 2 options. Obtenez un devis gratuit en ligne en remplissant notre formulaire, ou planifiez un appel téléphonique pour commencer.',
+		}
+	};
+
+	function setLang(lang) {
+		localStorage.setItem('lang', lang);
+		document.documentElement.lang = lang;
+		// Update button states
+		['en','es','fr'].forEach(l => {
+			document.getElementById('btn-' + l).classList.toggle('active', l === lang);
+		});
+		// Apply translations
+		document.querySelectorAll('[data-i18n]').forEach(el => {
+			const key = el.getAttribute('data-i18n');
+			const text = (translations[lang] || translations.en)[key];
+			if (text !== undefined) el.textContent = text;
+		});
+	}
+
+	// Init on load
+	(function() {
+		const saved = localStorage.getItem('lang') || 'en';
+		setLang(saved);
+	})();
+	</script>
 </body>
 </html>
