@@ -63,9 +63,23 @@
 
   <url>
     <loc>https://www.dronesurveycr.com/blog/</loc>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-04-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.dronesurveycr.com/blog/drone-survey-san-jose-costa-rica.html</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.dronesurveycr.com/blog/how-much-does-drone-survey-cost-costa-rica.html</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
 </urlset>

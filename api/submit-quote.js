@@ -1,6 +1,9 @@
 // Vercel Serverless Function — /api/submit-quote
 module.exports = async function handler(req, res) {
-	res.setHeader('Access-Control-Allow-Origin', 'https://dronesurveycr.com');
+	const origin = req.headers.origin || '';
+	const allowed = ['https://dronesurveycr.com', 'https://www.dronesurveycr.com'];
+	if (allowed.includes(origin)) res.setHeader('Access-Control-Allow-Origin', origin);
+	else res.setHeader('Access-Control-Allow-Origin', '*');
 	res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
 	res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 	if (req.method === 'OPTIONS') return res.status(200).end();
@@ -14,6 +17,12 @@ module.exports = async function handler(req, res) {
 		sendEmail(data)
 	]);
 
+	results.forEach((r, i) => {
+		const name = ['Notion', 'Slack', 'Email'][i];
+		if (r.status === 'rejected') console.error(`${name} failed:`, r.reason?.message);
+		else console.log(`${name} OK`);
+	});
+
 	const errors = results.filter(r => r.status === 'rejected').map(r => r.reason?.message);
 	return res.status(200).json({ success: true, errors });
 };
@@ -23,7 +32,7 @@ async function saveToNotion(d) {
 	const token = process.env.NOTION_TOKEN;
 	if (!token) throw new Error('NOTION_TOKEN not set');
 
-	const DATABASE_ID = '2b8f0eb5-7d15-4c6e-84b4-0ab2ea584e74';
+	const DATABASE_ID = '21eefe17-c791-4f60-a64e-69b9a1e3ff44';
 	const title = `Quote — ${d.firstName} ${d.lastName} — ${d.quotedTotal}`;
 
 	const body = {
@@ -42,12 +51,13 @@ async function saveToNotion(d) {
 			'who referred you / how did you hear about us?': {
 				rich_text: [{ text: { content: `${d.referral || ''}\n\nQuoted: ${d.quotedTotal} | Deposit: ${d.deposit}\nBreakdown:\n${d.breakdown}\n\nNotes: ${d.notes || ''}` } }]
 			},
+			'Status': { select: { name: '🆕 New Lead' } },
+			'Submission Date': { date: { start: new Date().toISOString() } },
 		}
 	};
 
-	if (d.deadline && d.deadline !== 'Flexible') {
-		body.properties['date:Date the contract needs to be finished before:start'] = d.deadline;
-		body.properties['date:Date the contract needs to be finished before:is_datetime'] = 0;
+	if (d.deadline) {
+		body.properties['Date the contract needs to be finished before'] = { date: { start: d.deadline } };
 	}
 
 	const r = await fetch('https://api.notion.com/v1/pages', {
@@ -77,7 +87,7 @@ async function sendSlack(d) {
 		d.deadline ? `*📅 Deadline:* ${d.deadline}` : '',
 		`*💰 Quote:* ${d.quotedTotal}  |  *Deposit:* ${d.deposit}`,
 		d.notes ? `*📋 Notes:* ${d.notes}` : '',
-		`<https://wa.me/${(d.phone||'').replace(/\D/g,'')}|💬 Reply on WhatsApp>  |  <https://notion.so/2b8f0eb57d154c6e84b40ab2ea584e74|📋 Open Notion>`
+		`<https://wa.me/${(d.phone||'').replace(/\D/g,'')}|💬 Reply on WhatsApp>  |  <https://notion.so/21eefe17c7914f60a64e69b9a1e3ff44|📋 Open Notion>`
 	].filter(Boolean).join('\n');
 
 	await fetch(webhook, {
