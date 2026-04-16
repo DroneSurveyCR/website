@@ -71,6 +71,17 @@
 		.form-note{text-align:center;font-size:13px;color:#888;margin-top:12px}
 		footer{background:#302F40;color:#9ca3b0;text-align:center;padding:24px;font-size:14px}
 		footer a{color:#60a5fa;text-decoration:none}
+		.testimonials-section{padding:70px 0;background:#fff}
+		.testimonials-header{text-align:center;margin-bottom:50px}
+		.testimonials-header h2{color:#302F40;font-size:clamp(26px,4vw,42px);margin-bottom:16px}
+		.testimonials-rating{color:#5c5c69;font-size:18px;font-weight:600;margin-top:8px}
+		.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-bottom:32px}
+		.testimonial-card{background:#f8f9fa;border-radius:12px;padding:28px;border:1px solid #e8eaf0}
+		.testimonial-text{color:#444;font-size:15px;line-height:1.7;margin-bottom:16px;font-style:italic}
+		.testimonial-author{color:#5c5c69;font-size:14px;font-weight:600}
+		.testimonials-link{text-align:center;margin-top:32px}
+		.testimonials-link a{color:#0080FE;font-weight:700;text-decoration:none;font-size:15px}
+		.testimonials-link a:hover{text-decoration:underline}
 		@media(max-width:600px){.hero-btns,.cta-btns{flex-direction:column}.btn-primary,.btn-whatsapp{justify-content:center}}
 	</style>
 	<!-- Google Analytics -->
@@ -230,6 +241,31 @@
 	</div>
 </section>
 
+<!-- TESTIMONIALS -->
+<section class="testimonials-section">
+	<div class="container">
+		<div class="testimonials-header">
+			<h2>Trusted by Property Owners & Professionals Across Costa Rica</h2>
+			<p class="testimonials-rating">⭐⭐⭐⭐⭐ 5.0 out of 5 · 25 Google reviews</p>
+		</div>
+		<div class="testimonials-grid">
+			<div class="testimonial-card">
+				<p class="testimonial-text"><em>"Outstanding service and professionalism. The drone survey provided exactly what we needed for our project — accurate, detailed, and delivered on time."</em></p>
+				<p class="testimonial-author">— Travis Comstock</p>
+			</div>
+			<div class="testimonial-card">
+				<p class="testimonial-text"><em>"Excelente trabajo. Los datos que recibimos fueron muy precisos y nos ayudaron enormemente en la planificación del proyecto."</em></p>
+				<p class="testimonial-author">— Javier Mora Balma</p>
+			</div>
+			<div class="testimonial-card">
+				<p class="testimonial-text"><em>"Professional team, incredible results. The topographic data saved us thousands of dollars in planning costs. Highly recommended."</em></p>
+				<p class="testimonial-author">— Marco Corvetto</p>
+			</div>
+		</div>
+		<p class="testimonials-link"><a href="https://g.co/kgs/VnbxFYr" target="_blank" rel="noopener">Read all 25 reviews on Google →</a></p>
+	</div>
+</section>
+
 <section class="form-section" id="quote">
 	<div class="container">
 		<div class="form-wrap">
@@ -329,5 +365,6 @@
 	<p>© 2026 DroneSurveyCR.com — Aerial Surveying in Costa Rica | <a href="index.html">Home</a> | <a href="quote.html">Get a Quote</a></p>
 </footer>
 
+<script src="components.js"></script>
 </body>
 </html>

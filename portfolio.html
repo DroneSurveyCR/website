@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Portfolio | Drone Survey Costa Rica</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Leaflet CSS for Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
+
+    <!-- GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6L0PFQRYF6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-6L0PFQRYF6');
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+            color: #5C5C69;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'IBM Plex Sans', sans-serif;
+            color: #302F40;
+            font-weight: 600;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #302F40 0%, #1a1a2e 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 16px;
+            color: white;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #e0e0e0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background-color: white;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 24px 20px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+
+        .stat {
+            font-size: 14px;
+            color: #5C5C69;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .stat::before {
+            content: '';
+            width: 4px;
+            height: 4px;
+            background-color: #0080FE;
+            border-radius: 50%;
+        }
+
+        .stat:first-child::before {
+            display: none;
+        }
+
+        /* Map Container */
+        .map-section {
+            padding: 60px 20px;
+            background-color: white;
+        }
+
+        .map-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .map-title {
+            font-size: 28px;
+            margin-bottom: 12px;
+            color: #302F40;
+        }
+
+        .map-subtitle {
+            font-size: 14px;
+            color: #5C5C69;
+            margin-bottom: 32px;
+        }
+
+        #map {
+            width: 100%;
+            height: 500px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 32px;
+        }
+
+        /* Grid Section */
+        .projects-section {
+            padding: 60px 20px;
+            background-color: #f8f9fa;
+        }
+
+        .projects-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .projects-title {
+            font-size: 28px;
+            margin-bottom: 12px;
+            color: #302F40;
+        }
+
+        .projects-subtitle {
+            font-size: 14px;
+            color: #5C5C69;
+            margin-bottom: 40px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: #302F40;
+            margin-bottom: 16px;
+        }
+
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+            flex-grow: 1;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 6px 12px;
+            background-color: #f0f2f5;
+            color: #5C5C69;
+            border-radius: 16px;
+            font-size: 12px;
+            font-weight: 500;
+            border: 1px solid #e0e0e0;
+        }
+
+        .tag.location {
+            background-color: #e6f2ff;
+            color: #0080FE;
+            border-color: #0080FE;
+        }
+
+        .tag.service {
+            background-color: #f0f2f5;
+            color: #302F40;
+        }
+
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #0080FE;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            margin-top: auto;
+            transition: gap 0.2s ease;
+        }
+
+        .card-link:hover {
+            gap: 12px;
+        }
+
+        .card-link:hover .arrow {
+            transform: translateX(2px);
+        }
+
+        .arrow {
+            transition: transform 0.2s ease;
+            display: inline-block;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .stats-bar {
+                gap: 20px;
+                font-size: 12px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #map {
+                height: 350px;
+            }
+
+            .map-title, .projects-title {
+                font-size: 24px;
+            }
+        }
+
+        /* Marker Cluster Customization */
+        .leaflet-marker-icon {
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        }
+
+        .leaflet-popup-content-wrapper {
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .leaflet-popup-content {
+            margin: 12px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .popup-title {
+            font-weight: 600;
+            color: #302F40;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .popup-link {
+            display: inline-block;
+            color: #0080FE;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .popup-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation & Header loaded via components.js -->
+    <div id="header-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Our Project Portfolio</h1>
+        <p>Explore 20+ completed LiDAR drone surveys across Costa Rica</p>
+    </section>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+        <div class="stat">20+ Projects</div>
+        <div class="stat">7+ Years</div>
+        <div class="stat">All Regions of Costa Rica</div>
+    </div>
+
+    <!-- Interactive Map Section -->
+    <section class="map-section">
+        <div class="map-container">
+            <h2 class="map-title">Project Locations</h2>
+            <p class="map-subtitle">Click on markers to view project details</p>
+            <div id="map"></div>
+        </div>
+    </section>
+
+    <!-- Projects Grid Section -->
+    <section class="projects-section">
+        <div class="projects-container">
+            <h2 class="projects-title">All Projects</h2>
+            <p class="projects-subtitle">Access detailed 3D point cloud data and topographic information</p>
+            <div class="projects-grid" id="projectsGrid"></div>
+        </div>
+    </section>
+
+    <!-- Footer loaded via components.js -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Leaflet and Clustering Libraries -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+
+    <!-- Components.js for header/footer -->
+    <script src="components.js"></script>
+
+    <script>
+        // Project data with locations and Potree viewer links
+        const projects = [
+            {
+                name: 'ALEGRIA_1',
+                location: 'Alegría, Southern Zone',
+                zone: 'Southern Zone',
+                service: 'LiDAR Survey',
+                coords: [9.25, -83.85],
+                potraeId: 'ALEGRIA_1_WEB'
+            },
+            {
+                name: 'Ainsley',
+                location: 'Ainsley, Southern Zone',
+                zone: 'Southern Zone',
+                service: 'Topographic Map',
+                coords: [9.22, -83.88],
+                potraeId: 'Ainsley_WEB'
+            },
+            {
+                name: 'Brett Barú River',
+                location: 'Barú River, Dominical',
+                zone: 'Southern Zone',
+                service: 'LiDAR Survey',
+                coords: [9.28, -83.82],
+                potraeId: 'Brett_Baru_River_1_WEB'
+            },
+            {
+                name: 'Bryce Ojochal',
+                location: 'Ojochal, Southern Zone',
+                zone: 'Southern Zone',
+                service: 'Land Assessment',
+                coords: [9.22, -83.75],
+                potraeId: 'Bryce_Ojochal_WEB'
+            },
+            {
+                name: 'Bryce Portálón',
+                location: 'Portálón, Southern Zone',
+                zone: 'Southern Zone',
+                service: 'LiDAR Survey',
+                coords: [9.26, -83.78],
+                potraeId: 'Bryce_Portalon_3_WEB'
+            },
+            {
+                name: 'Cañavida',
+                location: 'Cañavida, Guanacaste',
+                zone: 'Guanacaste',
+                service: 'LiDAR Survey',
+                coords: [10.4, -85.45],
+                potraeId: 'CANA_VIDA_WEB'
+            },
+            {
+                name: 'Cedrela',
+                location: 'Cedrela, Central Valley',
+                zone: 'Central Valley',
+                service: 'Topographic Map',
+                coords: [9.93, -84.08],
+                potraeId: 'CEDRELA_WEB'
+            },
+            {
+                name: 'Dominicalito',
+                location: 'Dominicalito, Southern Zone',
+                zone: 'Southern Zone',
+                service: 'LiDAR Survey',
+                coords: [9.30, -83.85],
+                potraeId: 'DOMINICALITO_WEB'
+            },
+            {
+                name: 'Envision',
+                location: 'Envision, Southern Zone',
+                zone: 'Southern Zone',
+                service: 'Environmental Assessment',
+                coords: [9.27, -83.88],
+                potraeId: 'ENVISION_WEB'
+            },
+            {
+                name: 'Marco',
+                location: 'Marco, Southern Zone',
+                zone: 'Southern Zone',
+                service: 'LiDAR Survey',
+                coords: [9.24, -83.84],
+                potraeId: 'MARCO_WEB'
+            },
+            {
+                name: 'Mata de Plátano',
+                location: 'Mata de Plátano, Central Valley',
+                zone: 'Central Valley',
+                service: 'Land Analysis',
+                coords: [9.95, -84.06],
+                potraeId: 'Mata_Platano_WEB'
+            },
+            {
+                name: 'Ocaso',
+                location: 'Ocaso, Central Valley',
+                zone: 'Central Valley',
+                service: 'LiDAR Survey',
+                coords: [9.90, -84.10],
+                potraeId: 'OCASO_WEB'
+            },
+            {
+                name: 'Santa Teresa',
+                location: 'Santa Teresa, Nicoya',
+                zone: 'Nicoya Peninsula',
+                service: 'LiDAR Survey',
+                coords: [9.64, -85.17],
+                potraeId: 'SANTA_TERESA_WEB'
+            },
+            {
+                name: 'Santa Teresa 2',
+                location: 'Santa Teresa, Nicoya',
+                zone: 'Nicoya Peninsula',
+                service: 'Topographic Map',
+                coords: [9.65, -85.16],
+                potraeId: 'SANTA_TERESA_2_WEB'
+            },
+            {
+                name: 'Santa Teresa 6H',
+                location: 'Santa Teresa, Nicoya',
+                zone: 'Nicoya Peninsula',
+                service: 'LiDAR Survey',
+                coords: [9.63, -85.18],
+                potraeId: 'SANTA_TERESA_6H_WEB'
+            },
+            {
+                name: 'Selva 3',
+                location: 'Selva, Southern Zone',
+                zone: 'Southern Zone',
+                service: 'Forest Survey',
+                coords: [9.25, -83.80],
+                potraeId: 'SELVA3_WEB'
+            },
+            {
+                name: 'Selva 4',
+                location: 'Selva, Southern Zone',
+                zone: 'Southern Zone',
+                service: 'LiDAR Survey',
+                coords: [9.26, -83.81],
+                potraeId: 'SELVA_4_WEB'
+            },
+            {
+                name: 'San Josecito Uvita',
+                location: 'San Josecito, Uvita',
+                zone: 'Southern Zone',
+                service: 'Land Assessment',
+                coords: [9.28, -83.83],
+                potraeId: 'San_Josesito_Uvita_WEB'
+            },
+            {
+                name: 'Tomer Selva',
+                location: 'Tomer Selva, Southern Zone',
+                zone: 'Southern Zone',
+                service: 'LiDAR Survey',
+                coords: [9.29, -83.86],
+                potraeId: 'TOMER_SELVA_WEB'
+            },
+            {
+                name: 'Vista Architects',
+                location: 'Vista Architects, Southern Zone',
+                zone: 'Southern Zone',
+                service: 'Architectural Survey',
+                coords: [9.23, -83.87],
+                potraeId: 'Vista_Architects_WEB'
+            }
+        ];
+
+        // Initialize map
+        const map = L.map('map').setView([9.75, -84.50], 8);
+
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors',
+            maxZoom: 19
+        }).addTo(map);
+
+        // Create marker cluster group
+        const markerClusters = L.markerClusterGroup({
+            disableClusteringAtZoom: 12,
+            iconCreateFunction: function(cluster) {
+                const count = cluster.getChildCount();
+                let size = 'small';
+                let icon = '📍';
+                if (count > 1) {
+                    size = count > 10 ? 'large' : 'medium';
+                    icon = count;
+                }
+                return new L.DivIcon({
+                    html: `<div style="background: #0080FE; color: white; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px; box-shadow: 0 2px 4px rgba(0,0,0,0.3);">${icon}</div>`,
+                    iconSize: [40, 40],
+                    className: 'custom-marker'
+                });
+            }
+        });
+
+        // Add markers for each project
+        projects.forEach(project => {
+            const marker = L.marker(project.coords);
+            const popupContent = `
+                <div class="popup-title">${project.name}</div>
+                <div style="color: #5C5C69; font-size: 12px; margin-bottom: 8px;">${project.location}</div>
+                <a href="https://serviciosdronescostarica.com/LidarCloud/?resource=${project.potraeId}" target="_blank" class="popup-link">View 3D Point Cloud →</a>
+            `;
+            marker.bindPopup(popupContent);
+            markerClusters.addLayer(marker);
+        });
+
+        map.addLayer(markerClusters);
+
+        // Render projects grid
+        const projectsGrid = document.getElementById('projectsGrid');
+        projects.forEach(project => {
+            const card = document.createElement('div');
+            card.className = 'project-card';
+            card.innerHTML = `
+                <div class="card-name">${project.name}</div>
+                <div class="card-tags">
+                    <span class="tag location">${project.zone}</span>
+                    <span class="tag service">${project.service}</span>
+                </div>
+                <a href="https://serviciosdronescostarica.com/LidarCloud/?resource=${project.potraeId}" target="_blank" class="card-link">
+                    View 3D Point Cloud
+                    <span class="arrow">→</span>
+                </a>
+            `;
+            projectsGrid.appendChild(card);
+        });
+    </script>
+</body>
+</html>

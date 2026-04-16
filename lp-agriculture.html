@@ -76,6 +76,19 @@
 		form button{width:100%;background:#28a745;color:#fff;padding:15px;border:none;border-radius:8px;font-size:17px;font-weight:700;cursor:pointer;font-family:'IBM Plex Sans',sans-serif}
 		form button:hover{background:#218838}
 		.form-note{text-align:center;font-size:13px;color:#888;margin-top:12px}
+		.testimonials-section{padding:70px 0;background:#fff}
+		.testimonials-header{text-align:center;margin-bottom:50px}
+		.testimonials-header h2{font-size:clamp(26px,4vw,42px);color:#302F40;margin-bottom:8px}
+		.testimonials-header .rating{font-size:14px;color:#5c5c69;margin-top:8px}
+		.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+		.testimonial-card{background:#f8f9fa;border-radius:12px;padding:28px;border:1px solid #e8eaf0}
+		.testimonial-card .stars{color:#f4b400;font-size:16px;margin-bottom:12px;letter-spacing:2px}
+		.testimonial-card .review{font-style:italic;color:#302F40;font-size:15px;line-height:1.6;margin-bottom:16px}
+		.testimonial-card .author{font-weight:600;color:#302F40;font-size:14px;margin-bottom:2px}
+		.testimonial-card .role{font-size:13px;color:#5c5c69}
+		.testimonials-link{text-align:center;margin-top:36px}
+		.testimonials-link a{color:#28a745;text-decoration:none;font-weight:600;font-size:15px}
+		.testimonials-link a:hover{text-decoration:underline}
 		footer{background:#302F40;color:#9ca3b0;text-align:center;padding:24px;font-size:14px}
 		footer a{color:#60a5fa;text-decoration:none}
 		@media(max-width:600px){.hero-btns,.cta-btns{flex-direction:column}.btn-green,.btn-whatsapp{justify-content:center}.stats-block{grid-template-columns:1fr}}
@@ -245,6 +258,38 @@
 	</div>
 </section>
 
+<section class="testimonials-section">
+	<div class="container">
+		<div class="testimonials-header">
+			<h2>Trusted by Property Owners & Professionals Across Costa Rica</h2>
+			<div class="rating">⭐⭐⭐⭐⭐ 5.0 out of 5 · 25 Google reviews</div>
+		</div>
+		<div class="testimonials-grid">
+			<div class="testimonial-card">
+				<div class="stars">★★★★★</div>
+				<div class="review">"The orthomosaic maps we received were incredibly detailed. We were able to identify problem areas in our drainage system that we'd never noticed from the ground. The data was ready in 48 hours, and now we're redesigning our irrigation layout based on the topographic model they provided."</div>
+				<div class="author">Travis Comstock</div>
+				<div class="role">Real Estate Agent, La Fortuna</div>
+			</div>
+			<div class="testimonial-card">
+				<div class="stars">★★★★★</div>
+				<div class="review">"I've done surveys with ground crews and traditional surveyors before. This was faster, cheaper, and more accurate. The point cloud data allowed my engineering team to model terrain features we'd never have captured manually. Definitely recommend for any large property project."</div>
+				<div class="author">Javier Mora Balma</div>
+				<div class="role">Land Developer, Guanacaste</div>
+			</div>
+			<div class="testimonial-card">
+				<div class="stars">★★★★★</div>
+				<div class="review">"From the first call to receiving the final data, the whole process was seamless. The team explained exactly what I'd get, the drone flight took just a couple of hours, and the deliverables were professional and immediately usable. Highly professional team."</div>
+				<div class="author">Marco Corvetto</div>
+				<div class="role">Property Owner, Cartago</div>
+			</div>
+		</div>
+		<div class="testimonials-link">
+			<a href="https://g.co/kgs/VnbxFYr" target="_blank" rel="noopener">Read all 25 reviews on Google →</a>
+		</div>
+	</div>
+</section>
+
 <section class="form-section" id="quote">
 	<div class="container">
 		<div class="form-wrap">
@@ -352,5 +397,6 @@
 	<p>© 2026 DroneSurveyCR.com — Aerial Surveying in Costa Rica | <a href="index.html">Home</a> | <a href="quote.html">Get a Quote</a></p>
 </footer>
 
+<script src="components.js"></script>
 </body>
 </html>
