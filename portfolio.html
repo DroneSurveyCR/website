@@ -270,32 +270,53 @@
         }
 
         .leaflet-popup-content-wrapper {
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            padding: 0;
         }
 
         .leaflet-popup-content {
-            margin: 12px;
+            margin: 16px 18px;
             font-family: 'Inter', sans-serif;
+            min-width: 220px;
         }
 
         .popup-title {
-            font-weight: 600;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-weight: 700;
             color: #302F40;
-            margin-bottom: 8px;
-            font-size: 14px;
+            margin-bottom: 4px;
+            font-size: 17px;
         }
 
-        .popup-link {
-            display: inline-block;
-            color: #0080FE;
-            text-decoration: none;
+        .popup-location {
+            color: #5C5C69;
             font-size: 13px;
-            font-weight: 500;
+            margin-bottom: 14px;
         }
 
-        .popup-link:hover {
-            text-decoration: underline;
+        .popup-btn {
+            display: block;
+            width: 100%;
+            background: #0080FE;
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-align: center;
+            transition: background 0.2s;
+        }
+
+        .popup-btn:hover {
+            background: #0066cc;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .popup-btn span {
+            margin-left: 6px;
         }
     </style>
 </head>
@@ -542,8 +563,8 @@
             const marker = L.marker(project.coords);
             const popupContent = `
                 <div class="popup-title">${project.name}</div>
-                <div style="color: #5C5C69; font-size: 12px; margin-bottom: 8px;">${project.location}</div>
-                <a href="portfolio-viewer.html?project=${project.potraeId}" class="popup-link">View 3D Point Cloud →</a>
+                <div class="popup-location">${project.location}</div>
+                <a href="portfolio-viewer.html?project=${project.potraeId}" class="popup-btn">View 3D Point Cloud <span>&rarr;</span></a>
             `;
             marker.bindPopup(popupContent);
             markerClusters.addLayer(marker);
