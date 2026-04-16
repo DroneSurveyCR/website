@@ -543,7 +543,7 @@
             const popupContent = `
                 <div class="popup-title">${project.name}</div>
                 <div style="color: #5C5C69; font-size: 12px; margin-bottom: 8px;">${project.location}</div>
-                <a href="https://serviciosdronescostarica.com/LidarCloud/?resource=${project.potraeId}" target="_blank" class="popup-link">View 3D Point Cloud →</a>
+                <a href="portfolio-viewer.html?project=${project.potraeId}" class="popup-link">View 3D Point Cloud →</a>
             `;
             marker.bindPopup(popupContent);
             markerClusters.addLayer(marker);
@@ -562,7 +562,7 @@
                     <span class="tag location">${project.zone}</span>
                     <span class="tag service">${project.service}</span>
                 </div>
-                <a href="https://serviciosdronescostarica.com/LidarCloud/?resource=${project.potraeId}" target="_blank" class="card-link">
+                <a href="portfolio-viewer.html?project=${project.potraeId}" class="card-link">
                     View 3D Point Cloud
                     <span class="arrow">→</span>
                 </a>
