@@ -279,21 +279,21 @@
 		<div class="form-wrap">
 			<h2>Get Your Free Project Quote</h2>
 			<p class="sub">Tell us about your project and we'll send a custom quote — usually within the same day.</p>
-			<form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-				<label for="name">Your Name *</label>
-				<input type="text" id="name" name="name" placeholder="Juan Pérez" required>
+			<form id="constructionForm" onsubmit="return submitConstructionForm(event)">
+				<label for="con-name">Your Name *</label>
+				<input type="text" id="con-name" placeholder="Juan Pérez" required>
 
-				<label for="company">Company / Project Name</label>
-				<input type="text" id="company" name="company" placeholder="Constructora XYZ">
+				<label for="con-company">Company / Project Name</label>
+				<input type="text" id="con-company" placeholder="Constructora XYZ">
 
-				<label for="email">Email Address *</label>
-				<input type="email" id="email" name="email" placeholder="juan@empresa.com" required>
+				<label for="con-email">Email Address *</label>
+				<input type="email" id="con-email" placeholder="juan@empresa.com" required>
 
-				<label for="phone">WhatsApp / Phone</label>
-				<input type="tel" id="phone" name="phone" placeholder="+506 XXXX XXXX">
+				<label for="con-phone">WhatsApp / Phone</label>
+				<input type="tel" id="con-phone" placeholder="+506 XXXX XXXX">
 
-				<label for="service">Service Needed *</label>
-				<select id="service" name="service" required>
+				<label for="con-service">Service Needed *</label>
+				<select id="con-service" required>
 					<option value="">Select a service...</option>
 					<option>Topographic Survey (LiDAR)</option>
 					<option>Topographic Survey (Photogrammetry)</option>
@@ -303,18 +303,60 @@
 					<option>Other</option>
 				</select>
 
-				<label for="location">Project Location *</label>
-				<input type="text" id="location" name="location" placeholder="e.g. Guanacaste, Cartago, San José..." required>
+				<label for="con-location">Project Location *</label>
+				<input type="text" id="con-location" placeholder="e.g. Guanacaste, Cartago, San José..." required>
 
-				<label for="area">Approximate Site Area</label>
-				<input type="text" id="area" name="area" placeholder="e.g. 5 hectares, 200m x 400m...">
+				<label for="con-area">Approximate Site Area</label>
+				<input type="text" id="con-area" placeholder="e.g. 5 hectares, 200m x 400m...">
 
-				<label for="message">Additional Details</label>
-				<textarea id="message" name="message" placeholder="Tell us about your project timeline, specific requirements, or any questions..."></textarea>
+				<label for="con-message">Additional Details</label>
+				<textarea id="con-message" placeholder="Tell us about your project timeline, specific requirements, or any questions..."></textarea>
 
-				<input type="hidden" name="_subject" value="New Construction Quote Request — DroneSurveyCR.com">
-				<button type="submit">📋 Send My Free Quote Request</button>
+				<button type="submit" id="con-submit-btn">📋 Send My Free Quote Request</button>
 			</form>
+			<script>
+			const SB_URL = 'https://bqszvlrzmeszeewufgio.supabase.co';
+			const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJxc3p2bHJ6bWVzemVld3VmZ2lvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYzNTcwMDEsImV4cCI6MjA5MTkzMzAwMX0.SkVeaxSd8lLMtmt1b3M5N3NhDZ4HJJEQjRP255KjMpk';
+			async function submitConstructionForm(e) {
+				e.preventDefault();
+				const btn = document.getElementById('con-submit-btn');
+				btn.disabled = true;
+				btn.textContent = '⏳ Sending...';
+				const nameParts = document.getElementById('con-name').value.trim().split(/\s+/);
+				const payload = {
+					first_name:         nameParts[0] || '',
+					last_name:          nameParts.slice(1).join(' ') || '',
+					email:              document.getElementById('con-email').value.trim(),
+					phone:              document.getElementById('con-phone').value.trim() || null,
+					company_name:       document.getElementById('con-company').value.trim() || null,
+					services_requested: document.getElementById('con-service').value,
+					state_province:     document.getElementById('con-location').value.trim(),
+					area_hectares:      null,
+					land_size_sq_km:    document.getElementById('con-area').value.trim() || null,
+					survey_type:        'Construction',
+					notes:              document.getElementById('con-message').value || null,
+					country:            'Costa Rica'
+				};
+				try {
+					await fetch(SB_URL + '/rest/v1/quote_submissions', {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json',
+							'apikey': SB_KEY,
+							'Authorization': 'Bearer ' + SB_KEY,
+							'Prefer': 'return=minimal'
+						},
+						body: JSON.stringify(payload)
+					});
+					fetch(SB_URL + '/functions/v1/on-new-quote', {
+						method: 'POST',
+						headers: { 'Content-Type': 'application/json' },
+						body: JSON.stringify({ record: payload })
+					}).catch(() => {});
+				} catch(err) { console.error(err); }
+				document.getElementById('constructionForm').innerHTML = '<div style="text-align:center;padding:30px"><h3 style="color:#0080FE">✅ Quote Request Sent!</h3><p>We\'ll get back to you within a few hours.</p><a href="https://wa.me/50672938970" style="color:#0080FE;font-weight:bold">💬 Or chat on WhatsApp now</a></div>';
+			}
+			</script>
 			<p class="form-note">Or contact us directly on <a href="https://wa.me/50672938970" target="_blank" rel="noopener" style="color:#0080FE">WhatsApp: +506 7293 8970</a></p>
 		</div>
 	</div>

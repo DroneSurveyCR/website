@@ -1,9 +1,3 @@
 User-agent: *
 Allow: /
-
-# Block admin and API directories
-Disallow: /api/
-Disallow: /ads/
-
-# Sitemap location
 Sitemap: https://www.dronesurveycr.com/sitemap.xml

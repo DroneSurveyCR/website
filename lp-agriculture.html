@@ -250,21 +250,21 @@
 		<div class="form-wrap">
 			<h2>Get a Free Quote for Your Farm</h2>
 			<p class="sub">Tell us about your farm and we'll send you a custom quote — usually the same day.</p>
-			<form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-				<label for="name">Your Name *</label>
-				<input type="text" id="name" name="name" placeholder="Carlos Rodríguez" required>
+			<form id="agriForm" onsubmit="return submitAgriForm(event)">
+				<label for="agri-name">Your Name *</label>
+				<input type="text" id="agri-name" placeholder="Carlos Rodríguez" required>
 
-				<label for="email">Email *</label>
-				<input type="email" id="email" name="email" placeholder="carlos@finca.com" required>
+				<label for="agri-email">Email *</label>
+				<input type="email" id="agri-email" placeholder="carlos@finca.com" required>
 
-				<label for="phone">WhatsApp / Phone</label>
-				<input type="tel" id="phone" name="phone" placeholder="+506 XXXX XXXX">
+				<label for="agri-phone">WhatsApp / Phone</label>
+				<input type="tel" id="agri-phone" placeholder="+506 XXXX XXXX">
 
-				<label for="crop">Crop / Farm Type</label>
-				<input type="text" id="crop" name="crop" placeholder="e.g. Pineapple, Coffee, Banana, Cattle, Mixed...">
+				<label for="agri-crop">Crop / Farm Type</label>
+				<input type="text" id="agri-crop" placeholder="e.g. Pineapple, Coffee, Banana, Cattle, Mixed...">
 
-				<label for="service">What do you need? *</label>
-				<select id="service" name="service" required>
+				<label for="agri-service">What do you need? *</label>
+				<select id="agri-service" required>
 					<option value="">Select a service...</option>
 					<option>Full Farm Orthomosaic Map</option>
 					<option>Topographic Survey & DEM</option>
@@ -276,18 +276,62 @@
 					<option>Not sure — I want advice</option>
 				</select>
 
-				<label for="location">Farm Location *</label>
-				<input type="text" id="location" name="location" placeholder="e.g. Guanacaste / Limón / Cartago..." required>
+				<label for="agri-location">Farm Location *</label>
+				<input type="text" id="agri-location" placeholder="e.g. Guanacaste / Limón / Cartago..." required>
 
-				<label for="size">Farm Size (approx.) *</label>
-				<input type="text" id="size" name="size" placeholder="e.g. 50 hectares / 200 acres..." required>
+				<label for="agri-size">Farm Size (approx.) *</label>
+				<input type="text" id="agri-size" placeholder="e.g. 50 hectares / 200 acres..." required>
 
-				<label for="message">Any Other Details</label>
-				<textarea id="message" name="message" placeholder="Tell us about your project goals, challenges, or any specific questions..."></textarea>
+				<label for="agri-message">Any Other Details</label>
+				<textarea id="agri-message" placeholder="Tell us about your project goals, challenges, or any specific questions..."></textarea>
 
-				<input type="hidden" name="_subject" value="New Agriculture Quote Request — DroneSurveyCR.com">
-				<button type="submit">🌿 Send My Free Quote Request</button>
+				<button type="submit" id="agri-submit-btn">🌿 Send My Free Quote Request</button>
 			</form>
+			<script>
+			const SB_URL = 'https://bqszvlrzmeszeewufgio.supabase.co';
+			const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJxc3p2bHJ6bWVzemVld3VmZ2lvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYzNTcwMDEsImV4cCI6MjA5MTkzMzAwMX0.SkVeaxSd8lLMtmt1b3M5N3NhDZ4HJJEQjRP255KjMpk';
+			async function submitAgriForm(e) {
+				e.preventDefault();
+				const btn = document.getElementById('agri-submit-btn');
+				btn.disabled = true;
+				btn.textContent = '⏳ Sending...';
+				const nameParts = document.getElementById('agri-name').value.trim().split(/\s+/);
+				const payload = {
+					first_name:         nameParts[0] || '',
+					last_name:          nameParts.slice(1).join(' ') || '',
+					email:              document.getElementById('agri-email').value.trim(),
+					phone:              document.getElementById('agri-phone').value.trim() || null,
+					services_requested: document.getElementById('agri-service').value,
+					state_province:     document.getElementById('agri-location').value.trim(),
+					land_size_sq_km:    document.getElementById('agri-size').value.trim(),
+					survey_type:        'Agriculture',
+					notes:              [
+						'Crop/Farm Type: ' + (document.getElementById('agri-crop').value || '—'),
+						document.getElementById('agri-message').value
+					].filter(Boolean).join('\n'),
+					country:            'Costa Rica'
+				};
+				try {
+					await fetch(SB_URL + '/rest/v1/quote_submissions', {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json',
+							'apikey': SB_KEY,
+							'Authorization': 'Bearer ' + SB_KEY,
+							'Prefer': 'return=minimal'
+						},
+						body: JSON.stringify(payload)
+					});
+					// Notify Slack + Notion via edge function
+					fetch(SB_URL + '/functions/v1/on-new-quote', {
+						method: 'POST',
+						headers: { 'Content-Type': 'application/json' },
+						body: JSON.stringify({ record: payload })
+					}).catch(() => {});
+				} catch(err) { console.error(err); }
+				document.getElementById('agriForm').innerHTML = '<div style="text-align:center;padding:30px"><h3 style="color:#28a745">✅ Quote Request Sent!</h3><p>We\'ll get back to you within a few hours.</p><a href="https://wa.me/50672938970" style="color:#28a745;font-weight:bold">💬 Or chat on WhatsApp now</a></div>';
+			}
+			</script>
 			<p class="form-note">Prefer WhatsApp? Message us directly: <a href="https://wa.me/50672938970" target="_blank" rel="noopener" style="color:#28a745">+506 7293 8970</a></p>
 		</div>
 	</div>

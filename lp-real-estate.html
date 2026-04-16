@@ -235,18 +235,18 @@
 		<div class="form-wrap">
 			<h2>Get a Free Quote</h2>
 			<p class="sub">Aerial photography, LiDAR mapping, or land survey — tell us what you need and we'll get back to you the same day.</p>
-			<form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-				<label for="name">Your Name *</label>
-				<input type="text" id="name" name="name" placeholder="María González" required>
+			<form id="realEstateForm" onsubmit="return submitRealEstateForm(event)">
+				<label for="re-name">Your Name *</label>
+				<input type="text" id="re-name" placeholder="María González" required>
 
-				<label for="email">Email *</label>
-				<input type="email" id="email" name="email" placeholder="maria@email.com" required>
+				<label for="re-email">Email *</label>
+				<input type="email" id="re-email" placeholder="maria@email.com" required>
 
-				<label for="phone">WhatsApp / Phone</label>
-				<input type="tel" id="phone" name="phone" placeholder="+506 XXXX XXXX">
+				<label for="re-phone">WhatsApp / Phone</label>
+				<input type="tel" id="re-phone" placeholder="+506 XXXX XXXX">
 
-				<label for="service">What do you need? *</label>
-				<select id="service" name="service" required>
+				<label for="re-service">What do you need? *</label>
+				<select id="re-service" required>
 					<option value="">Select a service...</option>
 					<option>Aerial Photography (listing/marketing)</option>
 					<option>Cinematic Drone Video</option>
@@ -257,18 +257,58 @@
 					<option>Full Package (photo + video + map)</option>
 				</select>
 
-				<label for="location">Property Location *</label>
-				<input type="text" id="location" name="location" placeholder="e.g. Nosara, Guanacaste / San José / Limón..." required>
+				<label for="re-location">Property Location *</label>
+				<input type="text" id="re-location" placeholder="e.g. Nosara, Guanacaste / San José / Limón..." required>
 
-				<label for="size">Property Size (approx.)</label>
-				<input type="text" id="size" name="size" placeholder="e.g. 2,000 m² / 5 hectares / 1 acre">
+				<label for="re-size">Property Size (approx.)</label>
+				<input type="text" id="re-size" placeholder="e.g. 2,000 m² / 5 hectares / 1 acre">
 
-				<label for="message">Additional Details</label>
-				<textarea id="message" name="message" placeholder="Anything else we should know about the property or your project?"></textarea>
+				<label for="re-message">Additional Details</label>
+				<textarea id="re-message" placeholder="Anything else we should know about the property or your project?"></textarea>
 
-				<input type="hidden" name="_subject" value="New Real Estate Quote Request — DroneSurveyCR.com">
-				<button type="submit">📋 Send My Free Quote Request</button>
+				<button type="submit" id="re-submit-btn">📋 Send My Free Quote Request</button>
 			</form>
+			<script>
+			const SB_URL = 'https://bqszvlrzmeszeewufgio.supabase.co';
+			const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJxc3p2bHJ6bWVzemVld3VmZ2lvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYzNTcwMDEsImV4cCI6MjA5MTkzMzAwMX0.SkVeaxSd8lLMtmt1b3M5N3NhDZ4HJJEQjRP255KjMpk';
+			async function submitRealEstateForm(e) {
+				e.preventDefault();
+				const btn = document.getElementById('re-submit-btn');
+				btn.disabled = true;
+				btn.textContent = '⏳ Sending...';
+				const nameParts = document.getElementById('re-name').value.trim().split(/\s+/);
+				const payload = {
+					first_name:         nameParts[0] || '',
+					last_name:          nameParts.slice(1).join(' ') || '',
+					email:              document.getElementById('re-email').value.trim(),
+					phone:              document.getElementById('re-phone').value.trim() || null,
+					services_requested: document.getElementById('re-service').value,
+					state_province:     document.getElementById('re-location').value.trim(),
+					land_size_sq_km:    document.getElementById('re-size').value.trim() || null,
+					survey_type:        'Real Estate',
+					notes:              document.getElementById('re-message').value || null,
+					country:            'Costa Rica'
+				};
+				try {
+					await fetch(SB_URL + '/rest/v1/quote_submissions', {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json',
+							'apikey': SB_KEY,
+							'Authorization': 'Bearer ' + SB_KEY,
+							'Prefer': 'return=minimal'
+						},
+						body: JSON.stringify(payload)
+					});
+					fetch(SB_URL + '/functions/v1/on-new-quote', {
+						method: 'POST',
+						headers: { 'Content-Type': 'application/json' },
+						body: JSON.stringify({ record: payload })
+					}).catch(() => {});
+				} catch(err) { console.error(err); }
+				document.getElementById('realEstateForm').innerHTML = '<div style="text-align:center;padding:30px"><h3 style="color:#0080FE">✅ Quote Request Sent!</h3><p>We\'ll get back to you within a few hours.</p><a href="https://wa.me/50672938970" style="color:#0080FE;font-weight:bold">💬 Or chat on WhatsApp now</a></div>';
+			}
+			</script>
 			<p class="form-note">Or WhatsApp us directly: <a href="https://wa.me/50672938970" target="_blank" rel="noopener" style="color:#0080FE">+506 7293 8970</a></p>
 		</div>
 	</div>

@@ -1,40 +1,61 @@
 {
-  "outputDirectory": ".",
-  "functions": {
-    "api/*.js": {
-      "maxDuration": 10
-    }
-  },
-  "redirects": [
-    { "source": "/services/lidar-mapping", "destination": "/services/lidar-mapping.html", "permanent": true },
-    { "source": "/services/photogrammetry", "destination": "/services/photogrammetry.html", "permanent": true },
-    { "source": "/services/geopositioning", "destination": "/services/geopositioning.html", "permanent": true },
-    { "source": "/services", "destination": "/index.html#services", "permanent": true },
-    { "source": "/quote", "destination": "/quote.html", "permanent": true },
-    { "source": "/about", "destination": "/index.html", "permanent": true },
-    { "source": "/contact", "destination": "/quote.html", "permanent": true }
-  ],
+  "cleanUrls": false,
+  "trailingSlash": false,
   "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
-        { "key": "X-XSS-Protection", "value": "1; mode=block" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
-      ]
-    },
     {
       "source": "/images/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
-      "source": "/(.*)\\.html",
+      "source": "/fonts/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=3600, must-revalidate" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
+    },
+    {
+      "source": "/(.*)\\.css",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)\\.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)\\.json",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "status": 404,
+      "dest": "/404.html"
     }
   ]
 }
