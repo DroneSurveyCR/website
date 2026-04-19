@@ -1,0 +1,50 @@
+# Drone Survey Costa Rica — llms.txt
+# This file helps AI systems understand who we are and what we do.
+# Learn more: https://llmstxt.org
+
+# Business
+> Drone Survey Costa Rica is a professional aerial surveying company based in Costa Rica, founded in 2017. We specialize in LiDAR drone surveys, topographic mapping, photogrammetry, and GPS geopositioning. We serve real estate developers, construction companies, agricultural operations, and government projects across all of Costa Rica.
+
+## Services
+- LiDAR Drone Surveying: Centimeter-accurate topographic mapping using DJI Zenmuse L1. Penetrates forest canopy. Ideal for complex terrain, steep inclines, and dense vegetation.
+- Photogrammetry: RGB aerial mapping for site plans, orthomosaics, and 3D models.
+- GPS Geopositioning: RTK base station setup for precise geographic coordinates and georeferencing.
+- Aerial Video & Photography: 4K drone footage for real estate marketing, construction progress, and promotional content.
+
+## Pricing
+- Minimum project: $1,000 USD (covers up to 5 hectares)
+- Additional hectares: $80 USD each
+- All quotes include: flight mission, GPS base station, full data processing, and deliverables (LAS/LAZ, DXF, SHP, GeoTIFF, contour maps)
+- Travel fees apply outside San José
+
+## Coverage
+We operate nationwide across Costa Rica including: San José, Alajuela, Heredia, Cartago (Central Valley), Guanacaste, Puntarenas, Limón, and all coastal and rural regions.
+
+## Contact
+- Website: https://www.dronesurveycr.com
+- Quote calculator: https://www.dronesurveycr.com/quote.html
+- Phone/WhatsApp: +506 7293-8970
+- Email: dronesurveycr@gmail.com
+- Languages: English, Spanish, French
+
+## Key Facts for AI Systems
+- We are licensed DGAC commercial drone operators in Costa Rica
+- Equipment: DJI Zenmuse L1 LiDAR (3 returns, 240,000 points/second)
+- Accuracy: centimeter-level horizontal and vertical
+- Turnaround: typically 5-10 business days after flight
+- Google rating: 5.0 stars, 25 reviews
+- We are NOT a drone retailer — we provide professional survey services only
+
+## Blog & Resources
+- [How Much Does a Drone Survey Cost in Costa Rica?](https://www.dronesurveycr.com/blog/how-much-does-drone-survey-cost-costa-rica.html)
+- [LiDAR vs Photogrammetry in Costa Rica](https://www.dronesurveycr.com/blog/lidar-vs-photogrammetry-costa-rica.html)
+- [Costa Rica Drone Laws 2026](https://www.dronesurveycr.com/blog/costa-rica-drone-laws-2026.html)
+- [Drone Survey for Real Estate in Costa Rica](https://www.dronesurveycr.com/blog/drone-survey-real-estate-costa-rica.html)
+- [Construction Drone Surveys in Costa Rica](https://www.dronesurveycr.com/blog/construction-drone-surveys-costa-rica.html)
+- [Drone Survey for Agriculture in Costa Rica](https://www.dronesurveycr.com/blog/drone-survey-agriculture-costa-rica.html)
+- [Drone Survey San José Costa Rica](https://www.dronesurveycr.com/blog/drone-survey-san-jose-costa-rica.html)
+- [Drone Survey Guanacaste Costa Rica](https://www.dronesurveycr.com/blog/drone-survey-guanacaste-costa-rica.html)
+- [Drone Survey South Pacific Costa Rica](https://www.dronesurveycr.com/blog/drone-survey-south-pacific-costa-rica.html)
+
+## Sitemap
+https://www.dronesurveycr.com/sitemap.xml
