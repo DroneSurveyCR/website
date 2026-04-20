@@ -180,22 +180,19 @@
     const whatsappBtn = document.getElementById('cta-whatsapp');
     const quoteBtn = document.getElementById('cta-quote');
 
+    const WHATSAPP_URL = 'https://wa.me/50672938970?text=' + encodeURIComponent(
+      "Hi! I'd like to talk to a Drone Survey professional. I have some questions about my project."
+    );
+
     if (whatsappBtn) {
       whatsappBtn.addEventListener('click', function() {
-        window.open('https://wa.me/YOUR_PHONE_NUMBER', '_blank');
+        window.open(WHATSAPP_URL, '_blank', 'noopener');
       });
     }
 
     if (quoteBtn) {
       quoteBtn.addEventListener('click', function() {
-        // Scroll to quote form or trigger modal
-        const quoteForm = document.getElementById('quote-form') || document.querySelector('[data-quote-form]');
-        if (quoteForm) {
-          quoteForm.scrollIntoView({ behavior: 'smooth' });
-        } else {
-          // Fallback: trigger quote modal or navigate
-          window.location.hash = '#quote';
-        }
+        window.open(WHATSAPP_URL, '_blank', 'noopener');
       });
     }
   })();
@@ -216,10 +213,10 @@
       <div id="${popupId}-overlay" role="presentation" aria-hidden="true"></div>
       <div id="${popupId}" role="dialog" aria-labelledby="${popupId}-title" aria-modal="true">
         <button id="${popupId}-close" type="button" aria-label="Close popup">×</button>
-        <h2 id="${popupId}-title">Don't Leave Empty-Handed!</h2>
-        <p>Get a free aerial survey consultation and discover how drone technology can transform your business.</p>
-        <button id="${popupId}-cta" type="button">Get Your Free Consultation</button>
-        <p style="font-size: 12px; color: #666; margin-top: 12px;">No credit card required. Takes 2 minutes.</p>
+        <h2 id="${popupId}-title">Talk to a Drone Survey Professional Now</h2>
+        <p>Ask us anything you want to know about your project — pricing, timelines, deliverables, site access, or what drone technology can do for you. We reply fast on WhatsApp.</p>
+        <button id="${popupId}-cta" type="button">💬 Chat on WhatsApp</button>
+        <p style="font-size: 12px; color: #666; margin-top: 12px;">Free. No commitment. Real human, not a bot.</p>
       </div>
     `;
 
@@ -281,23 +278,23 @@
 
       #${popupId}-cta {
         width: 100%;
-        padding: 12px 20px;
-        background: #0080fe;
+        padding: 14px 20px;
+        background: #25d366;
         color: white;
         border: none;
         border-radius: 8px;
-        font-weight: 600;
-        font-size: 14px;
+        font-weight: 700;
+        font-size: 15px;
         cursor: pointer;
         transition: background 0.2s ease;
       }
 
       #${popupId}-cta:hover {
-        background: #0056b3;
+        background: #1fb855;
       }
 
       #${popupId}-cta:active {
-        background: #003d82;
+        background: #1a9c48;
       }
 
       #${popupId}-close {
@@ -353,18 +350,18 @@
       document.getElementById(`${popupId}-close`).addEventListener('click', closePopup);
       overlay.addEventListener('click', closePopup);
 
-      // CTA button
+      // CTA button → WhatsApp
       document.getElementById(`${popupId}-cta`).addEventListener('click', function() {
-        gtag('event', 'exit_intent_conversion', {
-          event_category: 'engagement',
-          event_label: 'popup_cta'
-        });
-        const quoteForm = document.getElementById('quote-form') || document.querySelector('[data-quote-form]');
-        if (quoteForm) {
-          quoteForm.scrollIntoView({ behavior: 'smooth' });
-        } else {
-          window.location.hash = '#quote';
+        if (typeof gtag === 'function') {
+          gtag('event', 'exit_intent_conversion', {
+            event_category: 'engagement',
+            event_label: 'popup_whatsapp_cta'
+          });
         }
+        const waUrl = 'https://wa.me/50672938970?text=' + encodeURIComponent(
+          "Hi! I'd like to talk to a Drone Survey professional. I have some questions about my project."
+        );
+        window.open(waUrl, '_blank', 'noopener');
         closePopup();
       });
 
