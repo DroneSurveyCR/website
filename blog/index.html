@@ -47,11 +47,35 @@
 		.blog-hero { background: linear-gradient(135deg, #302F40 0%, #0080FE 100%); padding: 60px 0; color: #fff; text-align: center; }
 		.blog-hero h1 { font-size: clamp(28px, 5vw, 52px); margin: 0 0 15px; }
 		.blog-hero p { font-size: 18px; margin: 0; opacity: 0.85; }
-		.blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 30px; padding: 60px 0; }
+
+		/* Category Filter Tabs */
+		.blog-filters { display: flex; justify-content: center; gap: 12px; padding: 30px 0 0; flex-wrap: wrap; }
+		.filter-btn { padding: 10px 24px; border-radius: 30px; border: 2px solid #e0e0e0; background: #fff; color: #555; font-weight: 600; font-size: 15px; cursor: pointer; transition: all 0.2s; font-family: 'IBM Plex Sans', sans-serif; }
+		.filter-btn:hover { border-color: #0080FE; color: #0080FE; }
+		.filter-btn.active { background: #0080FE; color: #fff; border-color: #0080FE; }
+
+		/* Category Section Headers */
+		.blog-section { padding: 40px 0 10px; }
+		.blog-section-header { display: flex; align-items: center; gap: 14px; margin: 0 0 8px; }
+		.blog-section-header h2 { font-size: 26px; color: #302F40; margin: 0; }
+		.blog-section-header .section-icon { font-size: 28px; }
+		.blog-section-subtitle { color: #888; font-size: 15px; margin: 0 0 24px; }
+		.blog-section-divider { width: 60px; height: 4px; background: #0080FE; border-radius: 2px; margin: 0 0 24px; }
+		.blog-section.regional .blog-section-divider { background: #28a745; }
+
+		.blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 30px; padding: 0 0 40px; }
 		.blog-card { border: 1px solid #eee; border-radius: 12px; overflow: hidden; transition: box-shadow 0.2s; }
 		.blog-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
 		.blog-card-body { padding: 24px; }
-		.blog-card-tag { display: inline-block; background: #e8f0fe; color: #0080FE; font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+		.blog-card-tag { display: inline-block; font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+		.tag-technology { background: #e8f0fe; color: #0080FE; }
+		.tag-industry { background: #fff3e0; color: #e67e22; }
+		.tag-costs { background: #e8f5e9; color: #2e7d32; }
+		.tag-legal { background: #fce4ec; color: #c62828; }
+		.tag-methods { background: #f3e5f5; color: #7b1fa2; }
+		.tag-locations { background: #e0f2f1; color: #00796b; }
+		.blog-card-tag.has-podcast { position: relative; }
+		.blog-card-tag.has-podcast::after { content: " \1F3A7"; }
 		.blog-card h2 { font-size: 20px; margin: 0 0 10px; color: #302F40; line-height: 1.3; }
 		.blog-card h2 a { text-decoration: none; color: inherit; }
 		.blog-card h2 a:hover { color: #0080FE; }
@@ -62,10 +86,12 @@
 		.blog-cta p { margin: 0 0 25px; }
 		footer { background: #302F40; color: #ccc; padding: 30px 0; text-align: center; font-size: 14px; }
 		footer a { color: #ccc; }
-		.coming-soon { background: #f8f9fa; border: 2px dashed #ddd; border-radius: 12px; padding: 40px; text-align: center; color: #999; }
 		.podcast-section { background: #f8f9fc; border-left: 4px solid #1DB954; border-radius: 0 12px 12px 0; padding: 32px 36px; margin: 0 0 60px; }
 		.podcast-section h2 { color: #302F40; margin: 0 0 8px; font-size: 24px; }
 		.podcast-section p { margin: 0 0 20px; color: #555; font-size: 16px; }
+
+		/* Hide/show sections for filter */
+		.blog-section.hidden { display: none; }
 	</style>
 	<!-- Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-6L0PFQRYF6"></script>
@@ -108,109 +134,195 @@
 
 	<main>
 		<div class="container">
-			<div class="blog-grid">
 
-				<!-- Post: Central Valley (Cycle 2) -->
-				<article class="blog-card">
-					<div class="blog-card-body">
-						<span class="blog-card-tag">Locations</span>
-						<h2><a href="/blog/drone-survey-central-valley-costa-rica.html">Central Valley Drone Surveys: Construction &amp; Infrastructure Mapping for Alajuela, Cartago &amp; Heredia</a></h2>
-						<p>Drone survey and lidar mapping for construction, infrastructure, and development projects across Costa Rica's Central Valley — covering Alajuela free trade zones, Cartago agriculture, and Heredia tech corridors.</p>
-						<div class="blog-card-meta">April 24, 2026 · 9 min read</div>
-					</div>
-				</article>
-
-				<!-- Post: Caribbean Regional -->
-				<article class="blog-card">
-					<div class="blog-card-body">
-						<span class="blog-card-tag">Locations</span>
-						<h2><a href="/blog/drone-survey-caribbean-costa-rica.html">Caribbean Costa Rica Drone Survey: Lidar Mapping for Coastal Development, Tourism Infrastructure and Port Logistics</a></h2>
-						<p>Professional drone surveys across Costa Rica's Caribbean coast — from tourism development in Puerto Viejo and Cahuita to port logistics in Limón and banana farm mapping in Siquirres.</p>
-						<div class="blog-card-meta">April 17, 2026 · 10 min read</div>
-					</div>
-				</article>
-
-				<!-- Post: Drone Survey vs Ground Survey -->
-				<article class="blog-card">
-					<div class="blog-card-body">
-						<span class="blog-card-tag">Survey Methods</span>
-						<h2><a href="/blog/drone-survey-vs-ground-survey-costa-rica.html">Drone Survey vs Ground Survey in Costa Rica: Which is Better for Your Project?</a></h2>
-						<p>Traditional ground survey or modern drone survey? Honest comparison of cost, accuracy, speed, safety and deliverables in Costa Rica — including when you still legally need a topógrafo.</p>
-						<div class="blog-card-meta">April 14, 2026 · 9 min read</div>
-					</div>
-				</article>
-
-				<!-- Post 1: Drone Survey Cost -->
-				<article class="blog-card">
-					<div class="blog-card-body">
-						<span class="blog-card-tag">Costs &amp; Pricing</span>
-						<h2><a href="/blog/drone-survey-cost-costa-rica.html">How Much Does a Drone Survey Cost in Costa Rica? (2026 Pricing Guide)</a></h2>
-						<p>Complete pricing guide for drone surveys in Costa Rica. Learn our cost structure: $1,000 base for 5 hectares, $80/ha for additional area, plus travel fees and terrain surcharges. Includes pricing comparison to traditional surveys.</p>
-						<div class="blog-card-meta">April 12, 2026 · 11 min read</div>
-					</div>
-				</article>
-
-				<!-- Post 2: Lidar vs Photogrammetry -->
-				<article class="blog-card">
-					<div class="blog-card-body">
-						<span class="blog-card-tag">Technology</span>
-						<h2><a href="/blog/lidar-vs-photogrammetry.html">Lidar vs Photogrammetry in Costa Rica: Which Survey Method Do You Need?</a></h2>
-						<p>Detailed comparison of lidar and photogrammetry drone survey technologies. See accuracy differences, cost tradeoffs, and which method works best for your terrain. Includes real-world applications in Costa Rica.</p>
-						<div class="blog-card-meta">April 13, 2026 · 12 min read</div>
-					</div>
-				</article>
-
-				<!-- Post 3: Plano Catastro (Spanish) -->
-				<article class="blog-card">
-					<div class="blog-card-body">
-						<span class="blog-card-tag">Legal/Regulations</span>
-						<h2><a href="/blog/plano-catastro-drone-costa-rica.html">Plano Catastro con Drones en Costa Rica: Guía Completa</a></h2>
-						<p>Guía completa sobre levantamientos catastrales con drones en Costa Rica. Precisión RTK, requisitos DGAC, zonas restringidas, proceso, costos y aplicaciones legales. Descubre por qué los drones son ideales para planos catastro.</p>
-						<div class="blog-card-meta">April 14, 2026 · 13 min read</div>
-					</div>
-				</article>
-
-				<!-- Post 4: Drone Survey Cost (Original) -->
-				<article class="blog-card">
-					<div class="blog-card-body">
-						<span class="blog-card-tag">Costs &amp; Pricing</span>
-						<h2><a href="/blog/how-much-does-drone-survey-cost-costa-rica.html">How Much Does a Drone Survey Cost in Costa Rica? (2026 Pricing Guide)</a></h2>
-						<p>Everything you need to know about drone survey pricing in Costa Rica — from small residential lots to large agricultural parcels. Includes typical price ranges for lidar and photogrammetry.</p>
-						<div class="blog-card-meta">April 2, 2026 · 8 min read</div>
-					</div>
-				</article>
-
-				<!-- Post 5: Drone Survey San José -->
-				<article class="blog-card">
-					<div class="blog-card-body">
-						<span class="blog-card-tag">Locations</span>
-						<h2><a href="/blog/drone-survey-san-jose-costa-rica.html">Drone Survey Services in San José, Costa Rica</a></h2>
-						<p>Professional drone survey and lidar mapping services in the San José metropolitan area. Fast turnaround for construction, real estate, and infrastructure projects in Costa Rica's capital region.</p>
-						<div class="blog-card-meta">April 1, 2026 · 7 min read</div>
-					</div>
-				</article>
-
-				<!-- Post 7 -->
-				<article class="blog-card">
-					<div class="blog-card-body">
-						<span class="blog-card-tag">Locations</span>
-						<h2><a href="/blog/drone-survey-guanacaste-costa-rica.html">Guanacaste Drone Survey: Lidar Mapping for Cattle Ranches, Farms and Coastal Real Estate</a></h2>
-						<p>Professional drone surveys across Guanacaste — from cattle ranch mapping in Hojancha to coastal real estate surveys in Tamarindo and Nosara. Covering Liberia, Nicoya, Santa Cruz and beyond.</p>
-						<div class="blog-card-meta">April 12, 2026 · 9 min read</div>
-					</div>
-				</article>
-
-				<!-- Post 8 -->
-				<article class="blog-card">
-					<div class="blog-card-body">
-						<span class="blog-card-tag">Locations</span>
-						<h2><a href="/blog/drone-survey-south-pacific-costa-rica.html">South Pacific Drone Survey: Lidar Mapping for Pineapple Farms, Coastal Property &amp; Land Development</a></h2>
-						<p>Professional drone surveys across South Pacific Costa Rica — from pineapple farm drainage planning in Ojochal to coastal real estate development in Uvita and Puerto Jiménez.</p>
-						<div class="blog-card-meta">April 12, 2026 · 9 min read</div>
-					</div>
-				</article>
-
+			<!-- Category Filter Buttons -->
+			<div class="blog-filters">
+				<button class="filter-btn active" onclick="filterPosts('all')">All Posts</button>
+				<button class="filter-btn" onclick="filterPosts('expert')">Expert Guides</button>
+				<button class="filter-btn" onclick="filterPosts('regional')">Regional Guides</button>
 			</div>
+
+			<!-- ============================================ -->
+			<!-- EXPERT GUIDES SECTION                        -->
+			<!-- ============================================ -->
+			<section class="blog-section expert" id="section-expert">
+				<div class="blog-section-header">
+					<span class="section-icon">📘</span>
+					<h2>Expert Guides</h2>
+				</div>
+				<p class="blog-section-subtitle">Technology, costs, industry applications, and regulations for drone surveys in Costa Rica</p>
+				<div class="blog-section-divider"></div>
+
+				<div class="blog-grid">
+
+					<!-- EP01: LiDAR vs Photogrammetry (has Spotify + YouTube) -->
+					<article class="blog-card">
+						<div class="blog-card-body">
+							<span class="blog-card-tag tag-technology has-podcast">Technology</span>
+							<h2><a href="/blog/lidar-vs-photogrammetry-costa-rica.html">LiDAR vs Photogrammetry in Costa Rica: Which Drone Survey Method Do You Need?</a></h2>
+							<p>Detailed comparison of LiDAR and photogrammetry drone survey technologies. Accuracy, cost tradeoffs, and real-world applications for Costa Rica terrain.</p>
+							<div class="blog-card-meta">April 8, 2026 · 12 min read · 🎧 Podcast EP01 · 🎥 YouTube</div>
+						</div>
+					</article>
+
+					<!-- EP02: Drone Surveys for Real Estate (has Spotify + YouTube) -->
+					<article class="blog-card">
+						<div class="blog-card-body">
+							<span class="blog-card-tag tag-industry has-podcast">Industry</span>
+							<h2><a href="/blog/drone-survey-real-estate-costa-rica.html">Drone Surveys for Real Estate in Costa Rica: Boundary Maps, Topography &amp; Due Diligence</a></h2>
+							<p>How Costa Rica real estate buyers, developers, and agents use drone surveys for boundary verification, slope analysis, and property due diligence.</p>
+							<div class="blog-card-meta">April 17, 2026 · 10 min read · 🎧 Podcast EP02 · 🎥 YouTube</div>
+						</div>
+					</article>
+
+					<!-- EP03: Drone Surveys for Agriculture -->
+					<article class="blog-card">
+						<div class="blog-card-body">
+							<span class="blog-card-tag tag-industry">Industry</span>
+							<h2><a href="/blog/drone-survey-agriculture-costa-rica.html">Drone Surveys for Agriculture in Costa Rica: Precision Farming &amp; Crop Mapping</a></h2>
+							<p>How Costa Rica farmers and agribusiness use drone surveys for crop health mapping, irrigation planning, yield estimation, and precision agriculture.</p>
+							<div class="blog-card-meta">April 22, 2026 · 11 min read</div>
+						</div>
+					</article>
+
+					<!-- Construction Drone Surveys -->
+					<article class="blog-card">
+						<div class="blog-card-body">
+							<span class="blog-card-tag tag-industry">Industry</span>
+							<h2><a href="/blog/construction-drone-surveys-costa-rica.html">Drone Surveys for Construction in Costa Rica: Cut Costs &amp; Track Progress</a></h2>
+							<p>How construction companies in Costa Rica use drone surveys for earthwork calculations, progress tracking, stockpile volumes, and as-built documentation.</p>
+							<div class="blog-card-meta">April 17, 2026 · 10 min read</div>
+						</div>
+					</article>
+
+					<!-- Drone Survey vs Ground Survey -->
+					<article class="blog-card">
+						<div class="blog-card-body">
+							<span class="blog-card-tag tag-methods">Survey Methods</span>
+							<h2><a href="/blog/drone-survey-vs-ground-survey-costa-rica.html">Drone Survey vs Ground Survey in Costa Rica: Which is Better for Your Project?</a></h2>
+							<p>Traditional ground survey or modern drone survey? Honest comparison of cost, accuracy, speed, safety and deliverables — including when you still legally need a topografo.</p>
+							<div class="blog-card-meta">April 14, 2026 · 9 min read</div>
+						</div>
+					</article>
+
+					<!-- Drone Survey Cost (2026 Updated) -->
+					<article class="blog-card">
+						<div class="blog-card-body">
+							<span class="blog-card-tag tag-costs">Costs &amp; Pricing</span>
+							<h2><a href="/blog/drone-survey-cost-costa-rica.html">How Much Does a Drone Survey Cost in Costa Rica? (2026 Pricing Guide)</a></h2>
+							<p>Complete pricing guide for drone surveys in Costa Rica. Our cost structure: $1,000 base for 5 hectares, $80/ha for additional area, plus travel fees and terrain surcharges.</p>
+							<div class="blog-card-meta">April 12, 2026 · 11 min read</div>
+						</div>
+					</article>
+
+					<!-- LiDAR vs Photogrammetry (Original/Alternate) -->
+					<article class="blog-card">
+						<div class="blog-card-body">
+							<span class="blog-card-tag tag-technology">Technology</span>
+							<h2><a href="/blog/lidar-vs-photogrammetry.html">Lidar vs Photogrammetry: A Technical Comparison for Property Owners</a></h2>
+							<p>Detailed comparison of lidar and photogrammetry drone survey technologies. See accuracy differences, cost tradeoffs, and which method works best for your terrain.</p>
+							<div class="blog-card-meta">April 13, 2026 · 12 min read</div>
+						</div>
+					</article>
+
+					<!-- Drone Survey Cost (Original) -->
+					<article class="blog-card">
+						<div class="blog-card-body">
+							<span class="blog-card-tag tag-costs">Costs &amp; Pricing</span>
+							<h2><a href="/blog/how-much-does-drone-survey-cost-costa-rica.html">How Much Does a Drone Survey Cost in Costa Rica? (Pricing Overview)</a></h2>
+							<p>Everything you need to know about drone survey pricing in Costa Rica — from small residential lots to large agricultural parcels. Typical price ranges for lidar and photogrammetry.</p>
+							<div class="blog-card-meta">April 2, 2026 · 8 min read</div>
+						</div>
+					</article>
+
+					<!-- Costa Rica Drone Laws 2026 -->
+					<article class="blog-card">
+						<div class="blog-card-body">
+							<span class="blog-card-tag tag-legal">Legal / Regulations</span>
+							<h2><a href="/blog/costa-rica-drone-laws-2026.html">Costa Rica Drone Laws 2026: What You Need to Know Before Flying</a></h2>
+							<p>Complete guide to Costa Rica drone laws in 2026. DGAC regulations, restricted zones, commercial permits, national park rules, and penalties for violations.</p>
+							<div class="blog-card-meta">April 17, 2026 · 10 min read</div>
+						</div>
+					</article>
+
+					<!-- Plano Catastro (Spanish) -->
+					<article class="blog-card">
+						<div class="blog-card-body">
+							<span class="blog-card-tag tag-legal">Legal / Regulaciones</span>
+							<h2><a href="/blog/plano-catastro-drone-costa-rica.html">Plano Catastro con Drones en Costa Rica: Guia Completa</a></h2>
+							<p>Guia completa sobre levantamientos catastrales con drones en Costa Rica. Precision RTK, requisitos DGAC, zonas restringidas, proceso, costos y aplicaciones legales.</p>
+							<div class="blog-card-meta">April 14, 2026 · 13 min read</div>
+						</div>
+					</article>
+
+				</div>
+			</section>
+
+			<!-- ============================================ -->
+			<!-- REGIONAL GUIDES SECTION                      -->
+			<!-- ============================================ -->
+			<section class="blog-section regional" id="section-regional">
+				<div class="blog-section-header">
+					<span class="section-icon">📍</span>
+					<h2>Regional Guides</h2>
+				</div>
+				<p class="blog-section-subtitle">Location-specific drone survey coverage across Costa Rica's provinces and regions</p>
+				<div class="blog-section-divider"></div>
+
+				<div class="blog-grid">
+
+					<!-- Central Valley -->
+					<article class="blog-card">
+						<div class="blog-card-body">
+							<span class="blog-card-tag tag-locations">Central Valley</span>
+							<h2><a href="/blog/drone-survey-central-valley-costa-rica.html">Central Valley Drone Surveys: Construction &amp; Infrastructure Mapping for Alajuela, Cartago &amp; Heredia</a></h2>
+							<p>Drone survey and lidar mapping for construction, infrastructure, and development projects across Costa Rica's Central Valley.</p>
+							<div class="blog-card-meta">April 24, 2026 · 9 min read</div>
+						</div>
+					</article>
+
+					<!-- San Jose -->
+					<article class="blog-card">
+						<div class="blog-card-body">
+							<span class="blog-card-tag tag-locations">San Jose</span>
+							<h2><a href="/blog/drone-survey-san-jose-costa-rica.html">Drone Survey Services in San Jose, Costa Rica</a></h2>
+							<p>Professional drone survey and lidar mapping services in the San Jose metropolitan area. Fast turnaround for construction, real estate, and infrastructure projects.</p>
+							<div class="blog-card-meta">April 1, 2026 · 7 min read</div>
+						</div>
+					</article>
+
+					<!-- Caribbean -->
+					<article class="blog-card">
+						<div class="blog-card-body">
+							<span class="blog-card-tag tag-locations">Caribbean</span>
+							<h2><a href="/blog/drone-survey-caribbean-costa-rica.html">Caribbean Costa Rica Drone Survey: Lidar Mapping for Coastal Development, Tourism &amp; Port Logistics</a></h2>
+							<p>Professional drone surveys across Costa Rica's Caribbean coast — from tourism in Puerto Viejo and Cahuita to port logistics in Limon and banana farm mapping.</p>
+							<div class="blog-card-meta">April 17, 2026 · 10 min read</div>
+						</div>
+					</article>
+
+					<!-- Guanacaste -->
+					<article class="blog-card">
+						<div class="blog-card-body">
+							<span class="blog-card-tag tag-locations">Guanacaste</span>
+							<h2><a href="/blog/drone-survey-guanacaste-costa-rica.html">Guanacaste Drone Survey: Lidar Mapping for Cattle Ranches, Farms and Coastal Real Estate</a></h2>
+							<p>Professional drone surveys across Guanacaste — from cattle ranch mapping in Hojancha to coastal real estate surveys in Tamarindo and Nosara.</p>
+							<div class="blog-card-meta">April 12, 2026 · 9 min read</div>
+						</div>
+					</article>
+
+					<!-- South Pacific -->
+					<article class="blog-card">
+						<div class="blog-card-body">
+							<span class="blog-card-tag tag-locations">South Pacific</span>
+							<h2><a href="/blog/drone-survey-south-pacific-costa-rica.html">South Pacific Drone Survey: Lidar Mapping for Pineapple Farms, Coastal Property &amp; Land Development</a></h2>
+							<p>Professional drone surveys across South Pacific Costa Rica — from pineapple farm drainage planning in Ojochal to coastal real estate in Uvita and Puerto Jimenez.</p>
+							<div class="blog-card-meta">April 12, 2026 · 9 min read</div>
+						</div>
+					</article>
+
+				</div>
+			</section>
 
 			<!-- Spotify Podcast Show Embed -->
 			<div class="podcast-section">
@@ -234,5 +346,27 @@
 			<p style="margin:0;">&copy; 2026 Drone Survey Costa Rica | <a href="../index.html">Home</a> | <a href="../sitemap.xml">Sitemap</a></p>
 		</div>
 	</footer>
+
+	<script>
+		function filterPosts(category) {
+			var btns = document.querySelectorAll('.filter-btn');
+			for (var i = 0; i < btns.length; i++) { btns[i].classList.remove('active'); }
+			event.target.classList.add('active');
+
+			var expert = document.getElementById('section-expert');
+			var regional = document.getElementById('section-regional');
+
+			if (category === 'all') {
+				expert.classList.remove('hidden');
+				regional.classList.remove('hidden');
+			} else if (category === 'expert') {
+				expert.classList.remove('hidden');
+				regional.classList.add('hidden');
+			} else if (category === 'regional') {
+				expert.classList.add('hidden');
+				regional.classList.remove('hidden');
+			}
+		}
+	</script>
 </body>
 </html>
