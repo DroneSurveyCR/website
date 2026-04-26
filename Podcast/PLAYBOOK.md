@@ -117,7 +117,7 @@ Scheduled task `weekly-youtube-publisher` runs after user confirms video is on Y
 
 | # | Date | Source Blog | Topic | Spotify | YouTube | GBP |
 |---|------|-------------|-------|---------|---------|-----|
-| 01 | 2026-04-08 | `lidar-vs-photogrammetry-costa-rica.html` | LiDAR Drones: Mapping Hidden Costa Rican Land | ✅ | ⏳ | ✅ |
+| 01 | 2026-04-08 | `lidar-vs-photogrammetry-costa-rica.html` | LiDAR Drones: Mapping Hidden Costa Rican Land | ✅ | ✅ `youtu.be/q45B3AGU5Gw` | ✅ |
 | 02 | 2026-04-17 | `drone-survey-real-estate-costa-rica.html` | Drone Surveys for Costa Rica Real Estate | 🟡 | ✅ `youtu.be/A_mNL2hGbok` | ⏳ |
 | 03 | 2026-04-22 | (auto-generated Tue 4/21) | TBD from blog | ⏳ | ⏳ | ⏳ |
 | 04 | 2026-04-29 | (auto-generated Tue 4/28) | TBD from blog | ⏳ | ⏳ | ⏳ |
