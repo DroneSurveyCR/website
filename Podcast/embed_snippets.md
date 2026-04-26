@@ -61,7 +61,7 @@ Use on the blog landing page and on any post without a dedicated episode yet.
 | EP | Title | Spotify Episode ID | Blog Post |
 |----|-------|-------------------|-----------|
 | 01 | DSCR EP.1 \| LiDAR Drones | `6cYx3z8tvLTHFTlqpLQxof` | `lidar-vs-photogrammetry-costa-rica.html` |
-| 02 | Drone Surveys for CR Real Estate | TBD | `drone-survey-real-estate-costa-rica.html` |
+| 02 | Drone Surveys for CR Real Estate | `1iCuudtusA27I8UHPqOQXa` | `drone-survey-real-estate-costa-rica.html` |
 
 ## Public URLs
 
