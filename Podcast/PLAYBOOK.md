@@ -119,16 +119,16 @@ Scheduled task `weekly-youtube-publisher` runs after user confirms video is on Y
 |---|------|-------------|-------|---------|---------|-----|
 | 01 | 2026-04-08 | `lidar-vs-photogrammetry-costa-rica.html` | LiDAR Drones: Mapping Hidden Costa Rican Land | ✅ | ✅ `youtu.be/q45B3AGU5Gw` | ✅ |
 | 02 | 2026-04-17 | `drone-survey-real-estate-costa-rica.html` | Drone Surveys for Costa Rica Real Estate | 🟡 | ✅ `youtu.be/A_mNL2hGbok` | ⏳ |
-| 03 | 2026-04-22 | (auto-generated Tue 4/21) | TBD from blog | ⏳ | ⏳ | ⏳ |
+| 03 | 2026-04-22 | `drone-survey-agriculture-costa-rica.html` | Drone Surveys for Agriculture in Costa Rica | ⏳ | ⏳ | ⏳ |
 | 04 | 2026-04-29 | (auto-generated Tue 4/28) | TBD from blog | ⏳ | ⏳ | ⏳ |
 | 05 | 2026-05-06 | (auto-generated Tue 5/5) | TBD from blog | ⏳ | ⏳ | ⏳ |
 
 Existing blog bank (ready-to-use sources):
 - `drone-survey-real-estate-costa-rica.html` → **EP02**
-- `lidar-vs-photogrammetry-costa-rica.html` → candidate
+- `lidar-vs-photogrammetry-costa-rica.html` → **EP01**
 - `construction-drone-surveys-costa-rica.html` → candidate
 - `costa-rica-drone-laws-2026.html` → candidate
-- `drone-survey-agriculture-costa-rica.html` → candidate
+- `drone-survey-agriculture-costa-rica.html` → **EP03**
 - `drone-survey-guanacaste-costa-rica.html` → candidate
 - `drone-survey-san-jose-costa-rica.html` → candidate
 - `drone-survey-south-pacific-costa-rica.html` → candidate
