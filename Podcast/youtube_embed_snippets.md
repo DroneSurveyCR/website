@@ -44,7 +44,7 @@ Reusable HTML for embedding YouTube videos on matching blog posts.
 
 | EP | Blog Post | YouTube Video ID | YouTube URL | Status |
 |----|-----------|-----------------|-------------|--------|
-| 01 | `lidar-vs-photogrammetry-costa-rica.html` | TBD | TBD | ⏳ Awaiting upload |
+| 01 | `lidar-vs-photogrammetry-costa-rica.html` | `q45B3AGU5Gw` | `youtu.be/q45B3AGU5Gw` | ✅ Live |
 | 02 | `drone-survey-real-estate-costa-rica.html` | TBD | TBD | ⏳ Awaiting upload |
 
 ---
