@@ -234,8 +234,15 @@
 					</div>
 				</div>
 
+				<!-- Honeypot — bots fill this; humans never see it -->
+				<div style="position:absolute;left:-9999px;top:-9999px;height:0;width:0;overflow:hidden" aria-hidden="true">
+					<label>Website (leave blank)</label>
+					<input type="text" id="website_url" name="website_url" tabindex="-1" autocomplete="off">
+				</div>
+
 				<button class="btn-submit" id="submitBtn" onclick="submitQuote()">📋 Send My Quote Request</button>
 				<a href="https://wa.me/50672938970" class="btn-wa" target="_blank" rel="noopener">💬 Prefer WhatsApp? Chat Directly</a>
+				<div id="submitError" style="display:none;margin-top:14px;padding:14px;border-radius:8px;background:#fef2f2;border:1px solid #fecaca;color:#991b1b;font-size:14px;line-height:1.5"></div>
 				<p class="form-foot">We'll confirm your quote within a few hours.<br>50% deposit to start · 50% on delivery · Crypto · PayPal · Wire · Cash</p>
 			</div>
 
@@ -459,98 +466,149 @@ function calculateQuote() {
 	document.getElementById('deliverablesCard').style.display = 'block';
 }
 
-// ── SUPABASE CONFIG ─────────────────────────────────────────────
-const SUPABASE_URL = 'https://bqszvlrzmeszeewufgio.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJxc3p2bHJ6bWVzemVld3VmZ2lvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYzNTcwMDEsImV4cCI6MjA5MTkzMzAwMX0.SkVeaxSd8lLMtmt1b3M5N3NhDZ4HJJEQjRP255KjMpk';
+// ── LEADS ENDPOINT ─────────────────────────────────────────────
+const LEADS_ENDPOINT = 'https://app.dronesurveycr.com/api/leads/quote-submit';
+const FALLBACK_EMAIL = 'sales@dronesurveycr.com';
+const PENDING_KEY = 'dscr_pending_quote_v1';
 
-// ── SUBMIT ───────────────────────────────────────────────────────
-async function submitQuote() {
+function buildPayload() {
 	const firstName = document.getElementById('firstName').value.trim();
 	const lastName  = document.getElementById('lastName').value.trim();
 	const email     = document.getElementById('email').value.trim();
 	const phone     = document.getElementById('phone').value.trim();
 	const services  = getServices();
 
-	if (!firstName || !email || !phone) { alert('Please fill in name, email, and phone.'); return; }
-	if (services.length === 0) { alert('Please select at least one service.'); return; }
-
-	const btn = document.getElementById('submitBtn');
-	btn.disabled = true;
-	btn.textContent = '⏳ Sending...';
-
-	// Build breakdown text
 	const lines = [...document.getElementById('quoteLines').querySelectorAll('.quote-line')];
 	const breakdown = lines.map(l => `${l.querySelector('.ql').textContent}: ${l.querySelector('.qa').textContent}`).join('\n');
 
 	const hectaresVal = parseFloat(document.getElementById('hectares').value) || null;
 	const provSelect  = document.getElementById('province');
 	const provText    = provSelect.options[provSelect.selectedIndex]?.text || '';
-	const deadlineVal = document.getElementById('deadline').value || null;
+	const deadlineVal = document.getElementById('deadline').value || '';
 	const totalText   = document.getElementById('quoteTotal').textContent;
 	const totalNum    = parseFloat(totalText.replace(/[$,]/g, '')) || null;
+	const surveyType  = services.includes('LiDAR Mapping') ? 'LiDAR' :
+	                    services.includes('Photogrammetry') ? 'Photogrammetry' :
+	                    services.includes('GPS / Plano Cadastro') ? 'GPS/Cadastro' :
+	                    services[0] || 'Other';
 
-	// Determine survey type from selected services
-	const surveyType = services.includes('LiDAR Mapping') ? 'LiDAR' :
-	                   services.includes('Photogrammetry') ? 'Photogrammetry' :
-	                   services.includes('GPS / Plano Cadastro') ? 'GPS/Cadastro' :
-	                   services[0] || 'Other';
-
-	// Supabase payload — matches quote_submissions table
-	const supabasePayload = {
-		first_name:          firstName,
-		last_name:           lastName,
-		email:               email,
-		phone:               phone,
-		company_name:        document.getElementById('company').value || null,
-		services_requested:  services.join(', '),
-		area_hectares:       hectaresVal,
-		latitude_longitude:  document.getElementById('address').value || null,
-		state_province:      provText || null,
-		deadline:            deadlineVal,
-		referral_source:     document.getElementById('referral').value || null,
-		survey_type:         surveyType,
-		terrain_type:        null,
-		urgency:             deadlineVal ? 'specified' : 'flexible',
-		calculated_price:    totalNum,
-		notes:               [
-			document.getElementById('notes').value,
-			'--- Quote Breakdown ---',
-			breakdown,
-			'--- Deposit: ' + document.getElementById('depositAmt').textContent + ' ---'
-		].filter(Boolean).join('\n'),
-		country:             'Costa Rica'
+	return {
+		website_url: document.getElementById('website_url').value, // honeypot
+		firstName, lastName, email, phone,
+		company:   document.getElementById('company').value || '',
+		services,
+		hectares:  hectaresVal,
+		province:  provText,
+		address:   document.getElementById('address').value || '',
+		deadline:  deadlineVal,
+		referral:  document.getElementById('referral').value || '',
+		surveyType,
+		total:     totalNum,
+		breakdown,
+		notes:     document.getElementById('notes').value || '',
+		pageUrl:   location.href,
 	};
+}
 
+function showError(msg, payload) {
+	const el = document.getElementById('submitError');
+	const subject = encodeURIComponent('Quote request from ' + (payload.firstName || 'website'));
+	const bodyLines = [
+		'Hi Drone Survey CR,',
+		'',
+		'My quote request from your website did not submit. Details:',
+		'',
+		'Name: ' + (payload.firstName || '') + ' ' + (payload.lastName || ''),
+		'Email: ' + (payload.email || ''),
+		'Phone: ' + (payload.phone || ''),
+		'Company: ' + (payload.company || ''),
+		'Services: ' + (payload.services || []).join(', '),
+		'Hectares: ' + (payload.hectares || ''),
+		'Province: ' + (payload.province || ''),
+		'Estimated total: $' + (payload.total || ''),
+		'Notes: ' + (payload.notes || ''),
+	];
+	const mailto = 'mailto:' + FALLBACK_EMAIL + '?subject=' + subject + '&body=' + encodeURIComponent(bodyLines.join('\n'));
+	const wa = 'https://wa.me/50672938970?text=' + encodeURIComponent('Hi, my quote request from dronesurveycr.com did not submit. Name: ' + (payload.firstName || '') + ', Services: ' + (payload.services || []).join(', '));
+	el.innerHTML =
+		'<strong>Submission failed.</strong> ' + msg + '<br><br>' +
+		'Your details are saved in this browser — refresh and try again, or use one of these:<br>' +
+		'<a href="' + mailto + '" style="color:#0080FE;font-weight:600">📧 Email us</a> &nbsp;·&nbsp; ' +
+		'<a href="' + wa + '" target="_blank" rel="noopener" style="color:#25D366;font-weight:600">💬 WhatsApp</a>';
+	el.style.display = 'block';
+}
+
+// On load, if a pending submission was saved from a previous failure, prefill the form so the user can retry.
+(function restorePending() {
 	try {
-		// 1. Save to Supabase
-		const r = await fetch(SUPABASE_URL + '/rest/v1/quote_submissions', {
-			method: 'POST',
-			headers: {
-				'Content-Type':  'application/json',
-				'apikey':        SUPABASE_ANON_KEY,
-				'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
-				'Prefer':        'return=minimal'
-			},
-			body: JSON.stringify(supabasePayload)
-		});
-		if (!r.ok) {
-			const errText = await r.text();
-			console.error('Supabase error:', r.status, errText);
-		}
+		const raw = localStorage.getItem(PENDING_KEY);
+		if (!raw) return;
+		const p = JSON.parse(raw);
+		if (!p || !p.email) return;
+		// Only restore if form is empty — don't clobber a user actively typing
+		if (document.getElementById('email').value) return;
+		document.getElementById('firstName').value = p.firstName || '';
+		document.getElementById('lastName').value  = p.lastName  || '';
+		document.getElementById('email').value     = p.email     || '';
+		document.getElementById('phone').value     = p.phone     || '';
+		document.getElementById('company').value   = p.company   || '';
+		document.getElementById('address').value   = p.address   || '';
+		document.getElementById('referral').value  = p.referral  || '';
+		document.getElementById('notes').value     = p.notes     || '';
+	} catch (_) { /* ignore */ }
+})();
 
-		// 2. Notify Slack + Notion via edge function (fire-and-forget)
-		fetch(SUPABASE_URL + '/functions/v1/on-new-quote', {
+// ── SUBMIT ───────────────────────────────────────────────────────
+async function submitQuote() {
+	const payload = buildPayload();
+
+	if (!payload.firstName || !payload.email || !payload.phone) { alert('Please fill in name, email, and phone.'); return; }
+	if (!payload.services || payload.services.length === 0) { alert('Please select at least one service.'); return; }
+
+	const btn = document.getElementById('submitBtn');
+	const errEl = document.getElementById('submitError');
+	errEl.style.display = 'none';
+	btn.disabled = true;
+	btn.textContent = '⏳ Sending...';
+
+	// Save locally first — so a network failure mid-request doesn't lose the lead
+	try { localStorage.setItem(PENDING_KEY, JSON.stringify(payload)); } catch (_) {}
+
+	let result = null, errorMsg = '';
+	try {
+		const ctrl = new AbortController();
+		const t = setTimeout(() => ctrl.abort(), 20000);
+		const r = await fetch(LEADS_ENDPOINT, {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ record: supabasePayload })
-		}).catch(() => {});
-	} catch(e) {
-		console.error('Submit error:', e);
+			body: JSON.stringify(payload),
+			signal: ctrl.signal,
+		});
+		clearTimeout(t);
+		const text = await r.text();
+		try { result = JSON.parse(text); } catch (_) { result = { ok: false, error: 'Bad response: ' + text.slice(0, 200) }; }
+		if (!r.ok || !result.ok) { errorMsg = (result && result.error) || ('HTTP ' + r.status); }
+	} catch (e) {
+		errorMsg = (e && e.name === 'AbortError') ? 'Request timed out' : (e && e.message) || 'Network error';
 	}
 
+	if (errorMsg) {
+		btn.disabled = false;
+		btn.textContent = '📋 Send My Quote Request';
+		showError(errorMsg, payload);
+		// Try to send a beacon to a backup mail-fallback so leads don't fully drop. We attempt mailto auto-open last.
+		console.error('[quote] submit failed:', errorMsg, result);
+		return;
+	}
+
+	// Success — clear pending backup, show success card
+	try { localStorage.removeItem(PENDING_KEY); } catch (_) {}
 	document.getElementById('quoteForm').style.display = 'none';
 	document.getElementById('successCard').style.display = 'block';
 	window.scrollTo({ top: 0, behavior: 'smooth' });
+
+	// Fire GA event so we can correlate
+	try { window.gtag && window.gtag('event', 'quote_submit', { value: payload.total || 0 }); } catch (_) {}
 }
 </script>
 </body>
