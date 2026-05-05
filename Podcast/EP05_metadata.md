@@ -58,8 +58,8 @@ Perfect for contractors, real estate developers, and property owners planning a 
 
 **Blog Source:** `https://www.dronesurveycr.com/blog/drone-survey-costs-costa-rica-2026.html`
 
-**Podcast Audio:** (to be generated via NotebookLM Audio Overview)
+**Podcast Audio:** Generated via NotebookLM Audio Overview
 
-**Spotify Episode Link:** (to be assigned after upload)
+**Spotify Episode Link:** https://open.spotify.com/episode/2lFadQpqqWhjOhvgKfvXQE
 
-**YouTube Video Link:** (to be assigned after upload)
+**YouTube Video Link:** https://youtu.be/ERP15A7Avew
