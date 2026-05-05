@@ -56,7 +56,7 @@
   </url>
   <url>
     <loc>https://www.dronesurveycr.com/blog/</loc>
-    <lastmod>2026-04-26</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -80,7 +80,7 @@
   </url>
   <url>
     <loc>https://www.dronesurveycr.com/blog/construction-drone-surveys-costa-rica.html</loc>
-    <lastmod>2026-04-16</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -135,6 +135,24 @@
   <url>
     <loc>https://www.dronesurveycr.com/blog/drone-topographic-survey-costa-rica.html</loc>
     <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.dronesurveycr.com/blog/drone-survey-central-valley-update-costa-rica.html</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.dronesurveycr.com/blog/drone-survey-guanacaste-tourism-infrastructure-costa-rica.html</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.dronesurveycr.com/blog/drone-survey-environmental-impact-assessment-costa-rica.html</loc>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
