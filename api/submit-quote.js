@@ -76,7 +76,10 @@ async function saveToNotion(d) {
 // ─── SLACK ─────────────────────────────────────────────────────
 async function sendSlack(d) {
 	const webhook = process.env.SLACK_WEBHOOK_URL;
-	if (!webhook) throw new Error('SLACK_WEBHOOK_URL not set');
+	const botToken = process.env.SLACK_BOT_TOKEN;
+	const channel = process.env.SLACK_SALES_CHANNEL || 'sales';
+
+	if (!webhook && !botToken) throw new Error('No Slack credentials configured');
 
 	const text = [
 		`*🛰️ New Quote — DroneSurveyCR.com*`,
@@ -90,12 +93,22 @@ async function sendSlack(d) {
 		`<https://wa.me/${(d.phone||'').replace(/\D/g,'')}|💬 Reply on WhatsApp>  |  <https://notion.so/21eefe17c7914f60a64e69b9a1e3ff44|📋 Open Notion>`
 	].filter(Boolean).join('\n');
 
-	const r = await fetch(webhook, {
-		method: 'POST',
-		headers: { 'Content-Type': 'application/json' },
-		body: JSON.stringify({ text })
-	});
-	if (!r.ok) throw new Error(`Slack: ${await r.text()}`);
+	if (webhook) {
+		const r = await fetch(webhook, {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ text })
+		});
+		if (!r.ok) throw new Error(`Slack webhook: ${await r.text()}`);
+	} else {
+		const r = await fetch('https://slack.com/api/chat.postMessage', {
+			method: 'POST',
+			headers: { 'Authorization': `Bearer ${botToken}`, 'Content-Type': 'application/json' },
+			body: JSON.stringify({ channel, text })
+		});
+		const data = await r.json();
+		if (!data.ok) throw new Error(`Slack API: ${data.error}`);
+	}
 }
 
 // ─── EMAIL (Resend) ────────────────────────────────────────────
