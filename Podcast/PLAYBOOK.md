@@ -43,5 +43,4 @@
 - Guanacaste tourism development and drone mapping
 - South Pacific / Osa Peninsula drone survey challenges
 - Caribbean coast: drone surveys for eco-resort development
-- Solar farm siting surveys with drone LiDAR
-- Precision agriculture and coffee farm mapping
+- Solar
