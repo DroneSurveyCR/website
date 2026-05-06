@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
+	<meta name="theme-color" content="#302F40">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Drone Survey Blog Costa Rica | Lidar, Photogrammetry &amp; Aerial Mapping Guides</title>
 	<meta name="description" content="Expert guides on drone surveying, lidar mapping, and photogrammetry in Costa Rica. Learn about costs, technology, and how aerial surveys help real estate, construction and agriculture.">
-	<meta name="robots" content="index, follow">
+	<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 	<link rel="canonical" href="https://www.dronesurveycr.com/blog/">
 	<meta property="og:type" content="website">
 	<meta property="og:title" content="Drone Survey Blog Costa Rica | Lidar &amp; Photogrammetry Guides">
@@ -27,286 +28,294 @@
 	}
 	</script>
 	<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+	<link rel="dns-prefetch" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="../styles/main.css">
 	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 	<style>
 		* { box-sizing: border-box; }
 		body { margin: 0; font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.56; color: #5C5C69; }
-		h1, h2, h3, h4, h5, h6 { font-family: 'IBM Plex Sans', sans-serif; }
+		h1, h2, h3, h4, h5, h6 { font-family: 'IBM Plex Sans', sans-serif; color: #302F40; }
+		a { color: #0080FE; text-decoration: none; }
+		a:hover { color: #005bb5; }
 		.container { max-width: 1140px; margin: 0 auto; padding: 0 15px; }
+
+		/* === HEADER — matches main site exactly === */
 		#sp-header { padding: 15px 0; border-bottom: 1px solid #eee; }
 		#sp-header .row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+		.logo a { display: inline-block; }
 		.logo img { height: 36px; display: block; }
-		nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 5px; }
+		nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 5px; justify-content: flex-end; }
+		nav > ul > li { position: relative; }
 		nav a { text-decoration: none; color: #302F40; padding: 8px 12px; font-weight: 500; }
 		nav a:hover { color: #0080FE; }
-		.btn { display: inline-block; padding: 10px 20px; border-radius: 6px; font-weight: 500; text-decoration: none; font-family: 'IBM Plex Sans', sans-serif; font-size: 15px; }
-		.btn-custom { background: #0080FE; color: #fff; }
-		.btn-success { background: #28a745; color: #fff; }
+		nav ul ul { display: none; position: absolute; top: 100%; left: 0; background: #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 6px; min-width: 180px; padding: 8px 0; z-index: 10; }
+		nav ul li:hover > ul { display: block; }
+		nav ul ul li { display: block; }
+		nav ul ul a { display: block; padding: 10px 16px; white-space: nowrap; }
+		nav ul ul a:hover { background: #f0f0f0; }
+
+		/* === HERO === */
 		.blog-hero { background: linear-gradient(135deg, #302F40 0%, #0080FE 100%); padding: 60px 0; color: #fff; text-align: center; }
-		.blog-hero h1 { font-size: clamp(28px, 5vw, 52px); margin: 0 0 15px; }
+		.blog-hero h1 { font-size: clamp(28px, 5vw, 48px); margin: 0 0 15px; color: #fff; }
 		.blog-hero p { font-size: 18px; margin: 0; opacity: 0.85; }
-		.blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 30px; padding: 60px 0; }
-		.blog-card { border: 1px solid #eee; border-radius: 12px; overflow: hidden; transition: box-shadow 0.2s; }
-		.blog-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
-		.blog-card-body { padding: 24px; }
-		.blog-card-tag { display: inline-block; background: #e8f0fe; color: #0080FE; font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
-		.blog-card h2 { font-size: 20px; margin: 0 0 10px; color: #302F40; line-height: 1.3; }
+
+		/* === CATEGORY TABS === */
+		.blog-tabs { background: #f8f9fc; border-bottom: 2px solid #eee; position: sticky; top: 0; z-index: 50; }
+		.blog-tabs .container { display: flex; gap: 0; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+		.blog-tab { padding: 16px 24px; font-family: 'IBM Plex Sans', sans-serif; font-weight: 600; font-size: 15px; color: #666; cursor: pointer; border-bottom: 3px solid transparent; transition: all 0.2s; white-space: nowrap; text-decoration: none; display: flex; align-items: center; gap: 8px; }
+		.blog-tab:hover { color: #302F40; background: rgba(0,0,0,0.03); }
+		.blog-tab.active { color: #0080FE; border-bottom-color: #0080FE; }
+		.blog-tab .tab-count { background: #e8f0fe; color: #0080FE; font-size: 12px; padding: 2px 8px; border-radius: 10px; font-weight: 700; }
+		.blog-tab.active .tab-count { background: #0080FE; color: #fff; }
+
+		/* === BLOG GRID === */
+		.blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 30px; padding: 40px 0; }
+		.blog-card { border: 1px solid #eee; border-radius: 12px; overflow: hidden; transition: box-shadow 0.2s, transform 0.2s; display: none; }
+		.blog-card.visible { display: block; }
+		.blog-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.1); transform: translateY(-2px); }
+		.blog-card-img { height: 180px; background-size: cover; background-position: center; position: relative; }
+		.blog-card-img .card-type-badge { position: absolute; top: 12px; right: 12px; background: rgba(0,0,0,0.7); color: #fff; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px; }
+		.blog-card-body { padding: 20px 24px 24px; }
+		.blog-card-tag { display: inline-block; background: #e8f0fe; color: #0080FE; font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+		.blog-card-tag.tag-regional { background: #e8f5e9; color: #2e7d32; }
+		.blog-card-tag.tag-podcast { background: #fce4ec; color: #c62828; }
+		.blog-card-tag.tag-vlog { background: #fff3e0; color: #e65100; }
+		.blog-card h2 { font-size: 18px; margin: 0 0 10px; color: #302F40; line-height: 1.35; }
 		.blog-card h2 a { text-decoration: none; color: inherit; }
 		.blog-card h2 a:hover { color: #0080FE; }
-		.blog-card p { margin: 0 0 16px; font-size: 15px; }
-		.blog-card-meta { font-size: 13px; color: #999; }
+		.blog-card p { margin: 0 0 14px; font-size: 14px; line-height: 1.5; color: #666; }
+		.blog-card-meta { font-size: 13px; color: #999; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+		.blog-card-meta .media-icons { display: flex; gap: 6px; margin-left: auto; }
+		.blog-card-meta .media-icons span { font-size: 16px; }
+		.no-results { display: none; text-align: center; padding: 60px 20px; color: #999; }
+		.no-results.visible { display: block; }
+
+		/* === PODCAST SECTION === */
+		.podcast-section { background: #f8f9fc; border-left: 4px solid #1DB954; border-radius: 0 12px 12px 0; padding: 32px 36px; margin: 0 0 50px; }
+		.podcast-section h2 { color: #302F40; margin: 0 0 8px; font-size: 24px; }
+		.podcast-section p { margin: 0 0 20px; color: #555; font-size: 16px; }
+
+		/* === CTA === */
 		.blog-cta { background: #f4f6fb; border-radius: 16px; padding: 50px; text-align: center; margin: 0 0 60px; }
 		.blog-cta h2 { color: #302F40; margin: 0 0 12px; }
 		.blog-cta p { margin: 0 0 25px; }
-		footer { background: #302F40; color: #ccc; padding: 30px 0; text-align: center; font-size: 14px; }
-		footer a { color: #ccc; }
-		.coming-soon { background: #f8f9fa; border: 2px dashed #ddd; border-radius: 12px; padding: 40px; text-align: center; color: #999; }
-		.podcast-section { background: #f8f9fc; border-left: 4px solid #1DB954; border-radius: 0 12px 12px 0; padding: 32px 36px; margin: 0 0 60px; }
-		.podcast-section h2 { color: #302F40; margin: 0 0 8px; font-size: 24px; }
-		.podcast-section p { margin: 0 0 20px; color: #555; font-size: 16px; }
+		.btn { display: inline-block; padding: 12px 24px; border-radius: 6px; font-weight: 600; text-decoration: none; font-family: 'IBM Plex Sans', sans-serif; font-size: 15px; }
+		.btn-primary { background: #0080FE; color: #fff; }
+		.btn-primary:hover { background: #006de0; color: #fff; }
+		.btn-success { background: #25d366; color: #fff; }
+		.btn-success:hover { background: #1da851; color: #fff; }
+
+		/* === FOOTER — matches main site === */
+		footer { background: #302F40; color: #ccc; padding: 50px 0 20px; }
+		footer h4 { color: #fff; margin: 0 0 15px; font-family: 'IBM Plex Sans', sans-serif; }
+		footer ul { list-style: none; padding: 0; margin: 0; font-size: 14px; }
+		footer ul li { margin-bottom: 8px; }
+		footer a { color: #ccc; text-decoration: none; }
+		footer a:hover { color: #fff; }
+		.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
+		.footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; text-align: center; font-size: 13px; }
+
+		/* === RESPONSIVE === */
+		@media (max-width: 768px) {
+			nav ul { justify-content: center; }
+			.blog-grid { grid-template-columns: 1fr; }
+			.blog-cta { padding: 30px 20px; }
+			.podcast-section { padding: 24px 20px; }
+			.blog-tab { padding: 14px 16px; font-size: 14px; }
+		}
 	</style>
 	<!-- Google Analytics -->
+	<link rel="preconnect" href="https://www.googletagmanager.com">
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-6L0PFQRYF6"></script>
 	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-		gtag('config', 'G-6L0PFQRYF6');
+		window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-6L0PFQRYF6');
 	</script>
 </head>
 <body>
+	<!-- HEADER — identical to main site -->
 	<header id="sp-header">
 		<div class="container">
 			<div class="row">
 				<div class="logo">
 					<a href="../index.html">
-						<img src="../images/dscrlogo.jpg" alt="Drone Survey Costa Rica" height="36">
+						<img src="../images/dscrlogo.jpg" alt="Drone Survey Costa Rica" width="120" height="36">
 					</a>
 				</div>
 				<nav>
 					<ul>
 						<li><a href="../index.html">Home</a></li>
-						<li><a href="../services/lidar-mapping.html">Lidar Mapping</a></li>
-						<li><a href="../services/photogrammetry.html">Photogrammetry</a></li>
-						<li><a href="../quote.html">Get a Quote</a></li>
-						<li><a href="../blog/" style="color:#0080FE;">Blog</a></li>
+						<li>
+							<a href="#services">Services</a>
+							<ul>
+								<li><a href="../services/lidar-mapping.html">Lidar Drone Surveying</a></li>
+								<li><a href="../services/geopositioning.html">GPS Geopositioning</a></li>
+								<li><a href="#aerial-media">Aerial Video &amp; Photos</a></li>
+							</ul>
+						</li>
+						<li><a href="../blog/" style="color:#0080FE; font-weight:700;">Blog</a></li>
 						<li><a href="../about.html">About</a></li>
+						<li><a href="../quote.html">Get a Quote</a></li>
+						<li><a href="https://invoice.zoho.com/portal/dronesurveycostarica/login" target="_blank" rel="noopener noreferrer">Client Portal</a></li>
+						<li><a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+						<li><a href="https://g.co/kgs/VnbxFYr" target="_blank" rel="noopener noreferrer">Reviews</a></li>
 					</ul>
 				</nav>
 			</div>
 		</div>
 	</header>
 
+	<!-- HERO -->
 	<div class="blog-hero">
 		<div class="container">
-			<h1>Drone Survey Blog — Costa Rica</h1>
-			<p>Expert guides on lidar mapping, photogrammetry, costs, and aerial surveying applications in Costa Rica</p>
+			<h1>Drone Survey Blog &mdash; Costa Rica</h1>
+			<p>Expert guides on lidar mapping, photogrammetry, costs, regulations, and aerial surveying across Costa Rica</p>
+		</div>
+	</div>
+
+	<!-- CATEGORY TABS -->
+	<div class="blog-tabs">
+		<div class="container">
+			<a class="blog-tab active" data-filter="all" href="javascript:void(0)">All Posts <span class="tab-count" id="count-all"></span></a>
+			<a class="blog-tab" data-filter="blog" href="javascript:void(0)">Blog <span class="tab-count" id="count-blog"></span></a>
+			<a class="blog-tab" data-filter="regional" href="javascript:void(0)">Regional <span class="tab-count" id="count-regional"></span></a>
+			<a class="blog-tab" data-filter="vlog" href="javascript:void(0)">Vlog <span class="tab-count" id="count-vlog"></span></a>
+			<a class="blog-tab" data-filter="podcast" href="javascript:void(0)">Podcast <span class="tab-count" id="count-podcast"></span></a>
 		</div>
 	</div>
 
 	<main>
 		<div class="container">
-			<div class="blog-grid">
+			<div class="blog-grid" id="blog-grid">
 
-			<!-- Post: DGAC Drone Regulations Costa Rica 2026 -->
-				<article class="blog-card">
-					<div class="blog-card-body">
-						<span class="blog-card-tag">Regulations</span>
-						<h2><a href="/blog/dgac-drone-regulations-costa-rica-2026.html">DGAC Drone Regulations in Costa Rica 2026: Permits, Restricted Zones &amp; Commercial Flight Rules</a></h2>
-						<p>Everything developers, landowners, and businesses need to know about DGAC drone permits, altitude limits, restricted airspace, national park rules, and how licensed operators handle compliance for you.</p>
-						<div class="blog-card-meta">May 5, 2026 · 10 min read</div>
-					</div>
-				</article>
+			<!-- === PODCAST POSTS === -->
 
-			<!-- Post: Caribbean Agriculture / Limón Banana Farms (Cycle 2) -->
-				<article class="blog-card">
-					<div class="blog-card-body">
-						<span class="blog-card-tag">Agriculture &amp; Locations</span>
-						<h2><a href="/blog/drone-survey-caribbean-agriculture-limon-costa-rica.html">Caribbean Drone Surveys: Lidar Mapping for Limón Province Banana Farms &amp; Agriculture</a></h2>
-						<p>How lidar drone surveys support banana plantations, flood risk management, boundary mapping, and agricultural infrastructure planning across Limón Province — from Guápiles and Batán to Siquirres and Sixaola.</p>
-						<div class="blog-card-meta">May 5, 2026 · 9 min read</div>
-					</div>
-				</article>
-
-				
-			<!-- Post: South Pacific / Osa Peninsula Geo Post (Cycle 2 - May 2026) -->
-			<article class="blog-card">
+			<!-- EP05: Drone Survey Costs 2026 -->
+			<article class="blog-card visible" data-category="podcast blog">
+				<div class="blog-card-img" style="background-image: linear-gradient(135deg, rgba(0,128,254,0.85), rgba(48,47,64,0.9)), url('../drone-lidar.jpg');">
+					<span class="card-type-badge">Podcast EP05</span>
+				</div>
 				<div class="blog-card-body">
-					<span class="blog-card-tag">Locations</span>
-					<h2><a href="/blog/drone-survey-south-pacific-osa-costa-rica.html">Drone Surveys for South Pacific &amp; Osa Peninsula Costa Rica — Eco-Resort &amp; LiDAR Mapping</a></h2>
-					<p>LiDAR drone surveys for the South Pacific and Osa Peninsula: eco-resort site plans, SETENA EIA data, conservation concession mapping, and land due diligence in Drake Bay, Uvita, Dominical, and Puerto Jiménez.</p>
-					<div class="blog-card-meta">May 5, 2026 · 9 min read</div>
+					<span class="blog-card-tag tag-podcast">Podcast</span>
+					<span class="blog-card-tag">Costs &amp; Pricing</span>
+					<h2><a href="drone-survey-costs-costa-rica-2026.html">Drone Survey Costs in Costa Rica 2026: Complete Pricing Guide</a></h2>
+					<p>Complete breakdown of LiDAR, photogrammetry, topographic, and inspection pricing with real examples. What drives costs up or down, and how to budget your project.</p>
+					<div class="blog-card-meta">
+						<span>May 5, 2026</span> · <span>7 min read</span>
+						<div class="media-icons"><span title="Spotify">&#127911;</span> <span title="YouTube">&#9654;&#65039;</span></div>
+					</div>
 				</div>
 			</article>
 
-				
-			<!-- Post: SETENA EIA Drone Survey -->
-			<article class="blog-card">
+			<!-- EP04: EIA / SETENA -->
+			<article class="blog-card visible" data-category="podcast blog">
+				<div class="blog-card-img" style="background-image: linear-gradient(135deg, rgba(27,67,50,0.85), rgba(45,106,79,0.9)), url('../drone-coast.jpg');">
+					<span class="card-type-badge">Podcast EP04</span>
+				</div>
 				<div class="blog-card-body">
+					<span class="blog-card-tag tag-podcast">Podcast</span>
 					<span class="blog-card-tag">Environmental</span>
-					<h2><a href="/blog/drone-survey-environmental-impact-assessment-costa-rica.html">Drone Survey for SETENA EIA Costa Rica — 6 Spatial Datasets Delivered in 72 Hours</a></h2>
-					<p>Everything developers need to know about drone surveys for SETENA Environmental Impact Assessment filings. LiDAR orthophoto, DTM, slope maps, drainage delineation, and vegetation coverage — SETENA-ready in 72 hours. Category A &amp; B1 projects.</p>
-					<div class="blog-card-meta">April 29, 2026 · 11 min read</div>
+					<h2><a href="drone-survey-environmental-impact-assessment-costa-rica.html">Drone Survey for SETENA EIA Costa Rica &mdash; 6 Spatial Datasets in 72 Hours</a></h2>
+					<p>Everything developers need to know about drone surveys for SETENA Environmental Impact Assessment filings. LiDAR orthophoto, DTM, slope maps, drainage delineation, and vegetation coverage.</p>
+					<div class="blog-card-meta">
+						<span>April 29, 2026</span> · <span>11 min read</span>
+						<div class="media-icons"><span title="Spotify">&#127911;</span> <span title="YouTube">&#9654;&#65039;</span></div>
+					</div>
 				</div>
 			</article>
 
-				<!-- Post: Central Valley (Cycle 3 - May 2026) -->
-			<article class="blog-card">
+			<!-- EP03: Drone Topographic Survey (podcast metadata exists but no embed yet) -->
+			<article class="blog-card visible" data-category="podcast blog">
+				<div class="blog-card-img" style="background-image: linear-gradient(135deg, rgba(0,128,254,0.8), rgba(0,50,100,0.9)), url('../drone-fly.jpg');">
+					<span class="card-type-badge">Podcast EP03</span>
+				</div>
 				<div class="blog-card-body">
-					<span class="blog-card-tag">Locations</span>
-					<h2><a href="/blog/drone-survey-central-valley-update-costa-rica.html">Central Valley Drone Survey: Lidar Mapping for Coffee Farms, Greenhouses, Real Estate &amp; Industrial Parks</a></h2>
-					<p>Professional drone survey and lidar mapping in Central Valley Costa Rica (Alajuela, Cartago, Heredia). We serve San José metro, coffee plantations, greenhouses, real estate, and industrial estates. Free quote.</p>
-					<div class="blog-card-meta">May 2, 2026 · 10 min read</div>
+					<span class="blog-card-tag tag-podcast">Podcast</span>
+					<span class="blog-card-tag">Technology</span>
+					<h2><a href="drone-topographic-survey-costa-rica.html">Drone Topographic Survey in Costa Rica: Terrain Maps, Contour Lines &amp; Elevation Models</a></h2>
+					<p>Complete guide to drone topographic surveys. Learn how LiDAR and photogrammetry create DTMs, DSMs, contour maps, slope analysis, and cut-and-fill calculations for construction and development.</p>
+					<div class="blog-card-meta">
+						<span>April 26, 2026</span> · <span>12 min read</span>
+						<div class="media-icons"><span title="Spotify">&#127911;</span> <span title="YouTube">&#9654;&#65039;</span></div>
+					</div>
 				</div>
 			</article>
 
-				<!-- Post: EIA / Environmental Impact Assessment -->
-				<article class="blog-card">
-					<div class="blog-card-body">
-						<span class="blog-card-tag">Environmental</span>
-						<h2><a href="/blog/drone-survey-environmental-impact-assessment-costa-rica.html">Drone Surveys for Environmental Impact Assessments in Costa Rica: SETENA Data, Deliverables &amp; Timeline</a></h2>
-						<p>How drone surveys provide the topographic maps, orthophotos, vegetation coverage, and drainage basin data SETENA requires for EIA filings — delivered in 72 hours for Category A, B1, and B2 projects.</p>
-						<div class="blog-card-meta">April 29, 2026 · 11 min read</div>
+			<!-- EP02: Drone Surveys for Real Estate -->
+			<article class="blog-card visible" data-category="podcast blog">
+				<div class="blog-card-img" style="background-image: linear-gradient(135deg, rgba(26,58,42,0.85), rgba(13,32,24,0.9)), url('../drone-coast.jpg');">
+					<span class="card-type-badge">Podcast EP02</span>
+				</div>
+				<div class="blog-card-body">
+					<span class="blog-card-tag tag-podcast">Podcast</span>
+					<span class="blog-card-tag">Real Estate</span>
+					<h2><a href="drone-survey-real-estate-costa-rica.html">Drone Surveys for Real Estate in Costa Rica: Land, Lots &amp; Development</a></h2>
+					<p>How drone surveys help Costa Rica real estate buyers, sellers, and developers. Accurate boundary mapping, topographic maps, and aerial photography for property transactions.</p>
+					<div class="blog-card-meta">
+						<span>April 7, 2026</span> &middot; <span>6 min read</span>
+						<div class="media-icons"><span title="Spotify">&#127911;</span> <span title="YouTube">&#9654;&#65039;</span></div>
 					</div>
-				</article>
+				</div>
+			</article>
 
-				<!-- Post: Construction Drone Surveys -->
-				<article class="blog-card">
-					<div class="blog-card-body">
-						<span class="blog-card-tag">Construction</span>
-						<h2><a href="/blog/construction-drone-surveys-costa-rica.html">Construction Site Drone Surveys in Costa Rica: Monitoring, Earthwork &amp; Progress Tracking</a></h2>
-						<p>How drone surveys reduce costs and disputes on construction projects in Costa Rica — earthwork volume verification, monthly progress monitoring, cut-and-fill analysis, and as-built documentation with centimeter accuracy.</p>
-						<div class="blog-card-meta">April 29, 2026 · 11 min read</div>
+			<!-- EP01: LiDAR Drones Map Hidden Land -->
+			<article class="blog-card visible" data-category="podcast blog">
+				<div class="blog-card-img" style="background-image: linear-gradient(135deg, rgba(48,47,64,0.85), rgba(26,25,48,0.9)), url('../drone-lidar.jpg');">
+					<span class="card-type-badge">Podcast EP01</span>
+				</div>
+				<div class="blog-card-body">
+					<span class="blog-card-tag tag-podcast">Podcast</span>
+					<span class="blog-card-tag">Technology</span>
+					<h2><a href="lidar-vs-photogrammetry-costa-rica.html">LiDAR vs Photogrammetry in Costa Rica: Which Survey Do You Need?</a></h2>
+					<p>LiDAR or photogrammetry? Detailed comparison of both drone survey technologies &mdash; accuracy, cost, terrain suitability, and real-world applications in Costa Rica.</p>
+					<div class="blog-card-meta">
+						<span>April 7, 2026</span> &middot; <span>7 min read</span>
+						<div class="media-icons"><span title="Spotify">&#127911;</span> <span title="YouTube">&#9654;&#65039;</span></div>
 					</div>
-				</article>
+				</div>
+			</article>
 
-				<!-- Post: Guanacaste Tourism & Infrastructure (Cycle 2) -->
-				<article class="blog-card">
-					<div class="blog-card-body">
-						<span class="blog-card-tag">Locations</span>
-						<h2><a href="/blog/drone-survey-guanacaste-tourism-infrastructure-costa-rica.html">Guanacaste Drone Survey: Tourism Infrastructure, Solar Farms &amp; Road Mapping</a></h2>
-						<p>LiDAR and photogrammetry drone surveys for tourism development, renewable energy, and road infrastructure across Guanacaste — resort site planning, solar farm terrain analysis, and highway corridor mapping.</p>
-						<div class="blog-card-meta">April 26, 2026 · 10 min read</div>
-					</div>
-				</article>
+			<!-- === BLOG POSTS (non-regional, non-podcast) === -->
 
-				<!-- Post: Drone Topographic Survey -->
-				<article class="blog-card">
-					<div class="blog-card-body">
-						<span class="blog-card-tag">Technology</span>
-						<h2><a href="/blog/drone-topographic-survey-costa-rica.html">Drone Topographic Survey in Costa Rica: Accurate Terrain Maps, Contour Lines &amp; Elevation Models</a></h2>
-						<p>Complete guide to drone topographic surveys in Costa Rica. Learn how LiDAR and photogrammetry create DTMs, DSMs, contour maps, slope analysis, and cut-and-fill calculations for construction and development.</p>
-						<div class="blog-card-meta">April 26, 2026 · 12 min read</div>
-					</div>
-				</article>
+			<!-- DGAC Drone Regulations -->
+			<article class="blog-card visible" data-category="blog">
+				<div class="blog-card-img" style="background-image: linear-gradient(135deg, rgba(48,47,64,0.85), rgba(0,80,180,0.8)), url('../drone-fly.jpg');">
+					<span class="card-type-badge">Blog</span>
+				</div>
+				<div class="blog-card-body">
+					<span class="blog-card-tag">Regulations</span>
+					<h2><a href="dgac-drone-regulations-costa-rica-2026.html">DGAC Drone Regulations in Costa Rica 2026: Permits, Restricted Zones &amp; Commercial Flight Rules</a></h2>
+					<p>Everything developers, landowners, and businesses need to know about DGAC drone permits, altitude limits, restricted airspace, national park rules, and how licensed operators handle compliance.</p>
+					<div class="blog-card-meta"><span>May 5, 2026</span> · <span>10 min read</span></div>
+				</div>
+			</article>
 
-				<!-- Post: Central Valley (Cycle 2) -->
-				<article class="blog-card">
-					<div class="blog-card-body">
-						<span class="blog-card-tag">Locations</span>
-						<h2><a href="/blog/drone-survey-central-valley-costa-rica.html">Central Valley Drone Surveys: Construction &amp; Infrastructure Mapping for Alajuela, Cartago &amp; Heredia</a></h2>
-						<p>Drone survey and lidar mapping for construction, infrastructure, and development projects across Costa Rica's Central Valley — covering Alajuela free trade zones, Cartago agriculture, and Heredia tech corridors.</p>
-						<div class="blog-card-meta">April 24, 2026 · 9 min read</div>
-					</div>
-				</article>
+			<!-- Construction Drone Surveys -->
+			<article class="blog-card visible" data-category="blog">
+				<div class="blog-card-img" style="background-image: linear-gradient(135deg, rgba(48,47,64,0.8), rgba(0,128,254,0.85)), url('../drone-lidar.jpg');">
+					<span class="card-type-badge">Blog</span>
+				</div>
+				<div class="blog-card-body">
+					<span class="blog-card-tag">Construction</span>
+					<h2><a href="construction-drone-surveys-costa-rica.html">Construction Site Drone Surveys in Costa Rica: Monitoring, Earthwork &amp; Progress Tracking</a></h2>
+					<p>How drone surveys reduce costs and disputes on construction projects &mdash; earthwork volume verification, monthly progress monitoring, cut-and-fill analysis, and as-built documentation.</p>
+					<div class="blog-card-meta"><span>April 29, 2026</span> · <span>11 min read</span></div>
+				</div>
+			</article>
 
-				<!-- Post: Caribbean Regional -->
-				<article class="blog-card">
-					<div class="blog-card-body">
-						<span class="blog-card-tag">Locations</span>
-						<h2><a href="/blog/drone-survey-caribbean-costa-rica.html">Caribbean Costa Rica Drone Survey: Lidar Mapping for Coastal Development, Tourism Infrastructure and Port Logistics</a></h2>
-						<p>Professional drone surveys across Costa Rica's Caribbean coast — from tourism development in Puerto Viejo and Cahuita to port logistics in Limón and banana farm mapping in Siquirres.</p>
-						<div class="blog-card-meta">April 17, 2026 · 10 min read</div>
-					</div>
-				</article>
+			<!-- Drone Survey vs Ground Survey -->
+			<article class="blog-card visible" data-category="blog">
+				<div class="blog-card-img" style="background-image: linear-gradient(135deg, rgba(0,80,180,0.85), rgba(48,47,64,0.8)), url('../drone-coast.jpg');">
+					<span class="card-type-badge">Blog</span>
+				</div>
+				<div class="blog-card-body">
+					<span class="blog-card-tag">Survey Methods</span>
+					<h2><a href="drone-survey-vs-ground-survey-costa-rica.html">Drone Survey vs Ground Survey in Costa Rica: Which is Better for Your Project?</a></h2>
+					<p>Honest comparison of cost, accuracy, speed, safety and deliverables in Costa Rica &mdash; including when you still legally need a topografo.</p>
+					<div class="blog-card-meta"><span>April 14, 2026</span> · <span>9 min read</span></div>
+				</div>
+			</article>
 
-				<!-- Post: Drone Survey vs Ground Survey -->
-				<article class="blog-card">
-					<div class="blog-card-body">
-						<span class="blog-card-tag">Survey Methods</span>
-						<h2><a href="/blog/drone-survey-vs-ground-survey-costa-rica.html">Drone Survey vs Ground Survey in Costa Rica: Which is Better for Your Project?</a></h2>
-						<p>Traditional ground survey or modern drone survey? Honest comparison of cost, accuracy, speed, safety and deliverables in Costa Rica — including when you still legally need a topógrafo.</p>
-						<div class="blog-card-meta">April 14, 2026 · 9 min read</div>
-					</div>
-				</article>
-
-				<!-- Post 1: Drone Survey Cost -->
-				<article class="blog-card">
-					<div class="blog-card-body">
-						<span class="blog-card-tag">Costs &amp; Pricing</span>
-						<h2><a href="/blog/drone-survey-cost-costa-rica.html">How Much Does a Drone Survey Cost in Costa Rica? (2026 Pricing Guide)</a></h2>
-						<p>Complete pricing guide for drone surveys in Costa Rica. Learn our cost structure: $1,000 base for 5 hectares, $80/ha for additional area, plus travel fees and terrain surcharges. Includes pricing comparison to traditional surveys.</p>
-						<div class="blog-card-meta">April 12, 2026 · 11 min read</div>
-					</div>
-				</article>
-
-				<!-- Post 2: Lidar vs Photogrammetry -->
-				<article class="blog-card">
-					<div class="blog-card-body">
-						<span class="blog-card-tag">Technology</span>
-						<h2><a href="/blog/lidar-vs-photogrammetry.html">Lidar vs Photogrammetry in Costa Rica: Which Survey Method Do You Need?</a></h2>
-						<p>Detailed comparison of lidar and photogrammetry drone survey technologies. See accuracy differences, cost tradeoffs, and which method works best for your terrain. Includes real-world applications in Costa Rica.</p>
-						<div class="blog-card-meta">April 13, 2026 · 12 min read</div>
-					</div>
-				</article>
-
-				<!-- Post 3: Plano Catastro (Spanish) -->
-				<article class="blog-card">
-					<div class="blog-card-body">
-						<span class="blog-card-tag">Legal/Regulations</span>
-						<h2><a href="/blog/plano-catastro-drone-costa-rica.html">Plano Catastro con Drones en Costa Rica: Guía Completa</a></h2>
-						<p>Guía completa sobre levantamientos catastrales con drones en Costa Rica. Precisión RTK, requisitos DGAC, zonas restringidas, proceso, costos y aplicaciones legales. Descubre por qué los drones son ideales para planos catastro.</p>
-						<div class="blog-card-meta">April 14, 2026 · 13 min read</div>
-					</div>
-				</article>
-
-				<!-- Post 4: Drone Survey Cost (Original) -->
-				<article class="blog-card">
-					<div class="blog-card-body">
-						<span class="blog-card-tag">Costs &amp; Pricing</span>
-						<h2><a href="/blog/how-much-does-drone-survey-cost-costa-rica.html">How Much Does a Drone Survey Cost in Costa Rica? (2026 Pricing Guide)</a></h2>
-						<p>Everything you need to know about drone survey pricing in Costa Rica — from small residential lots to large agricultural parcels. Includes typical price ranges for lidar and photogrammetry.</p>
-						<div class="blog-card-meta">April 2, 2026 · 8 min read</div>
-					</div>
-				</article>
-
-				<!-- Post 5: Drone Survey San José -->
-				<article class="blog-card">
-					<div class="blog-card-body">
-						<span class="blog-card-tag">Locations</span>
-						<h2><a href="/blog/drone-survey-san-jose-costa-rica.html">Drone Survey Services in San José, Costa Rica</a></h2>
-						<p>Professional drone survey and lidar mapping services in the San José metropolitan area. Fast turnaround for construction, real estate, and infrastructure projects in Costa Rica's capital region.</p>
-						<div class="blog-card-meta">April 1, 2026 · 7 min read</div>
-					</div>
-				</article>
-
-				<!-- Post 7 -->
-				<article class="blog-card">
-					<div class="blog-card-body">
-						<span class="blog-card-tag">Locations</span>
-						<h2><a href="/blog/drone-survey-guanacaste-costa-rica.html">Guanacaste Drone Survey: Lidar Mapping for Cattle Ranches, Farms and Coastal Real Estate</a></h2>
-						<p>Professional drone surveys across Guanacaste — from cattle ranch mapping in Hojancha to coastal real estate surveys in Tamarindo and Nosara. Covering Liberia, Nicoya, Santa Cruz and beyond.</p>
-						<div class="blog-card-meta">April 12, 2026 · 9 min read</div>
-					</div>
-				</article>
-
-				<!-- Post 8 -->
-				<article class="blog-card">
-					<div class="blog-card-body">
-						<span class="blog-card-tag">Locations</span>
-						<h2><a href="/blog/drone-survey-south-pacific-costa-rica.html">South Pacific Drone Survey: Lidar Mapping for Pineapple Farms, Coastal Property &amp; Land Development</a></h2>
-						<p>Professional drone surveys across South Pacific Costa Rica — from pineapple farm drainage planning in Ojochal to coastal real estate development in Uvita and Puerto Jiménez.</p>
-						<div class="blog-card-meta">April 12, 2026 · 9 min read</div>
-					</div>
-				</article>
-
-			</div>
-
-			<!-- Spotify Podcast Show Embed -->
-			<div class="podcast-section">
-				<h2>🎙️ The DroneSurveyCR Podcast</h2>
-				<p>Weekly deep dives into drone surveying, LiDAR mapping, and Costa Rica land — listen on Spotify.</p>
-				<iframe style="border-radius:12px" src="https://open.spotify.com/embed/show/0WENj327UvDEiurKnmmqs0?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-			
+			<!-- Drone Survey Cost (original) -->
+			<article clas

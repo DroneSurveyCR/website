@@ -1,8 +1,0 @@
-{
-  "engines": {
-    "node": "20.x"
-  },
-  "scripts": {
-    "build": "echo 'Static site — no build step required'"
-  }
-}

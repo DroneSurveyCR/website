@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DroneSurveyCR — Operations Dashboard</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f5f3;color:#1a1a18;padding:1.5rem;min-height:100vh}
+.wrap{max-width:900px;margin:0 auto}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+.card{background:#fff;border:0.5px solid rgba(0,0,0,0.12);border-radius:12px;padding:1rem 1.25rem}
+.kpi{background:#f0efe8;border-radius:8px;padding:1rem}
+.kpi-lbl{font-size:12px;color:#5f5e5a;margin-bottom:5px}
+.kpi-val{font-size:28px;font-weight:500;color:#1a1a18;line-height:1}
+.kpi-sub{font-size:11px;color:#5f5e5a;margin-top:4px}
+.sec{font-size:11px;font-weight:500;color:#5f5e5a;letter-spacing:.07em;text-transform:uppercase;margin:1.5rem 0 10px}
+.pipe-day{background:#fff;border:0.5px solid rgba(0,0,0,0.12);border-radius:8px;padding:9px 6px;text-align:center;min-height:90px}
+.pipe-day.today-col{border-color:#1D9E75;border-width:1.5px}
+.pipe-dn{font-size:10px;color:#5f5e5a;margin-bottom:2px}
+.pipe-dd{font-size:14px;font-weight:500;color:#1a1a18;margin-bottom:6px}
+.ev{font-size:9px;padding:2px 5px;border-radius:3px;margin:2px 0;text-align:left;line-height:1.35}
+.ev-done{background:#EAF3DE;color:#3B6D11}
+.ev-next{background:#FAEEDA;color:#854F0B}
+.ev-ep{background:#E1F5EE;color:#085041;font-weight:500}
+.task-row{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-top:0.5px solid rgba(0,0,0,0.08)}
+.task-row:first-of-type{border-top:none}
+.dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.badge{display:inline-block;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:500;line-height:1.5}
+.ep-row{display:grid;grid-template-columns:36px 1fr auto;gap:8px;align-items:center;padding:7px 0;border-top:0.5px solid rgba(0,0,0,0.08)}
+.ep-row:first-of-type{border-top:none}
+.ep-num{font-size:11px;font-weight:500;color:#5f5e5a}
+.ep-title{font-size:11px;color:#1a1a18;line-height:1.35}
+.ep-badges{display:flex;gap:4px;flex-shrink:0}
+.plat-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:10px}
+.idea-tag{display:inline-block;font-size:10px;font-weight:500;background:#EEEDFE;color:#534AB7;padding:2px 8px;border-radius:4px;margin-bottom:7px}
+.idea-title{font-size:12px;font-weight:500;color:#1a1a18;margin-bottom:4px}
+.idea-desc{font-size:11px;color:#5f5e5a;line-height:1.5}
+button.action{background:#fff;border:0.5px solid rgba(0,0,0,0.2);border-radius:6px;color:#185FA5;cursor:pointer;padding:6px 12px;font-size:11px;margin-top:10px}
+button.action:hover{background:#f0f8ff}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1 class="sr-only">DroneSurveyCR Operations Dashboard</h1>
+
+<div class="card" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem">
+  <div>
+    <div style="font-size:18px;font-weight:500;display:flex;align-items:center;gap:8px">
+      <span style="width:9px;height:9px;border-radius:50%;background:#1D9E75;display:inline-block"></span>
+      DroneSurveyCR
+    </div>
+    <div style="font-size:12px;color:#5f5e5a;margin-top:3px">dronesurveycr.com &nbsp;·&nbsp; Vercel + GitHub &nbsp;·&nbsp; 6 automation tasks active</div>
+  </div>
+  <div style="text-align:right">
+    <div style="font-size:13px;font-weight:500" id="db-clock">—</div>
+    <div style="font-size:11px;color:#5f5e5a;margin-top:2px">Costa Rica (UTC−6)</div>
+  </div>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:1rem">
+  <div class="kpi"><div class="kpi-lbl">Blog posts</div><div class="kpi-val">15+</div><div class="kpi-sub">deployed to /blog/</div></div>
+  <div class="kpi"><div class="kpi-lbl">Episodes live</div><div class="kpi-val">5</div><div class="kpi-sub">Spotify + YouTube</div></div>
+  <div class="kpi"><div class="kpi-lbl">Active tasks</div><div class="kpi-val">6</div><div class="kpi-sub">fully automated</div></div>
+  <div class="kpi"><div class="kpi-lbl">Weeks publishing</div><div class="kpi-val">5</div><div class="kpi-sub">since Apr 8 launch</div></div>
+</div>
+
+<div class="sec">This week — May 4–10, 2026</div>
+<div style="display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-bottom:1rem">
+  <div class="pipe-day"><div class="pipe-dn">Mon</div><div class="pipe-dd">4</div><div class="ev ev-done">SEO monitor</div></div>
+  <div class="pipe-day today-col">
+    <div class="pipe-dn" style="color:#1D9E75;font-weight:500">Tue · today</div><div class="pipe-dd">5</div>
+    <div class="ev ev-done">Blog post</div><div class="ev ev-ep">EP06 source</div>
+  </div>
+  <div class="pipe-day">
+    <div class="pipe-dn">Wed</div><div class="pipe-dd">6</div>
+    <div class="ev ev-next">Podcast brief</div><div class="ev ev-next">YT publisher</div><div class="ev ev-next">GBP poster</div>
+  </div>
+  <div class="pipe-day"><div class="pipe-dn">Thu</div><div class="pipe-dd">7</div><div class="ev ev-ep">EP05 live</div></div>
+  <div class="pipe-day"><div class="pipe-dn">Fri</div><div class="pipe-dd">8</div><div class="ev ev-next">Geo post</div></div>
+  <div class="pipe-day"><div class="pipe-dn">Sat</div><div class="pipe-dd">9</div></div>
+  <div class="pipe-day"><div class="pipe-dn">Sun</div><div class="pipe-dd">10</div></div>
+</div>
+
+<div style="display:grid;grid-template-columns:1.15fr 0.85fr;gap:12px;margin-bottom:1rem">
+  <div class="card">
+    <div style="font-size:14px;font-weight:500;margin-bottom:12px">Scheduled tasks</div>
+    <div class="task-row">
+      <span class="dot" style="background:#639922;margin-top:5px"></span>
+      <div style="flex:1;min-width:0">
+        <div style="font-size:12px;font-weight:500">weekly-seo-monitor-fresh</div>
+        <div style="font-size:11px;color:#5f5e5a;margin-top:2px">Mon 08:08 · last: May 4 · next: May 11</div>
+      </div>
+      <span class="badge" style="background:#EAF3DE;color:#3B6D11">active</span>
+    </div>
+    <div class="task-row">
+      <span class="dot" style="background:#639922;margin-top:5px"></span>
+      <div style="flex:1;min-width:0">
+        <div style="font-size:12px;font-weight:500">auto-generate-blog-post</div>
+        <div style="font-size:11px;color:#5f5e5a;margin-top:2px">Tue 08:08 · last: May 5 · next: May 12</div>
+      </div>
+      <span class="badge" style="background:#EAF3DE;color:#3B6D11">ran today</span>
+    </div>
+    <div class="task-row">
+      <span class="dot" style="background:#BA7517;margin-top:5px"></span>
+      <div style="flex:1;min-width:0">
+        <div style="font-size:12px;font-weight:500">weekly-podcast-brief-generator</div>
+        <div style="font-size:11px;color:#5f5e5a;margin-top:2px">Wed 08:03 · last: Apr 29 · next: May 6</div>
+      </div>
+      <span class="badge" style="background:#FAEEDA;color:#854F0B">tomorrow</span>
+    </div>
+    <div class="task-row">
+      <span class="dot" style="background:#BA7517;margin-top:5px"></span>
+      <div style="flex:1;min-width:0">
+        <div style="font-size:12px;font-weight:500">weekly-youtube-publisher</div>
+        <div style="font-size:11px;color:#5f5e5a;margin-top:2px">Wed 11:04 · last: Apr 29 · next: May 6</div>
+      </div>
+      <span class="badge" style="background:#FAEEDA;color:#854F0B">tomorrow</span>
+    </div>
+    <div class="task-row">
+      <span class="dot" style="background:#BA7517;margin-top:5px"></span>
+      <div style="flex:1;min-width:0">
+        <div style="font-size:12px;font-weight:500">weekly-gbp-post-drafter</div>
+        <div style="font-size:11px;color:#5f5e5a;margin-top:2px">Wed 11:38 · last: Apr 29 · next: May 6</div>
+      </div>
+      <span class="badge" style="background:#FAEEDA;color:#854F0B">tomorrow</span>
+    </div>
+    <div class="task-row">
+      <span class="dot" style="background:#639922;margin-top:5px"></span>
+      <div style="flex:1;min-width:0">
+        <div style="font-size:12px;font-weight:500">geo-targeted-regional-posts</div>
+        <div style="font-size:11px;color:#5f5e5a;margin-top:2px">Fri 08:08 · last: May 1 · next: May 8</div>
+      </div>
+      <span class="badge" style="background:#EAF3DE;color:#3B6D11">active</span>
+    </div>
+  </div>
+  <div class="card">
+    <div style="font-size:14px;font-weight:500;margin-bottom:12px">Episode tracker</div>
+    <div class="ep-row"><div class="ep-num">EP01</div><div class="ep-title">LiDAR Drones: Hidden Land Mapping</div><span class="badge" style="background:#E1F5EE;color:#085041">live</span></div>
+    <div class="ep-row"><div class="ep-num">EP02</div><div class="ep-title">Real Estate Surveys</div><span class="badge" style="background:#E1F5EE;color:#085041">live</span></div>
+    <div class="ep-row"><div class="ep-num">EP03</div><div class="ep-title">Topographic Surveys &amp; Elevation</div><span class="badge" style="background:#E1F5EE;color:#085041">live</span></div>
+    <div class="ep-row"><div class="ep-num">EP04</div><div class="ep-title">Environmental Impact Assessments</div><span class="badge" style="background:#E1F5EE;color:#085041">live</span></div>
+    <div class="ep-row"><div class="ep-num">EP05</div><div class="ep-title">Drone Survey Costs 2026</div><span class="badge" style="background:#E1F5EE;color:#085041">live</span></div>
+    <div class="ep-row"><div class="ep-num">EP06</div><div class="ep-title">TBD — brief Wed May 6</div><span class="badge" style="background:#f0efe8;color:#5f5e5a">pipeline</span></div>
+    <div class="ep-row"><div class="ep-num">EP07</div><div class="ep-title">TBD — May 21</div><span class="badge" style="background:#f0efe8;color:#5f5e5a">planned</span></div>
+    <div class="ep-row"><div class="ep-num">EP08</div><div class="ep-title">TBD — May 28</div><span class="badge" style="background:#f0efe8;color:#5f5e5a">planned</span></div>
+  </div>
+</div>
+
+<div class="sec">Platform metrics</div>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:1rem">
+  <div class="card">
+    <div class="plat-icon" style="background:#E1F5EE">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#1D9E75" stroke-width="1.5"/><path d="M8 12.5c2-1.5 6-1.5 8 0" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round"/><path d="M9.5 9.5c1.5-1 4.5-1 6 0" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="15.5" r="1.5" fill="#1D9E75"/></svg>
+    </div>
+    <div style="font-size:13px;font-weight:500">Spotify</div>
+    <div style="font-size:26px;font-weight:500;margin:6px 0 3px">5</div>
+    <div style="font-size:11px;color:#5f5e5a">episodes published</div>
+    <div style="margin-top:8px;padding-top:8px;border-top:0.5px solid rgba(0,0,0,0.08);font-size:11px;color:#5f5e5a">Show ID: 0WENj327UvD...</div>
+    <a href="https://creators.spotify.com/pod/show/0WENj327UvDEiurKnmmqs0" target="_blank" style="display:block;margin-top:10px;font-size:11px;color:#185FA5;text-decoration:none">Open Spotify for Creators →</a>
+  </div>
+  <div class="card">
+    <div class="plat-icon" style="background:#E6F1FB">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="2" y="5" width="20" height="14" rx="3" stroke="#185FA5" stroke-width="1.5"/><path d="M10 9l5 3-5 3V9z" fill="#185FA5"/></svg>
+    </div>
+    <div style="font-size:13px;font-weight:500">YouTube</div>
+    <div style="font-size:26px;font-weight:500;margin:6px 0 3px">5</div>
+    <div style="font-size:11px;color:#5f5e5a">videos published</div>
+    <div style="margin-top:8px;padding-top:8px;border-top:0.5px solid rgba(0,0,0,0.08);font-size:11px;color:#5f5e5a">Channel: DroneSurveyCR</div>
+    <a href="https://studio.youtube.com" target="_blank" style="display:block;margin-top:10px;font-size:11px;color:#185FA5;text-decoration:none">Open YouTube Studio →</a>
+  </div>
+  <div class="card">
+    <div class="plat-icon" style="background:#EEEDFE">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#534AB7" stroke-width="1.5"/><path d="M17 17l3 3" stroke="#534AB7" stroke-width="1.5" stroke-linecap="round"/><path d="M8 11h6M11 8v6" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round"/></svg>
+    </div>
+    <div style="font-size:13px;font-weight:500">Google Search Console</div>
+    <div style="font-size:26px;font-weight:500;margin:6px 0 3px">—</div>
+    <div style="font-size:11px;color:#5f5e5a">connect to see clicks + rankings</div>
+    <div style="margin-top:8px;padding-top:8px;border-top:0.5px solid rgba(0,0,0,0.08);font-size:11px;color:#5f5e5a">dronesurveycr.com</div>
+    <a href="https://search.google.com/search-console" target="_blank" style="display:block;margin-top:10px;font-size:11px;color:#185FA5;text-decoration:none">Open Search Console →</a>
+  </div>
+</div>
+
+<div class="sec">Episode publishing — by week</div>
+<div style="position:relative;width:100%;height:180px;margin-bottom:1rem;background:#fff;border:0.5px solid rgba(0,0,0,0.12);border-radius:12px;padding:1rem">
+  <canvas id="epChart" role="img" aria-label="Bar chart showing episodes published by publish date, EP01 through EP08. EP01-EP05 are live, EP06-EP08 are planned.">EP01-EP05 live. EP06-EP08 planned.</canvas>
+</div>
+
+<div class="sec">Automation ideas</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:2rem">
+  <div class="card">
+    <div class="idea-tag">schema markup</div>
+    <div class="idea-title">Auto-inject FAQ schema</div>
+    <div class="idea-desc">After each blog is published, parse H3 headings + following paragraphs and auto-inject FAQ structured data. Rich results can boost CTR significantly without any manual work.</div>
+  </div>
+  <div class="card">
+    <div class="idea-tag">internal linking</div>
+    <div class="idea-title">Weekly internal link auditor</div>
+    <div class="idea-desc">Crawl all blog posts weekly, find keyword opportunities that should link to other existing posts but don't. Auto-add links and redeploy. Strengthens overall site authority.</div>
+  </div>
+  <div class="card">
+    <div class="idea-tag">social media</div>
+    <div class="idea-title">Instagram caption generator</div>
+    <div class="idea-desc">After GBP post goes live Wednesday, auto-generate matching Instagram caption + hashtags for the week's episode and save to Podcast/ folder ready to paste.</div>
+  </div>
+  <div class="card">
+    <div class="idea-tag">competitor intel</div>
+    <div class="idea-title">Monthly competitor rank tracker</div>
+    <div class="idea-desc">Track surveycostarica.com keyword rankings monthly. When they rank above on a target keyword, auto-generate a content brief to out-rank them on that specific term.</div>
+  </div>
+</div>
+
+</div>
+<script>
+(function(){
+  function tick(){
+    var d=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Costa_Rica'}));
+    var days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+    var months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    var h=d.getHours(),m=d.getMinutes(),ap=h>=12?'PM':'AM';
+    h=h%12||12;
+    var el=document.getElementById('db-clock');
+    if(el)el.textContent=days[d.getDay()]+' '+months[d.getMonth()]+' '+d.getDate()+' · '+h+':'+(m<10?'0':'')+m+' '+ap;
+  }
+  tick();setInterval(tick,30000);
+
+  var ctx=document.getElementById('epChart');
+  if(ctx){
+    new Chart(ctx,{
+      type:'bar',
+      data:{
+        labels:['EP01\nApr 8','EP02\nApr 16','EP03\nApr 23','EP04\nApr 30','EP05\nMay 7','EP06\nMay 14','EP07\nMay 21','EP08\nMay 28'],
+        datasets:[
+          {label:'Live',data:[1,1,1,1,1,0,0,0],backgroundColor:'#5DCAA5',borderRadius:4},
+          {label:'Planned',data:[0,0,0,0,0,1,1,1],backgroundColor:'#FAC775',borderRadius:4}
+        ]
+      },
+      options:{
+        responsive:true,maintainAspectRatio:false,
+        plugins:{
+          legend:{
+            display:true,position:'top',
+            labels:{font:{size:11},boxWidth:10,padding:16}
+          }
+        },
+        scales:{
+          x:{stacked:true,grid:{display:false},ticks:{font:{size:10},color:'#888780',maxRotation:0}},
+          y:{stacked:true,beginAtZero:true,max:1.5,grid:{color:'rgba(0,0,0,0.05)'},ticks:{font:{size:10},color:'#888780',stepSize:1}}
+        }
+      }
+    });
+  }
+})();
+</script>
+</body>
+</html>

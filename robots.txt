@@ -4,5 +4,9 @@ Disallow: /api/
 Disallow: /ads/
 Disallow: /.claude/
 Disallow: /.entire/
+Disallow: /dashboard.html
+
+# Crawl-delay for polite bots
+Crawl-delay: 1
 
 Sitemap: https://www.dronesurveycr.com/sitemap.xml

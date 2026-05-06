@@ -1,64 +1,61 @@
-# EP03 — Spotify Metadata (Ready to Paste)
+# EP03 Metadata — Drone Topographic Surveys in Costa Rica
 
-## Episode Title
+## Spotify Episode Metadata
 
-EP03: Drone Surveys for Agriculture in Costa Rica — Precision Farming from the Sky
+**Title:** Drone Topographic Surveys: Terrain Maps, Contour Lines & Elevation Models in Costa Rica
 
-## Episode Number
+**Description:**
+What exactly do you get from a drone topographic survey in Costa Rica — and is it worth it? In this episode we break down DTMs, DSMs, contour maps, slope analysis, and cut-and-fill calculations. We compare LiDAR vs photogrammetry for terrain mapping, walk through the 5-step survey process, and share transparent 2026 pricing. Whether you're a developer, architect, farmer, or land buyer, this is your complete guide to drone-based topographic mapping in Costa Rica.
 
-3
+📍 Full blog post: https://www.dronesurveycr.com/blog/drone-topographic-survey-costa-rica.html
+💬 Get a free quote: https://www.dronesurveycr.com/quote.html
+📱 WhatsApp: https://wa.me/50672938970
 
-## Season
+**Episode number:** 3
+**Season:** 1
+**Publish date:** 2026-04-30 (Wednesday)
 
-1
+---
 
-## Episode Description (paste into Spotify "Description" field)
+## YouTube Video Metadata
 
-Costa Rica grows some of the world's best pineapples, coffee, and bananas — but farming on complex tropical terrain comes with serious challenges. In Episode 3 of the DroneSurveyCR podcast, we dive into how drone survey technology is transforming agriculture across Costa Rica.
+**Title:** Drone Topographic Survey Costa Rica — DTM, Contour Maps & Elevation Models Explained
 
-From NDVI crop health mapping that detects stress weeks before it's visible, to irrigation analysis that pinpoints broken drip lines, to boundary verification for export certifications — drone data is giving farmers the visibility they need to grow more with less.
+**Description:**
+Complete guide to drone topographic surveys in Costa Rica. Learn how LiDAR and photogrammetry create Digital Terrain Models (DTM), Digital Surface Models (DSM), contour line maps, slope analysis, and cut-and-fill calculations for construction and land development.
 
-🌱 Topics covered:
+In this episode:
+00:00 What is a drone topographic survey?
+01:30 DTM vs DSM explained
+03:00 Standard deliverables you receive
+04:30 LiDAR vs photogrammetry for terrain mapping
+06:00 The 5-step survey process
+07:30 Real applications in Costa Rica
+09:00 Pricing breakdown (2026)
+10:30 Drone survey vs traditional ground survey
 
-• How NDVI multispectral mapping reveals crop stress weeks before visible symptoms
-• Why Costa Rica's terrain makes traditional scouting incomplete — and how drones solve it
-• Irrigation and drainage analysis that correlates water distribution with crop health
-• Farm boundary verification for certifications, financing, and insurance
-• Yield estimation and harvest planning with repeat aerial surveys
-• Forest inventory and FONAFIFO compliance with LiDAR surveys
-• Group pricing for cooperatives — multiple farms, one campaign, lower cost
+🔗 Full blog: https://www.dronesurveycr.com/blog/drone-topographic-survey-costa-rica.html
+💰 Free quote: https://www.dronesurveycr.com/quote.html
+📱 WhatsApp: https://wa.me/50672938970
+🎧 Podcast on Spotify: https://open.spotify.com/show/0WENj327UvDEiurKnmmqs0
 
-📍 Based in Costa Rica | dronesurveycr.com
-🎧 Read the full article: https://www.dronesurveycr.com/blog/drone-survey-agriculture-costa-rica.html
+Drone Survey Costa Rica provides professional LiDAR and photogrammetry drone survey services across all of Costa Rica — San José, Guanacaste, Caribbean, South Pacific, and Central Valley.
 
-## SEO Keywords (for tags / categories)
+**Tags:** drone topographic survey, costa rica drone survey, lidar mapping costa rica, DTM DSM, contour map drone, topographic mapping, drone survey cost costa rica, terrain mapping, elevation model, photogrammetry costa rica, drone survey real estate, cut and fill drone, slope analysis drone
 
-drone survey agriculture Costa Rica
-precision farming Costa Rica
-NDVI crop health mapping
-drone survey pineapple farm
-drone survey coffee farm Costa Rica
-agricultural drone mapping
-LiDAR agriculture Costa Rica
-farm boundary survey Costa Rica
-crop health drone
-FONAFIFO compliance drone
-cooperative farm survey
+**Category:** Science & Technology
+**Visibility:** Public
 
-## Spotify Category Settings
+---
 
-- **Primary category:** Business
-- **Subcategory:** Investing / Real Estate
-- **Language:** English
-- **Content:** Clean (no explicit)
+## Blog Embed Snippets
 
-## Publish Settings
+**Spotify embed (update episode ID after publishing):**
+```html
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/EPISODE_ID_HERE?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+```
 
-- Immediate publish once audio uploaded
-- Schedule for: __________
-
-## File Paths
-
-- **NotebookLM source:** `Podcast/EP03_source_brief.md`
-- **Audio (m4a):** to be saved at `Podcast/audio/EP03_drone_surveys_agriculture_costa_rica.m4a`
-- **Google Drive folder:** Spotify EP03
+**YouTube embed (update video ID after publishing):**
+```html
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/VIDEO_ID_HERE" title="Drone Topographic Survey Costa Rica" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy" style="border-radius:12px;margin:20px 0;"></iframe>
+```
