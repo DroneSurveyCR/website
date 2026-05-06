@@ -76,7 +76,7 @@ async function saveToNotion(d) {
 // ─── SLACK ─────────────────────────────────────────────────────
 async function sendSlack(d) {
 	const webhook = process.env.SLACK_WEBHOOK_URL;
-	if (!webhook) return; // skip silently if not configured
+	if (!webhook) throw new Error('SLACK_WEBHOOK_URL not set');
 
 	const text = [
 		`*🛰️ New Quote — DroneSurveyCR.com*`,
@@ -90,17 +90,18 @@ async function sendSlack(d) {
 		`<https://wa.me/${(d.phone||'').replace(/\D/g,'')}|💬 Reply on WhatsApp>  |  <https://notion.so/21eefe17c7914f60a64e69b9a1e3ff44|📋 Open Notion>`
 	].filter(Boolean).join('\n');
 
-	await fetch(webhook, {
+	const r = await fetch(webhook, {
 		method: 'POST',
 		headers: { 'Content-Type': 'application/json' },
 		body: JSON.stringify({ text })
 	});
+	if (!r.ok) throw new Error(`Slack: ${await r.text()}`);
 }
 
 // ─── EMAIL (Resend) ────────────────────────────────────────────
 async function sendEmail(d) {
 	const apiKey = process.env.RESEND_API_KEY;
-	if (!apiKey) return; // skip silently if not configured
+	if (!apiKey) throw new Error('RESEND_API_KEY not set');
 
 	const ownerHtml = `<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto">
 		<div style="background:#302F40;padding:24px;border-radius:12px 12px 0 0">
@@ -158,7 +159,7 @@ async function sendEmail(d) {
 	</div>`;
 
 	// Email to owner
-	await fetch('https://api.resend.com/emails', {
+	const ownerRes = await fetch('https://api.resend.com/emails', {
 		method: 'POST',
 		headers: { 'Authorization': `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
 		body: JSON.stringify({
@@ -168,10 +169,11 @@ async function sendEmail(d) {
 			html: ownerHtml
 		})
 	});
+	if (!ownerRes.ok) throw new Error(`Resend owner: ${await ownerRes.text()}`);
 
 	// Email to client
 	if (d.email) {
-		await fetch('https://api.resend.com/emails', {
+		const clientRes = await fetch('https://api.resend.com/emails', {
 			method: 'POST',
 			headers: { 'Authorization': `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
 			body: JSON.stringify({
@@ -181,5 +183,6 @@ async function sendEmail(d) {
 				html: clientHtml
 			})
 		});
+		if (!clientRes.ok) throw new Error(`Resend client: ${await clientRes.text()}`);
 	}
 }
