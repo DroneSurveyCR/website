@@ -436,122 +436,64 @@
 				</div>
 			</article>
 
-			</div><!-- /blog-grid -->
 
-			<div class="no-results" id="no-results">
-				<h3>No posts found in this category yet.</h3>
-				<p>Check back soon or <a href="../quote.html">get a quote</a> for your project.</p>
-			</div>
-
-			<!-- PODCAST PROMO -->
-			<div class="podcast-section">
-				<h2>&#127911; Drone Survey Costa Rica Podcast</h2>
-				<p>Listen to expert discussions on LiDAR mapping, costs, and aerial survey technology in Costa Rica.</p>
-				<a href="https://open.spotify.com/show/3zFOH9lO1UPAUVBMAUQge8" target="_blank" rel="noopener noreferrer" class="btn btn-success" style="display:inline-block; max-width:260px;">Listen on Spotify</a>
-			</div>
-
-			<!-- CTA -->
-			<div class="blog-cta">
-				<h2>Ready to Survey Your Property?</h2>
-				<p>Get a free quote for professional drone survey services anywhere in Costa Rica.</p>
-				<a href="../quote.html" class="btn btn-primary" style="margin-right:10px;">Get a Free Quote</a>
-				<a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer" class="btn btn-success">WhatsApp Us</a>
-			</div>
-
-		</div><!-- /container -->
-	</main>
-
-	<!-- FOOTER -->
-	<footer>
-		<div class="container">
-			<div class="footer-grid">
-				<div>
-					<h4>Drone Survey CR</h4>
-					<ul>
-						<li><a href="../index.html">Home</a></li>
-						<li><a href="../about.html">About Us</a></li>
-						<li><a href="../quote.html">Get a Quote</a></li>
-						<li><a href="../blog/">Blog</a></li>
-					</ul>
+			<!-- Agriculture Farm Mapping (May 2026) -->
+			<article class="blog-card visible" data-category="blog">
+				<div class="blog-card-img" style="background-image: linear-gradient(135deg, rgba(30,100,30,0.85), rgba(48,47,64,0.8)), url('../drone-lidar.jpg');">
+					<span class="card-type-badge">Agriculture</span>
 				</div>
-				<div>
-					<h4>Services</h4>
-					<ul>
-						<li><a href="../services/lidar-mapping.html">Lidar Drone Surveying</a></li>
-						<li><a href="../services/geopositioning.html">GPS Geopositioning</a></li>
-						<li><a href="../index.html#aerial-media">Aerial Video &amp; Photos</a></li>
-					</ul>
+				<div class="blog-card-body">
+					<span class="blog-card-tag">Agriculture</span>
+					<h2><a href="agriculture-drone-survey-costa-rica.html">Agriculture Drone Survey Costa Rica: Map Your Farm, Manage It Better</a></h2>
+					<p>Use drone surveys to map your Costa Rican farm — pineapple, banana, coffee, or palm oil. Get volume data, plan drainage, and make smarter farming decisions.</p>
+					<div class="blog-card-meta"><span>May 12, 2026</span> · <span>8 min read</span></div>
 				</div>
-				<div>
-					<h4>Contact</h4>
-					<ul>
-						<li><a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer">WhatsApp: +506 7293-8970</a></li>
-						<li><a href="mailto:info@dronesurveycr.com">info@dronesurveycr.com</a></li>
-						<li><a href="https://g.co/kgs/VnbxFYr" target="_blank" rel="noopener noreferrer">Google Reviews</a></li>
-					</ul>
+			</article>
+
+			<!-- Caribbean Coastal Development (May 2026) -->
+			<article class="blog-card visible" data-category="regional">
+				<div class="blog-card-img" style="background-image: linear-gradient(135deg, rgba(0,80,160,0.85), rgba(0,40,80,0.9)), url('../drone-coast.jpg');">
+					<span class="card-type-badge">Regional</span>
 				</div>
-			</div>
-			<div class="footer-bottom">
-				<p>&copy; 2025 Drone Survey Costa Rica. All rights reserved.</p>
-			</div>
-		</div>
-	</footer>
+				<div class="blog-card-body">
+					<span class="blog-card-tag tag-regional">Caribbean</span>
+					<h2><a href="drone-survey-caribbean-coastal-development-costa-rica.html">Drone Surveys for Caribbean Coastal Development in Costa Rica</a></h2>
+					<p>Professional drone surveying for Caribbean region coastal development, tourism infrastructure, and port monitoring in Puerto Lim&oacute;n and Lim&oacute;n Province, Costa Rica.</p>
+					<div class="blog-card-meta"><span>May 12, 2026</span> · <span>9 min read</span></div>
+				</div>
+			</article>
 
-	<!-- TAB FILTER + CARD CLICK JS -->
-	<script>
-	(function(){
-		var tabs = document.querySelectorAll('.blog-tab');
-		var cards = document.querySelectorAll('.blog-card');
-		var noResults = document.getElementById('no-results');
+			<!-- Costa Rica Drone Laws 2026 -->
+			<article class="blog-card visible" data-category="blog">
+				<div class="blog-card-img" style="background-image: linear-gradient(135deg, rgba(48,47,64,0.9), rgba(0,80,180,0.8)), url('../drone-fly.jpg');">
+					<span class="card-type-badge">Regulations</span>
+				</div>
+				<div class="blog-card-body">
+					<span class="blog-card-tag">Regulations</span>
+					<h2><a href="costa-rica-drone-laws-2026.html">Costa Rica Drone Laws 2026: What You Need to Know Before Flying</a></h2>
+					<p>Complete guide to Costa Rica drone laws in 2026. DGAC regulations, restricted zones, commercial permits, national park rules, and what happens if you fly illegally.</p>
+					<div class="blog-card-meta"><span>April 7, 2026</span> · <span>9 min read</span></div>
+				</div>
+			</article>
 
-		// Count cards per category
-		var counts = { all: cards.length, blog: 0, regional: 0, vlog: 0, podcast: 0 };
-		cards.forEach(function(c){
-			var cats = (c.getAttribute('data-category') || '').split(' ');
-			cats.forEach(function(cat){ if(counts[cat] !== undefined) counts[cat]++; });
-		});
-		// Update tab counts
-		Object.keys(counts).forEach(function(k){
-			var el = document.getElementById('count-' + k);
-			if(el) el.textContent = counts[k];
-		});
+			<!-- Agriculture Precision Farming -->
+			<article class="blog-card visible" data-category="blog">
+				<div class="blog-card-img" style="background-image: linear-gradient(135deg, rgba(0,120,50,0.85), rgba(48,47,64,0.8)), url('../drone-lidar.jpg');">
+					<span class="card-type-badge">Agriculture</span>
+				</div>
+				<div class="blog-card-body">
+					<span class="blog-card-tag">Agriculture</span>
+					<h2><a href="drone-survey-agriculture-costa-rica.html">Drone Surveys for Agriculture in Costa Rica: Precision Farming &amp; Crop Mapping</a></h2>
+					<p>How Costa Rica farmers and agribusiness use drone surveys for crop health mapping, irrigation planning, yield estimation, and precision agriculture. Pineapple, coffee, banana, palm oil, and more.</p>
+					<div class="blog-card-meta"><span>April 7, 2026</span> · <span>10 min read</span></div>
+				</div>
+			</article>
 
-		// Tab click handler
-		tabs.forEach(function(tab){
-			tab.addEventListener('click', function(e){
-				e.preventDefault();
-				var filter = this.getAttribute('data-filter');
-				tabs.forEach(function(t){ t.classList.remove('active'); });
-				this.classList.add('active');
-
-				var visible = 0;
-				cards.forEach(function(card){
-					var cats = (card.getAttribute('data-category') || '').split(' ');
-					if(filter === 'all' || cats.indexOf(filter) !== -1){
-						card.classList.add('visible');
-						visible++;
-					} else {
-						card.classList.remove('visible');
-					}
-				});
-				if(noResults){
-					noResults.classList.toggle('visible', visible === 0);
-				}
-			});
-		});
-
-		// Make entire card clickable
-		cards.forEach(function(card){
-			var link = card.querySelector('h2 a');
-			if(link){
-				card.style.cursor = 'pointer';
-				card.addEventListener('click', function(e){
-					if(e.target.tagName === 'A') return;
-					link.click();
-				});
-			}
-		});
-	})();
-	</script>
-</body>
-</html>
+			<!-- Drone Survey Cost Guide (original) -->
+			<article class="blog-card visible" data-category="blog">
+				<div class="blog-card-img" style="background-image: linear-gradient(135deg, rgba(0,100,200,0.85), rgba(48,47,64,0.8)), url('../drone-fly.jpg');">
+					<span class="card-type-badge">Pricing</span>
+				</div>
+				<div class="blog-card-body">
+					<span class="blog-card-tag">Costs &amp; Pricing</span>
+					<h2><a href="how-much-does-drone-survey-cost-costa-rica.html">How Much Does a Drone Survey Cost in Costa Rica? (2026 Pricing Guid
