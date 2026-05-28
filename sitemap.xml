@@ -134,7 +134,13 @@
   </url>
   <url>
     <loc>https://www.dronesurveycr.com/blog/drone-survey-south-pacific-osa-costa-rica.html</loc>
-    <lastmod>2026-05-06</lastmod>
+    <lastmod>2026-05-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.dronesurveycr.com/blog/drone-survey-central-valley-real-estate-costa-rica.html</loc>
+    <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -163,18 +169,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
-    <loc>https://www.dronesurveycr.com/blog/drone-survey-caribbean-agriculture-limon-costa-rica.html</loc>
-    <lastmod>2026-04-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.dronesurveycr.com/blog/drone-survey-central-valley-update-costa-rica.html</loc>
-    <lastmod>2026-05-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
+
   <url>
     <loc>https://www.dronesurveycr.com/blog/agriculture-drone-survey-costa-rica.html</loc>
     <lastmod>2026-05-12</lastmod>
@@ -212,8 +207,20 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.dronesurveycr.com/blog/drone-survey-cost-costa-rica.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.dronesurveycr.com/blog/plano-catastro-drone-costa-rica.html</loc>
     <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.dronesurveycr.com/blog/aerial-survey-costa-rica.html</loc>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

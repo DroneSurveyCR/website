@@ -651,4 +651,38 @@
 		tabs.forEach(function(tab){
 			tab.addEventListener('click', function(e){
 				e.preventDefault();
-				var fil
+				var filter = this.getAttribute('data-filter');
+				tabs.forEach(function(t){ t.classList.remove('active'); });
+				this.classList.add('active');
+
+				var visible = 0;
+				cards.forEach(function(card){
+					var cats = (card.getAttribute('data-category') || '').split(' ');
+					if(filter === 'all' || cats.indexOf(filter) !== -1){
+						card.classList.add('visible');
+						visible++;
+					} else {
+						card.classList.remove('visible');
+					}
+				});
+				if(noResults){
+					noResults.classList.toggle('visible', visible === 0);
+				}
+			});
+		});
+
+		// Make entire card clickable
+		cards.forEach(function(card){
+			var link = card.querySelector('h2 a');
+			if(link){
+				card.style.cursor = 'pointer';
+				card.addEventListener('click', function(e){
+					if(e.target.tagName === 'A') return;
+					link.click();
+				});
+			}
+		});
+	})();
+	</script>
+</body>
+</html>
