@@ -8,7 +8,10 @@
 	<meta name="description" content="Costa Rica's top-rated drone survey company (5★, 25 reviews). Centimeter-accurate LiDAR topographic mapping, aerial video & photography. Serving all provinces. Free quote — start at $1,000.">
 	<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 	<link rel="canonical" href="https://www.dronesurveycr.com/">
+	<link rel="preload" as="image" href="images/dji-zenmuse-l1-lidar.jpg" type="image/jpeg">
 	<!-- Hreflang for multilingual -->
+	<link rel="alternate" hreflang="en" href="https://www.dronesurveycr.com/">
+	<link rel="alternate" hreflang="es" href="https://www.dronesurveycr.com/es/">
 	<!-- Open Graph / Social Sharing -->
 	<meta property="og:type" content="website">
 	<meta property="og:title" content="Drone Survey Costa Rica | #1 LiDAR Mapping & Aerial Video Company">
@@ -235,7 +238,7 @@
 		.section-grey .card-inner { background: #dcdcdc; border-radius: 24px; padding: 40px 25px 40px; max-width: 900px; margin: 0 auto 120px; }
 		.section-grey h2 { color: #302F40; font-size: clamp(22px, 4vw, 45px); text-align: center; margin: 0 0 17px; }
 		.section-grey .intro { text-align: center; margin: 0 auto 30px; max-width: 65%; font-size: 16px; }
-		.video-block { background: url('images/vlcsnap-2022-01-24-23h03m50s335.png') 50% 50% / cover no-repeat; border-radius: 16px; padding: 300px 18px 18px; max-width: 80%; margin: -215px auto 0; text-align: right; }
+		.video-block { background: url('images/vlcsnap-2022-01-24-23h03m50s335.webp') 50% 50% / cover no-repeat; border-radius: 16px; padding: 300px 18px 18px; max-width: 80%; margin: -215px auto 0; text-align: right; }
 		.video-block a { display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; background: rgba(0,0,0,0.3); color: #fff; border-radius: 50%; text-decoration: none; font-size: 18px; }
 		.video-block a:hover { background: rgba(0,0,0,0.5); color: #fff; }
 		/* Workflow */
@@ -358,13 +361,13 @@
 					<div class="services-grid">
 						<div class="service-card">
 							<h5 data-i18n="services.lidar.title">Lidar Drone Surveying</h5>
-							<img src="images/new-project.jpg" alt="Lidar Drone Survey Costa Rica — centimeter-accurate topographic mapping" loading="lazy" width="600" height="400">
+							<picture><source srcset="images/new-project.webp" type="image/webp"><img src="images/new-project.jpg" alt="Lidar Drone Survey Costa Rica — centimeter-accurate topographic mapping" loading="lazy" width="600" height="400"></picture>
 							<p data-i18n="services.lidar.desc">Our lidar drones use laser scanning to capture terrain data with centimeter accuracy — penetrating forest canopy to map the true ground surface beneath.</p>
 							<a href="services/lidar-mapping.html" class="btn btn-custom" data-i18n="services.learn.lidar">Learn About Lidar Surveying</a>
 						</div>
 						<div class="service-card" id="aerial-media">
 							<h5 data-i18n="services.video.title">Aerial Video &amp; Photography</h5>
-							<img src="images/vlcsnap-2022-01-24-23h03m50s335.png" alt="Aerial drone video and photography Costa Rica — real estate, construction, marketing" loading="lazy" width="600" height="400">
+							<picture><source srcset="images/vlcsnap-2022-01-24-23h03m50s335.webp" type="image/webp"><img src="images/vlcsnap-2022-01-24-23h03m50s335.png" alt="Aerial drone video and photography Costa Rica — real estate, construction, marketing" loading="lazy" width="600" height="400"></picture>
 							<p data-i18n="services.video.desc">Professional 4K aerial video and high-resolution drone photography for real estate listings, construction progress, property marketing, and promotional content across Costa Rica.</p>
 							<a href="quote.html" class="btn btn-custom" data-i18n="services.learn.video">Get a Video Quote</a>
 						</div>
@@ -841,21 +844,4 @@
 		document.documentElement.lang = lang;
 		// Update button states
 		['en','es','fr'].forEach(l => {
-			document.getElementById('btn-' + l).classList.toggle('active', l === lang);
-		});
-		// Apply translations
-		document.querySelectorAll('[data-i18n]').forEach(el => {
-			const key = el.getAttribute('data-i18n');
-			const text = (translations[lang] || translations.en)[key];
-			if (text !== undefined) el.textContent = text;
-		});
-	}
-
-	// Init on load
-	(function() {
-		const saved = localStorage.getItem('lang') || 'en';
-		setLang(saved);
-	})();
-	</script>
-</body>
-</html>
+			document.getElementById('btn-' + l).classList.to

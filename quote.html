@@ -110,7 +110,61 @@
 	<meta property="og:site_name" content="DroneSurveyCR">
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:title" content="Get a Quote — Drone Survey Costa Rica">
-	<meta name="twitter:description" content="Get an instant quote for drone LiDAR mapping, photogrammetry, and aerial surveys in Costa Rica.">'
+	<meta name="twitter:description" content="Get an instant quote for drone LiDAR mapping, photogrammetry, and aerial surveys in Costa Rica.">
+	<!-- Schema.org Structured Data -->
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "WebPage",
+		"@id": "https://www.dronesurveycr.com/quote.html#webpage",
+		"name": "Free Drone Survey Quote — Instant Pricing",
+		"description": "Get a free drone survey quote in 5 minutes. LiDAR topographic mapping from $1,000. Serving all of Costa Rica.",
+		"url": "https://www.dronesurveycr.com/quote.html",
+		"isPartOf": {
+			"@type": "WebSite",
+			"@id": "https://www.dronesurveycr.com/#website",
+			"name": "Drone Survey Costa Rica",
+			"url": "https://www.dronesurveycr.com/"
+		},
+		"about": {
+			"@type": "Service",
+			"@id": "https://www.dronesurveycr.com/#dronesurveyservice",
+			"name": "Drone Survey Services",
+			"provider": {
+				"@type": ["LocalBusiness", "ProfessionalService"],
+				"@id": "https://www.dronesurveycr.com/#business",
+				"name": "Drone Survey Costa Rica",
+				"url": "https://www.dronesurveycr.com/",
+				"telephone": "+50672938970",
+				"areaServed": {
+					"@type": "Country",
+					"name": "Costa Rica"
+				},
+				"address": {
+					"@type": "PostalAddress",
+					"addressCountry": "CR",
+					"addressRegion": "Costa Rica"
+				}
+			},
+			"serviceType": ["LiDAR Mapping", "Photogrammetry", "Aerial Surveys", "Topographic Surveys", "GPS Geopositioning"],
+			"areaServed": {
+				"@type": "Country",
+				"name": "Costa Rica"
+			},
+			"offers": {
+				"@type": "Offer",
+				"priceCurrency": "USD",
+				"price": "1000",
+				"priceSpecification": {
+					"@type": "PriceSpecification",
+					"priceCurrency": "USD",
+					"price": "1000",
+					"description": "Starting price for drone survey services"
+				}
+			}
+		}
+	}
+	</script>
 
 </head>
 <body>
@@ -151,7 +205,7 @@
 
 			<!-- ── FORM ── -->
 			<div>
-			<div class="form-card" id="quoteForm">
+			<form class="form-card" id="quoteForm" action="#" onsubmit="submitQuote(); return false;" aria-label="Request a quote">
 
 				<div class="form-section">
 					<h3>Your Details</h3>
@@ -263,11 +317,11 @@
 					<input type="text" id="website_url" name="website_url" tabindex="-1" autocomplete="off">
 				</div>
 
-				<button class="btn-submit" id="submitBtn" onclick="submitQuote()">📋 Send My Quote Request</button>
+				<button class="btn-submit" id="submitBtn" type="submit">📋 Send My Quote Request</button>
 				<a href="https://wa.me/50672938970" class="btn-wa" target="_blank" rel="noopener">💬 Prefer WhatsApp? Chat Directly</a>
 				<div id="submitError" style="display:none;margin-top:14px;padding:14px;border-radius:8px;background:#fef2f2;border:1px solid #fecaca;color:#991b1b;font-size:14px;line-height:1.5"></div>
 				<p class="form-foot">We'll confirm your quote within a few hours.<br>50% deposit to start · 50% on delivery · Crypto · PayPal · Wire · Cash</p>
-			</div>
+			</form>
 
 			<!-- Success -->
 			<div class="success-card" id="successCard">
@@ -624,50 +678,4 @@ async function submitQuote() {
 	if (!payload.services || payload.services.length === 0) { alert('Please select at least one service.'); return; }
 
 	const btn = document.getElementById('submitBtn');
-	const errEl = document.getElementById('submitError');
-	errEl.style.display = 'none';
-	btn.disabled = true;
-	btn.textContent = '⏳ Sending...';
-
-	// Save locally first — so a network failure mid-request doesn't lose the lead
-	try { localStorage.setItem(PENDING_KEY, JSON.stringify(payload)); } catch (_) {}
-
-	let result = null, errorMsg = '';
-	try {
-		const ctrl = new AbortController();
-		const t = setTimeout(() => ctrl.abort(), 20000);
-		const r = await fetch(LEADS_ENDPOINT, {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify(payload),
-			signal: ctrl.signal,
-		});
-		clearTimeout(t);
-		const text = await r.text();
-		try { result = JSON.parse(text); } catch (_) { result = { ok: false, error: 'Bad response: ' + text.slice(0, 200) }; }
-		if (!r.ok || !result.ok) { errorMsg = (result && result.error) || ('HTTP ' + r.status); }
-	} catch (e) {
-		errorMsg = (e && e.name === 'AbortError') ? 'Request timed out' : (e && e.message) || 'Network error';
-	}
-
-	if (errorMsg) {
-		btn.disabled = false;
-		btn.textContent = '📋 Send My Quote Request';
-		showError(errorMsg, payload);
-		// Try to send a beacon to a backup mail-fallback so leads don't fully drop. We attempt mailto auto-open last.
-		console.error('[quote] submit failed:', errorMsg, result);
-		return;
-	}
-
-	// Success — clear pending backup, show success card
-	try { localStorage.removeItem(PENDING_KEY); } catch (_) {}
-	document.getElementById('quoteForm').style.display = 'none';
-	document.getElementById('successCard').style.display = 'block';
-	window.scrollTo({ top: 0, behavior: 'smooth' });
-
-	// Fire GA event so we can correlate
-	try { window.gtag && window.gtag('event', 'quote_submit', { value: payload.total || 0 }); } catch (_) {}
-}
-</script>
-</body>
-</html>
+	const errEl = document.getElement

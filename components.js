@@ -9,24 +9,25 @@
 
   // ============================================================================
   // 1. META PIXEL INITIALIZATION
+  // TODO: Add Meta Pixel ID when ready
   // ============================================================================
-  (function initMetaPixel() {
-    window.fbq = window.fbq || function() {
-      (window.fbq.q = window.fbq.q || []).push(arguments);
-    };
-    window.fbq('init', 'YOUR_PIXEL_ID_HERE'); // TODO: Replace with actual pixel ID
-    window.fbq('track', 'PageView');
-    
-    // Fallback for users with JavaScript disabled
-    if (document.readyState === 'loading') {
-      const noscriptImg = document.createElement('img');
-      noscriptImg.height = '1';
-      noscriptImg.width = '1';
-      noscriptImg.style.display = 'none';
-      noscriptImg.src = 'https://www.facebook.com/tr?id=YOUR_PIXEL_ID_HERE&ev=PageView&noscript=1';
-      document.body.appendChild(noscriptImg);
-    }
-  })();
+  // (function initMetaPixel() {
+  //   window.fbq = window.fbq || function() {
+  //     (window.fbq.q = window.fbq.q || []).push(arguments);
+  //   };
+  //   window.fbq('init', 'YOUR_PIXEL_ID_HERE');
+  //   window.fbq('track', 'PageView');
+  //
+  //   // Fallback for users with JavaScript disabled
+  //   if (document.readyState === 'loading') {
+  //     const noscriptImg = document.createElement('img');
+  //     noscriptImg.height = '1';
+  //     noscriptImg.width = '1';
+  //     noscriptImg.style.display = 'none';
+  //     noscriptImg.src = 'https://www.facebook.com/tr?id=YOUR_PIXEL_ID_HERE&ev=PageView&noscript=1';
+  //     document.body.appendChild(noscriptImg);
+  //   }
+  // })();
 
   // ============================================================================
   // 2. GA4 FORM SUBMISSION & SCROLL DEPTH TRACKING
@@ -45,7 +46,7 @@
       const url = typeof resource === 'string' ? resource : resource.url;
       
       // Detect form submission to Supabase
-      if (url && url.includes('/rest/v1/quote_submissions')) {
+      if (url && url.includes('/api/leads/quote-submit')) {
         gtag('event', 'form_submission', {
           form_name: 'quote_request',
           event_category: 'engagement',
@@ -182,7 +183,7 @@
 
     if (whatsappBtn) {
       whatsappBtn.addEventListener('click', function() {
-        window.open('https://wa.me/YOUR_PHONE_NUMBER', '_blank');
+        window.open('https://wa.me/50672938970', '_blank');
       });
     }
 
@@ -401,7 +402,4 @@
   // ============================================================================
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function() {
-      // All components self-initialize via IIFEs above
-    });
-  }
-})();
+      // All components self-init

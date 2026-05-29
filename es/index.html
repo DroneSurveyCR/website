@@ -214,7 +214,7 @@
 		.section-grey .card-inner { background: #dcdcdc; border-radius: 24px; padding: 40px 25px 40px; max-width: 900px; margin: 0 auto 120px; }
 		.section-grey h2 { color: #302F40; font-size: clamp(22px, 4vw, 45px); text-align: center; margin: 0 0 17px; }
 		.section-grey .intro { text-align: center; margin: 0 auto 30px; max-width: 65%; font-size: 16px; }
-		.video-block { background: url('../images/vlcsnap-2022-01-24-23h03m50s335.png') 50% 50% / cover no-repeat; border-radius: 16px; padding: 300px 18px 18px; max-width: 80%; margin: -215px auto 0; text-align: right; }
+		.video-block { background: url('../images/vlcsnap-2022-01-24-23h03m50s335.webp') 50% 50% / cover no-repeat; border-radius: 16px; padding: 300px 18px 18px; max-width: 80%; margin: -215px auto 0; text-align: right; }
 		.video-block a { display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; background: rgba(0,0,0,0.3); color: #fff; border-radius: 50%; text-decoration: none; font-size: 18px; }
 		.video-block a:hover { background: rgba(0,0,0,0.5); color: #fff; }
 		/* Workflow */
@@ -338,13 +338,13 @@
 					<div class="services-grid">
 						<div class="service-card">
 							<h5>Mapeo Lidar Aéreo</h5>
-							<img src="../images/new-project.jpg" alt="Levantamiento aéreo Lidar Costa Rica — mapeo topográfico de precisión centimétrica" loading="lazy">
+							<picture><source srcset="../images/new-project.webp" type="image/webp"><img src="../images/new-project.jpg" alt="Levantamiento aéreo Lidar Costa Rica — mapeo topográfico de precisión centimétrica" loading="lazy"></picture>
 							<p>Nuestros drones Lidar usan escaneo láser para capturar datos del terreno con precisión centimétrica — penetrando dosel forestal para mapear la verdadera superficie del terreno.</p>
 							<a href="../services/lidar-mapping.html" class="btn btn-custom">Conoce más sobre Lidar</a>
 						</div>
 						<div class="service-card" id="aerial-media">
 							<h5>Video y Fotografía Aérea</h5>
-							<img src="../images/vlcsnap-2022-01-24-23h03m50s335.png" alt="Video aéreo con dron y fotografía aérea Costa Rica — inmobiliario, construcción y marketing" loading="lazy">
+							<picture><source srcset="../images/vlcsnap-2022-01-24-23h03m50s335.webp" type="image/webp"><img src="../images/vlcsnap-2022-01-24-23h03m50s335.png" alt="Video aéreo con dron y fotografía aérea Costa Rica — inmobiliario, construcción y marketing" loading="lazy"></picture>
 							<p>Video aéreo 4K profesional y fotografía aérea de alta resolución para listados inmobiliarios, documentación de construcción, marketing de propiedades y contenido promocional en Costa Rica.</p>
 							<a href="quote.html" class="btn btn-custom">Cotizar Video Aéreo</a>
 						</div>
@@ -655,13 +655,4 @@
 		if (lang === 'en') {
 			window.location.href = '../';}
 		// Otherwise stay on es/ page
-	}
-
-	// Init on load
-	(function() {
-		const saved = localStorage.getItem('lang') || 'es';
-		document.getElementById('btn-es').classList.add('active');
-	})();
-	</script>
-</body>
-</html>
+	
