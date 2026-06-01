@@ -232,5 +232,124 @@ button.action:hover{background:#f0f8ff}
     <div class="idea-title">Instagram caption generator</div>
     <div class="idea-desc">After GBP post goes live Wednesday, auto-generate matching Instagram caption + hashtags for the week's episode and save to Podcast/ folder ready to paste.</div>
   </div>
-  <div class="card">
-    <div class="i
+    <div class="card">
+    <div class="idea-tag">competitor intel</div>
+    <div class="idea-title">Monthly competitor rank tracker</div>
+    <div class="idea-desc">Track surveycostarica.com keyword rankings monthly. When they rank above on a target keyword, auto-generate a content brief to out-rank them on that specific term.</div>
+  </div>
+</div>
+
+</div>
+<script>
+(function(){
+  function tick(){
+    var d=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Costa_Rica'}));
+    var days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+    var months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    var h=d.getHours(),m=d.getMinutes(),ap=h>=12?'PM':'AM';
+    h=h%12||12;
+    var el=document.getElementById('db-clock');
+    if(el)el.textContent=days[d.getDay()]+' '+months[d.getMonth()]+' '+d.getDate()+' \u00b7 '+h+':'+(m<10?'0':'')+m+' '+ap;
+  }
+  tick();setInterval(tick,30000);
+
+  var ctx=document.getElementById('epChart');
+  if(ctx){
+    new Chart(ctx,{
+      type:'bar',
+      data:{
+        labels:['EP01\nApr 8','EP02\nApr 16','EP03\nApr 23','EP04\nApr 30','EP05\nMay 7','EP06\nMay 14','EP07\nMay 21','EP08\nMay 28'],
+        datasets:[
+          {label:'Live',data:[1,1,1,1,1,0,0,0],backgroundColor:'#5DCAA5',borderRadius:4},
+          {label:'Planned',data:[0,0,0,0,0,1,1,1],backgroundColor:'#FAC775',borderRadius:4}
+        ]
+      },
+      options:{
+        responsive:true,maintainAspectRatio:false,
+        plugins:{
+          legend:{
+            display:true,position:'top',
+            labels:{font:{size:11},boxWidth:10,padding:16}
+          }
+        },
+        scales:{
+          x:{stacked:true,grid:{display:false},ticks:{font:{size:10},color:'#888780',maxRotation:0}},
+          y:{stacked:true,beginAtZero:true,max:1.5,grid:{color:'rgba(0,0,0,0.05)'},ticks:{font:{size:10},color:'#888780',stepSize:1}}
+        }
+      }
+    });
+  }
+})();
+
+var healthPages = [
+  '/', '/about.html', '/quote.html', '/portfolio.html', '/404.html',
+  '/lp-agriculture.html', '/lp-construction.html', '/lp-real-estate.html',
+  '/es/', '/es/quote.html', '/es/lp-agriculture.html', '/es/lp-construction.html', '/es/lp-real-estate.html',
+  '/services/lidar-mapping.html', '/services/photogrammetry.html', '/services/geopositioning.html',
+  '/services/pricing-calculator.html', '/services/san-jose.html', '/services/guanacaste.html',
+  '/services/alajuela.html', '/services/cartago.html', '/services/heredia.html',
+  '/services/limon.html', '/services/puntarenas.html',
+  '/blog/', '/blog/aerial-survey-costa-rica.html',
+  '/blog/agriculture-drone-survey-costa-rica.html', '/blog/construction-drone-surveys-costa-rica.html',
+  '/blog/costa-rica-drone-laws-2026.html', '/blog/dgac-drone-regulations-costa-rica-2026.html',
+  '/blog/drone-survey-agriculture-costa-rica.html', '/blog/drone-survey-caribbean-agriculture-limon-costa-rica.html',
+  '/blog/drone-survey-caribbean-coastal-development-costa-rica.html', '/blog/drone-survey-caribbean-costa-rica.html',
+  '/blog/drone-survey-central-valley-costa-rica.html', '/blog/drone-survey-central-valley-real-estate-costa-rica.html',
+  '/blog/drone-survey-central-valley-update-costa-rica.html', '/blog/drone-survey-cost-costa-rica.html',
+  '/blog/drone-survey-costs-costa-rica-2026.html', '/blog/drone-survey-environmental-impact-assessment-costa-rica.html',
+  '/blog/drone-survey-guanacaste-costa-rica.html', '/blog/drone-survey-guanacaste-tourism-infrastructure-costa-rica.html',
+  '/blog/drone-survey-real-estate-costa-rica.html', '/blog/drone-survey-san-jose-costa-rica.html',
+  '/blog/drone-survey-south-pacific-costa-rica.html', '/blog/drone-survey-south-pacific-osa-costa-rica.html',
+  '/blog/drone-survey-vs-ground-survey-costa-rica.html', '/blog/drone-topographic-survey-costa-rica.html',
+  '/blog/lidar-vs-photogrammetry-costa-rica.html', '/blog/lidar-vs-photogrammetry.html',
+  '/blog/plano-catastro-drone-costa-rica.html',
+  '/sitemap.xml', '/robots.txt'
+];
+
+async function runHealthCheck() {
+  var btn = document.getElementById('h-btn');
+  btn.textContent = 'Checking...';
+  btn.disabled = true;
+  document.getElementById('health-dot').style.background = '#ccc';
+  document.getElementById('health-label').textContent = 'Checking ' + healthPages.length + ' pages...';
+  var ok = 0, errs = 0, errors = [];
+  for (var i = 0; i < healthPages.length; i += 6) {
+    var batch = healthPages.slice(i, i + 6);
+    var results = await Promise.all(batch.map(function(p) {
+      return fetch(p, { method: 'GET', cache: 'no-store' })
+        .then(function(r) { return { page: p, ok: r.ok, status: r.status }; })
+        .catch(function() { return { page: p, ok: false, status: 0 }; });
+    }));
+    results.forEach(function(r) {
+      if (r.ok) ok++;
+      else { errs++; errors.push((r.status || 'ERR') + ' ' + r.page); }
+    });
+  }
+  document.getElementById('h-pages').textContent = healthPages.length;
+  document.getElementById('h-ok').textContent = ok;
+  document.getElementById('h-redir').textContent = '\u2014';
+  document.getElementById('h-err').textContent = errs;
+  document.getElementById('h-err').style.color = errs > 0 ? '#c0392b' : '#1D9E75';
+  var dot = document.getElementById('health-dot');
+  if (errs === 0) {
+    dot.style.background = '#1D9E75';
+    document.getElementById('health-label').textContent = 'All ' + ok + ' pages healthy';
+  } else {
+    dot.style.background = '#c0392b';
+    document.getElementById('health-label').textContent = errs + ' issue' + (errs > 1 ? 's' : '') + ' found';
+  }
+  var now = new Date().toLocaleString('en-US', { timeZone: 'America/Costa_Rica', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
+  document.getElementById('health-ts').textContent = 'Checked ' + now;
+  var det = document.getElementById('health-details');
+  if (errors.length > 0) {
+    det.innerHTML = '<div style="color:#c0392b;margin-top:8px"><strong>Errors:</strong><br>' + errors.join('<br>') + '</div>';
+  } else {
+    det.innerHTML = '<div style="color:#1D9E75;margin-top:4px">All pages responding. Automated deep check runs every Monday 9am.</div>';
+  }
+  btn.textContent = 'Run again';
+  btn.disabled = false;
+}
+runHealthCheck();
+</script>
+</body>
+</html>
