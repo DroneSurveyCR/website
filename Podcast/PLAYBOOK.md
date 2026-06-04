@@ -18,7 +18,7 @@
 | EP05 | 2026-05-07 | Drone Survey Costs in Costa Rica 2026 — Complete Pricing Guide | ✅ | ✅ 2lFadQpqqWhjOhvgKfvXQE | ✅ ERP15A7Avew | ✅ |
 | EP06 | 2026-05-14 | EP06: DGAC Drone Regulations Costa Rica 2026 — Permits, Restricted Zones & Flight Rules | ✅ | ✅ 25TkNtO5NPs8s6Bk6co4KM | ⏳ (video not uploaded yet) | ⏳ |
 | EP07 | 2026-05-28 | EP07: Aerial Surveys in Costa Rica — Drone Mapping, LiDAR & Photogrammetry Explained | ✅ | ✅ 1fsu8Kafvc7EaPHCfJTxZq | ⏳ (video not uploaded yet) | ⏳ |
-| EP08 | 2026-05-28 | TBD | ⏳ | ⏳ | ⏳ | ⏳ |
+| EP08 | 2026-06-04 | EP08: How LiDAR Drones See Through Jungle Canopy in Costa Rica | ✅ | ⏳ | ⏳ | ⏳ |
 
 ---
 
@@ -43,5 +43,4 @@
 - Guanacaste tourism development and drone mapping
 - South Pacific / Osa Peninsula drone survey challenges
 - Caribbean coast: drone surveys for eco-resort development
-- Solar farm siting surveys with drone LiDAR
-- Precision agriculture a
+- Solar far
