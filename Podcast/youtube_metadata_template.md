@@ -11,8 +11,11 @@
 
 ### Title
 ```
-[EPISODE_TITLE] | DroneSurveyCR Podcast EP[NN]
+EP[NN]: [EPISODE_TITLE]
 ```
+
+
+> **NAMING STANDARD (all platforms — YouTube, Spotify, blog):** Every episode title MUST start with `EP0X:` followed by the descriptive title. Format: `EP0X: <Descriptive Title>`. No `| EPxx` suffixes, no `DSCR EP.x`, no missing IDs. This keeps YouTube, Spotify, and the site captions identical.
 
 ### Description
 ```
