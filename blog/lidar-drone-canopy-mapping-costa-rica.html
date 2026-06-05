@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>LiDAR Canopy Penetration Costa Rica | How Drones Map Under Dense Forest</title>
+	<meta name="theme-color" content="#302F40">
+	<meta name="description" content="How LiDAR drones map terrain through dense jungle canopy in Costa Rica. Learn how laser pulses penetrate tropical forest, what data you get, and when you need LiDAR vs photogrammetry for forested land.">
+	<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+	<link rel="canonical" href="https://www.dronesurveycr.com/blog/lidar-drone-canopy-mapping-costa-rica.html">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="LiDAR Canopy Penetration Costa Rica | How Drones Map Under Dense Forest">
+	<meta property="og:description" content="How LiDAR drones map terrain through dense jungle canopy in Costa Rica. Laser pulses, point density, bare-earth models, and what forested land surveys actually deliver.">
+	<meta property="og:url" content="https://www.dronesurveycr.com/blog/lidar-drone-canopy-mapping-costa-rica.html">
+	<meta property="og:image" content="https://www.dronesurveycr.com/images/dji-zenmuse-l1-lidar.jpg">
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "BlogPosting",
+		"headline": "How LiDAR Drones See Through Jungle Canopy in Costa Rica",
+		"description": "Technical guide to LiDAR canopy penetration for drone surveys in Costa Rica. How laser pulses map terrain under dense tropical forest, what deliverables you receive, and when LiDAR is the only option for forested land.",
+		"datePublished": "2026-06-02",
+		"dateModified": "2026-06-02",
+		"author": {
+			"@type": "Organization",
+			"name": "Drone Survey Costa Rica",
+			"url": "https://www.dronesurveycr.com/"
+		},
+		"publisher": {
+			"@type": "Organization",
+			"name": "Drone Survey Costa Rica",
+			"url": "https://www.dronesurveycr.com/"
+		},
+		"mainEntityOfPage": {
+			"@type": "WebPage",
+			"@id": "https://www.dronesurveycr.com/blog/lidar-drone-canopy-mapping-costa-rica.html"
+		},
+		"image": "https://www.dronesurveycr.com/images/dji-zenmuse-l1-lidar.jpg",
+		"keywords": ["lidar costa rica", "lidar canopy penetration", "lidar forest survey costa rica", "drone survey through trees costa rica", "lidar jungle mapping", "bare earth model costa rica", "lidar drone mapping costa rica", "DTM forested land costa rica", "lidar point cloud costa rica", "tropical forest drone survey"]
+	}
+	</script>
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "FAQPage",
+		"mainEntity": [
+			{
+				"@type": "Question",
+				"name": "Can LiDAR see through trees in Costa Rica's jungle?",
+				"acceptedAnswer": {
+					"@type": "Answer",
+					"text": "Yes. LiDAR fires thousands of laser pulses per second, and many of those pulses pass through gaps in the canopy to reach the ground. In typical Costa Rican tropical forest, 5-20% of laser pulses penetrate to the bare earth surface. This is enough to build an accurate Digital Terrain Model (DTM) showing the true ground elevation under dense vegetation. Photogrammetry cameras cannot do this because they only photograph the top of the tree canopy."
+				}
+			},
+			{
+				"@type": "Question",
+				"name": "How accurate is LiDAR under forest canopy?",
+				"acceptedAnswer": {
+					"@type": "Answer",
+					"text": "LiDAR terrain measurements under forest canopy typically achieve ±3-5 cm vertical accuracy in Costa Rica using RTK GPS correction and ground control points. In extremely dense multi-story canopy (like primary rainforest on the Osa Peninsula), accuracy may be ±5-10 cm. This is still far more accurate than any other remote sensing method for forested terrain and sufficient for topographic mapping, construction planning, and property boundary verification."
+				}
+			},
+			{
+				"@type": "Question",
+				"name": "When do I need LiDAR instead of photogrammetry for my Costa Rica property?",
+				"acceptedAnswer": {
+					"@type": "Answer",
+					"text": "You need LiDAR when your property has tree cover, dense vegetation, or jungle that prevents a camera from seeing the ground. If more than 30% of your site is covered by trees or tall shrubs, photogrammetry will only map the top of the vegetation — not the terrain beneath it. LiDAR is essential for forested lots in Guanacaste, Osa Peninsula, Caribbean coast, and mountain properties where canopy cover is common. For open pasture, cleared construction sites, or agricultural fields, photogrammetry is usually sufficient and more affordable."
+				}
+			},
+			{
+				"@type": "Question",
+				"name": "How much does a LiDAR survey cost for forested land in Costa Rica?",
+				"acceptedAnswer": {
+					"@type": "Answer",
+					"text": "LiDAR surveys for forested land in Costa Rica start at $1,000-$1,200 USD for sites up to 5 hectares, with additional area at approximately $80-$100 per hectare. The LiDAR technology premium is typically 20-30% more than a photogrammetry survey of the same area. Travel fees apply based on distance from San José. Use our online quote calculator at dronesurveycr.com/quote.html for an instant estimate based on your specific property size and location."
+				}
+			},
+			{
+				"@type": "Question",
+				"name": "What deliverables do I get from a LiDAR forest survey?",
+				"acceptedAnswer": {
+					"@type": "Answer",
+					"text": "A LiDAR forest survey in Costa Rica delivers: a bare-earth Digital Terrain Model (DTM) showing true ground elevation under the canopy, a Digital Surface Model (DSM) showing canopy height, a classified 3D point cloud (LAS/LAZ format) separating ground, vegetation, and structures, contour lines at 0.5m or 1m intervals in DWG/DXF format, a georeferenced orthophoto, and a documented accuracy report with RMSE at check points. All data is georeferenced to CRTM05 or WGS84 coordinates."
+				}
+			}
+		]
+	}
+	</script>
+	<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+	<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="../styles/main.css">
+	<style>
+		* { box-sizing: border-box; }
+		body { margin: 0; font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.7; color: #5C5C69; }
+		h1, h2, h3, h4, h5, h6 { font-family: 'IBM Plex Sans', sans-serif; color: #302F40; }
+		.container { max-width: 1140px; margin: 0 auto; padding: 0 15px; }
+
+		/* === HEADER === */
+		#sp-header { background: #302F40; padding: 12px 0; position: sticky; top: 0; z-index: 1000; }
+		#sp-header .row { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+		#sp-header .logo img { display: block; }
+		#sp-header nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 6px; flex-wrap: wrap; }
+		#sp-header nav ul li { position: relative; }
+		#sp-header nav ul li a { color: #fff; text-decoration: none; padding: 8px 12px; border-radius: 4px; font-size: 14px; font-family: 'IBM Plex Sans', sans-serif; font-weight: 500; display: block; white-space: nowrap; }
+		#sp-header nav ul li a:hover { background: rgba(255,255,255,0.1); }
+		#sp-header nav ul li ul { display: none; position: absolute; top: 100%; left: 0; background: #302F40; border-radius: 6px; min-width: 200px; box-shadow: 0 4px 16px rgba(0,0,0,0.3); z-index: 100; }
+		#sp-header nav ul li:hover > ul { display: block; }
+		#sp-header nav ul li ul li a { font-size: 13px; padding: 10px 14px; border-radius: 0; }
+		.cta-nav { background: #0080FE !important; border-radius: 6px !important; }
+		.cta-nav:hover { background: #006de0 !important; }
+
+		/* === HERO === */
+		.blog-hero {
+			background: linear-gradient(135deg, rgba(0,60,30,0.92), rgba(13,32,24,0.95)), url('../drone-lidar.jpg') center/cover no-repeat;
+			padding: 70px 0 60px;
+			color: #fff;
+		}
+		.blog-hero h1 { color: #fff; font-size: clamp(1.7rem, 3.5vw, 2.5rem); margin: 0 0 16px; line-height: 1.2; }
+		.blog-hero p { font-size: 1.1rem; margin: 0 0 20px; opacity: 0.9; max-width: 680px; }
+		.hero-meta { font-size: 14px; opacity: 0.7; }
+
+		/* === ARTICLE === */
+		.article-body { max-width: 820px; margin: 0 auto; padding: 50px 15px 60px; }
+		.article-body h2 { font-size: 1.55rem; margin: 40px 0 14px; border-left: 4px solid #0080FE; padding-left: 14px; }
+		.article-body h3 { font-size: 1.2rem; margin: 28px 0 10px; color: #302F40; }
+		.article-body p { margin: 0 0 18px; }
+		.article-body ul, .article-body ol { margin: 0 0 18px; padding-left: 22px; }
+		.article-body ul li, .article-body ol li { margin-bottom: 8px; }
+		.article-body a { color: #0080FE; }
+		.article-body a:hover { text-decoration: underline; }
+		table { width: 100%; border-collapse: collapse; margin: 0 0 22px; font-size: 15px; }
+		th { background: #302F40; color: #fff; padding: 11px 14px; text-align: left; font-family: 'IBM Plex Sans', sans-serif; }
+		td { padding: 10px 14px; border-bottom: 1px solid #e8e8f0; }
+		tr:nth-child(even) td { background: #f8f9fc; }
+
+		/* === CTA BOX === */
+		.cta-box { background: linear-gradient(135deg, #0052cc, #0080FE); color: #fff; border-radius: 12px; padding: 40px; text-align: center; margin: 40px 0; }
+		.cta-box h2 { color: #fff; border: none; padding: 0; margin: 0 0 12px; }
+		.cta-box p { margin: 0 0 24px; opacity: 0.92; }
+		.btn { display: inline-block; padding: 13px 28px; border-radius: 6px; font-weight: 600; text-decoration: none; font-family: 'IBM Plex Sans', sans-serif; font-size: 15px; margin: 0 6px 8px; }
+		.btn-white { background: #fff; color: #0052cc; }
+		.btn-white:hover { background: #f0f4ff; color: #0052cc; text-decoration: none; }
+		.btn-success { background: #25d366; color: #fff; }
+		.btn-success:hover { background: #1da851; color: #fff; text-decoration: none; }
+
+		/* === COMPARISON TABLE === */
+		.compare-table th { background: #0052cc; }
+
+		/* === KEY POINT BOX === */
+		.key-point { background: #f0faf5; border-left: 4px solid #2e7d32; border-radius: 0 8px 8px 0; padding: 20px 24px; margin: 24px 0; }
+		.key-point strong { color: #2e7d32; }
+
+		/* === FAQ SECTION === */
+		.faq-section { background: #f4f6fb; padding: 60px 0; }
+		.faq-section h2 { text-align: center; margin: 0 0 35px; }
+		.faq-item { background: #fff; border-radius: 8px; padding: 24px 28px; margin-bottom: 16px; max-width: 820px; margin-left: auto; margin-right: auto; }
+		.faq-item h3 { margin: 0 0 10px; font-size: 1.05rem; color: #302F40; }
+		.faq-item p { margin: 0; font-size: 15px; }
+
+		/* === RESPONSIVE === */
+		@media (max-width: 768px) {
+			nav ul { justify-content: center; }
+			.blog-hero { padding: 40px 0; }
+			.cta-box { padding: 28px 20px; }
+		}
+	</style>
+	<!-- Google Analytics -->
+	<link rel="preconnect" href="https://www.googletagmanager.com">
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-6L0PFQRYF6"></script>
+	<script>
+		window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-6L0PFQRYF6');
+	</script>
+</head>
+<body>
+	<!-- HEADER -->
+	<header id="sp-header">
+		<div class="container">
+			<div class="row">
+				<div class="logo">
+					<a href="../index.html">
+						<img src="../images/dscrlogo.jpg" alt="Drone Survey Costa Rica" width="120" height="36">
+					</a>
+				</div>
+				<nav>
+					<ul>
+						<li><a href="../index.html">Home</a></li>
+						<li>
+							<a href="#services">Services</a>
+							<ul>
+								<li><a href="../services/lidar-mapping.html">Lidar Drone Surveying</a></li>
+								<li><a href="../services/geopositioning.html">GPS Geopositioning</a></li>
+								<li><a href="#aerial-media">Aerial Video &amp; Photos</a></li>
+							</ul>
+						</li>
+						<li><a href="../blog/" style="color:#0080FE; font-weight:700;">Blog</a></li>
+						<li><a href="../about.html">About</a></li>
+						<li><a href="../quote.html" class="cta-nav">Get a Quote</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</header>
+
+	<!-- HERO -->
+	<section class="blog-hero">
+		<div class="container">
+			<h1>How LiDAR Drones See Through Jungle Canopy in Costa Rica</h1>
+			<p>Why cameras fail in tropical forest &mdash; and how laser pulses map the true terrain under dense vegetation. A practical guide for property buyers, developers, and engineers working with forested land.</p>
+			<div class="hero-meta">June 2, 2026 &nbsp;&middot;&nbsp; 10 min read &nbsp;&middot;&nbsp; LiDAR Technology</div>
+		</div>
+	</section>
+
+	<!-- ARTICLE -->
+	<article class="article-body">
+
+		<p>You found a 10-hectare property in the mountains above Uvita. The real estate listing says &ldquo;ocean-view lot with gentle slopes.&rdquo; The photos show a wall of green. And when you ask for a topographic survey, the traditional surveyor tells you it will take two weeks and a machete crew to cut lines through the jungle.</p>
+
+		<p>This is one of the most common scenarios in Costa Rica land transactions. Over 50% of the country is forested, and a significant portion of developable land &mdash; especially in the Pacific coast, Osa Peninsula, Caribbean lowlands, and mountain zones &mdash; sits under dense tropical canopy. A standard camera drone flying overhead will photograph the treetops and nothing else. The terrain, the slopes, the drainage channels, the cliffs &mdash; all invisible.</p>
+
+		<p>LiDAR changes this. By firing laser pulses that pass through gaps in the canopy and bounce off the ground below, a LiDAR drone produces an accurate terrain map of forested land without cutting a single trail. This guide explains how it works, what you actually get, and when you need it for your Costa Rica project.</p>
+
+
+		<h2>The Problem: Cameras Cannot See Through Trees</h2>
+
+		<p>Standard drone surveys use <strong>photogrammetry</strong> &mdash; a high-resolution camera captures hundreds of overlapping photographs that are stitched into a 3D model. This works beautifully on open terrain: construction sites, agricultural fields, cleared lots, coastal properties without significant tree cover.</p>
+
+		<p>But in tropical forest, photogrammetry hits a hard limit. The camera photographs what it can see from above &mdash; the top of the tree canopy. The resulting 3D model is a Digital Surface Model (DSM) that shows canopy height, not ground elevation. You get a green blanket with no information about what the land actually looks like underneath.</p>
+
+		<p>For a property buyer, this means you cannot verify slopes, identify drainage problems, confirm that the &ldquo;buildable area&rdquo; is actually flat, or check whether a steep ravine runs through the middle of the lot. For a developer or engineer, it means you have no usable topographic data for grading plans, road alignment, or construction cost estimates. For an environmental consultant preparing a <a href="drone-survey-environmental-impact-assessment-costa-rica.html">SETENA EIA filing</a>, it means incomplete terrain characterization.</p>
+
+		<div class="key-point">
+			<strong>Key point:</strong> If more than 30% of your site has tree cover, a camera-only drone survey will not give you usable terrain data. You need LiDAR.
+		</div>
+
+
+		<h2>How LiDAR Penetrates Forest Canopy</h2>
+
+		<p>LiDAR stands for <strong>Light Detection and Ranging</strong>. A drone-mounted LiDAR sensor fires rapid laser pulses toward the ground &mdash; typically 240,000 pulses per second with the DJI Zenmuse L1 we use in Costa Rica. Each pulse travels at the speed of light, hits a surface, and bounces back to the sensor. The return time tells the system exactly how far away that surface is, and the drone&rsquo;s RTK GPS position tells it where in space the measurement was taken.</p>
+
+		<p>Here is why this matters for forest: a single laser pulse is extremely narrow (a few centimeters wide). Tropical forest canopy is not a solid wall &mdash; it has gaps between leaves, branches, and different canopy layers. When a laser pulse hits a gap, it passes through and continues downward. It might clip a branch on the way down (generating a mid-canopy return), then continue through another gap and eventually hit the ground (generating a ground return).</p>
+
+		<h3>Multiple Returns Per Pulse</h3>
+
+		<p>Modern LiDAR sensors record multiple returns from a single pulse. A laser beam might produce a first return from the top of the canopy, a second return from an understory branch, and a third return from the bare ground. The software classifies these returns into categories: ground, low vegetation, medium vegetation, high vegetation, and structures. The ground-classified points are then used to build the <strong>bare-earth Digital Terrain Model (DTM)</strong> &mdash; the actual topography of the land surface.</p>
+
+		<h3>Canopy Penetration Rates in Costa Rica</h3>
+
+		<p>The percentage of laser pulses that reach the ground depends on vegetation density. In Costa Rica&rsquo;s diverse forest types, penetration rates vary:</p>
+
+		<table class="compare-table">
+			<thead>
+				<tr>
+					<th>Forest Type</th>
+					<th>Typical Location</th>
+					<th>Canopy Penetration</th>
+					<th>Ground Point Density</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Secondary growth (5&ndash;15 years)</td>
+					<td>Pacific hillsides, abandoned farmland</td>
+					<td>15&ndash;25%</td>
+					<td>3&ndash;8 pts/m&sup2;</td>
+				</tr>
+				<tr>
+					<td>Mixed tropical forest</td>
+					<td>Central Valley foothills, Guanacaste interior</td>
+					<td>10&ndash;20%</td>
+					<td>2&ndash;5 pts/m&sup2;</td>
+				</tr>
+				<tr>
+					<td>Tropical dry forest</td>
+					<td>Guanacaste lowlands (dry season, partial leaf-off)</td>
+					<td>20&ndash;35%</td>
+					<td>5&ndash;10 pts/m&sup2;</td>
+				</tr>
+				<tr>
+					<td>Dense tropical wet forest</td>
+					<td>Osa Peninsula, Caribbean lowlands</td>
+					<td>5&ndash;15%</td>
+					<td>1&ndash;3 pts/m&sup2;</td>
+				</tr>
+				<tr>
+					<td>Primary rainforest (multi-story)</td>
+					<td>Corcovado buffer zone, La Amistad</td>
+					<td>3&ndash;10%</td>
+					<td>0.5&ndash;2 pts/m&sup2;</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<p>Even in the densest primary rainforest, enough laser pulses reach the ground to produce a usable terrain model. At 240,000 pulses per second, a 5% penetration rate still delivers 12,000 ground measurements per second &mdash; more than enough points per square meter to map terrain at centimeter-level resolution.</p>
+
+		<div class="key-point">
+			<strong>Practical insight:</strong> We adjust flight altitude and overlap based on vegetation density. Denser forest means lower altitude, slower speed, and more overlap &mdash; which increases the number of ground-reaching pulses and produces a more detailed DTM.
+		</div>
+
+
+		<h2>What LiDAR Delivers That Cameras Cannot</h2>
+
+		<p>A LiDAR survey of forested land in Costa Rica produces several deliverables that are impossible to obtain with photogrammetry alone:</p>
+
+		<h3>Bare-Earth Digital Terrain Model (DTM)</h3>
+		<p>The DTM shows the true ground surface under the canopy &mdash; every ridge, ravine, drainage channel, and slope gradient. This is the single most valuable deliverable for forested property because it reveals what the land actually looks like without vegetation. Developers use it to identify <strong>buildable areas</strong>, plan road access, locate water drainage paths, and estimate earthwork volumes for site preparation.</p>
+
+		<h3>Digital Surface Model (DSM)</h3>
+		<p>The DSM represents the top of whatever is on the surface &mdash; tree canopy, buildings, or terrain in cleared areas. By subtracting the DTM from the DSM, you get a <strong>Canopy Height Model (CHM)</strong> that shows exactly how tall the vegetation is across the entire site. This is valuable for environmental assessments, timber inventory, and understanding the visual impact of clearing.</p>
+
+		<h3>Classified 3D Point Cloud</h3>
+		<p>The full LAS/LAZ point cloud contains every laser return &mdash; ground, vegetation, and structures &mdash; classified by category and color-coded by elevation or return type. Engineers and architects can load this into AutoCAD, Civil 3D, Revit, or QGIS for precise measurement and design work. The point cloud is the raw dataset from which all other deliverables are derived.</p>
+
+		<h3>Contour Lines Under Canopy</h3>
+		<p>0.5 m or 1 m contour lines generated from the bare-earth DTM &mdash; delivered in DWG/DXF format. These contours follow the actual terrain, not the tree canopy. For a <a href="drone-topographic-survey-costa-rica.html">topographic survey</a> of forested land, this is essential for permit applications, grading plans, and CFIA engineering submissions.</p>
+
+		<h3>Slope &amp; Drainage Analysis</h3>
+		<p>Derived from the DTM, slope maps identify areas exceeding specific grade thresholds (important for construction setback requirements and Costa Rica building regulations that restrict development on slopes steeper than 30%). Drainage delineation maps show natural water flow paths &mdash; critical for avoiding building on flood-prone areas or blocking natural drainage channels.</p>
+
+
+		<div class="cta-box">
+			<h2>Need to Survey Forested Land?</h2>
+			<p>Get an instant price estimate for LiDAR drone surveying. Enter your property size and location &mdash; our calculator accounts for terrain type and travel distance.</p>
+			<a href="../quote.html" class="btn btn-white">Get an Instant Quote</a>
+			<a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer" class="btn btn-success">Chat on WhatsApp</a>
+		</div>
+
+
+		<h2>Where LiDAR Canopy Penetration Matters Most in Costa Rica</h2>
+
+		<p>Certain regions and project types in Costa Rica make LiDAR not just useful, but essential:</p>
+
+		<h3>Osa Peninsula &amp; South Pacific</h3>
+		<p>The <a href="drone-survey-south-pacific-osa-costa-rica.html">Osa Peninsula</a> contains some of the densest primary rainforest in Central America. Nearly every land purchase or development project here involves forested terrain. LiDAR is the only way to produce a topographic map without sending a ground crew into weeks of jungle machete work &mdash; which is both expensive and environmentally destructive. Eco-lodge developers, conservation organizations, and land buyers all require LiDAR-derived DTMs for feasibility assessment.</p>
+
+		<h3>Caribbean Coast &amp; Lim&oacute;n Province</h3>
+		<p>The <a href="drone-survey-caribbean-costa-rica.html">Caribbean lowlands</a> feature dense tropical wet forest, swampy terrain, and river corridors where ground-based surveying is impractical. Banana and cacao plantations that border forested areas need accurate boundary mapping through mixed vegetation. LiDAR&rsquo;s ability to map both the plantation surface and adjacent forest terrain in a single flight makes it the logical choice for <a href="drone-survey-caribbean-agriculture-limon-costa-rica.html">agricultural operations in Lim&oacute;n province</a>.</p>
+
+		<h3>Mountain Properties &amp; Central Valley Foothills</h3>
+		<p>Properties in the hills above <a href="drone-survey-central-valley-costa-rica.html">Central Valley</a> towns &mdash; Escaz&uacute;, Santa Ana, Atenas, Grecia, San Ram&oacute;n &mdash; frequently sit on steep, forested slopes. Buyers are attracted by the climate and views, but the terrain under the trees is often steeper and more irregular than it appears. LiDAR reveals the actual buildable footprint, drainage risks, and access road challenges before a purchase commitment.</p>
+
+		<h3>Guanacaste Development Sites</h3>
+		<p>Dry forest in <a href="drone-survey-guanacaste-costa-rica.html">Guanacaste</a> offers a LiDAR advantage: during the dry season (December&ndash;April), many tree species shed leaves, increasing canopy penetration rates to 20&ndash;35%. Timing LiDAR flights for the dry season can significantly improve ground point density and DTM accuracy for resort, residential, and infrastructure projects across the Guanacaste coast and interior.</p>
+
+
+		<h2>LiDAR vs Photogrammetry: When Do You Need Each?</h2>
+
+		<p>Not every project needs LiDAR. The decision depends on vegetation cover and what data you need. Our full <a href="lidar-vs-photogrammetry-costa-rica.html">LiDAR vs photogrammetry comparison</a> covers this in detail, but here is the practical decision framework for Costa Rica properties:</p>
+
+		<table>
+			<thead>
+				<tr>
+					<th>Scenario</th>
+					<th>Recommended Method</th>
+					<th>Why</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Open pasture or cleared land</td>
+					<td>Photogrammetry</td>
+					<td>Camera sees the ground directly; lower cost</td>
+				</tr>
+				<tr>
+					<td>Active construction site</td>
+					<td>Photogrammetry or LiDAR</td>
+					<td>Either works; LiDAR if adjacent vegetated areas need mapping</td>
+				</tr>
+				<tr>
+					<td>Agricultural field or plantation</td>
+					<td>Photogrammetry + multispectral</td>
+					<td>Crop health mapping; canopy is the target, not terrain beneath</td>
+				</tr>
+				<tr>
+					<td>Property with 30%+ tree cover</td>
+					<td>LiDAR</td>
+					<td>Camera cannot map terrain under trees</td>
+				</tr>
+				<tr>
+					<td>Jungle lot, no prior clearing</td>
+					<td>LiDAR (mandatory)</td>
+					<td>Only option for bare-earth data without ground clearing</td>
+				</tr>
+				<tr>
+					<td>Steep terrain with vegetation</td>
+					<td>LiDAR</td>
+					<td>Slope and drainage analysis require accurate ground elevation</td>
+				</tr>
+				<tr>
+					<td>Environmental impact assessment</td>
+					<td>LiDAR + photogrammetry</td>
+					<td>DTM for terrain + orthophoto for land use classification</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<p>In practice, many Costa Rica projects combine both methods: LiDAR for the forested portion and photogrammetry for open areas and visual documentation. Both datasets are captured in a single flight mission when using multi-sensor platforms.</p>
+
+
+		<h2>How Our LiDAR Survey Process Works</h2>
+
+		<p>Here is the typical workflow for a LiDAR survey of forested land in Costa Rica:</p>
+
+		<ol>
+			<li><strong>Site assessment and flight planning</strong> &mdash; We review satellite imagery and property boundaries to plan flight lines, altitude, and overlap based on vegetation density. Denser forest means lower altitude and tighter line spacing.</li>
+			<li><strong>Ground control point placement</strong> &mdash; For maximum accuracy, we place GPS ground control points (GCPs) in accessible clearings around the site. These provide independent validation of the LiDAR data accuracy.</li>
+			<li><strong>LiDAR flight</strong> &mdash; The DJI Matrice 300 RTK flies the planned survey grid with the Zenmuse L1 LiDAR sensor. A typical 10-hectare forested site requires 30&ndash;60 minutes of flight time. The drone collects 240,000 points per second with simultaneous RGB photography.</li>
+			<li><strong>Data processing</strong> &mdash; Raw point cloud data is processed through automated ground classification, then manually reviewed to ensure vegetation and terrain are properly separated. This step is where operator expertise matters most &mdash; automated algorithms need human QC in complex tropical terrain.</li>
+			<li><strong>Deliverable generation</strong> &mdash; DTM, DSM, contour lines, classified point cloud, slope maps, and accuracy report are produced and checked against GCPs.</li>
+			<li><strong>Delivery</strong> &mdash; Complete deliverable package in your preferred coordinate system and file formats. Standard turnaround is 3&ndash;5 business days from the flight date. Rush processing available.</li>
+		</ol>
+
+
+		<h2>Accuracy Under Canopy: What the Numbers Mean</h2>
+
+		<p>On open ground with clear sky, our LiDAR surveys achieve &plusmn;1&ndash;3 cm vertical accuracy. Under forest canopy, accuracy depends on penetration rate and ground point density:</p>
+
+		<table>
+			<thead>
+				<tr>
+					<th>Canopy Condition</th>
+					<th>Vertical Accuracy (DTM)</th>
+					<th>Horizontal Accuracy</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Open terrain (no canopy)</td>
+					<td>&plusmn;1&ndash;3 cm</td>
+					<td>&plusmn;1&ndash;3 cm</td>
+				</tr>
+				<tr>
+					<td>Light canopy (secondary growth)</td>
+					<td>&plusmn;3&ndash;5 cm</td>
+					<td>&plusmn;2&ndash;4 cm</td>
+				</tr>
+				<tr>
+					<td>Moderate canopy (mixed tropical)</td>
+					<td>&plusmn;5&ndash;8 cm</td>
+					<td>&plusmn;3&ndash;5 cm</td>
+				</tr>
+				<tr>
+					<td>Dense canopy (primary rainforest)</td>
+					<td>&plusmn;5&ndash;10 cm</td>
+					<td>&plusmn;5&ndash;8 cm</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<p>Even at &plusmn;10 cm under the densest canopy, this accuracy is far superior to any alternative for forested terrain. Traditional ground surveys using total stations under heavy canopy typically achieve similar accuracy but require weeks of work and significant vegetation clearing. Satellite-derived elevation data (SRTM) has &plusmn;5&ndash;10 meter accuracy &mdash; orders of magnitude less precise.</p>
+
+		<p>For more on how survey accuracy is measured and what it means for your project, see our guide to <a href="drone-survey-vs-ground-survey-costa-rica.html">drone survey vs ground survey methods</a>.</p>
+
+
+		<h2>Cost Considerations for Forested LiDAR Surveys</h2>
+
+		<p>LiDAR surveys carry a technology premium over photogrammetry &mdash; typically 20&ndash;30% more for the same area &mdash; because the sensor is more expensive and data processing is more complex. However, when you factor in the alternative (weeks of ground crew work, machete clearing, and environmental damage), LiDAR is almost always the faster, cheaper, and less destructive option for forested land.</p>
+
+		<p>For a detailed cost comparison, see our full <a href="drone-survey-costs-costa-rica-2026.html">2026 drone survey pricing guide</a>. For a quick estimate based on your specific property, use the <a href="../quote.html">online quote calculator</a> &mdash; it adjusts automatically for terrain type and LiDAR requirements.</p>
+
+		<div class="key-point">
+			<strong>Budget tip:</strong> If your property has both open and forested areas, we can use photogrammetry on the open portions and LiDAR on the forested sections &mdash; reducing the LiDAR area and bringing down the overall cost while still producing a complete terrain model.
+		</div>
+
+
+		<div class="cta-box">
+			<h2>Get Your Forested Property Surveyed</h2>
+			<p>LiDAR reveals the terrain that cameras miss. Enter your site details for an instant quote, or send us a pin drop on WhatsApp and we will assess the best approach for your property.</p>
+			<a href="../quote.html" class="btn btn-white">Calculate Your Quote</a>
+			<a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer" class="btn btn-success">Chat on WhatsApp</a>
+		</div>
+
+
+		<h2>Common Questions From Property Buyers</h2>
+
+		<h3>Can I just clear the trees and use a regular survey?</h3>
+		<p>Technically, yes &mdash; but it is expensive, slow, and potentially illegal. Costa Rica&rsquo;s forestry law (Ley Forestal 7575) restricts tree clearing on many property types, and clearing without permits can result in fines and legal complications. LiDAR lets you survey the land first, then make informed clearing decisions for only the areas you actually need to develop.</p>
+
+		<h3>Will LiDAR damage the forest?</h3>
+		<p>No. LiDAR is completely non-contact. The laser pulses are invisible, harmless infrared light operating at eye-safe power levels. The drone flies 50&ndash;80 meters above the canopy. No trees are cut, no trails are cleared, and no ground crews need to enter the forest. This makes LiDAR the preferred survey method for environmentally sensitive areas and projects near <a href="dgac-drone-regulations-costa-rica-2026.html">protected zones</a>.</p>
+
+		<h3>How do I know the ground points are actually ground?</h3>
+		<p>Point cloud classification uses both automated algorithms and manual review. Ground points are validated against ground control points (GCPs) placed in accessible clearings. The accuracy report delivered with every survey documents the RMSE (root mean square error) of the DTM against these independent measurements. If the numbers don&rsquo;t validate, we reprocess until they do.</p>
+
+	</article>
+
+	<!-- FAQ SECTION -->
+	<div class="faq-section">
+		<div class="container">
+			<h2>Frequently Asked Questions About LiDAR Canopy Mapping</h2>
+
+			<div class="faq-item">
+				<h3>Can LiDAR see through trees in Costa Rica's jungle?</h3>
+				<p>Yes. LiDAR fires thousands of laser pulses per second, and many pass through gaps in the canopy to reach the ground. In typical Costa Rican tropical forest, 5&ndash;20% of pulses reach the bare earth. This is enough to build an accurate Digital Terrain Model showing true ground elevation. Photogrammetry cameras cannot do this &mdash; they only photograph the top of the canopy.</p>
+			</div>
+
+			<div class="faq-item">
+				<h3>How accurate is LiDAR under forest canopy?</h3>
+				<p>LiDAR terrain measurements under canopy typically achieve &plusmn;3&ndash;5 cm vertical accuracy using RTK GPS and ground control points. In extremely dense primary rainforest, accuracy may be &plusmn;5&ndash;10 cm. This is still far more accurate than any alternative for forested terrain and sufficient for topographic mapping, construction planning, and boundary verification.</p>
+			</div>
+
+			<div class="faq-item">
+				<h3>When do I need LiDAR instead of photogrammetry?</h3>
+				<p>You need LiDAR when your property has tree cover preventing a camera from seeing the ground. If more than 30% of your site is covered by trees or tall shrubs, photogrammetry will only map vegetation tops, not terrain. LiDAR is essential for forested lots across Guanacaste, Osa Peninsula, the Caribbean coast, and mountain properties. For open land, photogrammetry is usually sufficient and more affordable. See our <a href="lidar-vs-photogrammetry-costa-rica.html">full comparison</a>.</p>
+			</div>
+
+			<div class="faq-item">
+				<h3>How much does a LiDAR survey cost for forested land?</h3>
+				<p>LiDAR surveys for forested land start at $1,000&ndash;$1,200 USD for sites up to 5 hectares, with additional area at $80&ndash;$100 per hectare. The LiDAR premium is typically 20&ndash;30% more than photogrammetry. Use our <a href="../quote.html">online calculator</a> for an instant estimate based on your property size and location.</p>
+			</div>
+
+			<div class="faq-item">
+				<h3>What deliverables do I get from a LiDAR forest survey?</h3>
+				<p>A bare-earth Digital Terrain Model (DTM), Digital Surface Model (DSM), Canopy Height Model, classified 3D point cloud (LAS/LAZ), contour lines at 0.5 m or 1 m intervals (DWG/DXF), georeferenced orthophoto, slope and drainage maps, and a documented accuracy report. All data georeferenced to CRTM05 or WGS84.</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- FOOTER -->
+	<footer id="sp-footer" style="background:#302F40; color:#ccc; padding: 50px 0 20px;">
+		<div class="container">
+			<div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap:40px; margin-bottom:40px;">
+				<div>
+					<h4 style="color:#fff; margin:0 0 15px; font-family:'IBM Plex Sans',sans-serif;">Drone Survey Costa Rica</h4>
+					<p style="margin:0 0 8px; font-size:14px;">Professional aerial surveying services using Lidar &amp; photogrammetry.</p>
+					<p style="margin:0 0 4px; font-size:14px;"><a href="https://wa.me/50672938970" style="color:#ccc;">+506 7293-8970</a></p>
+					<p style="margin:0; font-size:14px;">Costa Rica</p>
+				</div>
+				<div>
+					<h4 style="color:#fff; margin:0 0 15px; font-family:'IBM Plex Sans',sans-serif;">Services</h4>
+					<ul style="list-style:none; padding:0; margin:0; font-size:14px;">
+						<li style="margin-bottom:8px;"><a href="../services/lidar-mapping.html" style="color:#ccc; text-decoration:none;">Aerial Lidar Mapping</a></li>
+						<li style="margin-bottom:8px;"><a href="../services/photogrammetry.html" style="color:#ccc; text-decoration:none;">Aerial Photogrammetry</a></li>
+						<li style="margin-bottom:8px;"><a href="../services/geopositioning.html" style="color:#ccc; text-decoration:none;">GPS Geopositioning</a></li>
+						<li style="margin-bottom:8px;"><a href="../quote.html" style="color:#ccc; text-decoration:none;">Get a Free Quote</a></li>
+					</ul>
+				</div>
+				<div>
+					<h4 style="color:#fff; margin:0 0 15px; font-family:'IBM Plex Sans',sans-serif;">Industries</h4>
+					<ul style="list-style:none; padding:0; margin:0; font-size:14px;">
+						<li style="margin-bottom:8px;"><a href="../lp-real-estate.html" style="color:#ccc; text-decoration:none;">Real Estate Surveys</a></li>
+						<li style="margin-bottom:8px;"><a href="../lp-construction.html" style="color:#ccc; text-decoration:none;">Construction Monitoring</a></li>
+						<li style="margin-bottom:8px;"><a href="../lp-agriculture.html" style="color:#ccc; text-decoration:none;">Agriculture Mapping</a></li>
+					</ul>
+				</div>
+				<div>
+					<h4 style="color:#fff; margin:0 0 15px; font-family:'IBM Plex Sans',sans-serif;">Company</h4>
+					<ul style="list-style:none; padding:0; margin:0; font-size:14px;">
+						<li style="margin-bottom:8px;"><a href="../about.html" style="color:#ccc; text-decoration:none;">About Us</a></li>
+						<li style="margin-bottom:8px;"><a href="../blog/" style="color:#ccc; text-decoration:none;">Blog</a></li>
+						<li style="margin-bottom:8px;"><a href="https://g.co/kgs/VnbxFYr" target="_blank" rel="noopener noreferrer" style="color:#ccc; text-decoration:none;">Google Reviews</a></li>
+					</ul>
+				</div>
+			</div>
+			<div style="border-top:1px solid rgba(255,255,255,0.1); padding-top:20px; text-align:center; font-size:13px;">
+				&copy; 2026 Drone Survey Costa Rica. All rights reserved.
+			</div>
+		</div>
+	</footer>
+</body>
+</html>
