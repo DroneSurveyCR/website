@@ -278,6 +278,19 @@
 
 			<!-- === BLOG POSTS (non-regional, non-podcast) === -->
 
+			<!-- LiDAR Canopy Penetration -->
+			<article class="blog-card visible" data-category="blog">
+				<div class="blog-card-img" style="background-image: linear-gradient(135deg, rgba(0,60,30,0.92), rgba(13,32,24,0.95)), url('../drone-lidar.jpg');">
+					<span class="card-type-badge">LiDAR</span>
+				</div>
+				<div class="blog-card-body">
+					<span class="blog-card-tag">Technology</span>
+					<h2><a href="/blog/lidar-drone-canopy-mapping-costa-rica.html">How LiDAR Drones See Through Jungle Canopy in Costa Rica</a></h2>
+					<p>Why cameras fail in tropical forest and how laser pulses map the true terrain under dense vegetation. Penetration rates, accuracy under canopy, and when LiDAR is your only option.</p>
+					<div class="blog-card-meta"><span>June 2, 2026</span> · <span>10 min read</span></div>
+				</div>
+			</article>
+
 			<!-- Aerial Survey Costa Rica -->
 			<article class="blog-card visible" data-category="blog">
 				<div class="blog-card-img" style="background-image: linear-gradient(135deg, rgba(0,60,140,0.9), rgba(48,47,64,0.95)), url('../drone-lidar.jpg');">
@@ -423,6 +436,19 @@
 				</div>
 			</article>
 
+			<!-- South Pacific Uvita/Ojochal Eco-Tourism June 2026 -->
+			<article class="blog-card visible" data-category="regional">
+				<div class="blog-card-img" style="background-image: linear-gradient(135deg, rgba(0,60,30,0.85), rgba(13,32,24,0.9)), url('../drone-coast.jpg');">
+					<span class="card-type-badge">Regional</span>
+				</div>
+				<div class="blog-card-body">
+					<span class="blog-card-tag tag-regional">South Pacific</span>
+					<h2><a href="/blog/drone-survey-south-pacific-uvita-ojochal-costa-rica.html">Uvita &amp; Ojochal Drone Surveys: Eco-Tourism Property Development on the Costa Ballena</a></h2>
+					<p>LiDAR site plans, boundary surveys, and SETENA-ready environmental data for boutique hotels, villas, and subdivisions in Uvita, Ojochal &amp; Dominical.</p>
+					<div class="blog-card-meta"><span>June 5, 2026</span> · <span>9 min read</span></div>
+				</div>
+			</article>
+
 			<!-- Central Valley Real Estate May 2026 -->
 			<article class="blog-card visible" data-category="regional">
 				<div class="blog-card-img" style="background-image: linear-gradient(135deg, rgba(26,35,126,0.85), rgba(48,47,64,0.9)), url('../drone-lidar.jpg');">
@@ -522,7 +548,7 @@
 				</div>
 				<div class="blog-card-body">
 					<span class="blog-card-tag">Costs &amp; Pricing</span>
-					<h2><a href="/blog/drone-survey-cost-costa-rica.html">How Much Does a Drone Survey Cost in Costa Rica? (2026 Pricing Guide)</a></h2>
+					<h2><a href="/blog/how-much-does-drone-survey-cost-costa-rica.html">How Much Does a Drone Survey Cost in Costa Rica? (2026 Pricing Guide)</a></h2>
 					<p>Complete drone survey pricing guide for Costa Rica. Learn what lidar mapping and photogrammetry surveys cost, what factors affect price, and how to get the best value for your project.</p>
 					<div class="blog-card-meta"><span>April 2, 2026</span> · <span>8 min read</span></div>
 				</div>
@@ -553,6 +579,21 @@
 					<div class="blog-card-meta"><span>April 11, 2026</span> · <span>10 min read</span></div>
 				</div>
 			</article>
+
+			<!-- Drone Survey Cost (early pricing guide) -->
+			<article class="blog-card visible" data-category="blog">
+				<div class="blog-card-img" style="background:linear-gradient(135deg,#1a3a5c,#302F40)">
+					<span class="card-type-badge">Costs &amp; Pricing</span>
+				</div>
+				<div class="blog-card-body">
+					<span class="blog-card-tag">Costs &amp; Pricing</span>
+					<h2><a href="/blog/drone-survey-cost-costa-rica.html">How Much Does a Drone Survey Cost in Costa Rica? (2026 Pricing Guide)</a></h2>
+					<p>Complete guide to drone survey costs in Costa Rica. Real pricing for 2026: starting at $1,000 for 5 hectares, $80/ha after. Covers lidar, photogrammetry, travel fees, and what affects your quote.</p>
+					<div class="blog-card-meta"><span>April 2, 2026</span> · <span>8 min read</span></div>
+				</div>
+			</article>
+
+			</div><!-- /blog-grid -->
 
 			<div class="no-results" id="no-results">
 				<h3>No posts found in this category yet.</h3>
@@ -608,7 +649,7 @@
 				</div>
 			</div>
 			<div class="footer-bottom">
-				<p>&copy; 2026 Drone Survey Costa Rica. All rights reserved. | <a href="../privacy.html" style="color:#999;">Privacy</a> | <a href="../terms.html" style="color:#999;">Terms</a></p>
+				<p>&copy; 2025 Drone Survey Costa Rica. All rights reserved.</p>
 			</div>
 		</div>
 	</footer>
@@ -634,40 +675,4 @@
 
 		// Tab click handler
 		tabs.forEach(function(tab){
-			tab.addEventListener('click', function(e){
-				e.preventDefault();
-				var filter = this.getAttribute('data-filter');
-				tabs.forEach(function(t){ t.classList.remove('active'); });
-				this.classList.add('active');
-
-				var visible = 0;
-				cards.forEach(function(card){
-					var cats = (card.getAttribute('data-category') || '').split(' ');
-					if(filter === 'all' || cats.indexOf(filter) !== -1){
-						card.classList.add('visible');
-						visible++;
-					} else {
-						card.classList.remove('visible');
-					}
-				});
-				if(noResults){
-					noResults.classList.toggle('visible', visible === 0);
-				}
-			});
-		});
-
-		// Make entire card clickable
-		cards.forEach(function(card){
-			var link = card.querySelector('h2 a');
-			if(link){
-				card.style.cursor = 'pointer';
-				card.addEventListener('click', function(e){
-					if(e.target.tagName === 'A') return;
-					link.click();
-				});
-			}
-		});
-	})();
-	</script>
-</body>
-</html>
+			tab.addEventListener('click', functio
