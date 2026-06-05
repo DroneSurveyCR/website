@@ -224,8 +224,16 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+    <url>
     <loc>https://www.dronesurveycr.com/blog/aerial-survey-costa-rica.html</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</prior
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.dronesurveycr.com/blog/lidar-drone-canopy-mapping-costa-rica.html</loc>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>
