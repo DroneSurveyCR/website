@@ -139,6 +139,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.dronesurveycr.com/blog/drone-survey-south-pacific-uvita-ojochal-costa-rica.html</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.dronesurveycr.com/blog/drone-survey-central-valley-real-estate-costa-rica.html</loc>
     <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
@@ -195,7 +201,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.dronesurveycr.com/blog/drone-survey-cost-costa-rica.html</loc>
+    <loc>https://www.dronesurveycr.com/blog/how-much-does-drone-survey-cost-costa-rica.html</loc>
     <lastmod>2026-04-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -203,6 +209,12 @@
   <url>
     <loc>https://www.dronesurveycr.com/blog/lidar-vs-photogrammetry.html</loc>
     <lastmod>2026-04-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.dronesurveycr.com/blog/drone-survey-cost-costa-rica.html</loc>
+    <lastmod>2026-04-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -216,7 +228,4 @@
     <loc>https://www.dronesurveycr.com/blog/aerial-survey-costa-rica.html</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-  
+    <priority>0.7</prior
