@@ -10,3 +10,4 @@
 | EP06 | — | ⏳ | dgac-drone-regulations-costa-rica-2026.html |
 | EP07 | hMP-UpeatSw | ✅ | aerial-survey-costa-rica.html |
 | EP08 | — | ⏳ | lidar-drone-canopy-mapping-costa-rica.html |
+| EP09 | esfcEXYESYw | ✅ | drone-topographic-survey-costa-rica.html |
