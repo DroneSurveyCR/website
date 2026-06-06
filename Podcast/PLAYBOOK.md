@@ -20,8 +20,13 @@
 | EP07 | 2026-05-28 | EP07: Aerial Surveys in Costa Rica — Drone Mapping, LiDAR & Photogrammetry Explained | ✅ | ✅ 1fsu8Kafvc7EaPHCfJTxZq | ✅ hMP-UpeatSw | ✅ |
 | EP08 | 2026-06-04 | EP08: How LiDAR Drones See Through Jungle Canopy in Costa Rica | ✅ | ⏳ | ⏳ | ⏳ |
 | EP09 | 2026-06-06 | Drone Topographic Surveys: Terrain Maps, Contour Lines & Elevation Models | ✅ | ✅ 1QSNbBNP1eyh7CcFNc70hv | ✅ esfcEXYESYw | ⏳ |
+| EP10 | TBD | EP10: Construction Drone Surveys in Costa Rica — Earthwork, Progress Monitoring & As-Builts | ✅ | ⏳ overview generated, upload pending | ⏳ overview generated, upload pending | ⏳ |
+| EP11 | TBD | EP11: Drone Survey vs Ground Survey in Costa Rica — Which Do You Actually Need? | ✅ | ⏳ overview generated, upload pending | ⏳ overview generated, upload pending | ⏳ |
+| EP12 | TBD | EP12: Plano Catastro con Dron en Costa Rica — Levantamiento Aéreo Catastral (ES) | ✅ | ⏳ overview generated (ES), upload pending | ⏳ overview generated (ES), upload pending | ⏳ |
 
 ---
+
+> **Status note (2026-06-06 unattended run):** All backlog NotebookLM overviews are **generated and ready** (EP10/EP11/EP12 audio+video, EP06 video, EP08 audio). The only missing media is **EP08's Video Overview** (NotebookLM generation keeps failing). Nothing could be published this run because it ran **unattended** and the File Explorer approval needed to bridge NotebookLM downloads into the website folder timed out. EP09 confirmed fully live. See `PODCAST_RUN_REPORT_2026-06-06.md`. Notebook IDs: EP06 `b1185e29`, EP08 `25cc314e`, EP10 `37bb591f`, EP11 `a900e3dd`, EP12 `51e55852`.
 
 ## Pipeline Workflow (per episode)
 
