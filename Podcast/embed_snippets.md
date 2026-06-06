@@ -9,5 +9,5 @@
 | EP05 | 2lFadQpqqWhjOhvgKfvXQE | ✅ | drone-survey-costs-costa-rica-2026.html |
 | EP06 | 25TkNtO5NPs8s6Bk6co4KM | ✅ | dgac-drone-regulations-costa-rica-2026.html |
 | EP07 | 1fsu8Kafvc7EaPHCfJTxZq | ✅ | aerial-survey-costa-rica.html |
-| EP08 | — | ⏳ | lidar-drone-canopy-mapping-costa-rica.html |
+| EP08 | 4N0h2LmyqnajMt9gbQp5DZ | ✅ | lidar-drone-canopy-mapping-costa-rica.html |
 | EP09 | 1QSNbBNP1eyh7CcFNc70hv | ✅ | drone-topographic-survey-costa-rica.html |
