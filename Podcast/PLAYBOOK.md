@@ -18,7 +18,7 @@
 | EP05 | 2026-05-07 | Drone Survey Costs in Costa Rica 2026 — Complete Pricing Guide | ✅ | ✅ 2lFadQpqqWhjOhvgKfvXQE | ✅ ERP15A7Avew | ✅ |
 | EP06 | 2026-05-14 | EP06: DGAC Drone Regulations Costa Rica 2026 — Permits, Restricted Zones & Flight Rules | ✅ | ✅ 25TkNtO5NPs8s6Bk6co4KM | ⏳ (video not uploaded yet) | ⏳ |
 | EP07 | 2026-05-28 | EP07: Aerial Surveys in Costa Rica — Drone Mapping, LiDAR & Photogrammetry Explained | ✅ | ✅ 1fsu8Kafvc7EaPHCfJTxZq | ✅ hMP-UpeatSw | ✅ |
-| EP08 | 2026-06-04 | EP08: How LiDAR Drones See Through Jungle Canopy in Costa Rica | ✅ | ⏳ | ⏳ | ⏳ |
+| EP08 | 2026-06-04 | EP08: How LiDAR Drones See Through Jungle Canopy in Costa Rica | ✅ | ✅ 4N0h2LmyqnajMt9gbQp5DZ | ✅ cqxCTENFROg | ⏳ |
 | EP09 | 2026-06-06 | Drone Topographic Surveys: Terrain Maps, Contour Lines & Elevation Models | ✅ | ✅ 1QSNbBNP1eyh7CcFNc70hv | ✅ esfcEXYESYw | ⏳ |
 | EP10 | TBD | EP10: Construction Drone Surveys in Costa Rica — Earthwork, Progress Monitoring & As-Builts | ✅ | ⏳ overview generated, upload pending | ⏳ overview generated, upload pending | ⏳ |
 | EP11 | TBD | EP11: Drone Survey vs Ground Survey in Costa Rica — Which Do You Actually Need? | ✅ | ⏳ overview generated, upload pending | ⏳ overview generated, upload pending | ⏳ |
