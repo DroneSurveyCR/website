@@ -22,3 +22,16 @@ The bridged `Drone_LiDAR_surveys_in_Costa_Rica.m4a` (EP08's LiDAR audio, 23:30) 
 ## Minor
 - A stray **"Untitled" draft (24:30, audio)** exists in Spotify for Creators (pre-existing, not created by this run). Safe to delete manually.
 - A harmless EP10 video download was triggered to Downloads during bridge testing (cannot be used by the sandbox).
+
+
+---
+
+## CORRECTION & UPDATE (same day, attended continuation)
+
+Vosk transcription of both 23–24 min audio files settles the audio question — **the earlier EP09 flag was WRONG**:
+- `Drone_LiDAR_surveys_in_Costa_Rica.m4a` (23:30) = **EP09's correct topographic audio** (terrain, slopes, SETENA, ground-vs-drone economics). EP09 is fine.
+- `Mapping_hidden_Costa_Rican_jungles_with_LiDAR.m4a` (24:30) = **EP08's true canopy audio** (30% tree-cover rule, what's under the trees).
+
+**Real issue:** the EP08 Spotify episode published earlier today (`4N0h2LmyqnajMt9gbQp5DZ`) was uploaded with the 23:30 file, i.e. **EP09's audio**. Fix in progress: replace its audio with the correct 24:30 file via Spotify for Creators ("Upload new file" on the episode). EP08's YouTube video + blog embeds are correct.
+
+**EP10 progress:** EP10's video bridged from Downloads and uploaded to YouTube — **`IGSDdOeCPe0`** (public). EP10 audio, EP11, EP12, EP06 video still pending NotebookLM downloads (browser extension currently disconnected; retrying).
