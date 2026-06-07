@@ -35,3 +35,24 @@ Vosk transcription of both 23–24 min audio files settles the audio question �
 **Real issue:** the EP08 Spotify episode published earlier today (`4N0h2LmyqnajMt9gbQp5DZ`) was uploaded with the 23:30 file, i.e. **EP09's audio**. Fix in progress: replace its audio with the correct 24:30 file via Spotify for Creators ("Upload new file" on the episode). EP08's YouTube video + blog embeds are correct.
 
 **EP10 progress:** EP10's video bridged from Downloads and uploaded to YouTube — **`IGSDdOeCPe0`** (public). EP10 audio, EP11, EP12, EP06 video still pending NotebookLM downloads (browser extension currently disconnected; retrying).
+
+
+---
+
+## FINAL UPDATE — BACKLOG COMPLETE (2026-06-06 evening, attended)
+
+**All 12 of 12 main-blog episodes are now FULLY LIVE.** Verified on the live site (both iframes serving on every blog).
+
+| EP | Spotify | YouTube | Blog embed |
+|----|---------|---------|------------|
+| EP06 | 25TkNtO5NPs8s6Bk6co4KM (existing) | **34_X1RgIx2I** (new) | ✅ verified |
+| EP08 | 4N0h2LmyqnajMt9gbQp5DZ (**audio corrected** to true 24:30 canopy file) | cqxCTENFROg | ✅ verified |
+| EP10 | **2nIo3cWs1I5Fnse0l4pJ1I** | **IGSDdOeCPe0** | ✅ verified |
+| EP11 | **56Z3sF0jidmP7mf5F7xWky** | **iQqAtG3_grw** | ✅ verified |
+| EP12 | **4jONt6odfXG4J8u1PLpAuF** | **KVo59YrR-j0** | ✅ verified |
+
+Process notes:
+- Every audio/video was language- and topic-verified by vosk transcription BEFORE publishing (lesson from the EP08/EP09 filename mix-up).
+- EP12 published with **ENGLISH narration, English title/description** ("EP12: Plano Catastro by Drone in Costa Rica — Cadastral Surveys with RTK Accuracy"). The stray **Spanish video overview was deleted** from the EP12 notebook. Per Nick: English-only content from now on.
+- ⚠️ FLAG for Nick: `blog/plano-catastro-drone-costa-rica.html` is written fully in **Spanish** (pre-existing page). Decide whether to rewrite in English.
+- Remaining loose ends: GBP posts for EP06/08/10/11/12 (⏳ in PLAYBOOK); stray "Untitled" 24:30 draft in Spotify for Creators (safe to delete); leftover media files in the website folder root can be cleaned up.
