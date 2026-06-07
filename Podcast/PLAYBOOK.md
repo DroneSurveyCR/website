@@ -22,7 +22,7 @@
 | EP09 | 2026-06-06 | Drone Topographic Surveys: Terrain Maps, Contour Lines & Elevation Models | ✅ | ✅ 1QSNbBNP1eyh7CcFNc70hv | ✅ esfcEXYESYw | ⏳ |
 | EP10 | 2026-06-06 | EP10: Construction Drone Surveys in Costa Rica — Earthwork, Progress Monitoring & As-Builts | ✅ | ✅ 2nIo3cWs1I5Fnse0l4pJ1I | ✅ IGSDdOeCPe0 | ⏳ |
 | EP11 | 2026-06-06 | EP11: Drone Survey vs Ground Survey in Costa Rica — Which Do You Actually Need? | ✅ | ✅ 56Z3sF0jidmP7mf5F7xWky | ✅ iQqAtG3_grw | ⏳ |
-| EP12 | 2026-06-06 | EP12: Plano Catastro by Drone in Costa Rica — Cadastral Surveys with RTK Accuracy (EN) | ✅ | ✅ 4jONt6odfXG4J8u1PLpAuF | ✅ KVo59YrR-j0 | ⏳ |
+| EP12 | 2026-06-06 | EP12: Plano Catastro by Drone in Costa Rica — Cadastral Surveys with RTK Accuracy (EN) | ✅ | ✅ 378ZJ8R7cFRPDxIohp4W6t | ✅ KVo59YrR-j0 | ⏳ |
 
 ---
 
