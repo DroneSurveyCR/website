@@ -402,20 +402,20 @@
 
 		/* ── Topographic pattern ─────────────────────────────────── */
 		.topo-pattern {
-			background-image: url('../images/topo-bg.svg');
+			background-image: url('../images/topo-bg.svg?v=2');
 			background-size: 1000px 500px;
 			background-repeat: repeat;
 		}
 		[data-theme="light"] .topo-pattern {
-			background-image: url('../images/topo-bg-light.svg');
+			background-image: url('../images/topo-bg-light.svg?v=2');
 		}
 		.stats-bar {
-			background-image: url('../images/topo-bg.svg');
+			background-image: url('../images/topo-bg.svg?v=2');
 			background-size: 1000px 500px;
 			background-repeat: repeat;
 		}
 		[data-theme="light"] .stats-bar {
-			background-image: url('../images/topo-bg-light.svg');
+			background-image: url('../images/topo-bg-light.svg?v=2');
 		}
 
 		/* ── Stats bar ───────────────────────────────────────────── */
@@ -835,12 +835,12 @@
 			content: '';
 			position: absolute;
 			inset: 0;
-			background-image: url('../images/topo-bg.svg');
+			background-image: url('../images/topo-bg.svg?v=2');
 			background-size: 1100px 550px;
 			opacity: 0.45;
 			pointer-events: none;
 		}
-		[data-theme="light"] .page-hero::before { background-image: url('../images/topo-bg.svg'); }
+		[data-theme="light"] .page-hero::before { background-image: url('../images/topo-bg.svg?v=2'); }
 		.page-hero .container { position: relative; z-index: 1; }
 		.page-hero h1 {
 			font-size: clamp(30px, 5vw, 50px);
@@ -1060,7 +1060,7 @@
 
 		/* ── In-article CTA band (follow-action) ─────────────────── */
 		.cta-band { position: relative; overflow: hidden; background: linear-gradient(135deg, #053a2c 0%, #064e3b 45%, #0a7f5d 100%); color: #fff; padding: 48px 0; text-align: center; margin-top: 8px; }
-		.cta-band::before { content: ''; position: absolute; inset: 0; background-image: url('../images/topo-bg.svg'); background-size: 1100px 550px; opacity: 0.4; pointer-events: none; }
+		.cta-band::before { content: ''; position: absolute; inset: 0; background-image: url('../images/topo-bg.svg?v=2'); background-size: 1100px 550px; opacity: 0.4; pointer-events: none; }
 		.cta-band .container { position: relative; z-index: 1; }
 		.cta-band h2 { color: #fff !important; margin: 0 0 10px; font-size: clamp(24px, 3.4vw, 34px); }
 		.cta-band p { color: rgba(255,255,255,0.88); margin: 0 auto 22px; max-width: 560px; }
