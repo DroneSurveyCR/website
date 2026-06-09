@@ -31,3 +31,6 @@ inbox/
 *.mp3
 *.wav
 automation/install_log.txt
+
+# Exception: site hero/section videos (NOT podcast media) must be deployed
+!images/*.mp4
