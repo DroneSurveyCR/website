@@ -175,6 +175,7 @@
 			position: sticky;
 			top: 0;
 			z-index: 100;
+			transition: transform 0.25s ease;
 			background: var(--bg-card);
 			backdrop-filter: blur(12px);
 			-webkit-backdrop-filter: blur(12px);
@@ -1080,7 +1081,7 @@
 		.layer-toggle button:hover { border-color: var(--accent); color: var(--accent); }
 		.layer-toggle button.active { background: var(--accent); color: #fff; border-color: var(--accent); }
 		.viewer-fs { padding: 8px 16px !important; font-size: 14px; }
-		.viewer-frame { position: relative; width: 100%; height: 82vh; min-height: 480px; border-radius: 14px; overflow: hidden; border: 1px solid var(--border); background: #000; }
+		.viewer-frame { position: relative; width: 100%; height: 88vh; min-height: 480px; border-radius: 14px; overflow: hidden; border: 1px solid var(--border); background: #000; }
 		.viewer-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 		.viewer-frame:fullscreen { border-radius: 0; height: 100%; }
 
@@ -1132,7 +1133,7 @@
 
 		/* ── Project viewer: left view-menu (desktop) ─────────────── */
 		.viewer-layout { display: grid; grid-template-columns: 230px minmax(0,1fr); gap: 18px; align-items: start; }
-		.viewer-side { position: sticky; top: 96px; display: flex; flex-direction: column; gap: 8px; }
+		.viewer-side { position: sticky; top: 20px; display: flex; flex-direction: column; gap: 8px; }
 		.viewer-side-title { margin: 0 0 2px; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
 		.layer-menu { display: flex; flex-direction: column; gap: 8px; }
 		.layer-menu button {
@@ -1156,3 +1157,5 @@
 			.viewer-side .viewer-fs { margin: 0 0 0 auto; }
 		}
 
+		/* hide-on-scroll-down (js/nav.js toggles this) */
+		#site-header.nav-hidden { transform: translateY(-100%); }
