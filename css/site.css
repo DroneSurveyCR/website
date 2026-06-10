@@ -143,14 +143,11 @@
 
 		/* ── Top bar ─────────────────────────────────────────────── */
 		#top-bar {
-			background: #04231a;
-			border-bottom: 1px solid rgba(255,255,255,0.08);
+			background: var(--bg-raised);
+			border-bottom: 1px solid var(--border-hi);
 			padding: 9px 0;
 			font-size: 13.5px;
-			color: rgba(255,255,255,0.82);
 		}
-		#top-bar a { color: rgba(255,255,255,0.82); text-decoration: none; }
-		#top-bar a:hover { color: #fff; }
 		#top-bar .inner {
 			display: flex;
 			justify-content: space-between;
@@ -159,27 +156,29 @@
 		.lang-switcher { display: flex; gap: 4px; }
 		.lang-btn {
 			background: none;
-			border: 1px solid rgba(255,255,255,0.25);
+			border: 1px solid var(--border);
 			padding: 4px 11px;
 			border-radius: 5px;
 			cursor: pointer;
 			font-size: 13px;
 			font-weight: 600;
-			color: rgba(255,255,255,0.8);
+			color: var(--muted);
 			font-family: 'Inter', sans-serif;
 			letter-spacing: 0.05em;
 			transition: all 0.15s;
 		}
-		.lang-btn:hover { border-color: #34d399; color: #fff; }
-		.lang-btn.active { background: #10b981; color: #fff; border-color: #10b981; }
+		.lang-btn:hover { border-color: var(--accent); color: var(--accent); }
+		.lang-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
 
 		/* ── Header / Nav ────────────────────────────────────────── */
 		#site-header {
 			position: sticky;
 			top: 0;
 			z-index: 100;
-			background: #064e3b;
-			border-bottom: 1px solid rgba(255,255,255,0.10);
+			background: var(--bg-card);
+			backdrop-filter: blur(12px);
+			-webkit-backdrop-filter: blur(12px);
+			border-bottom: 1px solid var(--border);
 		}
 		#site-header .inner {
 			display: flex;
@@ -400,23 +399,8 @@
 		}
 		.card-link:hover { color: var(--accent-hi); gap: 10px; }
 
-		/* ── Topographic pattern ─────────────────────────────────── */
-		.topo-pattern {
-			background-image: url('../images/topo-bg.svg?v=2');
-			background-size: 1000px 500px;
-			background-repeat: repeat;
-		}
-		[data-theme="light"] .topo-pattern {
-			background-image: url('../images/topo-bg-light.svg?v=2');
-		}
-		.stats-bar {
-			background-image: url('../images/topo-bg.svg?v=2');
-			background-size: 1000px 500px;
-			background-repeat: repeat;
-		}
-		[data-theme="light"] .stats-bar {
-			background-image: url('../images/topo-bg-light.svg?v=2');
-		}
+		/* ── Topographic pattern (kept solid — texture lives on the green banners) ── */
+		.topo-pattern { background-image: none; }
 
 		/* ── Stats bar ───────────────────────────────────────────── */
 		.stats-bar {
@@ -827,7 +811,7 @@
 		.page-hero {
 			position: relative;
 			padding: 64px 0 56px;
-			background: linear-gradient(135deg, #053a2c 0%, #064e3b 45%, #0a7f5d 100%);
+			background: #064e3b;
 			border-bottom: 1px solid rgba(255,255,255,0.10);
 			overflow: hidden;
 		}
@@ -835,12 +819,12 @@
 			content: '';
 			position: absolute;
 			inset: 0;
-			background-image: url('../images/topo-bg.svg?v=2');
-			background-size: 1100px 550px;
-			opacity: 0.45;
+			background-image: url('../images/topo-bg.svg?v=3');
+			background-size: cover;
+			background-position: center;
+			opacity: 0.16;
 			pointer-events: none;
 		}
-		[data-theme="light"] .page-hero::before { background-image: url('../images/topo-bg.svg?v=2'); }
 		.page-hero .container { position: relative; z-index: 1; }
 		.page-hero h1 {
 			font-size: clamp(30px, 5vw, 50px);
@@ -1032,21 +1016,19 @@
 		/* ── Header hardening — beat carried pages' generic CSS (blog/regional/es) ── */
 		#site-header .logo a { display: flex !important; align-items: center; gap: 10px; }
 		#site-header .logo img { height: 56px !important; width: auto !important; display: block; margin: 0; }
-		#site-header .logo-name { display: inline-block; font-family: 'IBM Plex Sans', sans-serif; font-weight: 700; color: #ffffff !important; white-space: nowrap; }
-		#site-header .logo-name span { color: #6ee7b7 !important; }
+		#site-header .logo-name { display: inline-block; font-family: 'IBM Plex Sans', sans-serif; font-weight: 700; color: var(--heading); white-space: nowrap; }
+		#site-header .logo-name span { color: var(--accent); }
 		#site-header nav ul { display: flex; flex-wrap: wrap; gap: 2px; align-items: center; list-style: none; margin: 0; padding: 0; justify-content: flex-end; }
 		#site-header nav > ul > li { position: relative; }
-		/* top-level nav links: white on the green header */
-		#site-header nav > ul > li > a { color: rgba(255,255,255,0.9) !important; padding: 7px 12px; font-weight: 500; font-size: 14px; border-radius: 6px; background: none; }
-		#site-header nav > ul > li > a:hover { color: #ffffff !important; background: rgba(255,255,255,0.14) !important; }
+		#site-header nav > ul > li > a { color: var(--muted); padding: 7px 12px; font-weight: 500; font-size: 14px; border-radius: 6px; background: none; }
+		#site-header nav > ul > li > a:hover { color: var(--heading); background: rgba(0,0,0,0.04); }
 		#site-header nav ul ul { display: none; position: absolute; top: calc(100% + 8px); left: 0; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; min-width: 210px; padding: 6px; box-shadow: 0 16px 48px var(--shadow); }
 		#site-header nav ul ul::before { content: ''; position: absolute; top: -12px; left: 0; right: 0; height: 12px; }
 		#site-header nav ul li:hover > ul { display: block; }
-		/* dropdown links: dark text on the light card */
-		#site-header nav ul ul a { display: block; padding: 9px 14px; border-radius: 6px; white-space: nowrap; color: var(--text) !important; font-size: 14px; }
-		#site-header nav ul ul a:hover { background: var(--accent-dim) !important; color: var(--accent-hi) !important; }
-		#site-header .nav-cta { background: #ffffff !important; color: #064e3b !important; border-radius: 7px; padding: 7px 16px !important; font-weight: 700; }
-		#site-header .nav-cta:hover { background: #d1fae5 !important; color: #053a2c !important; }
+		#site-header nav ul ul a { display: block; padding: 9px 14px; border-radius: 6px; white-space: nowrap; color: var(--text); font-size: 14px; }
+		#site-header nav ul ul a:hover { background: var(--accent-dim); color: var(--accent-hi); }
+		#site-header .nav-cta { background: var(--accent) !important; color: #fff !important; border-radius: 7px; padding: 7px 16px !important; font-weight: 600; }
+		#site-header .nav-cta:hover { background: var(--accent-hi) !important; color: #fff !important; }
 
 		/* ── Carried-page hero/banner text stays light on its colored background ── */
 		.blog-post-hero, .blog-post-hero h1, .blog-post-hero h2, .blog-post-hero h3,
@@ -1059,8 +1041,8 @@
 		.page-header h1, .page-header p, .page-header a { color: #ffffff !important; }
 
 		/* ── In-article CTA band (follow-action) ─────────────────── */
-		.cta-band { position: relative; overflow: hidden; background: linear-gradient(135deg, #053a2c 0%, #064e3b 45%, #0a7f5d 100%); color: #fff; padding: 48px 0; text-align: center; margin-top: 8px; }
-		.cta-band::before { content: ''; position: absolute; inset: 0; background-image: url('../images/topo-bg.svg?v=2'); background-size: 1100px 550px; opacity: 0.4; pointer-events: none; }
+		.cta-band { position: relative; overflow: hidden; background: #064e3b; color: #fff; padding: 48px 0; text-align: center; margin-top: 8px; }
+		.cta-band::before { content: ''; position: absolute; inset: 0; background-image: url('../images/topo-bg.svg?v=3'); background-size: cover; background-position: center; opacity: 0.16; pointer-events: none; }
 		.cta-band .container { position: relative; z-index: 1; }
 		.cta-band h2 { color: #fff !important; margin: 0 0 10px; font-size: clamp(24px, 3.4vw, 34px); }
 		.cta-band p { color: rgba(255,255,255,0.88); margin: 0 auto 22px; max-width: 560px; }
