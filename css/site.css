@@ -1098,3 +1098,35 @@
 		.layer-grid .layer-card p { font-size: 13px; margin-bottom: 12px; }
 		@media (max-width: 680px) { .layer-grid[class*="count-"] { grid-template-columns: 1fr 1fr; } }
 		@media (max-width: 400px) { .layer-grid[class*="count-"] { grid-template-columns: 1fr; } }
+
+
+		/* ── Mobile nav (CSS-only hamburger) ──────────────────────── */
+		.nav-toggle-cb, .nav-toggle-btn { display: none; }
+		@media (max-width: 820px) {
+			#site-header .inner { flex-wrap: wrap; }
+			#site-header .nav-toggle-btn {
+				display: flex; flex-direction: column; justify-content: center; gap: 5px;
+				width: 44px; height: 40px; padding: 9px; margin-left: auto; cursor: pointer;
+				border-radius: 8px; border: 1px solid var(--border); background: var(--bg-card);
+			}
+			#site-header .nav-toggle-btn span { display: block; height: 2px; width: 100%; background: var(--heading); border-radius: 2px; transition: transform .2s, opacity .2s; }
+			#site-header nav { flex-basis: 100%; order: 3; }
+			#site-header nav > ul { display: none; flex-direction: column; align-items: stretch; gap: 2px; padding: 8px 0 4px; width: 100%; }
+			#site-header .nav-toggle-cb:checked ~ nav > ul { display: flex; }
+			#site-header nav > ul > li { position: static; width: 100%; }
+			#site-header nav > ul > li > a { display: block; padding: 12px 10px; border-radius: 8px; font-size: 15px; }
+			#site-header nav > ul > li > a:hover { background: var(--accent-dim); }
+			#site-header nav ul ul { position: static; display: block; box-shadow: none; border: none; background: transparent; min-width: 0; padding: 0 0 4px 14px; }
+			#site-header nav ul ul::before { display: none; }
+			#site-header nav ul ul a { padding: 9px 10px; }
+			#site-header .nav-cta { display: inline-block; margin: 4px 0 0; }
+			#site-header .nav-toggle-cb:checked ~ .nav-toggle-btn span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+			#site-header .nav-toggle-cb:checked ~ .nav-toggle-btn span:nth-child(2) { opacity: 0; }
+			#site-header .nav-toggle-cb:checked ~ .nav-toggle-btn span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+		}
+		@media (max-width: 480px) {
+			#top-bar { font-size: 12px; }
+			#top-bar .inner { gap: 8px; }
+			#top-bar .inner > *:last-child { white-space: nowrap; }
+		}
+
