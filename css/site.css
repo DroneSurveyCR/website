@@ -1150,11 +1150,13 @@
 		.viewer-side .viewer-fs { margin-top: 4px; justify-content: center; }
 		@media (max-width: 920px) {
 			.viewer-layout { grid-template-columns: 1fr; }
-			.viewer-side { position: static; flex-direction: row; flex-wrap: wrap; align-items: center; }
-			.viewer-side-title { width: 100%; margin: 0; }
-			.layer-menu { flex-direction: row; flex-wrap: wrap; }
-			.layer-menu button { padding: 9px 12px; }
-			.viewer-side .viewer-fs { margin: 0 0 0 auto; }
+			/* mobile order: viewer first, then the 4 views, then fullscreen */
+			.viewer-frame { order: 1; height: 72vh; }
+			.viewer-side { position: static; order: 2; }
+			.viewer-side-title { margin: 2px 0 0; }
+			.layer-menu { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+			.layer-menu button { padding: 11px 12px; }
+			.viewer-side .viewer-fs { width: 100%; margin: 4px 0 0; justify-content: center; }
 		}
 
 		/* hide-on-scroll-down (js/nav.js toggles this) */
