@@ -11,7 +11,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/site.css?v=6">
+	<link rel="stylesheet" href="css/site.css?v=7">
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-6L0PFQRYF6"></script>
 	<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-6L0PFQRYF6');</script>
@@ -87,12 +87,15 @@
 
 	<section id="viewer-section" style="display:none;padding-top:0;">
 		<div class="container">
-			<div class="viewer-toolbar">
-				<div class="layer-toggle" id="layer-toggle"></div>
-				<button class="btn btn-outline viewer-fs" id="fs-btn" type="button" title="Toggle fullscreen">⛶ Fullscreen</button>
-			</div>
-			<div class="viewer-frame" id="viewer-frame">
-				<iframe id="viewer" title="Project layer viewer" allow="fullscreen" allowfullscreen loading="lazy"></iframe>
+			<div class="viewer-layout">
+				<aside class="viewer-side">
+					<h3 class="viewer-side-title">Views</h3>
+					<div class="layer-menu" id="layer-toggle"></div>
+					<button class="btn btn-outline viewer-fs" id="fs-btn" type="button" title="Toggle fullscreen">⛶ Fullscreen</button>
+				</aside>
+				<div class="viewer-frame" id="viewer-frame">
+					<iframe id="viewer" title="Project layer viewer" allow="fullscreen" allowfullscreen loading="lazy"></iframe>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -517,16 +520,20 @@ if(!proj){
 	const toggle = document.getElementById('layer-toggle');
 	avail.forEach(key => {
 		const b = document.createElement('button');
-		b.type='button'; b.dataset.key=key; b.textContent = LAYER_META[key].label;
+		b.type='button'; b.dataset.key=key;
+		b.innerHTML = '<span class="mi">'+LAYER_META[key].icon+'</span><span>'+LAYER_META[key].label+'</span>';
 		b.addEventListener('click', () => loadLayer(key));
 		toggle.appendChild(b);
 	});
 
 	function loadLayer(key){
+		const sec = document.getElementById('viewer-section');
+		const firstOpen = sec.style.display === 'none' || sec.style.display === '';
 		document.getElementById('viewer').src = layerUrl(key);
-		document.getElementById('viewer-section').style.display='block';
+		sec.style.display='block';
 		toggle.querySelectorAll('button').forEach(b => b.classList.toggle('active', b.dataset.key===key));
-		document.getElementById('viewer-section').scrollIntoView({behavior:'smooth', block:'start'});
+		// scroll only the first time the viewer opens — switching views must not move the page
+		if (firstOpen) sec.scrollIntoView({behavior:'smooth', block:'start'});
 	}
 
 	document.getElementById('fs-btn').addEventListener('click', () => {

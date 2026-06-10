@@ -1130,3 +1130,29 @@
 			#top-bar .inner > *:last-child { white-space: nowrap; }
 		}
 
+		/* ── Project viewer: left view-menu (desktop) ─────────────── */
+		.viewer-layout { display: grid; grid-template-columns: 230px minmax(0,1fr); gap: 18px; align-items: start; }
+		.viewer-side { position: sticky; top: 96px; display: flex; flex-direction: column; gap: 8px; }
+		.viewer-side-title { margin: 0 0 2px; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+		.layer-menu { display: flex; flex-direction: column; gap: 8px; }
+		.layer-menu button {
+			font: inherit; cursor: pointer; font-size: 14px; font-weight: 600;
+			display: flex; align-items: center; gap: 10px; text-align: left;
+			padding: 11px 14px; border-radius: 10px; border: 1px solid var(--border);
+			background: var(--bg-card); color: var(--text); transition: all 0.15s;
+		}
+		.layer-menu button .mi { display: inline-flex; width: 22px; height: 22px; color: var(--accent-hi); flex-shrink: 0; }
+		.layer-menu button .mi svg { width: 22px; height: 22px; }
+		.layer-menu button:hover { border-color: var(--accent); color: var(--accent-hi); }
+		.layer-menu button.active { background: #047857; border-color: #047857; color: #fff; }
+		.layer-menu button.active .mi { color: #fff; }
+		.viewer-side .viewer-fs { margin-top: 4px; justify-content: center; }
+		@media (max-width: 920px) {
+			.viewer-layout { grid-template-columns: 1fr; }
+			.viewer-side { position: static; flex-direction: row; flex-wrap: wrap; align-items: center; }
+			.viewer-side-title { width: 100%; margin: 0; }
+			.layer-menu { flex-direction: row; flex-wrap: wrap; }
+			.layer-menu button { padding: 9px 12px; }
+			.viewer-side .viewer-fs { margin: 0 0 0 auto; }
+		}
+
