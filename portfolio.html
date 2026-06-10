@@ -27,7 +27,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
 	<!-- Shared stylesheet -->
-	<link rel="stylesheet" href="css/site.css?v=10">
+	<link rel="stylesheet" href="css/site.css?v=11">
 
 	<!-- Leaflet CSS -->
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -361,21 +361,37 @@
 		map.fitBounds(markerClusters.getBounds(), { padding: [40, 40], maxZoom: 11 });
 	}
 
-	/* Projects card list */
+	/* Projects card list — mini map + view badges + big open button */
+	var LAYERS = {"ALEGRIA_1_WEB":["LIDAR","ORTHOPHOTO","DTM","VECTOR"],"Ainsley_WEB":["LIDAR","ORTHOPHOTO","DTM","VECTOR"],"Brett_Baru_River_1_WEB":["LIDAR","ORTHOPHOTO","DTM","VECTOR"],"Bryce_Ojochal_WEB":["LIDAR","ORTHOPHOTO","DTM","VECTOR"],"Bryce_Portalon_3_WEB":["LIDAR","ORTHOPHOTO","DTM","VECTOR"],"CANA_VIDA_WEB":["LIDAR","ORTHOPHOTO","DTM","VECTOR"],"CEDRELA_WEB":["LIDAR","ORTHOPHOTO","DTM","VECTOR"],"DOMINICALITO_WEB":["LIDAR","DTM","VECTOR"],"ENVISION_WEB":["LIDAR","ORTHOPHOTO","DTM","VECTOR"],"MARCO_WEB":["LIDAR","ORTHOPHOTO","DTM","VECTOR"],"Mata_Platano_WEB":["LIDAR","ORTHOPHOTO","DTM","VECTOR"],"OCASO_WEB":["LIDAR","ORTHOPHOTO","DTM","VECTOR"],"Portalon_Brian_WEB":["LIDAR","ORTHOPHOTO","DTM","VECTOR"],"SANTA_TERESA_2_WEB":["LIDAR","ORTHOPHOTO","DTM","VECTOR"],"SANTA_TERESA_6H_WEB":["LIDAR","ORTHOPHOTO","DTM","VECTOR"],"SANTA_TERESA_BOUNDARY_WEB":["LIDAR"],"SANTA_TERESA_WEB":["LIDAR","ORTHOPHOTO","DTM","VECTOR"],"SELVA3_WEB":["LIDAR","ORTHOPHOTO","DTM","VECTOR"],"SELVA_4_WEB":["LIDAR","ORTHOPHOTO","DTM","VECTOR"],"San Josesito_Uvita_WEB":["LIDAR","ORTHOPHOTO","DTM","VECTOR"],"TOMER_SELVA_WEB":["LIDAR","ORTHOPHOTO","DTM","VECTOR"],"Vista_Architects_2026_WEB":["LIDAR","DTM","VECTOR"],"Vista_Architects_WEB":["LIDAR","ORTHOPHOTO","DTM","VECTOR"]};
+	var VIEW_LABELS = { LIDAR: '3D Point Cloud', ORTHOPHOTO: 'Orthophoto', DTM: 'Terrain', VECTOR: 'Vector / CAD' };
 	var grid = document.getElementById('projectsGrid');
-	projects.forEach(function(project) {
+	projects.forEach(function(project, idx) {
+		var folder = project.view.replace(/[/]+$/,'').split('/').pop();
+		var href = 'project.html?project=' + folder;
+		var chips = (LAYERS[folder] || []).map(function(k){
+			return '<span class="view-chip">' + VIEW_LABELS[k] + '</span>';
+		}).join('');
 		var card = document.createElement('div');
-		card.className = 'info-card';
+		card.className = 'proj-card';
 		card.innerHTML =
-			'<h3>' + project.name + '</h3>' +
-			'<div class="card-tags-row">' +
-				'<span class="card-tag-chip zone">📍 ' + project.location + '</span>' +
-				'<span class="card-tag-chip">' + project.service + '</span>' +
-			'</div>' +
-			'<a href="project.html?project=' + project.view.replace(/\/+$/,'').split('/').pop() + '" class="card-link">' +
-				'Open Project Viewer &rarr;' +
-			'</a>';
+			'<div class="proj-map" id="pm-' + idx + '"></div>' +
+			'<div class="proj-body">' +
+				'<h3>' + project.name + '</h3>' +
+				'<div class="proj-loc">📍 ' + project.location + '</div>' +
+				'<div class="proj-views">' + chips + '</div>' +
+				'<a href="' + href + '" class="btn btn-primary proj-open">Open Project &rarr;</a>' +
+			'</div>';
+		card.addEventListener('click', function(e){
+			if (e.target.closest('a')) return;
+			window.location.href = href;
+		});
 		grid.appendChild(card);
+		// mini close-up map with the pin (non-interactive)
+		var mini = L.map('pm-' + idx, { zoomControl:false, dragging:false, scrollWheelZoom:false,
+			doubleClickZoom:false, touchZoom:false, boxZoom:false, keyboard:false, attributionControl:false })
+			.setView(project.coords, 15);
+		L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(mini);
+		L.marker(project.coords).addTo(mini);
 	});
 </script>
 
