@@ -344,15 +344,35 @@
 		const SB_KEY_CON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJxc3p2bHJ6bWVzemVld3VmZ2lvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYzNTcwMDEsImV4cCI6MjA5MTkzMzAwMX0.SkVeaxSd8lLMtmt1b3M5N3NhDZ4HJJEQjRP255KjMpk';
 		async function submitConForm(e){
 			e.preventDefault();
-			const btn=document.getElementById('con-submit-btn'); btn.disabled=true; btn.textContent='⏳ Sending...';
-			const np=document.getElementById('con-name').value.trim().split(/\s+/);
-			const payload={first_name:np[0]||'',last_name:np.slice(1).join(' ')||'',email:document.getElementById('con-email').value.trim(),phone:document.getElementById('con-phone').value.trim()||null,services_requested:document.getElementById('con-service').value,state_province:document.getElementById('con-location').value.trim(),land_size_sq_km:document.getElementById('con-size').value.trim(),survey_type:'Construction',notes:['Project Type: '+(document.getElementById('con-type').value||'—'),document.getElementById('con-message').value].filter(Boolean).join('
-'),country:'Costa Rica'};
-			try{
-				await fetch(SB_URL_CON+'/rest/v1/quote_submissions',{method:'POST',headers:{'Content-Type':'application/json','apikey':SB_KEY_CON,'Authorization':'Bearer '+SB_KEY_CON,'Prefer':'return=minimal'},body:JSON.stringify(payload)});
-				fetch(SB_URL_CON+'/functions/v1/on-new-quote',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({record:payload})}).catch(()=>{});
-			}catch(err){console.error(err);}
-			document.getElementById('conForm').innerHTML='<div style="text-align:center;padding:30px"><h3 style="color:var(--accent)">✅ Quote Request Sent!</h3><p>We'll get back to you within a few hours.</p><a href="https://wa.me/50672938970" style="color:var(--accent);font-weight:bold">💬 Or chat on WhatsApp now</a></div>';
+			const btn = document.getElementById('con-submit-btn');
+			btn.disabled = true; btn.textContent = '⏳ Sending...';
+			const np = document.getElementById('con-name').value.trim().split(/\s+/);
+			const notes = ['Project Type: ' + (document.getElementById('con-type').value || '-'),
+				document.getElementById('con-message').value].filter(Boolean).join('\n');
+			const payload = {
+				first_name: np[0] || '',
+				last_name: np.slice(1).join(' ') || '',
+				email: document.getElementById('con-email').value.trim(),
+				phone: document.getElementById('con-phone').value.trim() || null,
+				services_requested: document.getElementById('con-service').value,
+				state_province: document.getElementById('con-location').value.trim(),
+				land_size_sq_km: document.getElementById('con-size').value.trim(),
+				survey_type: 'Construction',
+				notes: notes,
+				country: 'Costa Rica'
+			};
+			try {
+				await fetch(SB_URL_CON + '/rest/v1/quote_submissions', {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json', 'apikey': SB_KEY_CON, 'Authorization': 'Bearer ' + SB_KEY_CON, 'Prefer': 'return=minimal' },
+					body: JSON.stringify(payload)
+				});
+				fetch(SB_URL_CON + '/functions/v1/on-new-quote', {
+					method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ record: payload })
+				}).catch(function(){});
+			} catch (err) { console.error(err); }
+			document.getElementById('conForm').innerHTML = '<div style="text-align:center;padding:30px"><h3 style="color:var(--accent)">✅ Quote Request Sent!</h3><p>We’ll get back to you within a few hours.</p><a href="https://wa.me/50672938970" style="color:var(--accent);font-weight:bold">💬 Or chat on WhatsApp now</a></div>';
+			return false;
 		}
 		</script>
 	</section>

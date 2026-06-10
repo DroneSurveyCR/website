@@ -34,3 +34,8 @@ automation/install_log.txt
 
 # Exception: site hero/section videos (NOT podcast media) must be deployed
 !images/*.mp4
+
+# NEVER commit credentials (leaked 2026-06; rotated)
+google-oauth-credentials.json
+drone-survey-costa-rica-036c0797c890.json
+*.service-account.json

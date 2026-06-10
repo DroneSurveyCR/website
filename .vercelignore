@@ -1,0 +1,23 @@
+# Keep internal/ops files OUT of the public deployment.
+# (The web root serves the repo root — anything not listed here is public.)
+
+# Credentials — never deploy (also gitignored)
+google-oauth-credentials.json
+drone-survey-costa-rica-036c0797c890.json
+*.service-account.json
+
+# Internal docs & scripts
+*.md
+*.bat
+ads/
+Podcast/
+SEO_Reports/
+seo-reports/
+seo-strategy/
+automation/
+inbox/
+dashboard.html
+.env.example
+
+# Keep serving: html pages, css/, styles/, images/, api/ (functions),
+# robots.txt, sitemap.xml, llms.txt, .well-known/, google401485b7441b326d.html
