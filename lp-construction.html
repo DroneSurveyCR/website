@@ -8,6 +8,9 @@
 	<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 	<meta name="theme-color" content="#302F40">
 	<link rel="canonical" href="https://www.dronesurveycr.com/lp-construction.html">
+	<link rel="alternate" hreflang="en" href="https://www.dronesurveycr.com/lp-construction.html">
+	<link rel="alternate" hreflang="es" href="https://www.dronesurveycr.com/es/lp-construction.html">
+	<link rel="alternate" hreflang="x-default" href="https://www.dronesurveycr.com/lp-construction.html">
 	<meta property="og:type" content="website">
 	<meta property="og:title" content="Construction Drone Surveys Costa Rica | DroneSurveyCR">
 	<meta property="og:description" content="LiDAR-grade topographic drone surveys for construction teams in Costa Rica. Results in 72 hours. Centimeter accuracy. Serving all of Costa Rica.">
@@ -59,7 +62,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/site.css?v=4">
+	<link rel="stylesheet" href="css/site.css?v=5">
 	<!-- Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-6L0PFQRYF6"></script>
 	<script>
@@ -297,7 +300,64 @@
 	</section>
 
 	<!-- Closing CTA -->
-	<section class="inner-cta">
+		<section id="lead-form" class="container">
+		<div class="section-label">
+			<div class="tag">Request a Free Quote</div>
+			<h2>Get a Free Quote for Your Project</h2>
+			<p>Tell us about your construction or development project and we'll send you a custom quote — usually the same day.</p>
+		</div>
+		<div class="form-card">
+			<form id="conForm" onsubmit="return submitConForm(event)">
+				<div class="form-grid-2">
+					<div class="form-row"><label for="con-name">Your Name *</label><input type="text" id="con-name" placeholder="Carlos Rodríguez" required></div>
+					<div class="form-row"><label for="con-email">Email *</label><input type="email" id="con-email" placeholder="carlos@empresa.com" required></div>
+				</div>
+				<div class="form-grid-2">
+					<div class="form-row"><label for="con-phone">WhatsApp / Phone</label><input type="tel" id="con-phone" placeholder="+506 XXXX XXXX"></div>
+					<div class="form-row"><label for="con-type">Project Type</label><input type="text" id="con-type" placeholder="e.g. Residential, Commercial, Roadwork, Subdivision..."></div>
+				</div>
+				<div class="form-row">
+					<label for="con-service">What do you need? *</label>
+					<select id="con-service" required>
+						<option value="">Select a service...</option>
+						<option>Topographic Survey &amp; DEM</option>
+						<option>Site Orthomosaic Map</option>
+						<option>Earthwork / Volume Calculations</option>
+						<option>Construction Progress Monitoring</option>
+						<option>As-Built Survey</option>
+						<option>Land Boundary Survey</option>
+						<option>Full Package</option>
+						<option>Not sure — I want advice</option>
+					</select>
+				</div>
+				<div class="form-grid-2">
+					<div class="form-row"><label for="con-location">Project Location *</label><input type="text" id="con-location" placeholder="e.g. San José / Guanacaste / Limón..." required></div>
+					<div class="form-row"><label for="con-size">Site Size (approx.) *</label><input type="text" id="con-size" placeholder="e.g. 2 hectares / 5 acres..." required></div>
+				</div>
+				<div class="form-row"><label for="con-message">Any Other Details</label><textarea id="con-message" placeholder="Tell us about your project goals, timeline, or any specific questions..."></textarea></div>
+				<button type="submit" id="con-submit-btn" class="btn btn-primary">🏗️ Send My Free Quote Request</button>
+			</form>
+			<p class="form-note">Prefer WhatsApp? Message us directly: <a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer">+506 7293 8970</a></p>
+		</div>
+		<script>
+		const SB_URL_CON = 'https://bqszvlrzmeszeewufgio.supabase.co';
+		const SB_KEY_CON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJxc3p2bHJ6bWVzemVld3VmZ2lvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYzNTcwMDEsImV4cCI6MjA5MTkzMzAwMX0.SkVeaxSd8lLMtmt1b3M5N3NhDZ4HJJEQjRP255KjMpk';
+		async function submitConForm(e){
+			e.preventDefault();
+			const btn=document.getElementById('con-submit-btn'); btn.disabled=true; btn.textContent='⏳ Sending...';
+			const np=document.getElementById('con-name').value.trim().split(/\s+/);
+			const payload={first_name:np[0]||'',last_name:np.slice(1).join(' ')||'',email:document.getElementById('con-email').value.trim(),phone:document.getElementById('con-phone').value.trim()||null,services_requested:document.getElementById('con-service').value,state_province:document.getElementById('con-location').value.trim(),land_size_sq_km:document.getElementById('con-size').value.trim(),survey_type:'Construction',notes:['Project Type: '+(document.getElementById('con-type').value||'—'),document.getElementById('con-message').value].filter(Boolean).join('
+'),country:'Costa Rica'};
+			try{
+				await fetch(SB_URL_CON+'/rest/v1/quote_submissions',{method:'POST',headers:{'Content-Type':'application/json','apikey':SB_KEY_CON,'Authorization':'Bearer '+SB_KEY_CON,'Prefer':'return=minimal'},body:JSON.stringify(payload)});
+				fetch(SB_URL_CON+'/functions/v1/on-new-quote',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({record:payload})}).catch(()=>{});
+			}catch(err){console.error(err);}
+			document.getElementById('conForm').innerHTML='<div style="text-align:center;padding:30px"><h3 style="color:var(--accent)">✅ Quote Request Sent!</h3><p>We'll get back to you within a few hours.</p><a href="https://wa.me/50672938970" style="color:var(--accent);font-weight:bold">💬 Or chat on WhatsApp now</a></div>';
+		}
+		</script>
+	</section>
+
+<section class="inner-cta">
 		<div class="container">
 			<h2>Ready to Survey Your Site?</h2>
 			<p>Get centimeter-accurate topographic data for your construction project — in 72 hours.</p>
