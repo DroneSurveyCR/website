@@ -16,14 +16,16 @@
 | EP03 | 2026-04-23 | Drone Topographic Surveys: Terrain Maps & Elevation Models in Costa Rica | ✅ | ✅ 1TxvTbKqx4TFE0JTQA6DFC | ✅ p_s5JCdLt6w | ✅ |
 | EP04 | 2026-04-30 | EP04: Drone Surveys for Environmental Impact Assessments in Costa Rica | ✅ | ✅ 5nXs5zMAGywNIgNZOofAMO | ✅ N58tCNJBpJQ | ✅ |
 | EP05 | 2026-05-07 | Drone Survey Costs in Costa Rica 2026 — Complete Pricing Guide | ✅ | ✅ 2lFadQpqqWhjOhvgKfvXQE | ✅ ERP15A7Avew | ✅ |
-| EP06 | 2026-05-14 | EP06: DGAC Drone Regulations Costa Rica 2026 — Permits, Restricted Zones & Flight Rules | ✅ | ✅ 25TkNtO5NPs8s6Bk6co4KM | ⏳ (video not uploaded yet) | ⏳ |
+| EP06 | 2026-05-14 | EP06: DGAC Drone Regulations Costa Rica 2026 — Permits, Restricted Zones & Flight Rules | ✅ | ✅ 25TkNtO5NPs8s6Bk6co4KM | ✅ 34_X1RgIx2I | ⏳ |
 | EP07 | 2026-05-28 | EP07: Aerial Surveys in Costa Rica — Drone Mapping, LiDAR & Photogrammetry Explained | ✅ | ✅ 1fsu8Kafvc7EaPHCfJTxZq | ✅ hMP-UpeatSw | ⏳ |
-| EP08 | 2026-06-04 | EP08: How LiDAR Drones See Through Jungle Canopy in Costa Rica | ✅ | ⏳ | ⏳ | ⏳ |
-| EP09 | 2026-06-11 | EP09: Drone Topographic Surveys in Costa Rica — Terrain Maps, Contour Lines & Elevation Models | ✅ | ⏳ overviews generated in NotebookLM, upload pending | ⏳ overviews generated, upload pending | ⏳ |
-| EP10–EP17 | (queued) | Briefs ready — see PODCAST_COVERAGE_PLAN.md (construction, drone-vs-ground, plano catastro, Central Valley, Guanacaste, Caribbean, South Pacific, San José) | ✅ | ⏳ | ⏳ | ⏳ |
-| EP18 | (queued) | EP18: Drone Survey for Property Boundary Verification in Costa Rica — Verify Before You Buy | ✅ | ⏳ | ⏳ | ⏳ |
+| EP08 | 2026-06-04 | EP08: How LiDAR Drones See Through Jungle Canopy in Costa Rica | ✅ | ✅ 4N0h2LmyqnajMt9gbQp5DZ | ✅ cqxCTENFROg | ⏳ |
+| EP09 | 2026-06-11 | EP09: Drone Topographic Surveys in Costa Rica — Terrain Maps, Contour Lines & Elevation Models | ✅ | ✅ 1QSNbBNP1eyh7CcFNc70hv | ✅ esfcEXYESYw | ⏳ |
+| EP10 | 2026-06-06 | EP10: Construction Drone Surveys in Costa Rica | ✅ | ✅ 2nIo3cWs1I5Fnse0l4pJ1I | ✅ IGSDdOeCPe0 | ⏳ |
+| EP11 | 2026-06-06 | EP11: Drone Survey vs Ground Survey in Costa Rica | ✅ | ✅ 56Z3sF0jidmP7mf5F7xWky | ✅ iQqAtG3_grw | ⏳ |
+| EP12 | 2026-06-06 | EP12: Plano Catastro con Dron (English) | ✅ | ✅ 378ZJ8R7cFRPDxIohp4W6t | ✅ KVo59YrR-j0 | ⏳ |
+| EP13–EP18 | (queued) | Briefs ready — Central Valley, Guanacaste, Caribbean, South Pacific, San José, Property Boundary Verification (see PODCAST_COVERAGE_PLAN.md) | ✅ | ⏳ awaiting NotebookLM media | ⏳ | ⏳ |
 
-> **Status note (2026-06-05 autonomous run):** EP09 Audio + Video Overviews are **generated and ready** in NotebookLM (notebook `0ce9ba70-7e12-46f8-9b5f-f32867be23f6`). They could not be auto-uploaded — see `PODCAST_RUN_REPORT_2026-06-05.md` for the upload-bridge blocker. EP07 video confirmed live (`hMP-UpeatSw`).
+> **Status note (2026-06-11 weekly publisher run):** EP01–EP12 all published (Spotify + YouTube live, IDs above; last verified live 2026-06-06). EP09 — this week's calendar slot — was published early in the 2026-06-06 catch-up run. **No new episode published this run:** EP13 (Central Valley) is next in queue but its NotebookLM Audio/Video Overviews were never generated/downloaded this week (media bridge copied 0 new files; inbox holds only the EP06–EP12 batch). GBP posts for EP06/08/10/11/12 still pending (separate task). See `PODCAST_RUN_REPORT_2026-06-11.md`.
 
 ---
 
