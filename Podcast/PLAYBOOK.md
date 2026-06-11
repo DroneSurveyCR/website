@@ -16,17 +16,16 @@
 | EP03 | 2026-04-23 | Drone Topographic Surveys: Terrain Maps & Elevation Models in Costa Rica | ✅ | ✅ 1TxvTbKqx4TFE0JTQA6DFC | ✅ p_s5JCdLt6w | ✅ |
 | EP04 | 2026-04-30 | EP04: Drone Surveys for Environmental Impact Assessments in Costa Rica | ✅ | ✅ 5nXs5zMAGywNIgNZOofAMO | ✅ N58tCNJBpJQ | ✅ |
 | EP05 | 2026-05-07 | Drone Survey Costs in Costa Rica 2026 — Complete Pricing Guide | ✅ | ✅ 2lFadQpqqWhjOhvgKfvXQE | ✅ ERP15A7Avew | ✅ |
-| EP06 | 2026-05-14 | EP06: DGAC Drone Regulations Costa Rica 2026 — Permits, Restricted Zones & Flight Rules | ✅ | ✅ 25TkNtO5NPs8s6Bk6co4KM | ✅ 34_X1RgIx2I | ✅ |
-| EP07 | 2026-05-28 | EP07: Aerial Surveys in Costa Rica — Drone Mapping, LiDAR & Photogrammetry Explained | ✅ | ✅ 1fsu8Kafvc7EaPHCfJTxZq | ✅ hMP-UpeatSw | ✅ |
-| EP08 | 2026-06-04 | EP08: How LiDAR Drones See Through Jungle Canopy in Costa Rica | ✅ | ✅ 4N0h2LmyqnajMt9gbQp5DZ | ✅ cqxCTENFROg | ✅ |
-| EP09 | 2026-06-06 | Drone Topographic Surveys: Terrain Maps, Contour Lines & Elevation Models | ✅ | ✅ 1QSNbBNP1eyh7CcFNc70hv | ✅ esfcEXYESYw | ⏳ |
-| EP10 | 2026-06-06 | EP10: Construction Drone Surveys in Costa Rica — Earthwork, Progress Monitoring & As-Builts | ✅ | ✅ 2nIo3cWs1I5Fnse0l4pJ1I | ✅ IGSDdOeCPe0 | ✅ |
-| EP11 | 2026-06-06 | EP11: Drone Survey vs Ground Survey in Costa Rica — Which Do You Actually Need? | ✅ | ✅ 56Z3sF0jidmP7mf5F7xWky | ✅ iQqAtG3_grw | ✅ |
-| EP12 | 2026-06-06 | EP12: Plano Catastro by Drone in Costa Rica — Cadastral Surveys with RTK Accuracy (EN) | ✅ | ✅ 378ZJ8R7cFRPDxIohp4W6t | ✅ KVo59YrR-j0 | ✅ |
+| EP06 | 2026-05-14 | EP06: DGAC Drone Regulations Costa Rica 2026 — Permits, Restricted Zones & Flight Rules | ✅ | ✅ 25TkNtO5NPs8s6Bk6co4KM | ⏳ (video not uploaded yet) | ⏳ |
+| EP07 | 2026-05-28 | EP07: Aerial Surveys in Costa Rica — Drone Mapping, LiDAR & Photogrammetry Explained | ✅ | ✅ 1fsu8Kafvc7EaPHCfJTxZq | ✅ hMP-UpeatSw | ⏳ |
+| EP08 | 2026-06-04 | EP08: How LiDAR Drones See Through Jungle Canopy in Costa Rica | ✅ | ⏳ | ⏳ | ⏳ |
+| EP09 | 2026-06-11 | EP09: Drone Topographic Surveys in Costa Rica — Terrain Maps, Contour Lines & Elevation Models | ✅ | ⏳ overviews generated in NotebookLM, upload pending | ⏳ overviews generated, upload pending | ⏳ |
+| EP10–EP17 | (queued) | Briefs ready — see PODCAST_COVERAGE_PLAN.md (construction, drone-vs-ground, plano catastro, Central Valley, Guanacaste, Caribbean, South Pacific, San José) | ✅ | ⏳ | ⏳ | ⏳ |
+| EP18 | (queued) | EP18: Drone Survey for Property Boundary Verification in Costa Rica — Verify Before You Buy | ✅ | ⏳ | ⏳ | ⏳ |
+
+> **Status note (2026-06-05 autonomous run):** EP09 Audio + Video Overviews are **generated and ready** in NotebookLM (notebook `0ce9ba70-7e12-46f8-9b5f-f32867be23f6`). They could not be auto-uploaded — see `PODCAST_RUN_REPORT_2026-06-05.md` for the upload-bridge blocker. EP07 video confirmed live (`hMP-UpeatSw`).
 
 ---
-
-> **Status note (2026-06-06 attended continuation):** ALL 12 main-blog episodes are now FULLY LIVE (EP01–EP12: Spotify + YouTube + blog embeds). EP08's Spotify audio was corrected same-day (was EP09's file). EP12 published with ENGLISH narration; the stray Spanish video overview was deleted from the notebook. Per Nick: ENGLISH-ONLY content from here on. See `PODCAST_RUN_REPORT_2026-06-06_EP08.md`.
 
 ## Pipeline Workflow (per episode)
 
@@ -43,10 +42,4 @@
 
 - Drone laws and DGAC regulations Costa Rica 2026
 - LiDAR vs photogrammetry: which to choose for your project
-- Construction site drone survey workflow
-- Costa Rica real estate due diligence with drones
-- Drone survey cost guide 2026 (full breakdown)
-- Guanacaste tourism development and drone mapping
-- South Pacific / Osa Peninsula drone survey challenges
-- Caribbean coast: drone surveys for eco-resort development
-- Solar far
+- Construction site drone 

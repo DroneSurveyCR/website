@@ -40,6 +40,7 @@ Goal: each blog post has a matching YouTube video + Spotify podcast. Near-duplic
 | drone-survey-south-pacific-osa-costa-rica | EP16 | REUSE EP16 |
 | drone-survey-south-pacific-uvita-ojochal-costa-rica | EP16 | REUSE EP16 |
 | drone-survey-san-jose-costa-rica | EP17 | BRIEF READY |
+| **drone-survey-property-boundary-verification-costa-rica** | **EP18** | **BRIEF READY** (new post, 2026-06-09) |
 
 ## What's ready vs what needs you
 
@@ -53,4 +54,4 @@ Goal: each blog post has a matching YouTube video + Spotify podcast. Near-duplic
 - Spotify title standardization (EP01/EP02/EP04/EP05) — see `EPISODE_NAMING_RENAME_SHEET.md`.
 
 ## Naming standard
-All episodes follow `EP0X: <Title>` (ID first) on YouTube, Spotify, and blog captions. Locked into `Podcast/youtube_metadata_template.md`.
+All episodes follow `EP0
