@@ -240,6 +240,26 @@
       "source": "/how-much-does-drone-survey-cost-costa-rica.html",
       "destination": "/blog/drone-survey-cost-costa-rica.html",
       "permanent": true
+    },
+    {
+      "source": "/drone-survey-caribbean-eco-tourism-puerto-viejo-costa-rica.html",
+      "destination": "/blog/drone-survey-caribbean-eco-tourism-puerto-viejo-costa-rica.html",
+      "permanent": true
+    },
+    {
+      "source": "/drone-survey-property-boundary-verification-costa-rica.html",
+      "destination": "/blog/drone-survey-property-boundary-verification-costa-rica.html",
+      "permanent": true
+    },
+    {
+      "source": "/drone-survey-south-pacific-uvita-ojochal-costa-rica.html",
+      "destination": "/blog/drone-survey-south-pacific-uvita-ojochal-costa-rica.html",
+      "permanent": true
+    },
+    {
+      "source": "/lidar-drone-canopy-mapping-costa-rica.html",
+      "destination": "/blog/lidar-drone-canopy-mapping-costa-rica.html",
+      "permanent": true
     }
   ]
 }
