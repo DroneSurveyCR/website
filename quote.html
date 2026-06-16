@@ -672,13 +672,13 @@ function calculateQuote() {
 	// Per-hectare services
 	if (hectares > 0) {
 		if (services.includes('LiDAR Mapping')) {
-			const a = hectares * P.lidar;
-			lines.push({ l: `LiDAR: ${hectares} ha × $${P.lidar}`, a });
+			const a = Math.max(0, hectares - 5) * P.lidar;
+			lines.push({ l: `LiDAR: ${Math.max(0, hectares - 5)} ha billable (first 5 ha in base fee) × $${P.lidar}`, a });
 			total += a;
 		}
 		if (services.includes('Photogrammetry')) {
-			const a = hectares * P.photogrammetry;
-			lines.push({ l: `Photogrammetry: ${hectares} ha × $${P.photogrammetry}`, a });
+			const a = Math.max(0, hectares - 5) * P.photogrammetry;
+			lines.push({ l: `Photogrammetry: ${Math.max(0, hectares - 5)} ha billable (first 5 ha in base fee) × $${P.photogrammetry}`, a });
 			total += a;
 		}
 		if (services.includes('GPS / Plano Cadastro')) {
