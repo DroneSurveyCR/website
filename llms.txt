@@ -2,13 +2,16 @@
 > Professional LiDAR drone mapping, aerial photography, and GPS surveying across Costa Rica
 
 ## About
-Drone Survey Costa Rica (DroneSurveyCR.com) is a professional aerial surveying company based in San Jose, Costa Rica. We specialize in LiDAR mapping using DJI Matrice 300 RTK with Zenmuse L1 sensor, delivering centimeter-accurate topographic data. We serve all regions of Costa Rica including San Jose, Guanacaste, Caribbean coast, South Pacific, and Central Valley.
+Drone Survey Costa Rica (DroneSurveyCR.com) is a professional aerial surveying company based in San Jose, Costa Rica. We specialize in LiDAR mapping using DJI Matrice 300 RTK with Zenmuse L1 sensor, delivering centimeter-accurate topographic data. We serve all regions of Costa Rica including San Jose, Guanacaste, Caribbean coast, South Pacific, and Central Valley. Operating since 2017 with 120+ clients served and a 5.0-star rating across 25 Google reviews.
 
 ## Services
 - **LiDAR Drone Mapping** — Centimeter-accurate topographic surveys using Zenmuse L1 (240,000 pts/sec, 3 returns). Penetrates forest canopy.
 - **GPS/RTK Surveying** — DJI D-RTK 2 base station for precise geopositioning. Plano Catastro compliant.
 - **Aerial Video & Photography** — 4K cinematic drone footage for real estate, construction, and marketing.
 - **Topographic Maps** — Contour maps, DEM, DSM, orthomosaics delivered in AutoCAD/GIS formats.
+
+## Emerging Technology
+- **Gaussian Splatting (3DGS)** — We are tracking and testing Gaussian splatting, which turns drone imagery into photorealistic, explorable 3D scenes (ideal for remote real-estate buyers and site visualization). It complements, and does not replace, our survey-grade LiDAR and photogrammetry. Not yet a formal service; ask us about pairing a splat with a survey. See: https://www.dronesurveycr.com/blog/gaussian-splatting-drone-costa-rica.html
 
 ## Pricing
 - Base fee: $1,000 USD per project (covers up to 5 hectares)
@@ -31,4 +34,5 @@ All of Costa Rica: San Jose, Guanacaste, Puntarenas, Limon, Alajuela, Cartago, H
 - [GPS Services](https://www.dronesurveycr.com/services/geopositioning.html)
 - [Get a Quote](https://www.dronesurveycr.com/quote.html)
 - [Blog](https://www.dronesurveycr.com/blog/)
+- [Gaussian Splatting & Drone Mapping](https://www.dronesurveycr.com/blog/gaussian-splatting-drone-costa-rica.html)
 - [About](https://www.dronesurveycr.com/about.html)

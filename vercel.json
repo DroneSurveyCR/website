@@ -112,6 +112,11 @@
       "permanent": true
     },
     {
+      "source": "/gaussian-splatting-drone-costa-rica.html",
+      "destination": "/blog/gaussian-splatting-drone-costa-rica.html",
+      "permanent": true
+    },
+    {
       "source": "/agriculture-drone-survey-costa-rica.html",
       "destination": "/blog/agriculture-drone-survey-costa-rica.html",
       "permanent": true
