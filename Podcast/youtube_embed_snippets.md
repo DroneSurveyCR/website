@@ -14,3 +14,4 @@
 | EP10 | IGSDdOeCPe0 | ✅ | construction-drone-surveys-costa-rica.html |
 | EP11 | iQqAtG3_grw | ✅ | drone-survey-vs-ground-survey-costa-rica.html |
 | EP12 | KVo59YrR-j0 | ✅ | plano-catastro-drone-costa-rica.html |
+| EP19 | B4ZLKrV5uZM | ✅ | gaussian-splatting-drone-costa-rica.html |
