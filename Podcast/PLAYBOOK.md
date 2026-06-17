@@ -24,8 +24,11 @@
 | EP11 | 2026-06-06 | EP11: Drone Survey vs Ground Survey in Costa Rica | ✅ | ✅ 56Z3sF0jidmP7mf5F7xWky | ✅ iQqAtG3_grw | ⏳ |
 | EP12 | 2026-06-06 | EP12: Plano Catastro con Dron (English) | ✅ | ✅ 378ZJ8R7cFRPDxIohp4W6t | ✅ KVo59YrR-j0 | ⏳ |
 | EP13–EP18 | (queued) | Briefs ready — Central Valley, Guanacaste, Caribbean, South Pacific, San José, Property Boundary Verification (see PODCAST_COVERAGE_PLAN.md) | ✅ | ⏳ awaiting NotebookLM media | ⏳ | ⏳ |
+| EP19 | 2026-06-17 | EP19: Gaussian Splatting & Drone Mapping in Costa Rica — Walk a Property in 3D Before You Buy | ✅ | ⏳ | ⏳ | ⏳ |
 
 > **Status note (2026-06-11 weekly publisher run):** EP01–EP12 all published (Spotify + YouTube live, IDs above; last verified live 2026-06-06). EP09 — this week's calendar slot — was published early in the 2026-06-06 catch-up run. **No new episode published this run:** EP13 (Central Valley) is next in queue but its NotebookLM Audio/Video Overviews were never generated/downloaded this week (media bridge copied 0 new files; inbox holds only the EP06–EP12 batch). GBP posts for EP06/08/10/11/12 still pending (separate task). See `PODCAST_RUN_REPORT_2026-06-11.md`.
+
+> **Status note (2026-06-17 weekly brief-generator run):** EP19 brief + metadata generated from the newest keyword blog post, *Gaussian Splatting & Drone Mapping in Costa Rica* (published 2026-06-16). Chosen over the same-day *cost to bring a drone into Costa Rica* post because it is a survey-client / remote-buyer topic (better CTA fit) and the freshest main-topic post. NotebookLM audio/video not yet generated. Note: EP13–EP18 (mostly regional geo-page episodes) remain queued and unpublished; per the main-blogs-only policy these may be reconsidered before EP19 is recorded.
 
 ---
 
