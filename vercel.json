@@ -265,6 +265,21 @@
       "source": "/lidar-drone-canopy-mapping-costa-rica.html",
       "destination": "/blog/lidar-drone-canopy-mapping-costa-rica.html",
       "permanent": true
+    },
+    {
+      "source": "/cost-to-bring-drone-into-costa-rica.html",
+      "destination": "/blog/cost-to-bring-drone-into-costa-rica.html",
+      "permanent": true
+    },
+    {
+      "source": "/drone-survey-central-valley-construction-costa-rica.html",
+      "destination": "/blog/drone-survey-central-valley-construction-costa-rica.html",
+      "permanent": true
+    },
+    {
+      "source": "/drone-survey-guanacaste-agriculture-costa-rica.html",
+      "destination": "/blog/drone-survey-guanacaste-agriculture-costa-rica.html",
+      "permanent": true
     }
   ]
 }
