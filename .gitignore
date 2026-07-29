@@ -39,3 +39,8 @@ automation/install_log.txt
 google-oauth-credentials.json
 drone-survey-costa-rica-036c0797c890.json
 *.service-account.json
+*.bak-*
+
+# Internal dashboards — repo root is the public web root, keep these out
+Partner CRM/
+command-center-updated.html

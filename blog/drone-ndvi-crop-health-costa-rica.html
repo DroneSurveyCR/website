@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/site.css?v=11">
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>How Drone Mapping Improves Crop Yields in Costa Rica: NDVI &amp; Multispectral Analysis</title>
+	<meta name="theme-color" content="#064e3b">
+	<meta name="description" content="How NDVI and multispectral drone mapping catch irrigation stress, pests and nutrient deficiencies weeks before they're visible — boosting yields on coffee, pineapple, banana and rice farms in Costa Rica. What it measures, what you get, and what it costs.">
+	<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+	<link rel="canonical" href="https://www.dronesurveycr.com/blog/drone-ndvi-crop-health-costa-rica.html">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="How Drone Mapping Improves Crop Yields in Costa Rica: NDVI &amp; Multispectral Analysis">
+	<meta property="og:description" content="NDVI and multispectral drone flights catch irrigation stress, pests and nutrient problems weeks before the naked eye can — here's how that translates into higher yields on Costa Rican farms.">
+	<meta property="og:url" content="https://www.dronesurveycr.com/blog/drone-ndvi-crop-health-costa-rica.html">
+	<meta property="og:image" content="https://www.dronesurveycr.com/images/dji-zenmuse-l1-lidar.jpg">
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "BlogPosting",
+		"headline": "How Drone Mapping Improves Crop Yields in Costa Rica: NDVI & Multispectral Analysis",
+		"description": "A practical guide to NDVI and multispectral drone mapping for Costa Rican farms — how it detects irrigation stress, pests, disease and nutrient deficiencies before they cost yield, what a flight delivers, how often to fly, and what it costs.",
+		"datePublished": "2026-07-28",
+		"dateModified": "2026-07-28",
+		"author": { "@type": "Organization", "name": "Drone Survey Costa Rica", "url": "https://www.dronesurveycr.com/" },
+		"publisher": { "@type": "Organization", "name": "Drone Survey Costa Rica", "url": "https://www.dronesurveycr.com/" },
+		"mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.dronesurveycr.com/blog/drone-ndvi-crop-health-costa-rica.html" },
+		"image": "https://www.dronesurveycr.com/images/dji-zenmuse-l1-lidar.jpg"
+	}
+	</script>
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "FAQPage",
+		"mainEntity": [
+			{ "@type": "Question", "name": "What is NDVI and how does a drone measure it?", "acceptedAnswer": { "@type": "Answer", "text": "NDVI (Normalized Difference Vegetation Index) compares how much red and near-infrared light a plant's leaves reflect. Healthy, actively photosynthesizing plants absorb red light and reflect near-infrared strongly, while stressed plants reflect more red and less near-infrared. A drone fitted with a multispectral camera captures both bands on every flight and a processing pipeline turns that into a colour-coded NDVI map of the field, showing plant vigor down to sub-metre resolution." } },
+			{ "@type": "Question", "name": "Can a drone really catch crop stress before I can see it?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Near-infrared reflectance changes inside a plant's cell structure before chlorophyll breakdown becomes visible as yellowing or wilting. In practice this means an NDVI map typically flags irrigation stress, root disease or nutrient deficiency one to three weeks before the same problem is visible to a person walking the field, which is enough lead time to irrigate, treat or fertilize before yield is actually lost." } },
+			{ "@type": "Question", "name": "Which crops in Costa Rica benefit most from NDVI drone mapping?", "acceptedAnswer": { "@type": "Answer", "text": "Coffee, pineapple, banana, oil palm, rice and sugarcane are the crops we map most often, because each is grown at a scale where walking every hectare is impractical and each has yield-critical problems — leaf rust in coffee, root rot in pineapple, Panama disease in banana — that show up in the infrared before they show up to the eye. Smaller diversified farms also benefit, particularly for irrigation scheduling and spotting isolated pest or disease outbreaks early." } },
+			{ "@type": "Question", "name": "How often should a farm be flown for crop health mapping?", "acceptedAnswer": { "@type": "Answer", "text": "Most commercial operations fly every two to four weeks through the active growing season, tightening to weekly during flowering, fruit set or known disease-risk windows, and after major storms. A single flight is a snapshot; the real value comes from comparing maps over time to see whether a stressed zone is recovering, spreading or new, which is why we usually set clients up on a recurring flight schedule rather than a one-off." } },
+			{ "@type": "Question", "name": "How much does NDVI drone mapping cost in Costa Rica?", "acceptedAnswer": { "@type": "Answer", "text": "Cost depends on farm area, flight frequency and whether you want a one-off assessment or a recurring monitoring programme. A single-flight NDVI survey of a small-to-medium farm is typically priced per hectare, with recurring monitoring packages working out cheaper per flight than one-off visits. The fastest way to a firm number is our online quote calculator, which returns a free same-day estimate based on your farm's location and size." } }
+		]
+	}
+	</script>
+	</head>
+<body>
+	<!-- HEADER -->
+	<div id="top-bar">
+	<div class="container">
+		<div class="inner">
+			<div class="lang-switcher">
+				<button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
+				<button class="lang-btn" onclick="setLang('es')" id="btn-es">ES</button>
+				<button class="lang-btn" onclick="setLang('fr')" id="btn-fr">FR</button>
+			</div>
+			<div style="display:flex;align-items:center;gap:16px;">
+				<a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer" style="color:var(--muted);font-size:13px;font-weight:500;">💬 +506 7293-8970</a>
+				<button id="theme-toggle" onclick="toggleTheme()" style="background:none;border:1px solid var(--border);color:var(--muted);cursor:pointer;border-radius:6px;padding:3px 10px;font-size:13px;font-family:inherit;transition:all 0.15s;" title="Toggle light/dark mode">🌙</button>
+			</div>
+		</div>
+	</div>
+</div>
+<header id="site-header">
+	<div class="container">
+		<div class="inner">
+			<div class="logo">
+				<a href="../index.html">
+					<img src="../images/logo-round.png" alt="Drone Survey Costa Rica" height="34">
+					<span class="logo-name">Drone Survey<br><span>Costa Rica</span></span>
+				</a>
+			</div>
+			<input type="checkbox" id="nav-toggle" class="nav-toggle-cb" aria-hidden="true">
+			<label for="nav-toggle" class="nav-toggle-btn" aria-label="Toggle menu"><span></span><span></span><span></span></label>
+			<nav>
+				<ul>
+					<li><a href="../index.html" data-i18n="nav.home">Home</a></li>
+					<li>
+						<a href="/services/index.html" data-i18n="nav.services">Services</a>
+						<ul>
+							<li><a href="/services/lidar-mapping.html" data-i18n="nav.lidar">Lidar Drone Surveying</a></li>
+							<li><a href="/services/geopositioning.html" data-i18n="nav.geo">GPS Geopositioning</a></li>
+							<li><a href="/services/photogrammetry.html">Photogrammetry</a></li>
+						</ul>
+					</li>
+					<li><a href="../portfolio.html">Portfolio</a></li>
+					<li><a href="../blog/index.html">Blog</a></li>
+					<li><a href="../quote.html" data-i18n="nav.quote">Get a Quote</a></li>
+					<li><a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer" class="nav-cta" data-i18n="nav.whatsapp">WhatsApp</a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</header>
+
+	<!-- HERO -->
+	<section class="blog-hero">
+		<div class="container">
+			<h1>How Drone Mapping Improves Crop Yields in Costa Rica</h1>
+			<p>NDVI and multispectral imagery catch irrigation stress, pests, disease and nutrient problems in the infrared — one to three weeks before they're visible to the eye. Here's how that lead time turns into saved yield.</p>
+			<div class="hero-meta">July 28, 2026 &nbsp;&middot;&nbsp; 8 min read &nbsp;&middot;&nbsp; Agriculture</div>
+		</div>
+	</section>
+<div class="container">
+<div class="cta-inline"><p>Want to see stress zones on your own farm? Get a free same-day quote.</p><div class="row"><a class="btn btn-primary" href="../quote.html">Get a Free Quote</a><a class="btn btn-outline" href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer">WhatsApp</a></div></div>
+</div>
+
+
+	<!-- ARTICLE -->
+	<article class="article-body">
+
+		<p>By the time a stressed section of a field looks yellow, wilted or thin from the ground, the plant has already been struggling for days or weeks — and the yield in that zone is already reduced. That gap between when a problem starts and when a person can see it is the single most expensive thing about managing a farm at scale, because it turns manageable stress into lost harvest. <strong>NDVI and multispectral drone mapping close that gap.</strong> By capturing light wavelengths the human eye can't see, a drone flight reveals exactly which zones of a field are struggling — often one to three weeks before the same problem would be visible on a walk-through — giving a farm manager time to irrigate, treat or fertilize before the damage is done.</p>
+
+		<p>This guide explains what NDVI actually measures, how the data becomes a decision a farm manager can act on, which Costa Rican crops benefit most, and what a mapping programme costs. We already cover the mapping and boundary side of farm surveying in our <a href="agriculture-drone-survey-costa-rica.html">agriculture drone survey guide</a> and our <a href="drone-survey-agriculture-costa-rica.html">precision farming &amp; crop mapping overview</a> — this post goes deeper on the specific technology that turns aerial imagery into a yield-protection tool. If you already know your farm and want a number, skip straight to a <a href="../quote.html">free same-day quote</a>.</p>
+
+		<h2>What NDVI actually measures</h2>
+		<p>NDVI stands for Normalized Difference Vegetation Index, and it works because of how a leaf's cell structure interacts with light. Healthy, actively photosynthesizing plant tissue absorbs most red light for photosynthesis while strongly reflecting near-infrared light, which is invisible to the human eye but easy for a camera sensor to record. As a plant comes under stress — from drought, root damage, disease or a nutrient shortfall — that internal cell structure begins to break down before any visible symptom appears, and the ratio between reflected red and near-infrared light shifts measurably.</p>
+		<p>A drone carrying a multispectral camera captures both bands on every pass over the field. A processing pipeline compares them pixel by pixel and outputs a colour-coded map — typically red or orange for stressed vegetation shading through yellow to deep green for vigorous growth — at a resolution fine enough to separate individual plant rows. The result is not a photograph of the field; it's a measurement of plant health across every square metre, something no amount of staring at RGB imagery or walking the rows can replicate.</p>
+
+		<div class="cta-inline"><p>Curious what an NDVI map of your farm would show?</p><div class="row"><a class="btn btn-primary" href="../quote.html">Price My Survey</a><a class="btn btn-outline" href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer">Ask Us on WhatsApp</a></div></div>
+
+		<h2>From map to action: the problems NDVI catches early</h2>
+		<p><strong>Irrigation stress.</strong> Uneven water delivery is one of the most common — and most fixable — sources of lost yield, and it's usually invisible until a dry patch is already scorched. An NDVI map flown mid-cycle typically shows irrigation gaps as clearly defined low-vigor zones that trace back directly to a clogged emitter, an uneven pivot arc or a low spot that drains too fast, letting a farm manager fix the mechanical problem instead of just watching the symptom.</p>
+		<p><strong>Pest and disease outbreaks.</strong> Coffee leaf rust, banana Panama disease and pineapple root rot all reduce a plant's photosynthetic efficiency before the visible symptoms — lesions, wilting, discoloration — spread widely. Because NDVI is sensitive to that early physiological change, a recurring flight schedule can flag an outbreak while it is still a handful of plants rather than a spreading section of the field, when treatment or removal is still cheap and effective.</p>
+		<p><strong>Nutrient deficiency and variable-rate fertilizer application.</strong> Nitrogen deficiency in particular shows up clearly in NDVI well before the classic pale-green leaf colour is obvious on the ground. Mapped against the field, that data lets an agronomist target fertilizer to the zones that actually need it — a variable-rate application — instead of a single blanket rate across the whole farm, which both protects yield in the deficient zones and avoids over-fertilizing the healthy ones.</p>
+		<p><strong>Replanting and gap analysis.</strong> For row crops and orchards, an NDVI map combined with a standard orthomosaic (the kind of imagery we describe in our <a href="drone-survey-deliverables-costa-rica.html">deliverables guide</a>) quickly highlights missing or failed plants across a large area, turning what would be a slow manual count into a map a crew can work from directly.</p>
+
+		<h2>Drone NDVI vs. satellite imagery: why resolution wins</h2>
+		<p>Free NDVI layers from satellites like Sentinel-2 are useful for a quick regional glance, but they are a poor tool for actually managing a farm. Sentinel-2's public bands resolve to roughly 10 metres per pixel — a single pixel can cover dozens of individual coffee plants or a wide stretch of a pineapple bed — and revisit intervals of five days or more are frequently defeated entirely by cloud cover, which is a serious limitation in a country where the green season delivers heavy cloud for months at a time. A drone flight, by contrast, resolves to a few centimetres per pixel, flies below the cloud deck on demand rather than waiting for a satellite pass, and can be scheduled around irrigation cycles, spray windows or a specific disease scare rather than an orbit. The trade-off is coverage per flight — satellites win on sheer area — but for the field-level, plant-row decisions that actually move yield, the extra resolution and the ability to fly on your own schedule are what make the data usable at all.</p>
+
+		<h2>What's behind the map: sensors, bands and consistency</h2>
+		<p>Not all "NDVI drones" measure the same thing. A modified consumer camera that swaps a filter to catch a rough near-infrared signal can produce a usable stress map on a budget, but a proper multispectral payload — capturing red, green, red-edge and near-infrared bands separately and simultaneously — gives a materially cleaner signal and unlocks additional indices beyond basic NDVI, such as NDRE (Normalized Difference Red Edge), which is more sensitive to nitrogen status in dense, mature canopies like coffee and banana where standard NDVI tends to saturate. We select the sensor to match the crop and the question being asked, rather than defaulting to one tool for every job.</p>
+		<p>Consistency between flights matters as much as the sensor itself. Light conditions change hour to hour and day to day, so every flight is calibrated against a reference panel of known reflectance before and after the mission, which keeps NDVI values comparable across visits — without that step, a shift in sunlight can look like a shift in plant health and send an agronomist chasing a problem that doesn't exist. That same discipline around repeatable, ground-controlled data collection is what we apply across all of our survey work, detailed in our <a href="drone-survey-accuracy-costa-rica.html">accuracy guide</a>.</p>
+
+		<h2>Costa Rica's crops and climate: where this matters most</h2>
+		<p>Costa Rica's growing conditions make crop health mapping especially valuable. The country's <strong>coffee</strong> farms sit on steep, terraced hillsides where walking every row to check for leaf rust is slow and where microclimates can vary sharply within a single finca — exactly the kind of variability an aerial NDVI pass reveals at a glance. <strong>Pineapple and banana</strong> operations in the Caribbean and northern zones run at a scale where root disease can spread through a block before a scouting crew reaches it on foot; we cover the regional side of that work in our <a href="drone-survey-caribbean-agriculture-limon-costa-rica.html">Caribbean agriculture drone survey guide</a>. In <strong>Guanacaste</strong>, where dry-season irrigation scheduling is the difference between a strong and a weak harvest, NDVI is most often used to catch irrigation-system problems early — see our <a href="drone-survey-guanacaste-agriculture-costa-rica.html">Guanacaste agriculture drone survey guide</a> for the regional detail. And because Costa Rica's green season delivers intense, localized rainfall, drainage-related stress zones tend to appear and disappear quickly — another reason a single flight is far less useful than a recurring monitoring cadence.</p>
+
+		<h2>How a monitoring programme works, and what it costs</h2>
+		<p>A single NDVI flight is a snapshot; a farm's real value comes from comparing maps over time. Most commercial operations we work with fly every two to four weeks through the active growing season, tightening to weekly during flowering, fruit set or a known disease-risk window, and adding an extra flight after any major storm. That cadence lets a farm manager see not just where a problem exists today, but whether a flagged zone from the last flight is recovering, holding steady or spreading — the trend line is often more useful than any single map.</p>
+		<p>Every flight is captured with ground control for consistent, comparable geolocation between visits, following the same accuracy standards we set out in our <a href="drone-survey-accuracy-costa-rica.html">survey accuracy guide</a>. Deliverables typically include the raw NDVI raster, a classified stress-zone map ready to hand to an agronomist or field crew, and a standard high-resolution orthomosaic for visual reference — all in formats (GeoTIFF, shapefile) that drop straight into whatever farm-management or GIS software you already use.</p>
+		<p>Cost scales with farm area, flight frequency and whether you're running a single assessment or a recurring monitoring programme; as with our other survey work, a recurring schedule is priced more cheaply per flight than a one-off visit, and we break down the general cost drivers behind all our survey work in the <a href="drone-survey-costs-costa-rica-2026.html">2026 cost guide</a>. The fastest way to a firm number for your farm is the <a href="../quote.html">online quote calculator</a>, which returns a free, same-day estimate based on your location and area — or send us a <a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer">WhatsApp message</a> describing your crop and acreage.</p>
+
+		<div class="cta-box">
+			<h2>See the stress zones before they cost you yield</h2>
+			<p>Tell us your farm's location, crop and size and we'll send a free quote for an NDVI mapping flight or a recurring monitoring programme built around your growing season.</p>
+			<a href="../quote.html" class="btn btn-white">Get a Free Quote</a>
+			<a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer" class="btn btn-success">Chat on WhatsApp</a>
+		</div>
+
+	</article>
+
+	<!-- FAQ SECTION -->
+	<div class="faq-section">
+		<div class="container">
+			<h2>Frequently Asked Questions About NDVI &amp; Crop Health Drone Mapping</h2>
+
+			<div class="faq-item">
+				<h3>What is NDVI and how does a drone measure it?</h3>
+				<p>NDVI (Normalized Difference Vegetation Index) compares how much red and near-infrared light a plant's leaves reflect. Healthy, actively photosynthesizing plants absorb red light and reflect near-infrared strongly, while stressed plants reflect more red and less near-infrared. A drone fitted with a multispectral camera captures both bands on every flight, and a processing pipeline turns that into a colour-coded NDVI map showing plant vigor down to sub-metre resolution.</p>
+			</div>
+
+			<div class="faq-item">
+				<h3>Can a drone really catch crop stress before I can see it?</h3>
+				<p>Yes. Near-infrared reflectance changes inside a plant's cell structure before chlorophyll breakdown becomes visible as yellowing or wilting. In practice, an NDVI map typically flags irrigation stress, root disease or nutrient deficiency one to three weeks before the same problem is visible to someone walking the field — enough lead time to irrigate, treat or fertilize before yield is actually lost.</p>
+			</div>
+
+			<div class="faq-item">
+				<h3>Which crops in Costa Rica benefit most from NDVI drone mapping?</h3>
+				<p>Coffee, pineapple, banana, oil palm, rice and sugarcane are the crops we map most often, because each is grown at a scale where walking every hectare is impractical and each has yield-critical problems — leaf rust in coffee, root rot in pineapple, Panama disease in banana — that show up in the infrared before they show up to the eye. Smaller diversified farms benefit too, particularly for irrigation scheduling and spotting isolated outbreaks early.</p>
+			</div>
+
+			<div class="faq-item">
+				<h3>How often should a farm be flown for crop health mapping?</h3>
+				<p>Most commercial operations fly every two to four weeks through the active growing season, tightening to weekly during flowering, fruit set or known disease-risk windows, and after major storms. A single flight is a snapshot; the real value comes from comparing maps over time, which is why we usually set clients up on a recurring flight schedule rather than a one-off visit.</p>
+			</div>
+
+			<div class="faq-item">
+				<h3>How much does NDVI drone mapping cost in Costa Rica?</h3>
+				<p>Cost depends on farm area, flight frequency, and whether you want a one-off assessment or a recurring monitoring programme, with recurring packages pricing out cheaper per flight than one-off visits. The fastest way to a firm number is our <a href="../quote.html">online quote calculator</a>, which returns a free same-day estimate.</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- FOOTER -->
+<section class="cta-band">
+	<div class="container">
+		<h2>Ready to map your farm's crop health?</h2>
+		<p>Get a free, no-obligation quote for an NDVI or multispectral drone survey anywhere in Costa Rica — sized to your crop, acreage and growing season.</p>
+		<div class="cta-row">
+			<a class="btn btn-primary" href="../quote.html">Get a Free Quote</a>
+			<a class="btn btn-outline" href="https://wa.me/50672938970" target="_blank" rel="noopener">Chat on WhatsApp</a>
+		</div>
+	</div>
+</section>
+<footer>
+	<div class="container">
+		<div class="footer-grid">
+			<div class="footer-brand">
+				<img src="../images/logo-round.png" alt="Drone Survey Costa Rica" height="32">
+				<p>Professional aerial surveying in Costa Rica using Lidar &amp; photogrammetry. Centimeter-accurate data since 2017.</p>
+				<div class="footer-contact">
+					<a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer">💬 +506 7293-8970 (WhatsApp)</a>
+					<a href="#">📍 Costa Rica</a>
+				</div>
+			</div>
+			<div class="footer-col">
+				<h5>Services</h5>
+				<ul>
+					<li><a href="/services/lidar-mapping.html">Lidar Drone Mapping</a></li>
+					<li><a href="/services/photogrammetry.html">Photogrammetry</a></li>
+					<li><a href="/services/geopositioning.html">GPS Geopositioning</a></li>
+					<li><a href="../quote.html">Get a Free Quote</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h5>Company</h5>
+				<ul>
+					<li><a href="../portfolio.html">Portfolio</a></li>
+					<li><a href="../blog/index.html">Blog</a></li>
+					<li><a href="/services/index.html">All Services</a></li>
+					<li><a href="https://g.co/kgs/VnbxFYr" target="_blank" rel="noopener noreferrer">Google Reviews</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h5>Connect</h5>
+				<ul>
+					<li><a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+					<li><a href="../quote.html">Get a Quote</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<p>&copy; 2026 Drone Survey Costa Rica — All rights reserved</p>
+			<p><a href="../sitemap.xml">Sitemap</a></p>
+		</div>
+	</div>
+</footer>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-6L0PFQRYF6');
+  </script>
+<script>
+const translations = {
+	en: {
+		'nav.home': 'Home', 'nav.services': 'Services', 'nav.lidar': 'Lidar Drone Surveying', 'nav.geo': 'GPS Geopositioning', 'nav.video': 'Aerial Video & Photos', 'nav.quote': 'Get a Quote', 'nav.portal': 'Client Portal', 'nav.whatsapp': 'WhatsApp',
+	},
+	es: {
+		'nav.home': 'Inicio', 'nav.services': 'Servicios', 'nav.lidar': 'Mapeo Lidar', 'nav.geo': 'Geoposicionamiento', 'nav.video': 'Video y Fotos Aéreas', 'nav.quote': 'Solicitar Cotización', 'nav.portal': 'Portal del Cliente', 'nav.whatsapp': 'WhatsApp',
+	},
+	fr: {
+		'nav.home': 'Accueil', 'nav.services': 'Services', 'nav.lidar': 'Cartographie Lidar', 'nav.geo': 'Géopositionnement', 'nav.video': 'Vidéo et Photos Aériennes', 'nav.quote': 'Demander un Devis', 'nav.portal': 'Portail Client', 'nav.whatsapp': 'WhatsApp',
+	}
+};
+
+function setLang(lang) {
+	localStorage.setItem('lang', lang);
+	document.documentElement.lang = lang;
+	['en','es','fr'].forEach(l => {
+		document.getElementById('btn-' + l).classList.toggle('active', l === lang);
+	});
+	document.querySelectorAll('[data-i18n]').forEach(el => {
+		const key = el.getAttribute('data-i18n');
+		const text = (translations[lang] || translations.en)[key];
+		if (text !== undefined) el.textContent = text;
+	});
+}
+
+(function() {
+	const saved = localStorage.getItem('lang') || 'en';
+	setLang(saved);
+})();
+
+function toggleTheme() {
+	const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+	const next = isLight ? 'dark' : 'light';
+	document.documentElement.setAttribute('data-theme', next);
+	localStorage.setItem('theme', next);
+	document.getElementById('theme-toggle').textContent = next === 'light' ? '🌙' : '☀️';
+}
+
+(function() {
+	const saved = localStorage.getItem('theme') || 'light';
+	document.documentElement.setAttribute('data-theme', saved);
+	const btn = document.getElementById('theme-toggle');
+	if (btn) btn.textContent = saved === 'light' ? '🌙' : '☀️';
+})();
+</script>
+<script src="../js/nav.js?v=1" defer></script>
+</body>
+</html>

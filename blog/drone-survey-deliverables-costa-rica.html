@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/site.css?v=11">
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Drone Survey Deliverables in Costa Rica: Orthomosaics, DTMs, Point Clouds &amp; Contour Maps Explained</title>
+	<meta name="theme-color" content="#064e3b">
+	<meta name="description" content="What you actually receive from a drone survey in Costa Rica — orthomosaics, DTMs, DSMs, point clouds, contour maps and 3D models explained in plain language, with the file formats to ask for and how each output is used.">
+	<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+	<link rel="canonical" href="https://www.dronesurveycr.com/blog/drone-survey-deliverables-costa-rica.html">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Drone Survey Deliverables in Costa Rica Explained">
+	<meta property="og:description" content="Orthomosaics, DTMs, DSMs, point clouds, contours and 3D models — a plain-language guide to every drone survey deliverable, the file formats to ask for, and how each one is used.">
+	<meta property="og:url" content="https://www.dronesurveycr.com/blog/drone-survey-deliverables-costa-rica.html">
+	<meta property="og:image" content="https://www.dronesurveycr.com/images/dji-zenmuse-l1-lidar.jpg">
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "BlogPosting",
+		"headline": "Drone Survey Deliverables in Costa Rica: Orthomosaics, DTMs, Point Clouds & Contour Maps Explained",
+		"description": "A plain-language guide to every deliverable you get from a drone survey in Costa Rica — orthomosaics, digital terrain and surface models, point clouds, contour maps, volume reports and 3D models — with the file formats to request and how each output is used by engineers, architects and landowners.",
+		"datePublished": "2026-07-14",
+		"dateModified": "2026-07-14",
+		"author": { "@type": "Organization", "name": "Drone Survey Costa Rica", "url": "https://www.dronesurveycr.com/" },
+		"publisher": { "@type": "Organization", "name": "Drone Survey Costa Rica", "url": "https://www.dronesurveycr.com/" },
+		"mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.dronesurveycr.com/blog/drone-survey-deliverables-costa-rica.html" },
+		"image": "https://www.dronesurveycr.com/images/dji-zenmuse-l1-lidar.jpg"
+	}
+	</script>
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "FAQPage",
+		"mainEntity": [
+			{ "@type": "Question", "name": "What deliverables do you get from a drone survey?", "acceptedAnswer": { "@type": "Answer", "text": "A typical drone survey delivers an orthomosaic (a scaled, map-accurate aerial image), a digital terrain model (DTM) of the bare ground, a digital surface model (DSM) that includes buildings and vegetation, a 3D point cloud, contour lines at your chosen interval, and — where relevant — volume reports and a textured 3D model. You choose which outputs you need; a simple site map might be just an orthomosaic and contours, while an engineering project usually needs the DTM, point cloud and contours as well." } },
+			{ "@type": "Question", "name": "What is the difference between a DTM and a DSM?", "acceptedAnswer": { "@type": "Answer", "text": "A DSM (digital surface model) records the top of everything the drone sees — the ground plus buildings, trees and other objects. A DTM (digital terrain model) is the bare-earth surface with those objects removed, showing the ground as if it were stripped clean. Engineers and surveyors usually design on the DTM, while a DSM is useful for line-of-sight, canopy height and as-built context. Producing a clean DTM under Costa Rica's dense vegetation is one of the main reasons LiDAR is often preferred over photogrammetry here." } },
+			{ "@type": "Question", "name": "What file formats do drone survey deliverables come in?", "acceptedAnswer": { "@type": "Answer", "text": "Orthomosaics are supplied as GeoTIFF or high-resolution JPG/PNG; DTMs and DSMs as GeoTIFF raster or ASCII grid; point clouds as LAS or LAZ (the compressed form); contours and boundaries as DWG/DXF for CAD or SHP for GIS; and 3D models as OBJ or a web-viewable format. Tell us the software your engineer or architect uses and we deliver in the matching format so nothing needs converting." } },
+			{ "@type": "Question", "name": "Can I get contour lines and CAD files from a drone survey?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Contours are generated from the terrain model at whatever interval you specify — commonly 0.25 m, 0.5 m or 1 m — and delivered as DWG or DXF ready to open in AutoCAD or Civil 3D. Breaklines, spot heights and property boundaries can be included in the same CAD file so your engineer can start designing immediately." } },
+			{ "@type": "Question", "name": "How long does it take to receive drone survey deliverables in Costa Rica?", "acceptedAnswer": { "@type": "Answer", "text": "Most deliverables are processed and delivered within 3–7 business days of the flight, depending on site size and the outputs requested. An orthomosaic alone can come back faster, while a full package with a bare-earth DTM, contours and CAD files takes a little longer because of the manual classification involved. Rush turnaround is available when a permit or design deadline is close." } }
+		]
+	}
+	</script>
+	</head>
+<body>
+	<!-- HEADER -->
+	<div id="top-bar">
+	<div class="container">
+		<div class="inner">
+			<div class="lang-switcher">
+				<button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
+				<button class="lang-btn" onclick="setLang('es')" id="btn-es">ES</button>
+				<button class="lang-btn" onclick="setLang('fr')" id="btn-fr">FR</button>
+			</div>
+			<div style="display:flex;align-items:center;gap:16px;">
+				<a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer" style="color:var(--muted);font-size:13px;font-weight:500;">💬 +506 7293-8970</a>
+				<button id="theme-toggle" onclick="toggleTheme()" style="background:none;border:1px solid var(--border);color:var(--muted);cursor:pointer;border-radius:6px;padding:3px 10px;font-size:13px;font-family:inherit;transition:all 0.15s;" title="Toggle light/dark mode">🌙</button>
+			</div>
+		</div>
+	</div>
+</div>
+<header id="site-header">
+	<div class="container">
+		<div class="inner">
+			<div class="logo">
+				<a href="../index.html">
+					<img src="../images/logo-round.png" alt="Drone Survey Costa Rica" height="34">
+					<span class="logo-name">Drone Survey<br><span>Costa Rica</span></span>
+				</a>
+			</div>
+			<input type="checkbox" id="nav-toggle" class="nav-toggle-cb" aria-hidden="true">
+			<label for="nav-toggle" class="nav-toggle-btn" aria-label="Toggle menu"><span></span><span></span><span></span></label>
+			<nav>
+				<ul>
+					<li><a href="../index.html" data-i18n="nav.home">Home</a></li>
+					<li>
+						<a href="/services/index.html" data-i18n="nav.services">Services</a>
+						<ul>
+							<li><a href="/services/lidar-mapping.html" data-i18n="nav.lidar">Lidar Drone Surveying</a></li>
+							<li><a href="/services/geopositioning.html" data-i18n="nav.geo">GPS Geopositioning</a></li>
+							<li><a href="/services/photogrammetry.html">Photogrammetry</a></li>
+						</ul>
+					</li>
+					<li><a href="../portfolio.html">Portfolio</a></li>
+					<li><a href="../blog/index.html">Blog</a></li>
+					<li><a href="../quote.html" data-i18n="nav.quote">Get a Quote</a></li>
+					<li><a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer" class="nav-cta" data-i18n="nav.whatsapp">WhatsApp</a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</header>
+
+	<!-- HERO -->
+	<section class="blog-hero">
+		<div class="container">
+			<h1>Drone Survey Deliverables in Costa Rica, Explained</h1>
+			<p>Orthomosaic, DTM, DSM, point cloud, contours, 3D model — a survey quote is full of acronyms. Here is exactly what each deliverable is, what file format to ask for, and which ones your project actually needs.</p>
+			<div class="hero-meta">July 14, 2026 &nbsp;&middot;&nbsp; 10 min read &nbsp;&middot;&nbsp; Mapping &amp; Data</div>
+		</div>
+	</section>
+<div class="container">
+<div class="cta-inline"><p>Know which deliverables you need? Get a free same-day quote.</p><div class="row"><a class="btn btn-primary" href="../quote.html">Get a Free Quote</a><a class="btn btn-outline" href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer">WhatsApp</a></div></div>
+</div>
+
+
+	<!-- ARTICLE -->
+	<article class="article-body">
+
+		<p>When you commission a drone survey in Costa Rica, the flight itself is over in half an hour. The thing you are actually paying for arrives days later, as a set of files: an orthomosaic, a DTM, a DSM, a point cloud, maybe contours and a 3D model. For anyone who does not work in surveying every day, that list reads like alphabet soup — and it makes it genuinely hard to know what you are buying, what to ask for, or whether a quote includes what your engineer needs.</p>
+
+		<p>This guide fixes that. It walks through every standard drone survey deliverable in plain language: what each one is, what it looks like, the file format you should request, and the projects it is used for. By the end you will be able to read a survey quote confidently and tell us exactly which outputs your project needs — which is also the fastest route to an accurate price on our <a href="../quote.html">quote calculator</a>.</p>
+
+		<h2>The orthomosaic: a map-accurate aerial image</h2>
+		<p>The orthomosaic is usually the first deliverable people picture when they think of a drone survey, and it is the one non-specialists find most immediately useful. It is built by stitching together hundreds of overlapping aerial photos and then <em>orthorectifying</em> them — mathematically removing the lens distortion and the perspective tilt so that every pixel sits in its true geographic position. The result looks like a single seamless photograph of your site from directly overhead, but unlike a normal photo it is to scale everywhere. You can measure a distance, an area or a boundary directly off it and get a real-world number.</p>
+		<p>Orthomosaics from a survey drone are dramatically sharper than anything you get from satellite imagery or Google Earth — we routinely capture ground resolution of a couple of centimetres per pixel, fine enough to read a manhole cover, a fence line or a coffee row. They are delivered as a GeoTIFF (a geo-referenced image that drops straight into GIS or CAD with its coordinates intact) or as a high-resolution JPG or PNG for presentations and reports. Landowners, real estate agents and planners often need nothing more than a crisp, current orthomosaic; it is the workhorse behind our <a href="../blog/drone-survey-real-estate-costa-rica.html">real estate mapping</a> and <a href="../blog/aerial-survey-costa-rica.html">aerial survey</a> work.</p>
+
+		<h2>DTM vs DSM: the two elevation models that cause the most confusion</h2>
+		<p>This is the single most misunderstood pair of terms in the whole field, and getting it right matters because ordering the wrong one can stall an engineering design. Both are <strong>elevation models</strong> — a grid where every cell carries a height value — but they describe different surfaces.</p>
+		<p><strong>The DSM (Digital Surface Model)</strong> records the top of everything the drone can see: the bare ground <em>plus</em> the buildings, the tree canopy, the walls and anything else standing on the site. If a forest is 20 metres tall, the DSM shows the top of the forest. It is the right model for line-of-sight studies, measuring building or canopy heights, solar shading analysis, and giving an as-built picture of a developed site.</p>
+		<p><strong>The DTM (Digital Terrain Model)</strong> is the bare earth with all of that stripped away — the ground surface as if every building and tree had been removed. This is what civil engineers, road designers and drainage specialists actually design on, because they need the shape of the land itself, not the vegetation sitting on it. Producing a clean DTM means <em>classifying</em> the point data to separate ground from non-ground, which is partly automated and partly manual quality control.</p>
+		<p>Here is where Costa Rica makes the distinction especially important. Under dense tropical canopy, a camera-based photogrammetry survey only sees the top of the trees — it can build a fine DSM but struggles to produce a trustworthy bare-earth DTM, because it never saw the ground. LiDAR pulses, by contrast, slip through gaps in the foliage and record returns from the actual forest floor, which is why we lean on it so heavily for <a href="../blog/lidar-drone-canopy-mapping-costa-rica.html">mapping under Costa Rica's canopy</a>. If your site is vegetated and you need a bare-earth model, that choice between sensors is the whole ballgame — our <a href="../blog/lidar-vs-photogrammetry-costa-rica.html">LiDAR vs photogrammetry guide</a> covers exactly when each one wins.</p>
+
+		<div class="cta-inline"><p>Not sure whether you need a DTM, a DSM, or both?</p><div class="row"><a class="btn btn-primary" href="../quote.html">Price My Survey</a><a class="btn btn-outline" href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer">Ask Us on WhatsApp</a></div></div>
+
+		<h2>The point cloud: the raw 3D data behind everything</h2>
+		<p>A point cloud is the richest deliverable and, for technical users, often the most valuable. It is a set of millions — sometimes hundreds of millions — of individual measured points, each with an X, Y and Z coordinate and usually a colour value taken from the imagery. Together they form a dense, fully three-dimensional replica of your site that you can rotate, slice and measure from any angle. Every other elevation product — the DTM, the DSM, the contours — is derived from this cloud.</p>
+		<p>Point clouds are delivered as LAS files, or LAZ, which is simply the compressed version that is far smaller to transfer without losing any data. A LiDAR point cloud can also be <em>classified</em>, meaning each point is tagged as ground, vegetation, building and so on, which is what lets us extract a bare-earth DTM from a forested site. Engineers, architects and BIM teams import the cloud directly into their design software to build models, run sections and check clearances. It is the same underlying data that powers immersive outputs like <a href="../blog/gaussian-splatting-drone-costa-rica.html">3D visualization and Gaussian splatting</a>, where the point data becomes a photorealistic, explorable model rather than a technical file.</p>
+
+		<h2>Contours, breaklines and CAD-ready files</h2>
+		<p>For anyone who has to <em>design</em> on the land — a house, a road, a drainage system, a retaining wall — the deliverable that matters most is contours in a CAD file. Contour lines connect points of equal elevation, turning the terrain model into the familiar topographic map that engineers and architects work from. We generate them from the DTM at whatever interval you specify: a fine 0.25 m interval for a flat building plot where every centimetre of grading counts, or a 1 m interval for a large rural parcel where the broad shape is what matters.</p>
+		<p>Crucially, these are delivered as DWG or DXF — the native formats of AutoCAD and Civil 3D — so your engineer opens the file and starts designing with no conversion step. The same CAD package can carry <strong>breaklines</strong> (sharp features like the edge of a road, a ridge or a ditch that contours alone would smooth over), spot heights at key points, and the property boundary itself. This is exactly the deliverable set behind a <a href="../blog/drone-topographic-survey-costa-rica.html">drone topographic survey</a>, and when the job involves confirming a registered parcel it ties into the <a href="../blog/drone-survey-property-boundary-verification-costa-rica.html">property boundary verification</a> work and the local <em>plano catastro</em> system. GIS users who prefer to work in QGIS or ArcGIS receive the same features as SHP (shapefile) instead of CAD — just tell us which platform you use.</p>
+
+		<h2>Volume reports, 3D models and the specialist outputs</h2>
+		<p>Beyond the core mapping set, a drone survey can produce targeted deliverables for specific jobs. <strong>Volume reports</strong> calculate the cubic metres of material in a stockpile or the cut-and-fill on an earthworks site by comparing the surface against a base plane — the backbone of our <a href="../blog/drone-stockpile-volume-measurement-costa-rica.html">stockpile volume measurement</a> service, delivered as a tidy PDF with per-pile figures plus the annotated model. <strong>Textured 3D models</strong> (OBJ files, or a link to a web viewer) wrap the geometry in real imagery to create a photorealistic digital twin that is ideal for client presentations, marketing and stakeholder buy-in. And for repeat monitoring — a construction site, an eroding coastline, a growing quarry — the real deliverable is a <em>time series</em>: the same site flown on a cadence so you can measure change between dates.</p>
+		<p>One point that underpins all of these outputs: a deliverable is only as trustworthy as the survey control behind it. Ground control points and RTK positioning are what lock every file to real-world coordinates and give you the centimetre-level confidence that lets an engineer or an auditor rely on the numbers. If accuracy is critical to your project, it is worth understanding how that is achieved before you commission the work — our <a href="../blog/drone-survey-accuracy-costa-rica.html">guide to drone survey accuracy</a> explains what actually drives the precision of everything described above.</p>
+
+		<h2>Which deliverables does your project actually need?</h2>
+		<p>You rarely need all of them, and paying for outputs you will not use is wasteful. Here is a quick way to match the deliverable to the job:</p>
+		<table class="compare-table">
+			<thead><tr><th>If your project is…</th><th>Ask for…</th><th>In format…</th></tr></thead>
+			<tbody>
+				<tr><td><strong>Real estate / marketing</strong></td><td>Orthomosaic, 3D model</td><td>JPG / GeoTIFF, OBJ or web viewer</td></tr>
+				<tr><td><strong>House or building design</strong></td><td>DTM, contours, boundary</td><td>DWG / DXF</td></tr>
+				<tr><td><strong>Roads / drainage / civil</strong></td><td>DTM, point cloud, contours, breaklines</td><td>LAS/LAZ + DWG</td></tr>
+				<tr><td><strong>Quarry / earthworks</strong></td><td>Volume report, orthomosaic, DSM</td><td>PDF + GeoTIFF</td></tr>
+				<tr><td><strong>Forestry / canopy / environment</strong></td><td>LiDAR DTM &amp; DSM, classified point cloud</td><td>GeoTIFF + LAS/LAZ</td></tr>
+				<tr><td><strong>Boundary / cadastral check</strong></td><td>Orthomosaic, boundary, spot heights</td><td>DWG / SHP</td></tr>
+			</tbody>
+		</table>
+		<p>The best thing you can do to get an accurate quote fast is tell us two things: what you are trying to achieve, and what software your engineer or architect uses. From there we recommend the right deliverable set and supply it in the format that opens cleanly on their machine — no conversion, no missing coordinates, no surprises. If you are still weighing whether a drone survey is the right approach at all versus a traditional crew, our <a href="../blog/drone-survey-vs-ground-survey-costa-rica.html">drone survey vs ground survey comparison</a> is a good companion read, and our <a href="../blog/drone-survey-costs-costa-rica-2026.html">2026 cost guide</a> breaks down what all of this typically costs.</p>
+		<p>Ready to move? Our <a href="../quote.html">online quote calculator</a> takes your location and project size and returns a free, same-day estimate — and if you would rather just describe the job to a person who has flown hundreds of these, a quick <a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer">WhatsApp message</a> gets you a straight answer on which deliverables you need.</p>
+
+		<div class="cta-box">
+			<h2>Get exactly the deliverables your project needs</h2>
+			<p>Tell us your location, your goal and the software your team uses — we'll send a free quote with the right output set and file formats built in.</p>
+			<a href="../quote.html" class="btn btn-white">Get a Free Quote</a>
+			<a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer" class="btn btn-success">Chat on WhatsApp</a>
+		</div>
+
+	</article>
+
+	<!-- FAQ SECTION -->
+	<div class="faq-section">
+		<div class="container">
+			<h2>Frequently Asked Questions About Drone Survey Deliverables</h2>
+
+			<div class="faq-item">
+				<h3>What deliverables do you get from a drone survey?</h3>
+				<p>A typical survey delivers an orthomosaic (a scaled, map-accurate aerial image), a digital terrain model (DTM) of the bare ground, a digital surface model (DSM) that includes buildings and vegetation, a 3D point cloud, contour lines at your chosen interval, and — where relevant — volume reports and a textured 3D model. You pick the outputs you need: a simple site map might be just an orthomosaic and contours, while an engineering project usually needs the DTM, point cloud and contours too.</p>
+			</div>
+
+			<div class="faq-item">
+				<h3>What is the difference between a DTM and a DSM?</h3>
+				<p>A DSM records the top of everything the drone sees — ground plus buildings, trees and objects. A DTM is the bare-earth surface with those removed, showing the ground stripped clean. Engineers design on the DTM; a DSM is useful for line-of-sight, canopy height and as-built context. Producing a clean DTM under Costa Rica's dense vegetation is a major reason <a href="../services/lidar-mapping.html">LiDAR</a> is often preferred over photogrammetry here.</p>
+			</div>
+
+			<div class="faq-item">
+				<h3>What file formats do the deliverables come in?</h3>
+				<p>Orthomosaics as GeoTIFF or JPG/PNG; DTMs and DSMs as GeoTIFF raster; point clouds as LAS or LAZ; contours, breaklines and boundaries as DWG/DXF for CAD or SHP for GIS; 3D models as OBJ or a web viewer. Tell us the software your engineer or architect uses and we deliver in the matching format so nothing needs converting.</p>
+			</div>
+
+			<div class="faq-item">
+				<h3>Can I get contour lines and CAD files from a drone survey?</h3>
+				<p>Yes. Contours are generated from the terrain model at whatever interval you specify — commonly 0.25 m, 0.5 m or 1 m — and delivered as DWG or DXF ready for AutoCAD or Civil 3D. Breaklines, spot heights and property boundaries can be included in the same file so your engineer starts designing immediately. See our <a href="../blog/drone-topographic-survey-costa-rica.html">topographic survey guide</a> for more.</p>
+			</div>
+
+			<div class="faq-item">
+				<h3>How long does it take to receive the deliverables?</h3>
+				<p>Most packages are delivered within 3&ndash;7 business days of the flight, depending on site size and outputs. An orthomosaic alone can come back faster; a full package with a bare-earth DTM, contours and CAD files takes a little longer because of the manual classification involved. Rush turnaround is available when a permit or design deadline is close — just ask when you <a href="../quote.html">request your quote</a>.</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- FOOTER -->
+<section class="cta-band">
+	<div class="container">
+		<h2>Ready to commission your survey?</h2>
+		<p>Get a free, no-obligation quote for a drone survey anywhere in Costa Rica — with the exact deliverables and file formats your project needs.</p>
+		<div class="cta-row">
+			<a class="btn btn-primary" href="../quote.html">Get a Free Quote</a>
+			<a class="btn btn-outline" href="https://wa.me/50672938970" target="_blank" rel="noopener">Chat on WhatsApp</a>
+		</div>
+	</div>
+</section>
+<footer>
+	<div class="container">
+		<div class="footer-grid">
+			<div class="footer-brand">
+				<img src="../images/logo-round.png" alt="Drone Survey Costa Rica" height="32">
+				<p>Professional aerial surveying in Costa Rica using Lidar &amp; photogrammetry. Centimeter-accurate data since 2017.</p>
+				<div class="footer-contact">
+					<a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer">💬 +506 7293-8970 (WhatsApp)</a>
+					<a href="#">📍 Costa Rica</a>
+				</div>
+			</div>
+			<div class="footer-col">
+				<h5>Services</h5>
+				<ul>
+					<li><a href="/services/lidar-mapping.html">Lidar Drone Mapping</a></li>
+					<li><a href="/services/photogrammetry.html">Photogrammetry</a></li>
+					<li><a href="/services/geopositioning.html">GPS Geopositioning</a></li>
+					<li><a href="../quote.html">Get a Free Quote</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h5>Company</h5>
+				<ul>
+					<li><a href="../portfolio.html">Portfolio</a></li>
+					<li><a href="../blog/index.html">Blog</a></li>
+					<li><a href="/services/index.html">All Services</a></li>
+					<li><a href="https://g.co/kgs/VnbxFYr" target="_blank" rel="noopener noreferrer">Google Reviews</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h5>Connect</h5>
+				<ul>
+					<li><a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+					<li><a href="../quote.html">Get a Quote</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<p>&copy; 2026 Drone Survey Costa Rica — All rights reserved</p>
+			<p><a href="../sitemap.xml">Sitemap</a></p>
+		</div>
+	</div>
+</footer>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-6L0PFQRYF6');
+  </script>
+<script>
+const translations = {
+	en: {
+		'nav.home': 'Home', 'nav.services': 'Services', 'nav.lidar': 'Lidar Drone Surveying', 'nav.geo': 'GPS Geopositioning', 'nav.video': 'Aerial Video & Photos', 'nav.quote': 'Get a Quote', 'nav.portal': 'Client Portal', 'nav.whatsapp': 'WhatsApp',
+	},
+	es: {
+		'nav.home': 'Inicio', 'nav.services': 'Servicios', 'nav.lidar': 'Mapeo Lidar', 'nav.geo': 'Geoposicionamiento', 'nav.video': 'Video y Fotos Aéreas', 'nav.quote': 'Solicitar Cotización', 'nav.portal': 'Portal del Cliente', 'nav.whatsapp': 'WhatsApp',
+	},
+	fr: {
+		'nav.home': 'Accueil', 'nav.services': 'Services', 'nav.lidar': 'Cartographie Lidar', 'nav.geo': 'Géopositionnement', 'nav.video': 'Vidéo et Photos Aériennes', 'nav.quote': 'Demander un Devis', 'nav.portal': 'Portail Client', 'nav.whatsapp': 'WhatsApp',
+	}
+};
+
+function setLang(lang) {
+	localStorage.setItem('lang', lang);
+	document.documentElement.lang = lang;
+	['en','es','fr'].forEach(l => {
+		document.getElementById('btn-' + l).classList.toggle('active', l === lang);
+	});
+	document.querySelectorAll('[data-i18n]').forEach(el => {
+		const key = el.getAttribute('data-i18n');
+		const text = (translations[lang] || translations.en)[key];
+		if (text !== undefined) el.textContent = text;
+	});
+}
+
+(function() {
+	const saved = localStorage.getItem('lang') || 'en';
+	setLang(saved);
+})();
+
+function toggleTheme() {
+	const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+	const next = isLight ? 'dark' : 'light';
+	document.documentElement.setAttribute('data-theme', next);
+	localStorage.setItem('theme', next);
+	document.getElementById('theme-toggle').textContent = next === 'light' ? '🌙' : '☀️';
+}
+
+(function() {
+	const saved = localStorage.getItem('theme') || 'light';
+	document.documentElement.setAttribute('data-theme', saved);
+	const btn = document.getElementById('theme-toggle');
+	if (btn) btn.textContent = saved === 'light' ? '🌙' : '☀️';
+})();
+</script>
+<script src="../js/nav.js?v=1" defer></script>
+</body>
+</html>

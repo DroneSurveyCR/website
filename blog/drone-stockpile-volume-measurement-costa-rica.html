@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/site.css?v=11">
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Drone Stockpile Volume Measurement in Costa Rica: Fast, Accurate Aggregate Surveys</title>
+	<meta name="theme-color" content="#064e3b">
+	<meta name="description" content="Measure sand, gravel and aggregate stockpiles by drone in Costa Rica — how it works, the accuracy you can expect, what it costs, and why it beats manual measurement for quarries and construction sites.">
+	<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+	<link rel="canonical" href="https://www.dronesurveycr.com/blog/drone-stockpile-volume-measurement-costa-rica.html">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Drone Stockpile Volume Measurement in Costa Rica">
+	<meta property="og:description" content="How drone volumetric surveys measure sand, gravel and aggregate stockpiles in Costa Rica — accuracy, cost, turnaround, and how it beats manual measurement.">
+	<meta property="og:url" content="https://www.dronesurveycr.com/blog/drone-stockpile-volume-measurement-costa-rica.html">
+	<meta property="og:image" content="https://www.dronesurveycr.com/images/dji-zenmuse-l1-lidar.jpg">
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "BlogPosting",
+		"headline": "Drone Stockpile Volume Measurement in Costa Rica: Fast, Accurate Aggregate Surveys",
+		"description": "A practical guide to measuring sand, gravel and aggregate stockpiles by drone in Costa Rica: how volumetric surveys work, the accuracy you can expect, what they cost, turnaround time, and why they beat manual measurement for quarries and construction sites.",
+		"datePublished": "2026-07-07",
+		"dateModified": "2026-07-07",
+		"author": { "@type": "Organization", "name": "Drone Survey Costa Rica", "url": "https://www.dronesurveycr.com/" },
+		"publisher": { "@type": "Organization", "name": "Drone Survey Costa Rica", "url": "https://www.dronesurveycr.com/" },
+		"mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.dronesurveycr.com/blog/drone-stockpile-volume-measurement-costa-rica.html" },
+		"image": "https://www.dronesurveycr.com/images/dji-zenmuse-l1-lidar.jpg"
+	}
+	</script>
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "FAQPage",
+		"mainEntity": [
+			{ "@type": "Question", "name": "How accurate is a drone stockpile volume measurement?", "acceptedAnswer": { "@type": "Answer", "text": "A properly flown drone survey with ground control typically measures stockpile volumes to within 1-3% of the true volume, and often better. That is far more reliable than manual pacing or a walk-and-tape estimate, which can easily be off by 10-20%. Accuracy depends on flight planning, ground control points, and how cleanly the pile base can be defined." } },
+			{ "@type": "Question", "name": "How much does a drone stockpile survey cost in Costa Rica?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on site size, number of piles, and travel, but a single-visit stockpile inventory is usually a fraction of the value of the material being measured. The best way to get an exact figure is our online quote calculator, which prices by location and project size. A precise inventory routinely pays for itself by correcting over- or under-stated tonnage." } },
+			{ "@type": "Question", "name": "How long does a drone stockpile survey take?", "acceptedAnswer": { "@type": "Answer", "text": "The flight itself usually takes 20-60 minutes on site depending on the number and size of piles. Processed volume reports are typically delivered within 3-7 business days, and rush turnaround is available for month-end or audit deadlines." } },
+			{ "@type": "Question", "name": "Do you need to shut down the quarry to measure stockpiles?", "acceptedAnswer": { "@type": "Answer", "text": "No. A key advantage of drone measurement is that it captures the whole yard from the air in minutes without anyone climbing the piles or walking in front of loaders. Operations can usually continue, and we simply coordinate flight timing for safety." } },
+			{ "@type": "Question", "name": "Can drones measure stockpiles under tree cover or in the rain?", "acceptedAnswer": { "@type": "Answer", "text": "Open stockpiles are ideal for photogrammetry. If piles are partly under canopy or vegetation, LiDAR can penetrate cover to map the true surface. Flights are scheduled around Costa Rica's rain, since heavy rain and low cloud reduce image quality, but the country's dry mornings usually offer good windows year-round." } }
+		]
+	}
+	</script>
+	</head>
+<body>
+	<!-- HEADER -->
+	<div id="top-bar">
+	<div class="container">
+		<div class="inner">
+			<div class="lang-switcher">
+				<button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
+				<button class="lang-btn" onclick="setLang('es')" id="btn-es">ES</button>
+				<button class="lang-btn" onclick="setLang('fr')" id="btn-fr">FR</button>
+			</div>
+			<div style="display:flex;align-items:center;gap:16px;">
+				<a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer" style="color:var(--muted);font-size:13px;font-weight:500;">💬 +506 7293-8970</a>
+				<button id="theme-toggle" onclick="toggleTheme()" style="background:none;border:1px solid var(--border);color:var(--muted);cursor:pointer;border-radius:6px;padding:3px 10px;font-size:13px;font-family:inherit;transition:all 0.15s;" title="Toggle light/dark mode">🌙</button>
+			</div>
+		</div>
+	</div>
+</div>
+<header id="site-header">
+	<div class="container">
+		<div class="inner">
+			<div class="logo">
+				<a href="../index.html">
+					<img src="../images/logo-round.png" alt="Drone Survey Costa Rica" height="34">
+					<span class="logo-name">Drone Survey<br><span>Costa Rica</span></span>
+				</a>
+			</div>
+			<input type="checkbox" id="nav-toggle" class="nav-toggle-cb" aria-hidden="true">
+			<label for="nav-toggle" class="nav-toggle-btn" aria-label="Toggle menu"><span></span><span></span><span></span></label>
+			<nav>
+				<ul>
+					<li><a href="../index.html" data-i18n="nav.home">Home</a></li>
+					<li>
+						<a href="/services/index.html" data-i18n="nav.services">Services</a>
+						<ul>
+							<li><a href="/services/lidar-mapping.html" data-i18n="nav.lidar">Lidar Drone Surveying</a></li>
+							<li><a href="/services/geopositioning.html" data-i18n="nav.geo">GPS Geopositioning</a></li>
+							<li><a href="/services/photogrammetry.html">Photogrammetry</a></li>
+						</ul>
+					</li>
+					<li><a href="../portfolio.html">Portfolio</a></li>
+					<li><a href="../blog/index.html">Blog</a></li>
+					<li><a href="../quote.html" data-i18n="nav.quote">Get a Quote</a></li>
+					<li><a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer" class="nav-cta" data-i18n="nav.whatsapp">WhatsApp</a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</header>
+
+	<!-- HERO -->
+	<section class="blog-hero">
+		<div class="container">
+			<h1>Drone Stockpile Volume Measurement in Costa Rica</h1>
+			<p>Sand, gravel, crushed rock, coffee husk, fill — if you buy it, sell it or account for it, you need to know how much is really there. Here is how a drone measures a stockpile in minutes, how accurate it is, and why it beats a tape measure and a guess.</p>
+			<div class="hero-meta">July 7, 2026 &nbsp;&middot;&nbsp; 9 min read &nbsp;&middot;&nbsp; Construction &amp; Mining</div>
+		</div>
+	</section>
+<div class="container">
+<div class="cta-inline"><p>Need a stockpile inventory? Get a free same-day quote.</p><div class="row"><a class="btn btn-primary" href="../quote.html">Get a Free Quote</a><a class="btn btn-outline" href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer">WhatsApp</a></div></div>
+</div>
+
+
+	<!-- ARTICLE -->
+	<article class="article-body">
+
+		<p>Every quarry, batch plant, road contractor and aggregate yard in Costa Rica lives and dies by one number: how many cubic metres — or tonnes — of material are sitting in the yard right now. That number drives inventory value on the balance sheet, month-end reconciliation, what you can sell this week, and whether the tonnage you were <em>billed</em> for actually showed up. Yet on most sites it is still estimated by eye, or by a worker pacing out a pile with a tape and doing rough cone maths. Those estimates are routinely wrong by 10&ndash;20%, and on a big pile that gap is worth a lot of money.</p>
+
+		<p>A drone changes the economics of getting that number right. In a single 30-minute flight it captures the entire yard, and photogrammetry software turns those images into a precise 3D surface you can measure to within a couple of percent. This guide explains exactly how it works, the accuracy you should expect, what it costs, how fast it turns around, and where it fits for Costa Rican operations.</p>
+
+		<h2>How a drone measures a stockpile</h2>
+		<p>The method is called <strong>volumetric survey</strong>, and it is one of the most established commercial uses of survey drones anywhere in the world. The process is simple from the client's side but precise underneath:</p>
+		<p><strong>1. Flight capture.</strong> The drone flies an automated grid over the stockpile yard, shooting hundreds of overlapping high-resolution photos straight down and at oblique angles. More overlap and more angles mean a cleaner reconstruction of the pile's shape, including steep faces and the toe where the pile meets the ground.</p>
+		<p><strong>2. Ground control.</strong> For measurement you can defend to an auditor or a supplier, we place and record <a href="../blog/drone-survey-accuracy-costa-rica.html">ground control points</a> with RTK GPS. These lock the model to real-world coordinates and elevation, which is what turns a nice-looking 3D model into a survey you can trust to within centimetres.</p>
+		<p><strong>3. Processing into a 3D surface.</strong> Photogrammetry software stitches the images into a dense point cloud and a digital surface model of the pile. If piles sit under trees or heavy vegetation, <a href="../services/lidar-mapping.html">LiDAR</a> can be used instead to see the true surface beneath cover — one of the reasons LiDAR matters so much in a green country like Costa Rica.</p>
+		<p><strong>4. Volume calculation.</strong> The software defines a base plane — the ground the pile sits on — and calculates the volume of material above it, cut-and-fill style. For piles on uneven ground, the base is interpolated from the surrounding terrain rather than assumed flat, which is exactly where manual cone-formula estimates fall apart. Multiply by the material's bulk density and you have tonnage.</p>
+		<p>The output is a clean report: volume per pile in cubic metres, converted tonnage, a coloured 3D model, and a dated record you can file. Because it all rides on the same capture we use for a <a href="../blog/drone-topographic-survey-costa-rica.html">topographic survey</a>, the same flight can also give you an up-to-date site map.</p>
+
+		<div class="cta-inline"><p>Want your yard measured before month-end?</p><div class="row"><a class="btn btn-primary" href="../quote.html">Price My Survey</a><a class="btn btn-outline" href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer">WhatsApp Us</a></div></div>
+
+		<h2>How accurate is it — and why manual measuring costs you money</h2>
+		<p>This is the part that convinces finance teams. A properly flown drone stockpile survey with ground control typically lands within <strong>1&ndash;3% of true volume</strong>, and frequently better. Compare that with the alternatives:</p>
+		<table class="compare-table">
+			<thead><tr><th>Method</th><th>Typical error</th><th>Safety &amp; disruption</th></tr></thead>
+			<tbody>
+				<tr><td><strong>Eyeball / experience</strong></td><td>15&ndash;30%</td><td>Fine, but essentially a guess</td></tr>
+				<tr><td><strong>Walk &amp; tape / cone formula</strong></td><td>10&ndash;20%</td><td>Worker climbs piles near loaders</td></tr>
+				<tr><td><strong>Ground GPS / total station</strong></td><td>2&ndash;5%</td><td>Slow; someone walks the whole pile</td></tr>
+				<tr><td><strong>Drone photogrammetry + GCP</strong></td><td>1&ndash;3%</td><td>No one climbs anything; yard keeps running</td></tr>
+			</tbody>
+		</table>
+		<p>Now put money on it. Say you have 5,000 m&sup3; of crushed rock in the yard. A 15% error is 750 m&sup3; of uncertainty — material you might be over-reporting as inventory, or under-billing a customer for, or paying tax on that you don't have. On a single pile that error can dwarf the entire cost of the survey. When you are <em>receiving</em> aggregate, a drone check on delivered tonnage against what you were invoiced is one of the fastest paybacks in the whole operation. This is the same accuracy discipline we cover in our <a href="../blog/drone-survey-accuracy-costa-rica.html">guide to drone survey accuracy</a>: the number is only as good as the ground control behind it.</p>
+
+		<h2>Why it fits Costa Rican operations</h2>
+		<p>Costa Rica's construction and materials sector has a few characteristics that make drone measurement especially valuable:</p>
+		<p><strong>Terrain and access.</strong> Many quarries and batch plants sit on sloped or awkward ground where a flat-base cone estimate is meaningless. A drone models the actual base surface, so volumes stay honest even on a hillside yard.</p>
+		<p><strong>Vegetation.</strong> Piles and borrow areas often sit near dense growth. Where photogrammetry struggles with overhanging canopy, LiDAR sees through it — a capability we lean on constantly for <a href="../blog/lidar-drone-canopy-mapping-costa-rica.html">mapping under Costa Rica's canopy</a>.</p>
+		<p><strong>Safety and labour.</strong> Sending someone up a live stockpile with a tape, near working loaders and haul trucks, is a real hazard. Measuring from the air removes that person from the danger zone entirely while the yard keeps operating.</p>
+		<p><strong>Road and infrastructure work.</strong> Costa Rica's ongoing road, bridge and development projects generate cut-and-fill and material tracking needs that go hand-in-hand with the <a href="../blog/construction-drone-surveys-costa-rica.html">construction monitoring surveys</a> we already fly. One visit can cover both progress mapping and stockpile inventory.</p>
+		<p><strong>Regulation.</strong> All of this is flown under Costa Rica's DGAC drone rules. If you operate your own drones or want to understand the legal framework for commercial flights, our <a href="../blog/dgac-drone-regulations-costa-rica-2026.html">2026 DGAC regulations guide</a> covers what compliant commercial operation requires.</p>
+
+		<h2>Cost, turnaround and what you get</h2>
+		<p>Two questions decide whether operators adopt this: what does it cost, and how fast do I get numbers. On both, the answer is friendly.</p>
+		<p><strong>Turnaround.</strong> The on-site flight is quick — usually 20 to 60 minutes for a typical yard, depending on how many piles there are and how big they are. Processed volume reports are normally delivered in 3&ndash;7 business days, and we offer rush turnaround when a month-end close, a stock audit or a dispute needs numbers fast.</p>
+		<p><strong>Cost.</strong> Pricing scales with site size, pile count and travel distance rather than a flat rate, so the fairest way to see your number is the calculator. A single-visit inventory is almost always a small fraction of the value of the material it measures — and for yards that reconcile monthly, a recurring survey schedule brings the per-visit cost down further while keeping the balance sheet honest all year.</p>
+		<p><strong>Deliverables.</strong> You receive volume per pile in cubic metres, tonnage using your material densities, an inspectable 3D model, an orthophoto of the yard, and a dated report suitable for accounting or audit. If you want ongoing tracking, we can fly the same yard on a set cadence so you can watch inventory move month over month.</p>
+		<p>The simplest next step is to price it. Our <a href="../quote.html">online quote calculator</a> asks for your location and project size and returns a free, same-day estimate — no commitment. If you would rather talk it through first, a quick <a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer">WhatsApp message</a> gets you a human who has flown these jobs.</p>
+
+		<h2>What can be measured — and how to prepare for a first flight</h2>
+		<p>Volumetric survey is not just for crushed rock. Anything you pile, stack or heap can be measured the same way: sand and gravel, base and sub-base, riprap and boulders, topsoil and fill, coffee husk and biomass, wood chip, compost, even landfill cells and borrow pits. If you can see it from above, we can measure it. Negative volumes work too — an excavation, a pit or a cut can be measured against the surrounding grade to tell you how much material has been removed, which is why the same technique underpins cut-and-fill tracking on <a href="../blog/construction-drone-surveys-costa-rica.html">active construction sites</a>.</p>
+		<p>Getting a clean, defensible number is easier when the yard is set up for it, and a few small habits make a real difference. Where practical, shape piles so their bases are visible rather than merging into each other or into a wall &mdash; a clearly defined toe is what lets the software model the base plane precisely. Try to have loaders and trucks clear of the piles during the short flight window so equipment isn't captured as part of the volume. And for the tightest results, let us set ground control once and reuse the same points on repeat visits, so every monthly figure is measured against an identical reference. None of this is mandatory &mdash; we work with yards exactly as they are &mdash; but it is the difference between a good number and an audit-grade one.</p>
+		<p>For operators who reconcile inventory every month, the real value shows up over time. A dated sequence of surveys becomes a running record of how much material moved in and out, which feeds straight into accounting, loss investigation and production planning. It also settles disputes cleanly: when a delivered load or a sold volume is questioned, a timestamped 3D survey is far harder to argue with than a foreman's recollection. Whether you need a one-off inventory before a year-end audit or an ongoing monthly cadence, the starting point is the same &mdash; our <a href="../quote.html">quote calculator</a> gives you a free, same-day price for your specific site.</p>
+
+		<div class="cta-box">
+			<h2>Know exactly what's in your yard</h2>
+			<p>Tell us your location and how many stockpiles you're tracking, and we'll send a free quote for a volumetric survey — with accuracy you can put on the books.</p>
+			<a href="../quote.html" class="btn btn-white">Get a Free Quote</a>
+			<a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer" class="btn btn-success">Chat on WhatsApp</a>
+		</div>
+
+	</article>
+
+	<!-- FAQ SECTION -->
+	<div class="faq-section">
+		<div class="container">
+			<h2>Frequently Asked Questions About Drone Stockpile Surveys</h2>
+
+			<div class="faq-item">
+				<h3>How accurate is a drone stockpile volume measurement?</h3>
+				<p>With proper flight planning and ground control points, a drone survey typically measures stockpile volume to within 1&ndash;3% of the true volume &mdash; often better. That is dramatically tighter than a walk-and-tape or cone-formula estimate, which can be off by 10&ndash;20%. The accuracy depends on flight overlap, ground control, and how cleanly the base of the pile can be defined.</p>
+			</div>
+
+			<div class="faq-item">
+				<h3>How much does a drone stockpile survey cost in Costa Rica?</h3>
+				<p>It depends on site size, the number of piles, and travel, so we price each job individually. A single-visit inventory is usually a small fraction of the value of the material being measured. The fastest way to get an exact figure is our <a href="../quote.html">online quote calculator</a>, which prices by location and project size and returns a free same-day estimate.</p>
+			</div>
+
+			<div class="faq-item">
+				<h3>Do you have to shut down the quarry to measure stockpiles?</h3>
+				<p>No. The whole point of measuring from the air is that no one has to climb the piles or walk in front of loaders. Operations can generally continue while we fly &mdash; we simply coordinate timing for safety and pick a window with good light and low wind.</p>
+			</div>
+
+			<div class="faq-item">
+				<h3>Can stockpiles under trees or in Costa Rica's rain be measured?</h3>
+				<p>Open piles are ideal for photogrammetry. Where material sits partly under canopy or vegetation, <a href="../services/lidar-mapping.html">LiDAR</a> can penetrate cover to capture the true surface. We schedule flights around the rain &mdash; heavy rain and low cloud hurt image quality &mdash; but Costa Rica's dry mornings usually give reliable flying windows year-round.</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- FOOTER -->
+<section class="cta-band">
+	<div class="container">
+		<h2>Ready to inventory your yard?</h2>
+		<p>Get a free, no-obligation quote for a drone stockpile or volumetric survey anywhere in Costa Rica.</p>
+		<div class="cta-row">
+			<a class="btn btn-primary" href="../quote.html">Get a Free Quote</a>
+			<a class="btn btn-outline" href="https://wa.me/50672938970" target="_blank" rel="noopener">Chat on WhatsApp</a>
+		</div>
+	</div>
+</section>
+<footer>
+	<div class="container">
+		<div class="footer-grid">
+			<div class="footer-brand">
+				<img src="../images/logo-round.png" alt="Drone Survey Costa Rica" height="32">
+				<p>Professional aerial surveying in Costa Rica using Lidar &amp; photogrammetry. Centimeter-accurate data since 2017.</p>
+				<div class="footer-contact">
+					<a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer">💬 +506 7293-8970 (WhatsApp)</a>
+					<a href="#">📍 Costa Rica</a>
+				</div>
+			</div>
+			<div class="footer-col">
+				<h5>Services</h5>
+				<ul>
+					<li><a href="/services/lidar-mapping.html">Lidar Drone Mapping</a></li>
+					<li><a href="/services/photogrammetry.html">Photogrammetry</a></li>
+					<li><a href="/services/geopositioning.html">GPS Geopositioning</a></li>
+					<li><a href="../quote.html">Get a Free Quote</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h5>Company</h5>
+				<ul>
+					<li><a href="../portfolio.html">Portfolio</a></li>
+					<li><a href="../blog/index.html">Blog</a></li>
+					<li><a href="/services/index.html">All Services</a></li>
+					<li><a href="https://g.co/kgs/VnbxFYr" target="_blank" rel="noopener noreferrer">Google Reviews</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h5>Connect</h5>
+				<ul>
+					<li><a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+					<li><a href="../quote.html">Get a Quote</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<p>&copy; 2026 Drone Survey Costa Rica — All rights reserved</p>
+			<p><a href="../sitemap.xml">Sitemap</a></p>
+		</div>
+	</div>
+</footer>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-6L0PFQRYF6');
+  </script>
+<script>
+const translations = {
+	en: {
+		'nav.home': 'Home', 'nav.services': 'Services', 'nav.lidar': 'Lidar Drone Surveying', 'nav.geo': 'GPS Geopositioning', 'nav.video': 'Aerial Video & Photos', 'nav.quote': 'Get a Quote', 'nav.portal': 'Client Portal', 'nav.whatsapp': 'WhatsApp',
+	},
+	es: {
+		'nav.home': 'Inicio', 'nav.services': 'Servicios', 'nav.lidar': 'Mapeo Lidar', 'nav.geo': 'Geoposicionamiento', 'nav.video': 'Video y Fotos Aéreas', 'nav.quote': 'Solicitar Cotización', 'nav.portal': 'Portal del Cliente', 'nav.whatsapp': 'WhatsApp',
+	},
+	fr: {
+		'nav.home': 'Accueil', 'nav.services': 'Services', 'nav.lidar': 'Cartographie Lidar', 'nav.geo': 'Géopositionnement', 'nav.video': 'Vidéo et Photos Aériennes', 'nav.quote': 'Demander un Devis', 'nav.portal': 'Portail Client', 'nav.whatsapp': 'WhatsApp',
+	}
+};
+
+function setLang(lang) {
+	localStorage.setItem('lang', lang);
+	document.documentElement.lang = lang;
+	['en','es','fr'].forEach(l => {
+		document.getElementById('btn-' + l).classList.toggle('active', l === lang);
+	});
+	document.querySelectorAll('[data-i18n]').forEach(el => {
+		const key = el.getAttribute('data-i18n');
+		const text = (translations[lang] || translations.en)[key];
+		if (text !== undefined) el.textContent = text;
+	});
+}
+
+(function() {
+	const saved = localStorage.getItem('lang') || 'en';
+	setLang(saved);
+})();
+
+function toggleTheme() {
+	const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+	const next = isLight ? 'dark' : 'light';
+	document.documentElement.setAttribute('data-theme', next);
+	localStorage.setItem('theme', next);
+	document.getElementById('theme-toggle').textContent = next === 'light' ? '🌙' : '☀️';
+}
+
+(function() {
+	const saved = localStorage.getItem('theme') || 'light';
+	document.documentElement.setAttribute('data-theme', saved);
+	const btn = document.getElementById('theme-toggle');
+	if (btn) btn.textContent = saved === 'light' ? '🌙' : '☀️';
+})();
+</script>
+<script src="../js/nav.js?v=1" defer></script>
+</body>
+</html>

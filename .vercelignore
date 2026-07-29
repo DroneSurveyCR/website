@@ -5,6 +5,11 @@
 google-oauth-credentials.json
 drone-survey-costa-rica-036c0797c890.json
 *.service-account.json
+*.bak-*
+
+# Internal dashboards — the web root is public, these must never ship
+Partner CRM/
+command-center-updated.html
 
 # Internal docs & scripts
 *.md

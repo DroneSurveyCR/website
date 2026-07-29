@@ -93,12 +93,12 @@
     },
     {
       "source": "/services",
-      "destination": "/#services",
+      "destination": "/services/index.html",
       "permanent": true
     },
     {
-      "source": "/services/",
-      "destination": "/#services",
+      "source": "/services.html",
+      "destination": "/services/index.html",
       "permanent": true
     },
     {
